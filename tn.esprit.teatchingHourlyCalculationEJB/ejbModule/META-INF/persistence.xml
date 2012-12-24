@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<persistence version="2.0"
+	xmlns="http://java.sun.com/xml/ns/persistence" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://java.sun.com/xml/ns/persistence http://java.sun.com/xml/ns/persistence/persistence_2_0.xsd">
+	<persistence-unit name="tn.esprit.teatchingHourlyCalculationEJB">
+		<jta-data-source>java:/mabase</jta-data-source>
+		<class>com.esprit.entity.Encadrement</class>
+		<class>com.esprit.entity.Etudiant</class>
+		<class>com.esprit.entity.Unite</class>
+		<class>com.esprit.entity.Activite</class>
+		<class>com.esprit.entity.ChargeHoraireEncadrement</class>
+		<class>com.esprit.entity.Administrateur</class>
+		<class>com.esprit.entity.ChargeHoraireActivite</class>
+		<class>com.esprit.entity.Enseignant</class>
+		<class>com.esprit.entity.ProjetEnseignant</class>
+		<class>com.esprit.entity.ActiviteEnseignant</class>
+		<class>com.esprit.entity.Projet</class>
+		<class>com.esprit.entity.ChefProjet</class>
+		<class>com.esprit.entity.ChargeHoraireProjet</class>
+		<class>com.esprit.entity.Semestre</class>
+		<class>com.esprit.entity.Promotion</class>
+		<class>com.esprit.entity.Periode</class>
+		<class>com.esprit.entity.SeuilCharge</class>
+		<class>com.esprit.entity.ProjetEnseignantPK</class>
+		<properties>
+			<property name="hibernate.dialect" value="org.hibernate.dialect.MySQLInnoDBDialect" />
+			<property name="hibernate.hbm2ddl.auto" value="create" />
+		</properties>
+	</persistence-unit>
+</persistence>

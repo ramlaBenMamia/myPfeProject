@@ -1,0 +1,333 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui">
+<head>
+<title>AfficherEnseignant</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="title" content="Web site" />
+<meta name="description" content="Site description here" />
+<meta name="keywords" content="keywords here" />
+<meta name="language" content="en" />
+<meta name="subject" content="Site subject here" />
+<meta name="robots" content="All" />
+<meta name="copyright" content="Your company" />
+<meta name="abstract" content="Site description here" />
+<meta name="MSSmartTagsPreventParsing" content="true" />
+<link id="theme" rel="stylesheet" type="text/css" href="style.css"
+	title="theme" />
+<script type="text/javascript" language="javascript" src="js/jquery.js"></script>
+<script type="text/javascript" language="javascript" src="js/custom.js"></script>
+<script type="text/javascript" language="javascript" src="js/addon.js"></script>
+</head>
+<body>
+	<div id="top">
+		<div class="overlay"></div>
+	</div>
+	<div id="wrapper">
+		<div class="overlay"></div>
+		<div class="border-top"></div>
+		<div class="content">
+			<div id="container">
+				<div class="hd">
+					<div id="container-top"></div>
+					<div id="banner"></div>
+					<div id="hmenu-wpr">
+						<ul id="hmenu" class="sf-menu sf-js-enabled sf-shadow">
+							<li class="current" style="border: none"><a
+								class="toplvl sf-with-ul" href="#">Acceuil</a></li>
+							<li><a href="#" class="toplvl">.......</a>
+								<ul>
+									<li><a href="#">menu item</a></li>
+									<li class="current"><a href="#">menu item</a>
+										<ul>
+											<li class="current"><a href="#">menu item</a></li>
+											<li><a href="#">menu item</a></li>
+											<li><a href="#">menu item</a></li>
+											<li><a href="#">menu item</a></li>
+											<li><a href="#">menu item</a></li>
+										</ul></li>
+									<li><a href="#">menu item</a>
+										<ul>
+											<li><a href="#">menu item</a></li>
+											<li><a href="#">menu item</a></li>
+											<li><a href="#">menu item</a></li>
+											<li><a href="#">menu item</a></li>
+											<li><a href="#">menu item</a></li>
+										</ul></li>
+									<li><a href="#">menu item</a>
+										<ul>
+											<li><a href="#">menu item</a></li>
+											<li><a href="#">menu item</a></li>
+											<li><a href="#">menu item</a></li>
+											<li><a href="#">menu item</a></li>
+											<li><a href="#">menu item</a></li>
+										</ul></li>
+								</ul></li>
+							<li><a class="toplvl" href="#">.....</a>
+								<ul>
+									<li><a href="#">menu item</a></li>
+									<li class="current"><a href="#">menu item</a>
+										<ul>
+											<li class="current"><a href="#">menu item</a></li>
+											<li><a href="#">menu item</a></li>
+											<li><a href="#">menu item</a></li>
+											<li><a href="#">menu item</a></li>
+											<li><a href="#">menu item</a></li>
+										</ul></li>
+									<li><a href="#">menu item</a>
+										<ul>
+											<li><a href="#">menu item</a></li>
+											<li><a href="#">menu item</a></li>
+											<li><a href="#">menu item</a></li>
+											<li><a href="#">menu item</a></li>
+											<li><a href="#">menu item</a></li>
+										</ul></li>
+									<li><a href="#">menu item</a>
+										<ul>
+											<li><a href="#">menu item</a></li>
+											<li><a href="#">menu item</a></li>
+											<li><a href="#">menu item</a></li>
+											<li><a href="#">menu item</a></li>
+											<li><a href="#">menu item</a></li>
+										</ul></li>
+								</ul></li>
+							<li><a class="toplvl" href="#">.......</a></li>
+						</ul>
+					</div>
+				</div>
+				<div class="bd">
+					<div id="page">
+						<!-- SIDEBAR  -->
+						<div id="sidebar">
+							<div class="content">
+								<div class="sidebox1">
+									<div class="vmenu">
+										<ul>
+											<li><a href="#">....</a></li>
+											<li><a href="#">......</a></li>
+											<li><a href="#">.......</a></li>
+											<li><a href="#">.......</a></li>
+											<li><a href="#">.........</a></li>
+										</ul>
+									</div>
+								</div>
+								<div>
+									<img src="images/business-man-1.png" style="width: 100%" />
+								</div>
+								<div class="sidebox1">
+									<p></p>
+								</div>
+							</div>
+						</div>
+						<!-- END SIDEBAR  -->
+						<!-- MAIN COLUMN -->
+						<div id="main">
+							<div class="content">
+
+								<div style="margin-top: 25px;">
+									<h:head></h:head>
+									<h:body>
+										<f:view>
+											<h:form id="form">
+
+
+
+												<p:scrollPanel style="height:700px;width:700px">
+
+													<p:panel id="panel"
+														header="Esprit --- Gestion des Enseignants --- Affichage des Enseignants"
+														style="height:1000px;width:700px">
+
+
+														<br />
+														<br />
+														<br />
+														<center>
+
+
+
+
+															<p:dataTable id="lesenseignants" var="enseignant"
+																value="#{listerEnseignantBean.listeEnseignants}"
+																rowKey="#{enseignant.cin}"
+																selection="#{listerEnseignantBean.selectedEnseignant}"
+																selectionMode="single"
+																emptyMessage="Aucun Profs dans la base avec cette information"
+																paginator="true" rows="10"
+																paginatorTemplate="{CurrentPageReport}  {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink} {RowsPerPageDropdown}"
+																rowsPerPageTemplate="5,10,15">
+																<f:facet name="header">
+																	<p:outputPanel>
+																		<h:outputText value="Search all fields:" />
+																		<p:inputText id="globalFilter" style="width:150px" />
+																	</p:outputPanel>
+																</f:facet>
+
+																<f:facet name="header">  
+                   												Afficher les profs
+            													</f:facet>
+
+
+																<p:column headerText="prenom"
+																	filterBy="#{enseignant.prenom}"
+																	sortBy="#{enseignant.prenom}">
+																	<f:facet name="header">
+																		<h:outputText value="prenom" />
+																	</f:facet>
+																	<h:outputText value="#{enseignant.prenom}" />
+
+																</p:column>
+
+
+																<p:column headerText="nom" filterBy="#{enseignant.nom}"
+																	sortBy="#{enseignant.nom}">
+																	<f:facet name="header">
+																		<h:outputText value="nom" />
+																	</f:facet>
+																	<h:outputText value="#{enseignant.nom}" />
+
+																</p:column>
+																<p:column headerText="cin" filterBy="#{enseignant.cin}"
+																	sortBy="#{enseignant.cin}">
+																	<f:facet name="header">
+																		<h:outputText value="cin" />
+																	</f:facet>
+																	<h:outputText value="#{enseignant.cin}" />
+
+																</p:column>
+
+
+																<f:facet name="footer">
+																	<p:commandButton style="margin-right:70%"
+																		id="viewButton" value="Afficher" icon="ui-icon-search"
+																		update=":form:display"
+																		oncomplete="enseignantDialog.show()" />
+																</f:facet>
+															</p:dataTable>
+
+
+															<h:panelGrid columns="2">
+																<p:panel header="Export All Data">
+																	<h:commandLink>
+																		<p:graphicImage value="/images/excel.png" />
+																		<p:dataExporter type="xls" target="lesenseignants"
+																			fileName="lesenseignants" />
+																	</h:commandLink>
+
+																	<h:commandLink>
+																		<p:graphicImage value="/images/pdf.png" />
+																		<p:dataExporter type="pdf" target="lesenseignants"
+																			fileName="lesenseignants" />
+																	</h:commandLink>
+
+																	<h:commandLink>
+																		<p:graphicImage value="/images/csv.png" />
+																		<p:dataExporter type="csv" target="lesenseignants"
+																			fileName="lesenseignants" />
+																	</h:commandLink>
+
+																	<h:commandLink>
+																		<p:graphicImage value="/images/xml.png" />
+																		<p:dataExporter type="xml" target="lesenseignants"
+																			fileName="lesenseignants" />
+																	</h:commandLink>
+																</p:panel>
+
+																<p:panel header="Export Page Data">
+																	<h:commandLink>
+																		<p:graphicImage value="/images/excel.png" />
+																		<p:dataExporter type="xls" target="lesenseignants"
+																			fileName="lesenseignants" pageOnly="true" />
+																	</h:commandLink>
+
+																	<h:commandLink>
+																		<p:graphicImage value="/images/pdf.png" />
+																		<p:dataExporter type="pdf" target="lesenseignants"
+																			fileName="lesenseignants" pageOnly="true" />
+																	</h:commandLink>
+
+																	<h:commandLink>
+																		<p:graphicImage value="/images/csv.png" />
+																		<p:dataExporter type="csv" target="lesenseignants"
+																			fileName="lesenseignants" pageOnly="true" />
+																	</h:commandLink>
+
+																	<h:commandLink>
+																		<p:graphicImage value="/images/xml.png" />
+																		<p:dataExporter type="xml" target="lesenseignants"
+																			fileName="lesenseignants" pageOnly="true" />
+																	</h:commandLink>
+																</p:panel>
+															</h:panelGrid>
+															<p:dialog id="dialog" header="enseignant Detail"
+																widgetVar="enseignantDialog" resizable="false"
+																width="200" height="100" showEffect="clip"
+																hideEffect="fold">
+
+																<h:panelGrid id="display" columns="2" cellpadding="4">
+
+																	<h:outputText value="nom:" />
+																	<h:outputText
+																		value="#{listerEnseignantBean.selectedEnseignant.nom}" />
+																	<h:outputText value="Prenom:" />
+																	<h:outputText
+																		value="#{listerEnseignantBean.selectedEnseignant.prenom}" />
+																	<h:outputText value="cin:" />
+																	<h:outputText
+																		value="#{listerEnseignantBean.selectedEnseignant.cin}" />
+
+
+																</h:panelGrid>
+															</p:dialog>
+
+
+
+														</center>
+
+
+
+													</p:panel>
+
+												</p:scrollPanel>
+
+											</h:form>
+										</f:view>
+									</h:body>
+									<!-- TO REMOVE -->
+								</div>
+							</div>
+						</div>
+						<!-- END MAIN -->
+						<!-- SIDEBAR 2  -->
+						<div id="sidebar2">
+							<div class="content">
+								<div class="sidebox2">
+									<div class="vmenu"></div>
+								</div>
+								<div class="sidebox2"></div>
+							</div>
+						</div>
+						<!-- END SIDEBAR 2  -->
+						<div class="clear" style="height: 60px"></div>
+					</div>
+				</div>
+				<div class="ft">
+					<div id="footer">
+						<div class="content">
+							<!-- 
+Keep this footer link UNCHANGED AND VISIBLE or make a 10 dollars donation at www.dotemplate.com/#donate to remove it.
+-->
+							<p>2012-2013</p>
+						</div>
+					</div>
+					<div id="container-bottom"></div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="clear"></div>
+</body>
+</html>
