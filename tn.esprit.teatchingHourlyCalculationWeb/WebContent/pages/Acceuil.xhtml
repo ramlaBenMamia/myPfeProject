@@ -79,8 +79,9 @@
 									<h:body>
 										<h:head></h:head>
 										<f:view>
-											<p:galleria value="#{galleriaBean.images}" var="image">
-												<p:graphicImage value="../images/galleria/#{image}" />
+											<p:galleria var="image" value="#{ramlaGalleria.images}">
+												<p:graphicImage value="/images/galleria/#{image}"></p:graphicImage>
+
 											</p:galleria>
 										</f:view>
 									</h:body>
