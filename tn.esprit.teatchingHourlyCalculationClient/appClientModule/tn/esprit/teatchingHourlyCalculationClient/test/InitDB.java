@@ -28,6 +28,8 @@ public class InitDB {
 			enseignant.setCodePostal(2013);
 			enseignant.setPrivilege(1);
 			enseignant.setNumTelephone(98989898);
+			enseignant.setLogin("a");
+			enseignant.setPassword("a");
 
 			gestionEnseignantRemote.save(enseignant);
 
