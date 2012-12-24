@@ -10,17 +10,17 @@
 	<f:view>
 		<h:form id="form">
 
-			<p:panel header="Partial Process">
+			<p:panel header="login Panel">
 
 				<h:panelGrid id="grid" columns="2" style="margin-bottom:10px">
 					<f:facet name="header">
 						<p:messages />
 					</f:facet>
 
-					<h:outputLabel for="firstname" value="Firstname:" />
-					<p:inputText id="firstname" value="#{ramlaLogin.login}" />
+					<h:outputLabel value="login:" />
+					<p:inputText value="#{ramlaLogin.login}" />
 
-					<h:outputLabel for="password" value="Password: *" />
+					<h:outputLabel value="Password: *" />
 					<p:password id="password" value="#{ramlaLogin.pwd}" required="true"
 						label="Mot de Passe" />
 				</h:panelGrid>
@@ -28,10 +28,14 @@
 			</p:panel>
 
 			<h:panelGrid columns="6" cellpadding="5">
-				<p:commandButton value="All" id="btnAll" process="@all"
-					update="grid" actionListener="#{ramlaLogin.doLogin}" />
+				<p:commandButton value="sign in" id="btnAll" update="grid" 
+					action="#{ramlaLogin.doLogin}" ajax="false"/>
 
+
+				<h:commandButton  value="sign in" 
+					action="#{ramlaLogin.doLogin}"/>
 			</h:panelGrid>
+
 
 		</h:form>
 	</f:view>

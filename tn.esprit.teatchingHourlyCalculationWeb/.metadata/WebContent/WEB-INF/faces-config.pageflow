@@ -1,6 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <pageflow:Pageflow xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:pageflow="http://www.sybase.com/suade/pageflow" id="pf13563565679820" configfile="/tn.esprit.teatchingHourlyCalculationWeb/WebContent/WEB-INF/faces-config.xml">
-  <nodes xsi:type="pageflow:PFPage" name="login.xhtml" x="94" y="129" id="pf13563566098171" referenceLink="//@navigationRule.0/@fromViewId|" outlinks="pf13563566098172" path="/login.xhtml"/>
+  <nodes xsi:type="pageflow:PFPage" name="login.xhtml" x="94" y="129" id="pf13563566098171" referenceLink="//@navigationRule.0/@fromViewId|" outlinks="pf13563566098172" inlinks="pf13563576333220" path="/login.xhtml"/>
   <nodes xsi:type="pageflow:PFPage" name="assignPage.xhtml" x="421" y="106" id="pf13563566098183" referenceLink="//@navigationRule.0/@navigationCase.0/@toViewId|" inlinks="pf13563566098172" path="/assignPage.xhtml"/>
+  <nodes xsi:type="pageflow:PFPage" name="NewFile.xhtml" x="225" y="255" id="pf13563576333221" outlinks="pf13563576333220" path="/NewFile.xhtml"/>
   <links id="pf13563566098172" target="pf13563566098183" source="pf13563566098171" outcome="ok"/>
+  <links id="pf13563576333220" target="pf13563566098171" source="pf13563576333221" outcome="ok"/>
 </pageflow:Pageflow>

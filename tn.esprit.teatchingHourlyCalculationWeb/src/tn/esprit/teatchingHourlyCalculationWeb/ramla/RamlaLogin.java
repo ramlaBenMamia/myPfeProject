@@ -24,7 +24,7 @@ public class RamlaLogin {
 		else{
 			retour="ko";
 		}
-		
+		System.out.println(retour);
 		return retour;
 	}
 	
