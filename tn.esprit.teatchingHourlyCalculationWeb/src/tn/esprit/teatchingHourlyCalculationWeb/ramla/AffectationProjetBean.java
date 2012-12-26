@@ -25,7 +25,7 @@ public class AffectationProjetBean {
 	private List<Enseignant> enseignants = new ArrayList<Enseignant>();
 	private int hour;
 	private int semester;
-	private String nameEnseignant;	
+	private String nameEnseignant;
 	private String nomEnseignantSelect;
 
 	private List<SelectItem> selectItemsProjects;
@@ -33,6 +33,7 @@ public class AffectationProjetBean {
 
 	private List<SelectItem> selectItemsEnseignant;
 	private String matSelectedEnseignant;
+	private int chargeHoraireParEnseignant;
 
 	private int i = 0;
 
@@ -128,9 +129,23 @@ public class AffectationProjetBean {
 	}
 
 	public String updateDataTable() {
-		nomEnseignantSelect=gestionEnseignantLocal.findByMat(nameEnseignant).getNom();
+		nomEnseignantSelect = gestionEnseignantLocal.findByMat(nameEnseignant)
+				.getNom();
 		listeParEnseignants = gestionAffectationProjetEnseignantLocal
 				.findAllByNomEnsei(nomEnseignantSelect);
+
+		return "";
+	}
+
+	public String doCalculChargeHoraire() {
+		int chargeHoraireParEnseignant = gestionEnseignantLocal
+				.volumeHoraireTotalParEnseignant(nameEnseignant);
+		System.out.println(chargeHoraireParEnseignant);
+		return "";
+	}
+
+	public String TotalChargeHoraire() {
+
 		return "";
 	}
 
@@ -225,7 +240,7 @@ public class AffectationProjetBean {
 
 	// ************* affichage par enseignant************
 	public List<ProjetEnseignant> getListeParEnseignants() {
-		
+
 		return listeParEnseignants;
 	}
 
@@ -254,12 +269,22 @@ public class AffectationProjetBean {
 
 	}
 
-	public String getNomEnseignantSelect() {		
+	public String getNomEnseignantSelect() {
 		return nomEnseignantSelect;
 	}
 
 	public void setNomEnseignantSelect(String nomEnseignantSelect) {
 		this.nomEnseignantSelect = nomEnseignantSelect;
+	}
+
+	public int getChargeHoraireParEnseignant() {
+		int chargeHoraireParEnseignant = gestionEnseignantLocal
+				.volumeHoraireTotalParEnseignant(nameEnseignant);
+		return chargeHoraireParEnseignant;
+	}
+
+	public void setChargeHoraireParEnseignant(int chargeHoraireParEnseignant) {
+		this.chargeHoraireParEnseignant = chargeHoraireParEnseignant;
 	}
 
 }

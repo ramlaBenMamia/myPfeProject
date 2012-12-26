@@ -90,5 +90,7 @@ public interface GestionEnseignantLocal {
 	public List<Enseignant> findByNomActivite(String nomActivite);
 
 	public void deleteByMat(String mat);
+	
+	public int volumeHoraireTotalParEnseignant(String matEnseignant);
 
 }

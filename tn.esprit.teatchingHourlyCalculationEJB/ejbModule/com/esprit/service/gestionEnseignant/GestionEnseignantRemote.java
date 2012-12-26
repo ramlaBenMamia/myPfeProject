@@ -72,4 +72,7 @@ public interface GestionEnseignantRemote {
 	public Enseignant findByUser(String login, String pwd);
 
 	public void removeEnseignant(Enseignant e);
+	
+	public int volumeHoraireTotalParEnseignant(String matEnseignant);
+
 }

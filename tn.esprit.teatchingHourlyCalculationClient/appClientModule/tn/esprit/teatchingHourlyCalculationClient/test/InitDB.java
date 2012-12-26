@@ -38,7 +38,7 @@ public class InitDB {
 			gestionEnseignantRemote.save(enseignant);
 
 			Projet projet = new Projet();
-			projet.setLibelleProjet("proj01");
+			projet.setLibelleProjet("proj02");
 			projet.setDescription("description");
 
 			gestionProjetRemote.addProject(projet);

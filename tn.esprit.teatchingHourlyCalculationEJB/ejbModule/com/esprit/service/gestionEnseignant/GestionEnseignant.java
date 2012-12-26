@@ -1,11 +1,15 @@
 package com.esprit.service.gestionEnseignant;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.logging.Level;
+
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.persistence.Query;
+
+import com.esprit.entity.ChargeHoraireProjet;
 import com.esprit.entity.Enseignant;
 import com.log.LogUtil;
 
@@ -16,7 +20,6 @@ public class GestionEnseignant implements GestionEnseignantLocal,
 	@PersistenceContext
 	private EntityManager entityManager;
 
-	
 	@Override
 	public void save(Enseignant entity) {
 		LogUtil.log("saving Enseignant instance", Level.INFO, null);
@@ -29,7 +32,6 @@ public class GestionEnseignant implements GestionEnseignantLocal,
 		}
 	}
 
-	
 	@Override
 	public void delete(Enseignant entity) {
 		LogUtil.log("deleting Enseignant instance", Level.INFO, null);
@@ -44,7 +46,6 @@ public class GestionEnseignant implements GestionEnseignantLocal,
 		}
 	}
 
-	
 	@Override
 	public Enseignant update(Enseignant entity) {
 		LogUtil.log("updating Enseignant instance", Level.INFO, null);
@@ -60,8 +61,8 @@ public class GestionEnseignant implements GestionEnseignantLocal,
 
 	@Override
 	public Enseignant findByMat(String mat) {
-		LogUtil.log("finding Enseignant instance with matricule: " + mat, Level.INFO,
-				null);
+		LogUtil.log("finding Enseignant instance with matricule: " + mat,
+				Level.INFO, null);
 		try {
 			Enseignant instance = entityManager.find(Enseignant.class, mat);
 			return instance;
@@ -71,7 +72,6 @@ public class GestionEnseignant implements GestionEnseignantLocal,
 		}
 	}
 
-	
 	@Override
 	@SuppressWarnings("unchecked")
 	public List<Enseignant> findByProperty(String propertyName,
@@ -89,7 +89,6 @@ public class GestionEnseignant implements GestionEnseignantLocal,
 			throw re;
 		}
 	}
-
 
 	@Override
 	@SuppressWarnings("unchecked")
@@ -111,7 +110,8 @@ public class GestionEnseignant implements GestionEnseignantLocal,
 				+ "' and u.password='" + pwd + "'";
 		System.out.println(query);
 		Enseignant u = new Enseignant();
-		u = (Enseignant) entityManager.createQuery(query).getResultList().get(0);
+		u = (Enseignant) entityManager.createQuery(query).getResultList()
+				.get(0);
 		return u;
 	}
 
@@ -119,9 +119,6 @@ public class GestionEnseignant implements GestionEnseignantLocal,
 	public void removeEnseignant(Enseignant e) {
 		entityManager.remove(entityManager.merge(e));
 	}
-	
-
-	
 
 	@Override
 	@SuppressWarnings("unchecked")
@@ -157,50 +154,45 @@ public class GestionEnseignant implements GestionEnseignantLocal,
 	@Override
 	@SuppressWarnings("unchecked")
 	public List<Enseignant> findByRefProjet(int refProjet) {
-		 return entityManager
-		 .createQuery(
-		 "select e from Enseignant e where e.projet.refProjet = :refProjet ")
-		 .setParameter("refProjet", refProjet).getResultList();
-
+		return entityManager
+				.createQuery(
+						"select e from Enseignant e where e.projet.refProjet = :refProjet ")
+				.setParameter("refProjet", refProjet).getResultList();
 
 	}
-
-	
 
 	@Override
 	@SuppressWarnings("unchecked")
 	public List<Enseignant> findByNomProjet(String libelleProjet) {
-		 return entityManager
-				 .createQuery(
-				 "select e from Enseignant e where e.projet.libelleProjet = :libelleProjet ")
-				 .setParameter("libelleProjet", libelleProjet).getResultList();
+		return entityManager
+				.createQuery(
+						"select e from Enseignant e where e.projet.libelleProjet = :libelleProjet ")
+				.setParameter("libelleProjet", libelleProjet).getResultList();
 	}
 
 	@Override
 	@SuppressWarnings("unchecked")
 	public List<Enseignant> findByRefActivite(int refActivite) {
 		return entityManager
-				 .createQuery(
-				 "select e from Enseignant e where e.activite.refActivite = :refActivite ")
-				 .setParameter("refActivite", refActivite).getResultList();
+				.createQuery(
+						"select e from Enseignant e where e.activite.refActivite = :refActivite ")
+				.setParameter("refActivite", refActivite).getResultList();
 	}
 
 	@Override
 	@SuppressWarnings("unchecked")
 	public List<Enseignant> findByNomActivite(String nomActivite) {
 		return entityManager
-				 .createQuery(
-				 "select e from Enseignant e where e.activite.nomActivite = :nomActivite ")
-				 .setParameter("nomActivite", nomActivite).getResultList();
+				.createQuery(
+						"select e from Enseignant e where e.activite.nomActivite = :nomActivite ")
+				.setParameter("nomActivite", nomActivite).getResultList();
 	}
-
 
 	@Override
 	public void deleteByMat(String mat) {
 		entityManager.remove(entityManager.find(Enseignant.class, mat));
-		
-	}
 
+	}
 
 	@Override
 	public List<String> findAllEnseignant() {
@@ -208,13 +200,21 @@ public class GestionEnseignant implements GestionEnseignantLocal,
 		return entityManager.createQuery(query).getResultList();
 	}
 
+	@Override
+	public int volumeHoraireTotalParEnseignant(String matEnseignant) {
+		int total = 0;
+		List<ChargeHoraireProjet> chargeHoraireProjets = new ArrayList<ChargeHoraireProjet>();
+		String jpql = "select c from ChargeHoraireProjet c where c.enseignant.matriculeEnseigant=:param1";
+		Query query = entityManager.createQuery(jpql);
+		query.setParameter("param1", matEnseignant);
+		chargeHoraireProjets = query.getResultList();
 
-	
-	
-	
-	
-	
-	
-	
+		for (ChargeHoraireProjet ch : chargeHoraireProjets) {
+			total += ch.getNbrHeures();
+		}
+
+		return total;
+
+	}
 
 }

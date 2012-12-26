@@ -149,23 +149,25 @@
 														<center>
 															<table>
 																<tr>
-																	<td>
-			<p:selectOneMenu value="#{affectationProjetBean.nameEnseignant}">
-																<f:selectItems value="#{affectationProjetBean.selectItemsEnseignant}"/>
-			</p:selectOneMenu></td>
-																	
-																	<td><p:commandButton value="Afficher" update="dataTable" actionListener="#{affectationProjetBean.updateDataTable}"/></td>
+																	<td><p:selectOneMenu
+																			value="#{affectationProjetBean.nameEnseignant}">
+																			<f:selectItems
+																				value="#{affectationProjetBean.selectItemsEnseignant}" />
+																		</p:selectOneMenu></td>
+
+																	<td><p:commandButton value="Afficher"
+																			update="dataTable"
+																			actionListener="#{affectationProjetBean.updateDataTable}" /></td>
 																</tr>
 															</table>
-															
-															
-				
-			
+
+
+
+
 
 															<p:dataTable id="dataTable" var="projetParEns"
 																value="#{affectationProjetBean.listeParEnseignants}"
 																rowKey="#{projetParEns.enseignant.matriculeEnseigant}"
-																
 																selectionMode="single"
 																emptyMessage="Aucun projets dans la base avec cette information"
 																paginator="true" rows="10"
@@ -178,7 +180,7 @@
 																	</p:outputPanel>
 																</f:facet>
 
-																
+
 
 																<p:column headerText="Matricule"
 																	filterBy="#{projetParEns.enseignant.matriculeEnseigant}"
@@ -213,9 +215,27 @@
 																</p:column>
 
 
-
+																<f:facet name="footer">
+																	<p:commandButton style="margin-right:70%"
+																		id="viewButton" value="Total" icon="ui-icon-search"
+																		update=":form:display" oncomplete="uniteDialog.show()" />
+																</f:facet>
 
 															</p:dataTable>
+
+															<p:dialog id="dialog" header="Total Charge Horaire"
+																widgetVar="uniteDialog" resizable="false" width="200"
+																height="100" showEffect="clip" hideEffect="fold">
+
+																<h:panelGrid id="display" columns="2" cellpadding="4">
+
+																	<h:outputText value="Total Volume Horaire:" />
+
+
+																	<h:outputText
+																		value="#{affectationProjetBean.chargeHoraireParEnseignant}" />
+																</h:panelGrid>
+															</p:dialog>
 
 
 														</center>

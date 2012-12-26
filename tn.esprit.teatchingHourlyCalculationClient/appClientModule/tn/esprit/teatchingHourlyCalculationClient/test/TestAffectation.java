@@ -25,7 +25,7 @@ public class TestAffectation {
 			GestionProjetRemote gestionProjetRemote = (GestionProjetRemote) context
 					.lookup("tn.esprit.teatchingHourlyCalculation/tn.esprit.teatchingHourlyCalculationEJB/GestionProjet!com.esprit.service.gestionProjet.GestionProjetRemote");
 
-			Enseignant enseignant = gestionEnseignantRemote.findByMat("mat01");
+			Enseignant enseignant = gestionEnseignantRemote.findByMat("mat02");
 			Projet projet = gestionProjetRemote.findByRef(1);
 
 			gestionAffProjEnseigRemote.createAffectation(1, 11, 22, enseignant,

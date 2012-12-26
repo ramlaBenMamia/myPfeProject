@@ -8,6 +8,7 @@ import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.persistence.Query;
 
+import com.esprit.entity.ChargeHoraireProjet;
 import com.esprit.entity.Enseignant;
 import com.esprit.entity.Projet;
 import com.esprit.entity.ProjetEnseignant;
@@ -123,6 +124,11 @@ public class GestionAffectationProjetEnseignant implements
 		ProjetEnseignant projetEnseignant = new ProjetEnseignant(semestre,
 				periode, volumeHoraire, em.merge(enseignant), em.merge(projet));
 		em.persist(projetEnseignant);
+
+		ChargeHoraireProjet chargeHoraireProjet = new ChargeHoraireProjet();
+		chargeHoraireProjet.setNbrHeures(volumeHoraire);
+		chargeHoraireProjet.setEnseignant(enseignant);
+		em.persist(chargeHoraireProjet);
 	}
 
 	@Override
