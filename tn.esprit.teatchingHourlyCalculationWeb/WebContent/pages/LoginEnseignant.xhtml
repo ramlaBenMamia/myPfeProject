@@ -5,7 +5,7 @@
 	xmlns:ui="http://java.sun.com/jsf/facelets"
 	xmlns:p="http://primefaces.org/ui">
 <head>
-<title>AffectationDesProjets</title>
+<title>LoginEnseignant</title>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <meta name="title" content="Web site" />
 <meta name="description" content="Site description here" />
@@ -104,19 +104,9 @@
 						<div id="sidebar">
 							<div class="content">
 								<div class="sidebox1">
-									<div class="vmenu">
-										<ul>
-											<li><a href="#">....</a></li>
-											<li><a href="#">......</a></li>
-											<li><a href="#">.......</a></li>
-											<li><a href="#">.......</a></li>
-											<li><a href="#">.........</a></li>
-										</ul>
-									</div>
+									
 								</div>
-								<div>
-									<img src="images/business-man-1.png" style="width: 100%" />
-								</div>
+								
 								<div class="sidebox1">
 									<p></p>
 								</div>
@@ -132,71 +122,37 @@
 									<h:body>
 										<f:view>
 											<h:form id="form">
-												<p:scrollPanel style="height:700px;width:700px">
-													<p:panel id="panel" style="height:1000px;width:700px"
-														header=" ESPRIT ---- Affectation des projets par enseignants-----">
+											<p:panel id="panel" style="height:400px;width:400px">
+													
+												<p:panel header="login Panel">
 
-														<p:messages id="messages" showDetail="true"
-															autoUpdate="true" />
-															<h:panelGrid columns="2">
+				<h:panelGrid id="grid" columns="2" style="margin-bottom:10px">
+					<f:facet name="header">
+						<p:messages />
+					</f:facet>
 
+					<h:outputLabel value="login:" />
+					<p:inputText value="#{enseignantLogin.login}" />
 
-																	<h:outputText value="projet" />
-																	<p:selectOneMenu
-																		value="#{affectationProjetBean.idSelectedProject}">
-																		<f:selectItems
-																			value="#{affectationProjetBean.selectItemsProjects}" />
-																	</p:selectOneMenu>
+					<h:outputLabel value="Password: *" />
+					<p:password id="password" value="#{enseignantLogin.pwd}" required="true"
+						label="Mot de Passe" />
+				</h:panelGrid>
 
-																<h:outputText value="Enseignant" />
-																<p:selectOneMenu
-																	value="#{affectationProjetBean.matSelectedEnseignant}">
-																	<f:selectItems
-																		value="#{affectationProjetBean.selectItemsEnseignant}" />
-																</p:selectOneMenu>
-															</h:panelGrid>
+			</p:panel>
 
-
-															<h:panelGrid columns="2">
-																<h:outputText value="hours" />
-																<p:keyboard value="#{affectationProjetBean.hour}"
-																	showMode="button" keypadOnly="true" />
-																<h:outputText value="semester" />
-																<p:selectOneRadio id="options"
-																	value="#{affectationProjetBean.semester}">
-																	<f:selectItem itemLabel="semester 1" itemValue="1" />
-																	<f:selectItem itemLabel="semester 2" itemValue="2" />
-
-																</p:selectOneRadio>
-
-															</h:panelGrid>
-														<p:commandButton action="#{affectationProjetBean.doAdd}"
-															value="valider" update="display"
-															oncomplete="dialog.show()" />
+			<h:panelGrid columns="6" cellpadding="5">
+				<p:commandButton value="sign in" id="btnAll" update="grid" 
+					action="#{enseignantLogin.doLogin}" ajax="false"/>
 
 
-														<p:dialog widgetVar="dialog" showEffect="fade"
-															hideEffect="fade" header="Values">
-															<h:panelGrid columns="2" id="display" cellpadding="5">
-																<h:outputText value="volume horaire: " />
-																<h:outputText value="#{affectationProjetBean.hour}" />
+				
+			</h:panelGrid>
 
-																<h:outputText value="enseignant: " />
-																<h:outputText value="#{affectationProjetBean.nameEnseignant}" />
-
-
-															</h:panelGrid>
-
-														</p:dialog>
-
-
-
-
-
-													</p:panel>
-
-
-												</p:scrollPanel>
+													
+													
+													
+											</p:panel>
 
 											</h:form>
 										</f:view>

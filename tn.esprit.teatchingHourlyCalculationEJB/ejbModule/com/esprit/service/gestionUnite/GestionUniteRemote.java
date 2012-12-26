@@ -49,7 +49,6 @@ public interface GestionUniteRemote {
 	 */
 	public Unite update(Unite entity);
 
-	public Unite findById(Long id);
 
 	/**
 	 * Find all Unite entities with a specific property value.

@@ -20,7 +20,6 @@ public class ProjetEnseignant implements Serializable {
 	private int periode;
 	private String nom;
 	private int volumeHoraire;
-
 	private Enseignant enseignant;
 	private Projet projet;
 
@@ -102,5 +101,7 @@ public class ProjetEnseignant implements Serializable {
 		this.projetEnseignantPK = new ProjetEnseignantPK(projet.getRefProjet(),
 				enseignant.getMatriculeEnseigant());
 	}
+
+
 
 }

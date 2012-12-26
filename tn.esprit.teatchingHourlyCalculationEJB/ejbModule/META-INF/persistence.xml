@@ -22,9 +22,10 @@
 		<class>com.esprit.entity.Periode</class>
 		<class>com.esprit.entity.SeuilCharge</class>
 		<class>com.esprit.entity.ProjetEnseignantPK</class>
+		<class>com.esprit.entity.Locale</class>
 		<properties>
 			<property name="hibernate.dialect" value="org.hibernate.dialect.MySQLInnoDBDialect" />
-			<property name="hibernate.hbm2ddl.auto" value="create" />
+			<property name="hibernate.hbm2ddl.auto" value="update" />
 		</properties>
 	</persistence-unit>
 </persistence>

@@ -7,10 +7,9 @@ import javax.persistence.*;
 
 /**
  * Entity implementation class for Entity: ChargeHoraireProjet
- *
+ * 
  */
 @Entity
-
 public class ChargeHoraireProjet implements Serializable {
 
 	private int idCharge;
@@ -19,14 +18,13 @@ public class ChargeHoraireProjet implements Serializable {
 	private int seuilHeures;
 	private Enseignant enseignant;
 	private Date date;
-    private Promotion promotion;
+	private Promotion promotion;
 	private static final long serialVersionUID = 1L;
 
 	public ChargeHoraireProjet() {
 		super();
 	}
-	
-	
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	public int getIdCharge() {
@@ -70,9 +68,8 @@ public class ChargeHoraireProjet implements Serializable {
 		this.seuilHeures = seuilHeures;
 	}
 
-	@OneToOne(fetch=FetchType.EAGER)
-	@JoinColumn(name="enseignant_matriculeEnseigant",referencedColumnName="matriculeEnseigant")
-	
+	@OneToOne(fetch = FetchType.EAGER)
+	@JoinColumn(name = "enseignant_matriculeEnseigant", referencedColumnName = "matriculeEnseigant")
 	public Enseignant getEnseignant() {
 		return enseignant;
 	}
@@ -89,16 +86,4 @@ public class ChargeHoraireProjet implements Serializable {
 		this.date = date;
 	}
 
-	
-
-	// @OneToMany(mappedBy = "chargeHoraireProjet")
-	// public List<Enseignant> getEnseignants() {
-	// return enseignants;
-	// }
-	//
-	// public void setEnseignants(List<Enseignant> enseignants) {
-	// this.enseignants = enseignants;
-	// }
-
-   
 }

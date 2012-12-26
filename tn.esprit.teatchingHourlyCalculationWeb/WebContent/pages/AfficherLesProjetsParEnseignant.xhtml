@@ -5,7 +5,8 @@
 	xmlns:ui="http://java.sun.com/jsf/facelets"
 	xmlns:p="http://primefaces.org/ui">
 <head>
-<title>AfficherUnite</title>
+
+<title>AfficherProjetParEnseignant</title>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <meta name="title" content="Web site" />
 <meta name="description" content="Site description here" />
@@ -138,7 +139,7 @@
 												<p:scrollPanel style="height:700px;width:700px">
 
 													<p:panel id="panel"
-														header="Esprit --- Gestion des Enseignants --- Affichage des Unites"
+														header="Esprit --- Gestion des Enseignants --- Affichage de la liste des projets de l'enseignant :"
 														style="height:1000px;width:700px">
 
 
@@ -146,160 +147,75 @@
 														<br />
 														<br />
 														<center>
+															<table>
+																<tr>
+																	<td>
+			<p:selectOneMenu value="#{affectationProjetBean.nameEnseignant}">
+																<f:selectItems value="#{affectationProjetBean.selectItemsEnseignant}"/>
+			</p:selectOneMenu></td>
+																	
+																	<td><p:commandButton value="Afficher" update="dataTable" actionListener="#{affectationProjetBean.updateDataTable}"/></td>
+																</tr>
+															</table>
+															
+															
+				
+			
 
-
-
-
-															<p:dataTable id="lesunites" var="unite"
-																value="#{listerUniteBean.listeUnites}"
-																rowKey="#{unite.refUnite}"
-																selection="#{listerUniteBean.selectedUnite}"
+															<p:dataTable id="dataTable" var="projetParEns"
+																value="#{affectationProjetBean.listeParEnseignants}"
+																rowKey="#{projetParEns.enseignant.matriculeEnseigant}"
+																
 																selectionMode="single"
-																emptyMessage="Aucun Unites dans la base avec cette information"
+																emptyMessage="Aucun projets dans la base avec cette information"
 																paginator="true" rows="10"
 																paginatorTemplate="{CurrentPageReport}  {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink} {RowsPerPageDropdown}"
 																rowsPerPageTemplate="5,10,15">
 																<f:facet name="header">
 																	<p:outputPanel>
-																		<h:outputText value="Search all fields:" />
+																		<h:outputText value="chercher tous les champs:" />
 																		<p:inputText id="globalFilter" style="width:150px" />
 																	</p:outputPanel>
 																</f:facet>
 
-																<f:facet name="header">  
-                   Afficher les unites
-            </f:facet>
+																
 
-
-																<p:column headerText="Reference"
-																	filterBy="#{unite.refUnite}" sortBy="#{unite.refUnite}">
+																<p:column headerText="Matricule"
+																	filterBy="#{projetParEns.enseignant.matriculeEnseigant}"
+																	sortBy="#{projetParEns.enseignant.matriculeEnseigant}">
 																	<f:facet name="header">
-																		<h:outputText value="Reference" />
+																		<h:outputText value="Matricule" />
 																	</f:facet>
-																	<h:outputText value="#{unite.refUnite}" />
+																	<h:outputText
+																		value="#{projetParEns.enseignant.matriculeEnseigant}" />
 
 																</p:column>
 
 
-																<p:column headerText="Description"
-																	filterBy="#{unite.description}"
-																	sortBy="#{unite.description}">
+																<p:column headerText="NomProjet"
+																	filterBy="#{projetParEns.projet.libelleProjet}"
+																	sortBy="#{projetParEns.projet.libelleProjet}">
 																	<f:facet name="header">
-																		<h:outputText value="Description" />
+																		<h:outputText value="Nom du Projet" />
 																	</f:facet>
-																	<h:outputText value="#{unite.description}" />
-
+																	<h:outputText
+																		value="#{projetParEns.projet.libelleProjet}" />
 																</p:column>
 
-
-
-																<p:column headerText="Nom de L'unite"
-																	filterBy="#{unite.nomUnite}" sortBy="#{unite.nomUnite}">
+																<p:column headerText="VolumeHoraire"
+																	filterBy="#{projetParEns.volumeHoraire}"
+																	sortBy="#{projetParEns.volumeHoraire}">
 																	<f:facet name="header">
-																		<h:outputText value="Nom de L'unite" />
+																		<h:outputText value="Volume Horaire" />
 																	</f:facet>
-																	<h:outputText value="#{unite.nomUnite}" />
-
-																</p:column>
-
-																<p:column headerText="Chef Unite"
-																	filterBy="#{unite.nomChefProjet}"
-																	sortBy="#{unite.nomChefProjet}">
-																	<f:facet name="header">
-																		<h:outputText value="Chef Unite" />
-																	</f:facet>
-																	<h:outputText value="#{unite.nomChefProjet}" />
+																	<h:outputText value="#{projetParEns.volumeHoraire}" />
 
 																</p:column>
 
 
 
-																<f:facet name="footer">
-																	<p:commandButton style="margin-right:70%"
-																		id="viewButton" value="Afficher" icon="ui-icon-search"
-																		update=":form:display" oncomplete="uniteDialog.show()" />
-																</f:facet>
+
 															</p:dataTable>
-
-
-															<h:panelGrid columns="2">
-																<p:panel header="Export All Data">
-																	<h:commandLink>
-																		<p:graphicImage value="/images/excel.png" />
-																		<p:dataExporter type="xls" target="lesunites"
-																			fileName="lesunites" />
-																	</h:commandLink>
-
-																	<h:commandLink>
-																		<p:graphicImage value="/images/pdf.png" />
-																		<p:dataExporter type="pdf" target="lesunites"
-																			fileName="lesunites" />
-																	</h:commandLink>
-
-																	<h:commandLink>
-																		<p:graphicImage value="/images/csv.png" />
-																		<p:dataExporter type="csv" target="lesunites"
-																			fileName="lesunites" />
-																	</h:commandLink>
-
-																	<h:commandLink>
-																		<p:graphicImage value="/images/xml.png" />
-																		<p:dataExporter type="xml" target="lesunites"
-																			fileName="lesunites" />
-																	</h:commandLink>
-																</p:panel>
-
-																<p:panel header="Export Page Data">
-																	<h:commandLink>
-																		<p:graphicImage value="/images/excel.png" />
-																		<p:dataExporter type="xls" target="lesunites"
-																			fileName="lesunites" pageOnly="true" />
-																	</h:commandLink>
-
-																	<h:commandLink>
-																		<p:graphicImage value="/images/pdf.png" />
-																		<p:dataExporter type="pdf" target="lesunites"
-																			fileName="lesunites" pageOnly="true" />
-																	</h:commandLink>
-
-																	<h:commandLink>
-																		<p:graphicImage value="/images/csv.png" />
-																		<p:dataExporter type="csv" target="lesunites"
-																			fileName="lesunites" pageOnly="true" />
-																	</h:commandLink>
-
-																	<h:commandLink>
-																		<p:graphicImage value="/images/xml.png" />
-																		<p:dataExporter type="xml" target="lesunites"
-																			fileName="lesunites" pageOnly="true" />
-																	</h:commandLink>
-																</p:panel>
-															</h:panelGrid>
-															<p:dialog id="dialog" header="unite Detail"
-																widgetVar="uniteDialog" resizable="false" width="200"
-																height="100" showEffect="clip" hideEffect="fold">
-
-																<h:panelGrid id="display" columns="2" cellpadding="4">
-
-																	<h:outputText value="reference:" />
-																	<h:outputText
-																		value="#{listerUniteBean.selectedUnite.refUnite}" />
-																	<h:outputText value="Description:" />
-																	<h:outputText
-																		value="#{listerUniteBean.selectedUnite.description}" />
-																	<h:outputText value="Libelle:" />
-																	<h:outputText
-																		value="#{listerUniteBean.selectedUnite.nomUnite}" />
-																	<h:outputText value="Chef:" />
-																	<h:outputText
-																		value="#{listerUniteBean.selectedUnite.nomChefProjet}" />
-
-
-
-
-																</h:panelGrid>
-															</p:dialog>
-
 
 
 														</center>

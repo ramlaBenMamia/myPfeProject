@@ -8,7 +8,7 @@ import com.esprit.domain.gestionEntites.login.LoginServicesLocal;
 
 @ManagedBean
 @SessionScoped
-public class RamlaLogin {
+public class EnseignantLogin {
 	
 	private String login;
 	private String pwd;

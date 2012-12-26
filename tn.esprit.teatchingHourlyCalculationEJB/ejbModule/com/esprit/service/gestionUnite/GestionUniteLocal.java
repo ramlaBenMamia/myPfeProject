@@ -3,6 +3,7 @@ package com.esprit.service.gestionUnite;
 import java.util.List;
 import javax.ejb.Local;
 
+import com.esprit.entity.Locale;
 import com.esprit.entity.Unite;
 
 /**
@@ -49,7 +50,6 @@ public interface GestionUniteLocal {
 	 */
 	public Unite update(Unite entity);
 
-	public Unite findById(Long id);
 
 	/**
 	 * Find all Unite entities with a specific property value.
@@ -74,6 +74,8 @@ public interface GestionUniteLocal {
 	public Unite findByRef(int ref);
 	
 	void deleteByRef(int ref);
+	
+
 
 
 	

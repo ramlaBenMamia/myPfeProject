@@ -135,28 +135,45 @@
 
 
 
-										<p:scrollPanel style="height:700px;width:700px">
+												<p:scrollPanel style="height:500px;width:600px">
 
-													<p:panel id="panel" style="height:1200px;width:700px">
-														<h3>Ajouter une nouvelle activite :</h3>
-														
-
-														<h:panelGrid columns="3">
-
-															<h:outputLabel for="unite" value="Unite : *" />
-															<p:inputText id="nom"
-																value="#{gestionUniteBean.unite.nomUnite}"
-																required="true" label="nom">
-															</p:inputText>
+													<p:panel id="panel"
+														header="Esprit----Ajouter une nouvelle Unite"
+														style="height:500px;width:600px">
 
 
-															<h:outputLabel value=""/>
-															<h:outputLabel for="description" value="Description :*"/>
+														<h:panelGrid columns="2">
+
+															<h:outputText for="chefProjet" style="font-weight:bold;"
+																value="Chef du Projet :*" />
+															<p:inputText
+																value="#{affectationUniteLocale.unite.nomChefProjet}"
+																width="400" />
+
+															<h:outputText for="unite" style="font-weight:bold;"
+																value="Unite :*" />
+															<p:inputText value="#{affectationUniteLocale.unite.nomUnite}"
+																width="400" />
+
+
+
+
+															<h:outputText style="font-weight:bold;" for="description"
+																value="Description :*" />
 															<p:editor id="editor"
-																value="#{gestionUniteBean.unite.description}" width="400"/>
-															<h:outputLabel value=""/>
-															
-														    
+																value="#{affectationUniteLocale.unite.description}"
+																width="400" />
+
+
+
+															<h:outputText value="Local" />
+															<p:selectOneMenu
+																value="#{affectationUniteLocale.selectedLocalId}">
+																<f:selectItems value="#{affectationUniteLocale.items}" />
+															</p:selectOneMenu>
+
+
+
 														</h:panelGrid>
 
 
@@ -165,16 +182,17 @@
 														<br />
 
 														<p:commandButton value="Valider" update="panel" id="ajax"
-															actionListener="#{gestionUniteBean.doAddUnite}" onclick="dlg.show();"/>
-															<p:commandButton value="Reset" type="reset" />
-															
-  												</p:panel>
-                          
-                          
-                          </p:scrollPanel>
- 
-      
-									</h:form>
+															actionListener="#{affectationUniteLocale.doAdd}"
+															onclick="dlg.show();" />
+														<p:commandButton value="Reset" type="reset" />
+
+													</p:panel>
+
+
+												</p:scrollPanel>
+
+
+											</h:form>
 										</f:view>
 									</h:body>
 									<!-- TO REMOVE -->

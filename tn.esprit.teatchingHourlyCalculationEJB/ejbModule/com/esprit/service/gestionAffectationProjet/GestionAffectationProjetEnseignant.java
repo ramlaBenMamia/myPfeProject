@@ -125,4 +125,12 @@ public class GestionAffectationProjetEnseignant implements
 		em.persist(projetEnseignant);
 	}
 
+	@Override
+	public List<ProjetEnseignant> findAllByNomEnsei(String nom) {
+		return em
+				.createQuery(
+						"select p from ProjetEnseignant p where p.enseignant.nom like :pnom ")
+				.setParameter("pnom", nom).getResultList();
+	}
+
 }

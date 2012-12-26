@@ -132,144 +132,171 @@
 									<h:body>
 										<f:view>
 											<h:form id="form">
-											
-											
-											
-											<p:scrollPanel style="height:700px;width:700px">
-											
-											<p:panel id="panel"  header="Esprit --- Gestion des Activites --- Affichage des Activites" style="height:1000px;width:700px">
-													
-                        
-                             <br /> <br /> <br />
-                             <center> 
-        
 
 
 
-<p:dataTable  id="lesactivites" var="activite" value="#{listeActiviteCtr.listeActivites}" rowKey="#{activite.refActivite}"  
-                 selection="#{listeActiviteCtr.selectedActivite}" selectionMode="single"  emptyMessage="Aucune activites dans la base avec cette information" 
-                 
-                   paginator="true" rows="10"  
-                 paginatorTemplate="{CurrentPageReport}  {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink} {RowsPerPageDropdown}"  
-                 rowsPerPageTemplate="5,10,15">
-  <f:facet name="header">  
-            <p:outputPanel>  
-                <h:outputText value="Search all fields:" />  
-                <p:inputText id="globalFilter"  style="width:150px" />  
-            </p:outputPanel>  
-        </f:facet> 
-            
-            <f:facet name="header">  
+												<p:scrollPanel style="height:700px;width:700px">
+
+													<p:panel id="panel"
+														header="Esprit --- Gestion des Activites --- Affichage des Activites"
+														style="height:1000px;width:700px">
+
+
+														<br />
+														<br />
+														<br />
+														<center>
+
+
+
+
+															<p:dataTable id="lesactivites" var="activite"
+																value="#{listeActiviteCtr.listeActivites}"
+																rowKey="#{activite.refActivite}"
+																selection="#{listeActiviteCtr.selectedActivite}"
+																selectionMode="single"
+																emptyMessage="Aucune activites dans la base avec cette information"
+																paginator="true" rows="10"
+																paginatorTemplate="{CurrentPageReport}  {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink} {RowsPerPageDropdown}"
+																rowsPerPageTemplate="5,10,15">
+																<f:facet name="header">
+																	<p:outputPanel>
+																		<h:outputText value="Search all fields:" />
+																		<p:inputText id="globalFilter" style="width:150px" />
+																	</p:outputPanel>
+																</f:facet>
+
+																<f:facet name="header">  
                    Afficher les activites
-            </f:facet>  
-              
-              
-         <p:column headerText="Reference" filterBy="#{activite.refActivite}" sortBy="#{activite.refActivite}">
-            <f:facet name="header">  
-            <h:outputText value="Reference" />  
-        </f:facet>  
-        <h:outputText value= "#{activite.refActivite}"   /> 
-           
-        </p:column>  
-        
-        
-            <p:column headerText="Description" filterBy="#{activite.description}" sortBy="#{activite.description}">
-            <f:facet name="header">  
-            <h:outputText value="Description" />  
-        </f:facet>  
-        <h:outputText value= "#{activite.description}"   /> 
-                </p:column>  
-        
-        <p:column headerText="Date" filterBy="#{activite.dateDebut}" sortBy="#{activite.dateDebut}">
-            <f:facet name="header">  
-            <h:outputText value="Date" />  
-        </f:facet>  
-        <h:outputText value= "#{activite.dateDebut}"   />
-           
-        </p:column>  
-         
-           
-        
-         
-        <f:facet name="footer">  
-            <p:commandButton style="margin-right:70%" id="viewButton" value="Afficher" icon="ui-icon-search"  
-                    update=":form:display" oncomplete="activiteDialog.show()"/>  
-        </f:facet> 
-    </p:dataTable>
-    
-    
-      <h:panelGrid columns="2">  
-    <p:panel header="Export All Data">  
-        <h:commandLink>  
-            <p:graphicImage value="/images/excel.png" />  
-            <p:dataExporter type="xls" target="lesactivites" fileName="lesactivites" />  
-        </h:commandLink>  
-  
-        <h:commandLink>  
-            <p:graphicImage value="/images/pdf.png" />  
-            <p:dataExporter type="pdf" target="lesactivites" fileName="lesactivites"/>  
-        </h:commandLink>  
-          
-        <h:commandLink>  
-            <p:graphicImage value="/images/csv.png" />  
-            <p:dataExporter type="csv" target="lesactivites" fileName="lesactivites" />  
-        </h:commandLink>  
-          
-        <h:commandLink>  
-            <p:graphicImage value="/images/xml.png" />  
-            <p:dataExporter type="xml" target="lesactivites" fileName="lesactivites" />  
-        </h:commandLink>  
-    </p:panel>  
-      
-    <p:panel header="Export Page Data">  
-        <h:commandLink>  
-            <p:graphicImage value="/images/excel.png" />  
-            <p:dataExporter type="xls" target="lesactivites" fileName="lesactivites" pageOnly="true"/>  
-        </h:commandLink>  
-  
-        <h:commandLink>  
-            <p:graphicImage value="/images/pdf.png" />  
-            <p:dataExporter type="pdf" target="lesactivites" fileName="lesactivites" pageOnly="true"/>  
-        </h:commandLink>  
-          
-        <h:commandLink>  
-            <p:graphicImage value="/images/csv.png" />  
-            <p:dataExporter type="csv" target="lesactivites" fileName="lesactivites" pageOnly="true"/>  
-        </h:commandLink>  
-          
-        <h:commandLink>  
-            <p:graphicImage value="/images/xml.png" />  
-            <p:dataExporter type="xml" target="lesactivites" fileName="lesactivites" pageOnly="true"/>  
-        </h:commandLink>  
-    </p:panel>  
-</h:panelGrid> 
-       <p:dialog id="dialog" header="activite Detail" widgetVar="activiteDialog" resizable="false"  
-              width="200" height="100" showEffect="clip" hideEffect="fold">  
-  
-        <h:panelGrid id="display" columns="2" cellpadding="4">  
-  
-           <h:outputText value="reference:" />  
-            <h:outputText value="#{listeActiviteCtr.selectedActivite.refActivite}" /> 
-            
-             <h:outputText value="Description:" />  
-            <h:outputText value="#{listeActiviteCtr.selectedActivite.description}" />
-            
-            <h:outputText value="Date:" />  
-            <h:outputText value="#{listeActiviteCtr.selectedActivite.dateDebut}" />  
-          
-           
-        </h:panelGrid>  
-    </p:dialog>  
-                 
-     
-       
-    </center>
-       
-													
-													
-											</p:panel>
-											
-											</p:scrollPanel>
+            </f:facet>
+
+
+																<p:column headerText="Reference"
+																	filterBy="#{activite.refActivite}"
+																	sortBy="#{activite.refActivite}">
+																	<f:facet name="header">
+																		<h:outputText value="Reference" />
+																	</f:facet>
+																	<h:outputText value="#{activite.refActivite}" />
+
+																</p:column>
+
+
+																<p:column headerText="Description"
+																	filterBy="#{activite.description}"
+																	sortBy="#{activite.description}">
+																	<f:facet name="header">
+																		<h:outputText value="Description" />
+																	</f:facet>
+																	<h:outputText value="#{activite.description}" />
+																</p:column>
+
+																<p:column headerText="Date"
+																	filterBy="#{activite.dateDebut}"
+																	sortBy="#{activite.dateDebut}">
+																	<f:facet name="header">
+																		<h:outputText value="Date" />
+																	</f:facet>
+																	<h:outputText value="#{activite.dateDebut}" />
+
+																</p:column>
+
+
+
+
+																<f:facet name="footer">
+																	<p:commandButton style="margin-right:70%"
+																		id="viewButton" value="Afficher" icon="ui-icon-search"
+																		update=":form:display"
+																		oncomplete="activiteDialog.show()" />
+																</f:facet>
+															</p:dataTable>
+
+
+															<h:panelGrid columns="2">
+																<p:panel header="Export All Data">
+																	<h:commandLink>
+																		<p:graphicImage value="/images/excel.png" />
+																		<p:dataExporter type="xls" target="lesactivites"
+																			fileName="lesactivites" />
+																	</h:commandLink>
+
+																	<h:commandLink>
+																		<p:graphicImage value="/images/pdf.png" />
+																		<p:dataExporter type="pdf" target="lesactivites"
+																			fileName="lesactivites" />
+																	</h:commandLink>
+
+																	<h:commandLink>
+																		<p:graphicImage value="/images/csv.png" />
+																		<p:dataExporter type="csv" target="lesactivites"
+																			fileName="lesactivites" />
+																	</h:commandLink>
+
+																	<h:commandLink>
+																		<p:graphicImage value="/images/xml.png" />
+																		<p:dataExporter type="xml" target="lesactivites"
+																			fileName="lesactivites" />
+																	</h:commandLink>
+																</p:panel>
+
+																<p:panel header="Export Page Data">
+																	<h:commandLink>
+																		<p:graphicImage value="/images/excel.png" />
+																		<p:dataExporter type="xls" target="lesactivites"
+																			fileName="lesactivites" pageOnly="true" />
+																	</h:commandLink>
+
+																	<h:commandLink>
+																		<p:graphicImage value="/images/pdf.png" />
+																		<p:dataExporter type="pdf" target="lesactivites"
+																			fileName="lesactivites" pageOnly="true" />
+																	</h:commandLink>
+
+																	<h:commandLink>
+																		<p:graphicImage value="/images/csv.png" />
+																		<p:dataExporter type="csv" target="lesactivites"
+																			fileName="lesactivites" pageOnly="true" />
+																	</h:commandLink>
+
+																	<h:commandLink>
+																		<p:graphicImage value="/images/xml.png" />
+																		<p:dataExporter type="xml" target="lesactivites"
+																			fileName="lesactivites" pageOnly="true" />
+																	</h:commandLink>
+																</p:panel>
+															</h:panelGrid>
+															<p:dialog id="dialog" header="activite Detail"
+																widgetVar="activiteDialog" resizable="false" width="200"
+																height="100" showEffect="clip" hideEffect="fold">
+
+																<h:panelGrid id="display" columns="2" cellpadding="4">
+
+																	<h:outputText value="reference:" />
+																	<h:outputText
+																		value="#{listeActiviteCtr.selectedActivite.refActivite}" />
+
+																	<h:outputText value="Description:" />
+																	<h:outputText
+																		value="#{listeActiviteCtr.selectedActivite.description}" />
+
+																	<h:outputText value="Date:" />
+																	<h:outputText
+																		value="#{listeActiviteCtr.selectedActivite.dateDebut}" />
+
+
+																</h:panelGrid>
+															</p:dialog>
+
+
+
+														</center>
+
+
+
+													</p:panel>
+
+												</p:scrollPanel>
 
 											</h:form>
 										</f:view>

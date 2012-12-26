@@ -8,6 +8,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 
 import org.hibernate.annotations.LazyCollection;
@@ -29,6 +30,9 @@ public class Projet implements Serializable {
 	private String description;
 	// private Encadrement encadrement;
 	private List<ProjetEnseignant> projetEnseignants;
+	
+	private List<Enseignant> enseignants;
+	private Enseignant enseignant;
 
 	private static final long serialVersionUID = 1L;
 
@@ -108,5 +112,28 @@ public class Projet implements Serializable {
 	// public void setEncadrement(Encadrement encadrement) {
 	// this.encadrement = encadrement;
 	// }
+	
+	
+	
+	
+	//********************* affichage par projet ******************
+	
+	@OneToMany(mappedBy = "projet")
+	public List<Enseignant> getEnseignants() {
+		return enseignants;
+	}
+
+	public void setEnseignants(List<Enseignant> enseignants) {
+		this.enseignants = enseignants;
+	}
+
+	@ManyToOne
+	public Enseignant getEnseignant() {
+		return enseignant;
+	}
+
+	public void setEnseignant(Enseignant enseignant) {
+		this.enseignant = enseignant;
+	}
 
 }

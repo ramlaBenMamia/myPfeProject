@@ -44,6 +44,9 @@ public class Enseignant implements Serializable {
 	private List<ActiviteEnseignant> activiteEnseignants;
 
 	private Unite unite;
+	
+	private List<Projet> projets;
+	private Projet projet;
 
 	// private ChargeHoraireProjet chargeHoraireProjet;
 	// private AnneeUniversitaire anneeUniversitaire;
@@ -262,6 +265,26 @@ public class Enseignant implements Serializable {
 
 	public void setUnite(Unite unite) {
 		this.unite = unite;
+	}
+	
+	//********** affichage par projet**************
+	
+	@OneToMany(mappedBy = "enseignant")
+	public List<Projet> getProjets() {
+		return projets;
+	}
+
+	public void setProjets(List<Projet> projets) {
+		this.projets = projets;
+	}
+
+	@ManyToOne
+	public Projet getProjet() {
+		return projet;
+	}
+
+	public void setProjet(Projet projet) {
+		this.projet = projet;
 	}
 
 }

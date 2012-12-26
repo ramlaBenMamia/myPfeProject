@@ -1,2 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<PROCESS model-entity="JSFProcess"/>
+<PROCESS model-entity="JSFProcess">
+ <PROCESS-ITEM NAME="rules:#loginEnseignant.xhtml"
+  PATH="/loginEnseignant.xhtml" model-entity="JSFProcessGroup">
+  <PROCESS-ITEM ID="rules:#loginEnseignant.xhtml:0" NAME="item"
+   PATH="/loginEnseignant.xhtml" model-entity="JSFProcessItem">
+   <PROCESS-ITEM-OUTPUT ID="ok::#assignPage.xhtml" NAME="output"
+    PATH="/assignPage.xhtml" TARGET="rules:#assignPage.xhtml" TITLE="ok" model-entity="JSFProcessItemOutput"/>
+  </PROCESS-ITEM>
+ </PROCESS-ITEM>
+ <PROCESS-ITEM NAME="rules:#NewFile.xhtml" PATH="/NewFile.xhtml" model-entity="JSFProcessGroup">
+  <PROCESS-ITEM ID="rules:#NewFile.xhtml:0" NAME="item"
+   PATH="/NewFile.xhtml" model-entity="JSFProcessItem">
+   <PROCESS-ITEM-OUTPUT ID="ok::#loginEnseignant.xhtml" NAME="output"
+    PATH="/loginEnseignant.xhtml" TARGET="rules:#loginEnseignant.xhtml"
+    TITLE="ok" model-entity="JSFProcessItemOutput"/>
+  </PROCESS-ITEM>
+ </PROCESS-ITEM>
+ <PROCESS-ITEM NAME="rules:#assignPage.xhtml" PATH="/assignPage.xhtml" model-entity="JSFProcessGroup"/>
+</PROCESS>

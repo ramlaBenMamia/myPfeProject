@@ -5,7 +5,7 @@
 	xmlns:ui="http://java.sun.com/jsf/facelets"
 	xmlns:p="http://primefaces.org/ui">
 <head>
-<title>AfficherUnite</title>
+<title>AfficherProjet</title>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <meta name="title" content="Web site" />
 <meta name="description" content="Site description here" />
@@ -137,7 +137,7 @@
 											
 											<p:scrollPanel style="height:700px;width:700px">
 											
-											<p:panel id="panel"  header="Esprit --- Gestion des Unites --- Affichage des Unites" style="height:1000px;width:700px">
+											<p:panel id="panel"  header="Esprit --- Gestion des Enseignants --- Affichage des Enseignants" style="height:1000px;width:700px">
 													
                         
                              <br /> <br /> <br />
@@ -146,8 +146,8 @@
 
 
 
-<p:dataTable  id="lesunites" var="unite" value="#{listerUniteBean.listeUnites}" rowKey="#{unite.refUnite}"  
-                 selection="#{listerUniteBean.selectedUnite}" selectionMode="single"  emptyMessage="Aucun Unites dans la base avec cette information" 
+<p:dataTable  id="lesprojets" var="projet" value="#{listerProjetBean.listeProjets}" rowKey="#{projet.refProjet}"  
+                 selection="#{listerProjetBean.selectedProjet}" selectionMode="single"  emptyMessage="Aucun Projets dans la base avec cette information" 
                  
                    paginator="true" rows="10"  
                  paginatorTemplate="{CurrentPageReport}  {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink} {RowsPerPageDropdown}"  
@@ -160,33 +160,40 @@
         </f:facet> 
             
             <f:facet name="header">  
-                   Afficher les unites
+                   Afficher les projets
             </f:facet>  
               
               
-         <p:column headerText="Reference" filterBy="#{unite.refUnite}" sortBy="#{unite.refUnite}">
+         <p:column headerText="Reference" filterBy="#{projet.refProjet}" sortBy="#{projet.refProjet}">
             <f:facet name="header">  
             <h:outputText value="Reference" />  
         </f:facet>  
-        <h:outputText value= "#{unite.refUnite}"   /> 
+        <h:outputText value= "#{projet.refProjet}"   /> 
            
         </p:column>  
         
         
-            <p:column headerText="Description" filterBy="#{unite.description}" sortBy="#{unite.description}">
+            <p:column headerText="Description" filterBy="#{projet.description}" sortBy="#{projet.description}">
             <f:facet name="header">  
             <h:outputText value="Description" />  
         </f:facet>  
-        <h:outputText value= "#{unite.description}"   /> 
+        <h:outputText value= "#{projet.description}"   /> 
            
         </p:column>  
          
+         <p:column headerText="Libelle" filterBy="#{projet.libelleProjet}" sortBy="#{projet.libelleProjet}">
+            <f:facet name="header">  
+            <h:outputText value="Libelle" />  
+        </f:facet>  
+        <h:outputText value= "#{projet.libelleProjet}"   /> 
+           
+        </p:column>
            
         
          
         <f:facet name="footer">  
             <p:commandButton style="margin-right:70%" id="viewButton" value="Afficher" icon="ui-icon-search"  
-                    update=":form:display" oncomplete="uniteDialog.show()"/>  
+                    update=":form:display" oncomplete="projetDialog.show()"/>  
         </f:facet> 
     </p:dataTable>
     
@@ -195,56 +202,58 @@
     <p:panel header="Export All Data">  
         <h:commandLink>  
             <p:graphicImage value="/images/excel.png" />  
-            <p:dataExporter type="xls" target="lesunites" fileName="lesunites" />  
+            <p:dataExporter type="xls" target="lesprojets" fileName="lesprojets" />  
         </h:commandLink>  
   
         <h:commandLink>  
             <p:graphicImage value="/images/pdf.png" />  
-            <p:dataExporter type="pdf" target="lesunites" fileName="lesunites"/>  
+            <p:dataExporter type="pdf" target="lesprojets" fileName="lesprojets"/>  
         </h:commandLink>  
           
         <h:commandLink>  
             <p:graphicImage value="/images/csv.png" />  
-            <p:dataExporter type="csv" target="lesunites" fileName="lesunites" />  
+            <p:dataExporter type="csv" target="lesprojets" fileName="lesprojets" />  
         </h:commandLink>  
           
         <h:commandLink>  
             <p:graphicImage value="/images/xml.png" />  
-            <p:dataExporter type="xml" target="lesunites" fileName="lesunites" />  
+            <p:dataExporter type="xml" target="lesprojets" fileName="lesprojets" />  
         </h:commandLink>  
     </p:panel>  
       
     <p:panel header="Export Page Data">  
         <h:commandLink>  
             <p:graphicImage value="/images/excel.png" />  
-            <p:dataExporter type="xls" target="lesunites" fileName="lesunites" pageOnly="true"/>  
+            <p:dataExporter type="xls" target="lesprojets" fileName="lesprojets" pageOnly="true"/>  
         </h:commandLink>  
   
         <h:commandLink>  
             <p:graphicImage value="/images/pdf.png" />  
-            <p:dataExporter type="pdf" target="lesunites" fileName="lesunites" pageOnly="true"/>  
+            <p:dataExporter type="pdf" target="lesprojets" fileName="lesprojets" pageOnly="true"/>  
         </h:commandLink>  
           
         <h:commandLink>  
             <p:graphicImage value="/images/csv.png" />  
-            <p:dataExporter type="csv" target="lesunites" fileName="lesunites" pageOnly="true"/>  
+            <p:dataExporter type="csv" target="lesprojets" fileName="lesprojets" pageOnly="true"/>  
         </h:commandLink>  
           
         <h:commandLink>  
             <p:graphicImage value="/images/xml.png" />  
-            <p:dataExporter type="xml" target="lesunites" fileName="lesunites" pageOnly="true"/>  
+            <p:dataExporter type="xml" target="lesprojets" fileName="lesprojets" pageOnly="true"/>  
         </h:commandLink>  
     </p:panel>  
 </h:panelGrid> 
-       <p:dialog id="dialog" header="unite Detail" widgetVar="uniteDialog" resizable="false"  
+       <p:dialog id="dialog" header="projet Detail" widgetVar="projetDialog" resizable="false"  
               width="200" height="100" showEffect="clip" hideEffect="fold">  
   
         <h:panelGrid id="display" columns="2" cellpadding="4">  
   
            <h:outputText value="reference:" />  
-            <h:outputText value="#{listerUniteBean.selectedUnite.refUnite}" /> 
+            <h:outputText value="#{listerProjetBean.selectedProjet.refProjet}" /> 
              <h:outputText value="Description:" />  
-            <h:outputText value="#{listerUniteBean.selectedUnite.description}" /> 
+            <h:outputText value="#{listerProjetBean.selectedProjet.description}" />
+             <h:outputText value="Libelle:" />  
+            <h:outputText value="#{listerProjetBean.selectedProjet.libelleProjet}" /> 
           
            
         </h:panelGrid>  

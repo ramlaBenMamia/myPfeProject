@@ -3,7 +3,14 @@ package com.esprit.entity;
 import java.io.Serializable;
 import java.util.List;
 
-import javax.persistence.*;
+import javax.persistence.CascadeType;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
 
 import org.hibernate.annotations.LazyCollection;
 import org.hibernate.annotations.LazyCollectionOption;
@@ -17,8 +24,9 @@ public class Unite implements Serializable {
 
 	private int RefUnite;
 	private String NomUnite;
-	private ChefProjet chefProjet;
+	private String nomChefProjet;
 	private String description;
+	private Locale locale;
 
 	private List<Enseignant> enseignants;
 
@@ -46,13 +54,13 @@ public class Unite implements Serializable {
 		this.NomUnite = NomUnite;
 	}
 
-	@OneToOne(cascade = CascadeType.PERSIST)
-	public ChefProjet getChefProjet() {
-		return chefProjet;
+	@ManyToOne
+	public Locale getLocale() {
+		return locale;
 	}
 
-	public void setChefProjet(ChefProjet chefProjet) {
-		this.chefProjet = chefProjet;
+	public void setLocale(Locale locale) {
+		this.locale = locale;
 	}
 
 
@@ -74,4 +82,34 @@ public class Unite implements Serializable {
 		this.description = description;
 	}
 
+	public String getNomChefProjet() {
+		return nomChefProjet;
+	}
+
+	public void setNomChefProjet(String nomChefProjet) {
+		this.nomChefProjet = nomChefProjet;
+	}
+
+	public Unite(int refUnite, String nomUnite, ChefProjet chefProjet,
+			String nomChefProjet, String description, Locale locale,
+			List<Enseignant> enseignants) {
+		super();
+		RefUnite = refUnite;
+		NomUnite = nomUnite;
+		
+		this.nomChefProjet = nomChefProjet;
+		this.description = description;
+		this.locale = locale;
+		this.enseignants = enseignants;
+	}
+
+	@Override
+	public String toString() {
+		return "Unite [RefUnite=" + RefUnite + ", NomUnite=" + NomUnite
+				+ ", nomChefProjet=" + nomChefProjet + ", description="
+				+ description + ", locale=" + locale + ", enseignants="
+				+ enseignants + "]";
+	}
+
+	
 }

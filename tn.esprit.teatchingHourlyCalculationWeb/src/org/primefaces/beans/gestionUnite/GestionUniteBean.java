@@ -21,6 +21,8 @@ public class GestionUniteBean {
 
 	List<Unite> unites;
 	Unite unite;
+	private List<String> nomUnite;
+	private String nomUnit;
 
 	String label = "Choisir";
 
@@ -145,20 +147,7 @@ public class GestionUniteBean {
 	// -------------------------------Ajouter une nouvelle
 	// affectation------------------------------
 
-	public void add(ActionEvent actionEvent) {
-
-		unite.setNomUnite(getLibelleUnite());
-		unite.setDescription(getDescription());
-		gestionUniteLocal.save(unite);
-
-		FacesContext.getCurrentInstance().addMessage(
-				null,
-				new FacesMessage(FacesMessage.SEVERITY_INFO,
-						"add with success Unite : ", unite.getNomUnite()));
-
-		reset();
-
-	}
+	
 
 	// ------------------------------Mise a jour affectation
 	// ---------------------------------
@@ -200,5 +189,23 @@ public class GestionUniteBean {
 		setLibelleUnite(null);
 		setDescription(null);
 	}
+
+	public List<String> getNomUnite() {
+		return nomUnite;
+	}
+
+	public void setNomUnite(List<String> nomUnite) {
+		this.nomUnite = nomUnite;
+	}
+
+	public String getNomUnit() {
+		return nomUnit;
+	}
+
+	public void setNomUnit(String nomUnit) {
+		this.nomUnit = nomUnit;
+	}
+
+	
 
 }

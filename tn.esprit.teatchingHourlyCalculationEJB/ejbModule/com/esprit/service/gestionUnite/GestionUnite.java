@@ -58,18 +58,7 @@ public class GestionUnite implements GestionUniteLocal,
 		}
 	}
 
-	@Override
-	public Unite findById(Long id) {
-		LogUtil.log("finding Unite instance with id: " + id, Level.INFO,
-				null);
-		try {
-			Unite instance = entityManager.find(Unite.class, id);
-			return instance;
-		} catch (RuntimeException re) {
-			LogUtil.log("find failed", Level.SEVERE, re);
-			throw re;
-		}
-	}
+	
 
 	@SuppressWarnings("unchecked")
 	@Override

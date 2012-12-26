@@ -32,6 +32,9 @@ public interface GestionAffectationProjetEnseignantLocal {
 	public List<ProjetEnseignant> chargeTotal(int refProjet, String promotion);
 
 	public List<ProjetEnseignant> findAllAffEnseig();
+	
+	public List<ProjetEnseignant> findAllByNomEnsei(String nom);
+
 
 	
 	// *********** porteuse de donné**********
