@@ -132,7 +132,15 @@
 									<h:body>
 										<f:view>
 											<h:form id="form">
-	<p:panel>
+											<p:scrollPanel style="height:700px;width:700px">
+											<p:panel id="panel" style="height:1000px;width:700px">
+													
+													
+													<p:commandButton value="Compose" onclick="composeDlg.show()"
+					type="button" icon="ui-icon ui-icon-document" />
+				<p:dialog widgetVar="composeDlg" modal="true" header="New Email"
+					width="530" showEffect="fade" hideEffect="fade">
+					<h:form id="f1">
 						<h:panelGrid columns="2" cellspacing="5">
 							<h:outputLabel for="to" value="To: " />
 							<p:inputText id="to" value="#{mailingBean.to}" />
@@ -148,8 +156,12 @@
 							action="#{mailingBean.send()}" />
 						<p:commandButton value="Cancel" onclick="composeDlg.hide()"
 							type="button" />
-					
-			</p:panel>							
+					</h:form>
+				</p:dialog>
+													
+											</p:panel>
+											</p:scrollPanel>
+
 											</h:form>
 										</f:view>
 									</h:body>
@@ -188,3 +200,7 @@ Keep this footer link UNCHANGED AND VISIBLE or make a 10 dollars donation at www
 	<div class="clear"></div>
 </body>
 </html>
+
+
+
+
