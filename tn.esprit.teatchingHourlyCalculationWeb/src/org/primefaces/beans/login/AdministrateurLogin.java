@@ -1,4 +1,4 @@
-package tn.esprit.teatchingHourlyCalculationWeb.ramla;
+package org.primefaces.beans.login;
 
 import javax.ejb.EJB;
 import javax.faces.bean.ManagedBean;
@@ -8,7 +8,7 @@ import com.esprit.domain.gestionEntites.login.LoginServicesLocal;
 
 @ManagedBean
 @SessionScoped
-public class EnseignantLogin {
+public class AdministrateurLogin {
 	
 	private String login;
 	private String pwd;

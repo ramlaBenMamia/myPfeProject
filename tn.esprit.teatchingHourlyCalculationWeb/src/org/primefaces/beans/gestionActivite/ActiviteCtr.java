@@ -1,4 +1,4 @@
-package gestionActivite;
+package org.primefaces.beans.gestionActivite;
 
 import javax.ejb.EJB;
 

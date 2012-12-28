@@ -1,4 +1,4 @@
-package org.primefaces.beans;
+package org.primefaces.beans.galleria;
 
 
 import java.util.ArrayList;

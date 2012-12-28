@@ -1,4 +1,4 @@
-package tn.esprit.teatchingHourlyCalculationWeb.ramla;
+package org.primefaces.beans.affectation;
 
 import java.util.ArrayList;
 import java.util.List;
