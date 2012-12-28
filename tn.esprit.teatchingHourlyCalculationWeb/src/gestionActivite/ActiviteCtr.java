@@ -2,7 +2,7 @@ package gestionActivite;
 
 import javax.ejb.EJB;
 
-import com.esprit.domain.gestionEntites.gestionActivite.GestionActiviteLocal;
+import com.esprit.service.gestionActivite.GestionActiviteLocal;
 import com.esprit.entity.Activite;
 
 public class ActiviteCtr {

@@ -4,7 +4,7 @@ import java.util.List;
 
 import javax.ejb.EJB;
 
-import com.esprit.domain.gestionEntites.gestionActivite.GestionActiviteLocal;
+import com.esprit.service.gestionActivite.GestionActiviteLocal;
 import com.esprit.entity.Activite;
 
 public class ListeActiviteCtr {
@@ -12,9 +12,6 @@ public class ListeActiviteCtr {
 	private List<String> typeActivites;
 	private Activite selectedActivite;
 	private List<Activite> listeActivites;
-	
-
-
 
 	@EJB
 	GestionActiviteLocal bean;
@@ -52,6 +49,5 @@ public class ListeActiviteCtr {
 	public void setListeActivites(List<Activite> listeActivites) {
 		this.listeActivites = listeActivites;
 	}
-	
-	
+
 }

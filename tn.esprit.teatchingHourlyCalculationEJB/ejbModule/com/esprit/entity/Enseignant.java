@@ -47,14 +47,12 @@ public class Enseignant implements Serializable {
 	
 	private List<Projet> projets;
 	private Projet projet;
+	
+	private List<Activite> activites;
+	private Activite activite;
+	
 
-	// private ChargeHoraireProjet chargeHoraireProjet;
-	// private AnneeUniversitaire anneeUniversitaire;
-	// private List<Encadrement> etudiant;
-	// private ChargeHoraireActivite chargeHoraireActivite;
-	// private ChargeHoraireEncadrement chargeHoraireEncadrement;
-	// private ChargeHoraireProjet chargeHoraireProjet;
-
+	
 	private static final long serialVersionUID = 1L;
 
 	public Enseignant() {
@@ -163,47 +161,7 @@ public class Enseignant implements Serializable {
 		this.activiteEnseignants = activiteEnseignants;
 	}
 
-	// @OneToMany(mappedBy = "enseignant")
-	// public List<Encadrement> getEtudiant() {
-	// return etudiant;
-	// }
-	//
-	// public void setEtudiant(List<Encadrement> etudiant) {
-	// this.etudiant = etudiant;
-	// }
-	//
-	// @ManyToOne(cascade = CascadeType.ALL)
-	// public ChargeHoraireActivite getChargeHoraireActivite() {
-	// return chargeHoraireActivite;
-	// }
-	//
-	// public void setChargeHoraireActivite(
-	// ChargeHoraireActivite chargeHoraireActivite) {
-	// this.chargeHoraireActivite = chargeHoraireActivite;
-	// }
-	//
-	// @ManyToOne(cascade = CascadeType.ALL)
-	// public ChargeHoraireEncadrement getChargeHoraireEncadrement() {
-	// return chargeHoraireEncadrement;
-	// }
-	//
-	// public void setChargeHoraireEncadrement(
-	// ChargeHoraireEncadrement chargeHoraireEncadrement) {
-	// this.chargeHoraireEncadrement = chargeHoraireEncadrement;
-	// }
-	//
-	// @ManyToOne(cascade = CascadeType.ALL)
-	// public ChargeHoraireProjet getChargeHoraireProjet() {
-	// return chargeHoraireProjet;
-	// }
-	//
-	// public void setChargeHoraireProjet(ChargeHoraireProjet
-	// chargeHoraireProjet) {
-	// this.chargeHoraireProjet = chargeHoraireProjet;
-	// }
-	//
-	//
-	//
+	
 	
 	public int getCodePostal() {
 		return codePostal;
@@ -237,26 +195,7 @@ public class Enseignant implements Serializable {
 		this.ville = ville;
 	}
 
-	// @OneToOne
-	// public ChargeHoraireProjet getChargeHoraireProjet() {
-	// return chargeHoraireProjet;
-	// }
-	//
-	//
-	//
-	// public void setChargeHoraireProjet(ChargeHoraireProjet
-	// chargeHoraireProjet) {
-	// this.chargeHoraireProjet = chargeHoraireProjet;
-	// }
-	//
-	// @ManyToMany(mappedBy = "enseignants", cascade = CascadeType.ALL)
-	// public List<Projet> getProjets() {
-	// return projets;
-	// }
-	//
-	// public void setProjets(List<Projet> projets) {
-	// this.projets = projets;
-	// }
+	
 
 	@ManyToOne
 	public Unite getUnite() {
@@ -266,6 +205,28 @@ public class Enseignant implements Serializable {
 	public void setUnite(Unite unite) {
 		this.unite = unite;
 	}
+	
+	//******************* affichage par activite ********
+	
+	
+	@OneToMany(mappedBy = "enseignant")
+	public List<Activite> getActivites() {
+		return activites;
+	}
+
+	public void setActivites(List<Activite> activites) {
+		this.activites = activites;
+	}
+	
+	@ManyToOne
+	public Activite getActivite() {
+		return activite;
+	}
+
+	public void setActivite(Activite activite) {
+		this.activite = activite;
+	}
+	
 	
 	//********** affichage par projet**************
 	

@@ -3,9 +3,11 @@ package tn.esprit.teatchingHourlyCalculationClient.test;
 import javax.naming.Context;
 import javax.naming.InitialContext;
 
+import com.esprit.entity.Activite;
 import com.esprit.entity.Enseignant;
 import com.esprit.entity.Locale;
 import com.esprit.entity.Projet;
+import com.esprit.service.gestionActivite.GestionActiviteRemote;
 import com.esprit.service.gestionEnseignant.GestionEnseignantRemote;
 import com.esprit.service.gestionLocal.GestionLocaleRemote;
 import com.esprit.service.gestionProjet.GestionProjetRemote;
@@ -25,6 +27,9 @@ public class InitDB {
 			GestionLocaleRemote gestionLocaleRemote = (GestionLocaleRemote) context
 					.lookup("tn.esprit.teatchingHourlyCalculation/tn.esprit.teatchingHourlyCalculationEJB/GestionLocale!com.esprit.service.gestionLocal.GestionLocaleRemote");
 
+			GestionActiviteRemote gestionActiviteRemote = (GestionActiviteRemote) context
+					.lookup("tn.esprit.teatchingHourlyCalculation/tn.esprit.teatchingHourlyCalculationEJB/GestionActivite!com.esprit.service.gestionActivite.GestionActiviteRemote");
+
 			Enseignant enseignant = new Enseignant();
 			enseignant.setMatriculeEnseigant("mat02");
 			enseignant.setNom("ramla");
@@ -43,6 +48,13 @@ public class InitDB {
 
 			gestionProjetRemote.addProject(projet);
 
+			Activite activite = new Activite();
+			activite.setLibelleActivite("activite1");
+			activite.setDescription("description");
+
+			gestionActiviteRemote.addActivite(activite);
+			
+			
 			Locale locale = new Locale();
 			locale.setLibelleLocal("D12");
 
@@ -57,5 +69,4 @@ public class InitDB {
 		}
 
 	}
-
 }

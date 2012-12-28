@@ -8,27 +8,31 @@ import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
 import javax.faces.model.SelectItem;
 
+import com.esprit.domain.gestionEntites.calculChargeHoraire.GestionChargeHoraireActiviteLocal;
 import com.esprit.domain.gestionEntites.calculChargeHoraire.GestionChargeHoraireProjetLocal;
+import com.esprit.entity.Activite;
+import com.esprit.entity.ActiviteEnseignant;
 import com.esprit.entity.Enseignant;
 import com.esprit.entity.Projet;
 import com.esprit.entity.ProjetEnseignant;
+import com.esprit.service.gestionActivite.GestionActiviteLocal;
+import com.esprit.service.gestionAffectationActivite.GestionAffectationActiviteEnseignantLocal;
 import com.esprit.service.gestionAffectationProjet.GestionAffectationProjetEnseignantLocal;
 import com.esprit.service.gestionEnseignant.GestionEnseignantLocal;
 import com.esprit.service.gestionProjet.GestionProjetLocal;
 
 @ManagedBean
 @SessionScoped
-public class AffectationProjetBean {
-	// the model
-	private List<Projet> projets = new ArrayList<Projet>();
+public class AffectationActiviteBean {
+	private List<Activite> activites = new ArrayList<Activite>();
 	private List<Enseignant> enseignants = new ArrayList<Enseignant>();
 	private int hour;
 	private int semester;
 	private String nameEnseignant;
 	private String nomEnseignantSelect;
 
-	private List<SelectItem> selectItemsProjects;
-	private int idSelectedProject;
+	private List<SelectItem> selectItemsActivites;
+	private int idSelectedActivite;
 
 	private List<SelectItem> selectItemsEnseignant;
 	private String matSelectedEnseignant;
@@ -37,25 +41,26 @@ public class AffectationProjetBean {
 	private int i = 0;
 
 	// ************************ affichage par enseignant ********************
-	private List<ProjetEnseignant> listeParEnseignants;
+	private List<ActiviteEnseignant> listeParEnseignantActivites;
 
 	// injection of the proxy
 	@EJB
 	private GestionEnseignantLocal gestionEnseignantLocal;
 	@EJB
-	private GestionProjetLocal gestionProjetLocal;
+	private GestionActiviteLocal gestionActiviteLocal;
 	@EJB
-	private GestionAffectationProjetEnseignantLocal gestionAffectationProjetEnseignantLocal;
+	private GestionAffectationActiviteEnseignantLocal gestionAffectationActiviteEnseignantLocal;
 	@EJB
 	private GestionChargeHoraireProjetLocal gestionChargeHoraireProjetLocal;
 
 	public String doAdd() {
-		Projet projetTMP = gestionProjetLocal.findByRef(idSelectedProject);
+		Activite activiteTMP = gestionActiviteLocal
+				.findByRef(idSelectedActivite);
 		Enseignant enseignantTMP = gestionEnseignantLocal
 				.findByMat(matSelectedEnseignant);
 		System.out.println("good luck ramla ...");
-		gestionAffectationProjetEnseignantLocal.createAffectation(semester, 1,
-				hour, enseignantTMP, projetTMP);
+		gestionAffectationActiviteEnseignantLocal.createAffectationActivite(
+				semester, 1, hour, enseignantTMP, activiteTMP);
 		nameEnseignant = enseignantTMP.getNom();
 
 		return "ok";
@@ -64,31 +69,33 @@ public class AffectationProjetBean {
 	public String updateDataTable() {
 		nomEnseignantSelect = gestionEnseignantLocal.findByMat(nameEnseignant)
 				.getNom();
-		listeParEnseignants = gestionAffectationProjetEnseignantLocal
+		listeParEnseignantActivites = gestionAffectationActiviteEnseignantLocal
 				.findAllByNomEnsei(nomEnseignantSelect);
 
 		return "";
 	}
+	
 
 	public String doCalculChargeHoraire() {
-		int chargeHoraireParEnseignant = gestionEnseignantLocal
-				.volumeHoraireTotalParEnseignant(nameEnseignant);
-		System.out.println(chargeHoraireParEnseignant);
+		int chargeHoraireParEnseignantActivite = gestionEnseignantLocal
+				.volumeHoraireTotalParEnseignantActivite(nameEnseignant);
+		System.out.println(chargeHoraireParEnseignantActivite);
 		return "";
 	}
 
 	public String TotalChargeHoraire() {
+		
 
 		return "";
 	}
 
-	public List<Projet> getProjets() {
+	public List<Activite> getActivites() {
 
-		return gestionProjetLocal.findAll();
+		return gestionActiviteLocal.findAll();
 	}
 
-	public void setProjets(List<Projet> projets) {
-		this.projets = projets;
+	public void setActivites(List<Activite> activites) {
+		this.activites = activites;
 	}
 
 	public List<Enseignant> getEnseignants() {
@@ -99,34 +106,34 @@ public class AffectationProjetBean {
 		this.enseignants = enseignants;
 	}
 
-	public List<SelectItem> getSelectItemsProjects() {
-		selectItemsProjects = new ArrayList<SelectItem>();
-		projets = gestionProjetLocal.findAll();
-		selectItemsProjects.add(new SelectItem(-1, "please select one ..."));
-		for (Projet p : projets) {
-			selectItemsProjects.add(new SelectItem(p.getRefProjet(), p
-					.getLibelleProjet()));
+	public List<SelectItem> getSelectItemsActivites() {
+		selectItemsActivites = new ArrayList<SelectItem>();
+		activites = gestionActiviteLocal.findAll();
+		selectItemsActivites.add(new SelectItem(-1, "please select one ..."));
+		for (Activite p : activites) {
+			selectItemsActivites.add(new SelectItem(p.getRefActivite(), p
+					.getLibelleActivite()));
 		}
 
-		return selectItemsProjects;
+		return selectItemsActivites;
 	}
 
-	public void setSelectItemsProjects(List<SelectItem> selectItemsProjects) {
-		this.selectItemsProjects = selectItemsProjects;
+	public void setSelectItemsActivites(List<SelectItem> selectItemsActivites) {
+		this.selectItemsActivites = selectItemsActivites;
 	}
 
-	public int getIdSelectedProject() {
-		return idSelectedProject;
+	public int getIdSelectedActivite() {
+		return idSelectedActivite;
 	}
 
-	public void setIdSelectedProject(int idSelectedProject) {
-		this.idSelectedProject = idSelectedProject;
+	public void setIdSelectedActivite(int idSelectedActivite) {
+		this.idSelectedActivite = idSelectedActivite;
 	}
 
 	public List<SelectItem> getSelectItemsEnseignant() {
 		selectItemsEnseignant = new ArrayList<SelectItem>();
 		enseignants = gestionEnseignantLocal.findAll();
-		selectItemsEnseignant.add(new SelectItem(-1, "please"));
+		selectItemsEnseignant.add(new SelectItem(-1, "please select one.."));
 		for (Enseignant e : enseignants) {
 			selectItemsEnseignant.add(new SelectItem(e.getMatriculeEnseigant(),
 					e.getNom()));
@@ -172,32 +179,32 @@ public class AffectationProjetBean {
 	}
 
 	// ************* affichage par enseignant************
-	public List<ProjetEnseignant> getListeParEnseignants() {
+	public List<ActiviteEnseignant> getListeParEnseignantActivites() {
 
-		return listeParEnseignants;
+		return listeParEnseignantActivites;
 	}
 
-	public void setListeParEnseignants(
-			List<ProjetEnseignant> listeParEnseignants) {
-		this.listeParEnseignants = listeParEnseignants;
+	public void setListeParEnseignantActivites(
+			List<ActiviteEnseignant> listeParEnseignantActivites) {
+		this.listeParEnseignantActivites = listeParEnseignantActivites;
 	}
 
-	public void recupererdataModelProjet() {
+	public void recupererdataModelActivite() {
 		List<Enseignant> listEnseignants;
 		listEnseignants = gestionEnseignantLocal.findByNom(getNameEnseignant());
 
 		String matriculeEnseigant = listEnseignants.get(0)
 				.getMatriculeEnseigant();
 
-		List<Projet> projets = gestionProjetLocal
+		List<Activite> activites = gestionActiviteLocal
 				.findByMatEnseignant(matriculeEnseigant);
 
-		if (selectItemsProjects == null) {
-			selectItemsProjects = new ArrayList<SelectItem>();
+		if (selectItemsActivites == null) {
+			selectItemsActivites = new ArrayList<SelectItem>();
 		} else
-			selectItemsProjects.clear();
-		for (Projet c : projets) {
-			selectItemsProjects.add(new SelectItem(c.getLibelleProjet()));
+			selectItemsActivites.clear();
+		for (Activite c : activites) {
+			selectItemsActivites.add(new SelectItem(c.getLibelleActivite()));
 		}
 
 	}
@@ -212,7 +219,7 @@ public class AffectationProjetBean {
 
 	public int getChargeHoraireParEnseignant() {
 		int chargeHoraireParEnseignant = gestionEnseignantLocal
-				.volumeHoraireTotalParEnseignant(nameEnseignant);
+				.volumeHoraireTotalParEnseignantActivite(nameEnseignant);
 		return chargeHoraireParEnseignant;
 	}
 

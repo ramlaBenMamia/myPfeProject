@@ -21,6 +21,10 @@ public class TestTotalCharge {
 					.lookup("tn.esprit.teatchingHourlyCalculation/tn.esprit.teatchingHourlyCalculationEJB/GestionEnseignant!com.esprit.service.gestionEnseignant.GestionEnseignantRemote");
 			
 			System.out.println(gestionEnseignantRemote.volumeHoraireTotalParEnseignant("mat02"));
+			System.out.println(gestionEnseignantRemote);
+			
+			System.out.println(gestionEnseignantRemote.volumeHoraireTotalParEnseignantActivite("mat02"));
+			System.out.println(gestionEnseignantRemote);
 		
 		} catch (NamingException e) {
 			// TODO Auto-generated catch block

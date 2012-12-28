@@ -26,9 +26,7 @@ public class Projet implements Serializable {
 
 	private int refProjet;
 	private String libelleProjet;
-	// private String EtatProjet;
 	private String description;
-	// private Encadrement encadrement;
 	private List<ProjetEnseignant> projetEnseignants;
 	
 	private List<Enseignant> enseignants;
@@ -58,13 +56,7 @@ public class Projet implements Serializable {
 		this.libelleProjet = libelleProjet;
 	}
 
-	// public String getEtatProjet() {
-	// return EtatProjet;
-	// }
-	//
-	// public void setEtatProjet(String etatProjet) {
-	// EtatProjet = etatProjet;
-	// }
+	
 
 	public String getDescription() {
 		return description;
@@ -84,35 +76,6 @@ public class Projet implements Serializable {
 		this.projetEnseignants = projetEnseignants;
 	}
 
-	//
-	// public String getEtatProjet() {
-	// return EtatProjet;
-	// }
-	//
-	// public void setEtatProjet(String etatProjet) {
-	// EtatProjet = etatProjet;
-	// }
-	//
-
-	// @ManyToOne
-	// public AnneeUniversitaire getAnneeUniversitaire() {
-	// return anneeUniversitaire;
-	// }
-	//
-	// public void setAnneeUniversitaire(AnneeUniversitaire anneeUniversitaire)
-	// {
-	// this.anneeUniversitaire = anneeUniversitaire;
-	// }
-	//
-	// @OneToOne
-	// public Encadrement getEncadrement() {
-	// return encadrement;
-	// }
-	//
-	// public void setEncadrement(Encadrement encadrement) {
-	// this.encadrement = encadrement;
-	// }
-	
 	
 	
 	

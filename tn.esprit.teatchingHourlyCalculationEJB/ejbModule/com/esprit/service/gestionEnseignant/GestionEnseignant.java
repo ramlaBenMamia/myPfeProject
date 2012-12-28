@@ -9,6 +9,7 @@ import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.persistence.Query;
 
+import com.esprit.entity.ChargeHoraireActivite;
 import com.esprit.entity.ChargeHoraireProjet;
 import com.esprit.entity.Enseignant;
 import com.log.LogUtil;
@@ -215,6 +216,22 @@ public class GestionEnseignant implements GestionEnseignantLocal,
 
 		return total;
 
+	}
+
+	@Override
+	public int volumeHoraireTotalParEnseignantActivite(String matEnseignant) {
+		int total = 0;
+		List<ChargeHoraireActivite> chargeHoraireActivites = new ArrayList<ChargeHoraireActivite>();
+		String jpql = "select c from ChargeHoraireActivite c where c.enseignant.matriculeEnseigant=:param1";
+		Query query = entityManager.createQuery(jpql);
+		query.setParameter("param1", matEnseignant);
+		chargeHoraireActivites = query.getResultList();
+
+		for (ChargeHoraireActivite ch : chargeHoraireActivites) {
+			total += ch.getNbrHeures();
+		}
+
+		return total;
 	}
 
 }

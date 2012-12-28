@@ -9,6 +9,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
@@ -35,7 +36,10 @@ public class Activite implements Serializable {
 	private String local;
 
 	private List<ActiviteEnseignant> activiteEnseignants;
-	// private List<Enseignant> enseignants;
+	
+	private List<Enseignant> enseignants;
+	private Enseignant enseignant;
+
 
 	private static final long serialVersionUID = 1L;
 
@@ -109,12 +113,23 @@ public class Activite implements Serializable {
 		this.libelleActivite = libelleActivite;
 	}
 
-	// public List<Enseignant> getEnseignants() {
-	// return enseignants;
-	// }
-	//
-	// public void setEnseignants(List<Enseignant> enseignants) {
-	// this.enseignants = enseignants;
-	// }
+	@OneToMany(mappedBy = "activite")
+	public List<Enseignant> getEnseignants() {
+		return enseignants;
+	}
 
+	public void setEnseignants(List<Enseignant> enseignants) {
+		this.enseignants = enseignants;
+	}
+
+	@ManyToOne
+	public Enseignant getEnseignant() {
+		return enseignant;
+	}
+
+	public void setEnseignant(Enseignant enseignant) {
+		this.enseignant = enseignant;
+	}
+
+	
 }

@@ -5,7 +5,7 @@
 	xmlns:ui="http://java.sun.com/jsf/facelets"
 	xmlns:p="http://primefaces.org/ui">
 <head>
-<title>Web site</title>
+<title>AffectationDesActivites</title>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <meta name="title" content="Web site" />
 <meta name="description" content="Site description here" />
@@ -132,32 +132,71 @@
 									<h:body>
 										<f:view>
 											<h:form id="form">
+												<p:scrollPanel style="height:700px;width:700px">
+													<p:panel id="panel" style="height:1000px;width:700px"
+														header=" ESPRIT ---- Affectation des activites par enseignants-----">
 
-												<p:panel id="panel" style="height:1000px;width:700px">
+														<p:messages id="messages" showDetail="true"
+															autoUpdate="true" />
+															<h:panelGrid columns="2">
+
+
+																	<h:outputText value="activite" />
+																	<p:selectOneMenu
+																		value="#{affectationActiviteBean.idSelectedActivite}">
+																		<f:selectItems
+																			value="#{affectationActiviteBean.selectItemsActivites}" />
+																	</p:selectOneMenu>
+
+																<h:outputText value="Enseignant" />
+																<p:selectOneMenu
+																	value="#{affectationActiviteBean.matSelectedEnseignant}">
+																	<f:selectItems
+																		value="#{affectationActiviteBean.selectItemsEnseignant}" />
+																</p:selectOneMenu>
+															</h:panelGrid>
+
+
+															<h:panelGrid columns="2">
+																<h:outputText value="hours" />
+																<p:keyboard value="#{affectationActiviteBean.hour}"
+																	showMode="button" keypadOnly="true" />
+																<h:outputText value="semester" />
+																<p:selectOneRadio id="options"
+																	value="#{affectationActiviteBean.semester}">
+																	<f:selectItem itemLabel="semester 1" itemValue="1" />
+																	<f:selectItem itemLabel="semester 2" itemValue="2" />
+
+																</p:selectOneRadio>
+
+															</h:panelGrid>
+														<p:commandButton action="#{affectationActiviteBean.doAdd}"
+															value="valider" update="display"
+															oncomplete="dialog.show()" />
+
+
+														<p:dialog widgetVar="dialog" showEffect="fade"
+															hideEffect="fade" header="Values">
+															<h:panelGrid columns="2" id="display" cellpadding="5">
+																<h:outputText value="volume horaire: " />
+																<h:outputText value="#{affectationActiviteBean.hour}" />
+
+																<h:outputText value="enseignant: " />
+																<h:outputText value="#{affectationActiviteBean.nameEnseignant}" />
+
+
+															</h:panelGrid>
+
+														</p:dialog>
 
 
 
 
-													<h:form id="f1">
-														<h:panelGrid columns="2" cellspacing="5">
-															<h:outputLabel for="to" value="To: " />
-															<p:inputText id="to" value="#{mailingBean.to}" />
-															<h:outputLabel for="cc" value="CC: " />
-															<p:inputText id="cc" value="#{mailingBean.subject}" />
-															<h:outputLabel for="subject" value="subject: " />
-															<p:inputText id="subject" size="50" />
-														</h:panelGrid>
-														<p:separator />
-														<p:editor id="corp" widgetVar="editor"
-															value="#{mailingBean.corp}" />
-														<p:separator />
-														<p:commandButton value="Send" onclick="composeDlg.hide()"
-															action="#{mailingBean.send()}" />
-														<p:commandButton value="Cancel"
-															onclick="composeDlg.hide()" type="button" />
-													</h:form>
 
-												</p:panel>
+													</p:panel>
+
+
+												</p:scrollPanel>
 
 											</h:form>
 										</f:view>
@@ -197,7 +236,3 @@ Keep this footer link UNCHANGED AND VISIBLE or make a 10 dollars donation at www
 	<div class="clear"></div>
 </body>
 </html>
-
-
-
-

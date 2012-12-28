@@ -2,32 +2,50 @@ package com.esprit.entity;
 
 import java.io.Serializable;
 
+import javax.persistence.Embeddable;
+
 /**
  * Entity implementation class for Entity: ActiviteEnseignant
  *
  */
 
-
-public class ActiviteEnseignantID implements Serializable {
+@Embeddable
+public class ActiviteEnseignantPK implements Serializable {
 
 	private String matriculeEnseigant;	
 	private int refActivite;
 
 	private static final long serialVersionUID = 1L;
 
-	public ActiviteEnseignantID() {
-		super();
+	public ActiviteEnseignantPK() {
 	}
 	
 	
 
-	public ActiviteEnseignantID(String matriculeEnseigant, int refActivite) {
+	public ActiviteEnseignantPK(String matriculeEnseigant, int refActivite) {
 		super();
 		this.matriculeEnseigant = matriculeEnseigant;
 		this.refActivite = refActivite;
 	}
 
-	
+
+
+	public String getMatriculeEnseigant() {
+		return matriculeEnseigant;
+	}
+
+	public void setMatriculeEnseigant(String matriculeEnseigant) {
+		this.matriculeEnseigant = matriculeEnseigant;
+	}
+
+	public int getRefActivite() {
+		return refActivite;
+	}
+
+	public void setRefActivite(int refActivite) {
+		this.refActivite = refActivite;
+	}
+
 
 
 	@Override
@@ -52,7 +70,7 @@ public class ActiviteEnseignantID implements Serializable {
 			return false;
 		if (getClass() != obj.getClass())
 			return false;
-		ActiviteEnseignantID other = (ActiviteEnseignantID) obj;
+		ActiviteEnseignantPK other = (ActiviteEnseignantPK) obj;
 		if (matriculeEnseigant == null) {
 			if (other.matriculeEnseigant != null)
 				return false;
@@ -62,26 +80,7 @@ public class ActiviteEnseignantID implements Serializable {
 			return false;
 		return true;
 	}
-
-
-
-	public String getMatriculeEnseigant() {
-		return matriculeEnseigant;
-	}
-
-	public void setMatriculeEnseigant(String matriculeEnseigant) {
-		this.matriculeEnseigant = matriculeEnseigant;
-	}
-
-	public int getRefActivite() {
-		return refActivite;
-	}
-
-	public void setRefActivite(int refActivite) {
-		this.refActivite = refActivite;
-	}
 	
 	
-   
-   
+	
 }

@@ -74,5 +74,8 @@ public interface GestionEnseignantRemote {
 	public void removeEnseignant(Enseignant e);
 	
 	public int volumeHoraireTotalParEnseignant(String matEnseignant);
+	
+	public int volumeHoraireTotalParEnseignantActivite(String matEnseignant);
+
 
 }
