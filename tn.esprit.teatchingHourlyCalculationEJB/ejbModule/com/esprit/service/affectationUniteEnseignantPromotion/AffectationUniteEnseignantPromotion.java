@@ -1,5 +1,7 @@
 package com.esprit.service.affectationUniteEnseignantPromotion;
 
+import java.util.List;
+
 import javax.ejb.LocalBean;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
@@ -73,5 +75,31 @@ public class AffectationUniteEnseignantPromotion implements
 				entityManager.merge(promotion));
 		entityManager.persist(uniteEnseignantPromotion);
 		
+	}
+
+	@Override
+	public List<UniteEnseignantPromotion> findAllByNomEnseignant(
+			String nomEnseignant) {
+		return entityManager
+				.createQuery(
+						"select p from UniteEnseignantPromotion p where p.enseignant.nom like :pnom ")
+				.setParameter("pnom", nomEnseignant).getResultList();
+	}
+
+	@Override
+	public List<UniteEnseignantPromotion> findAllByNomUnite(String nomUnite) {
+		return entityManager
+				.createQuery(
+						"select p from UniteEnseignantPromotion p where p.unite.NomUnite like :pnom ")
+				.setParameter("pnom", nomUnite).getResultList();
+	}
+
+	@Override
+	public List<UniteEnseignantPromotion> findAllByNomPromotion(
+			String nomPromotion) {
+		return entityManager
+				.createQuery(
+						"select p from UniteEnseignantPromotion p where p.promotion.promotion like :pnom ")
+				.setParameter("pnom", nomPromotion).getResultList();
 	}
 }

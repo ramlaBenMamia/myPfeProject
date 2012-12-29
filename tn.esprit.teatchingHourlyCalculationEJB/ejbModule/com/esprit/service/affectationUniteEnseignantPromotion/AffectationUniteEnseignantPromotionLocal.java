@@ -1,10 +1,13 @@
 package com.esprit.service.affectationUniteEnseignantPromotion;
 
+import java.util.List;
+
 import javax.ejb.Local;
 
 import com.esprit.entity.Enseignant;
 import com.esprit.entity.Promotion;
 import com.esprit.entity.Unite;
+import com.esprit.entity.UniteEnseignantPromotion;
 
 @Local
 public interface AffectationUniteEnseignantPromotionLocal {
@@ -22,5 +25,13 @@ public interface AffectationUniteEnseignantPromotionLocal {
 
 	public void createAffectationEPU(Enseignant enseignant,
 			Promotion promotion, Unite unite);
+
+	public List<UniteEnseignantPromotion> findAllByNomEnseignant(
+			String nomEnseignant);
+
+	public List<UniteEnseignantPromotion> findAllByNomUnite(String nomUnite);
+
+	public List<UniteEnseignantPromotion> findAllByNomPromotion(
+			String nomPromotion);
 
 }

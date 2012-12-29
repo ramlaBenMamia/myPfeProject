@@ -10,8 +10,10 @@ import javax.faces.model.SelectItem;
 
 import com.esprit.entity.Enseignant;
 import com.esprit.entity.Projet;
+import com.esprit.entity.ProjetEnseignant;
 import com.esprit.entity.Promotion;
 import com.esprit.entity.Unite;
+import com.esprit.entity.UniteEnseignantPromotion;
 import com.esprit.service.affectationUniteEnseignantPromotion.AffectationUniteEnseignantPromotionLocal;
 import com.esprit.service.gestionEnseignant.GestionEnseignantLocal;
 import com.esprit.service.gestionPromotion.GestionPromotionLocal;
@@ -47,16 +49,53 @@ public class AffectationUniteEnseignants {
 	private Promotion promotion = new Promotion();
 	private List<Promotion> promotions = new ArrayList<Promotion>();
 	private String nameEnseignant;
+	private int idPromotion;
+	private int idUnite;
+	private String nomEnseignantSelected;
+	private String labelPromotionSelected;
+	private String nomUniteSelected;
+
+	// ************************ affichage par enseignant ********************
+	private List<UniteEnseignantPromotion> listeParEnseignants;
+	private List<UniteEnseignantPromotion> listeParPromotions;
+	private List<UniteEnseignantPromotion> listeParUnite;
 
 	public String doAdd() {
-		
+
 		Unite uniteTMP = gestionUniteLocal.findByRef(idSelectedUnite);
 		Enseignant enseignantTMP = gestionEnseignantLocal
 				.findByMat(selectedEnseignantId);
-		Promotion promotionTMP=gestionPromotionLocal.findById(selectedPromotionId);
+		Promotion promotionTMP = gestionPromotionLocal
+				.findById(selectedPromotionId);
 		System.out.println("good luck ramla ...");
-		affectationUniteEnseignantPromotionLocal.createAffectationEPU(enseignantTMP, promotionTMP, uniteTMP);
+		affectationUniteEnseignantPromotionLocal.createAffectationEPU(
+				enseignantTMP, promotionTMP, uniteTMP);
 		setNameEnseignant(enseignantTMP.getNom());
+		nameEnseignant = enseignantTMP.getNom();
+		
+
+		return "";
+	}
+	
+	
+	//************ affichage par enseignant ************
+	
+	public String updateDataTable() {
+		nomEnseignantSelected = gestionEnseignantLocal.findByMat(nameEnseignant)
+				.getNom();
+		listeParEnseignants = affectationUniteEnseignantPromotionLocal
+				.findAllByNomEnseignant(nomEnseignantSelected);
+		
+//		labelPromotionSelected = gestionPromotionLocal.findById(idPromotion)
+//				.getPromotion();
+//		listeParPromotions = affectationUniteEnseignantPromotionLocal
+//				.findAllByNomPromotion(labelPromotionSelected);
+//		
+//		nomUniteSelected = gestionUniteLocal.findByRef(idUnite)
+//				.getNomUnite();
+//		listeParUnite = affectationUniteEnseignantPromotionLocal
+//				.findAllByNomUnite(nomUniteSelected);
+		
 
 		return "";
 	}
@@ -202,5 +241,100 @@ public class AffectationUniteEnseignants {
 	public void setNameEnseignant(String nameEnseignant) {
 		this.nameEnseignant = nameEnseignant;
 	}
+
+	public GestionPromotionLocal getGestionPromotionLocal() {
+		return gestionPromotionLocal;
+	}
+
+	public void setGestionPromotionLocal(
+			GestionPromotionLocal gestionPromotionLocal) {
+		this.gestionPromotionLocal = gestionPromotionLocal;
+	}
+
+	
+
+	
+	
+	
+	//*********** affichage par enseignant ***********
+	
+	public List<UniteEnseignantPromotion> getListeParEnseignants() {
+		return listeParEnseignants;
+	}
+	
+	public void setListeParEnseignants(
+			List<UniteEnseignantPromotion> listeParEnseignants) {
+		this.listeParEnseignants = listeParEnseignants;
+	}
+
+	public List<UniteEnseignantPromotion> getListeParPromotions() {
+		return listeParPromotions;
+	}
+
+	public void setListeParPromotions(
+			List<UniteEnseignantPromotion> listeParPromotions) {
+		this.listeParPromotions = listeParPromotions;
+	}
+
+	public List<UniteEnseignantPromotion> getListeParUnite() {
+		return listeParUnite;
+	}
+
+	public void setListeParUnite(List<UniteEnseignantPromotion> listeParUnite) {
+		this.listeParUnite = listeParUnite;
+	}
+
+
+	public String getNomEnseignantSelected() {
+		return nomEnseignantSelected;
+	}
+
+
+	public void setNomEnseignantSelected(String nomEnseignantSelected) {
+		this.nomEnseignantSelected = nomEnseignantSelected;
+	}
+
+
+	public String getLabelPromotionSelected() {
+		return labelPromotionSelected;
+	}
+
+
+	public void setLabelPromotionSelected(String labelPromotionSelected) {
+		this.labelPromotionSelected = labelPromotionSelected;
+	}
+
+
+	public String getNomUniteSelected() {
+		return nomUniteSelected;
+	}
+
+
+	public void setNomUniteSelected(String nomUniteSelected) {
+		this.nomUniteSelected = nomUniteSelected;
+	}
+
+
+	public int getIdPromotion() {
+		return idPromotion;
+	}
+
+
+	public void setIdPromotion(int idPromotion) {
+		this.idPromotion = idPromotion;
+	}
+
+
+	public int getIdUnite() {
+		return idUnite;
+	}
+
+
+	public void setIdUnite(int idUnite) {
+		this.idUnite = idUnite;
+	}
+	
+	
+
 
 }
