@@ -8,6 +8,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 
 import org.hibernate.annotations.LazyCollection;
@@ -22,7 +23,8 @@ public class Promotion implements Serializable {
 
 	private int idPromotion;
 	private String promotion;
-	
+	private Unite unite;
+	private List<Unite> unites;
 	private List<UniteEnseignantPromotion> uniteEnseignantPromotions;
 	
 	private static final long serialVersionUID = 1L;
@@ -84,6 +86,25 @@ public class Promotion implements Serializable {
 	public void setUniteEnseignantPromotions(
 			List<UniteEnseignantPromotion> uniteEnseignantPromotions) {
 		this.uniteEnseignantPromotions = uniteEnseignantPromotions;
+	}
+
+	@ManyToOne
+	public Unite getUnite() {
+		return unite;
+	}
+
+	public void setUnite(Unite unite) {
+		this.unite = unite;
+	}
+
+	@OneToMany(mappedBy = "promotion", cascade = CascadeType.ALL)
+	@LazyCollection(LazyCollectionOption.FALSE)
+	public List<Unite> getUnites() {
+		return unites;
+	}
+
+	public void setUnites(List<Unite> unites) {
+		this.unites = unites;
 	}
 
 	

@@ -90,7 +90,7 @@ public class AffectationUniteEnseignantPromotion implements
 	public List<UniteEnseignantPromotion> findAllByNomUnite(String nomUnite) {
 		return entityManager
 				.createQuery(
-						"select p from UniteEnseignantPromotion p where p.unite.NomUnite like :pnom ")
+						"select p from UniteEnseignantPromotion p where p.unite.nomUnite like :pnom ")
 				.setParameter("pnom", nomUnite).getResultList();
 	}
 

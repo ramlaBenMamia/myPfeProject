@@ -35,10 +35,17 @@ public class InitDB {
 			GestionUniteRemote gestionUniteRemote = (GestionUniteRemote) context
 					.lookup("tn.esprit.teatchingHourlyCalculation/tn.esprit.teatchingHourlyCalculationEJB/GestionUnite!com.esprit.service.gestionUnite.GestionUniteRemote");
 
+			
 			Unite unite=new Unite();
 			unite.setNomUnite("mobile");
 			
 			gestionUniteRemote.save(unite);
+			
+			
+			Unite unite1=new Unite();
+			unite1.setNomUnite("EspritOnLine");
+			
+			gestionUniteRemote.save(unite1);
 			
 			
 			Enseignant enseignant = new Enseignant();
@@ -73,6 +80,9 @@ public class InitDB {
 			locale2.setLibelleLocal("D13");
 
 			gestionLocaleRemote.createLocal(locale2);
+			
+			
+			
 
 		} catch (Exception e) {
 			// TODO: handle exception

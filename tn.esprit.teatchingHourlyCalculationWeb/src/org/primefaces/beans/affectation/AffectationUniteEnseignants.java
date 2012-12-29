@@ -48,17 +48,21 @@ public class AffectationUniteEnseignants {
 
 	private Promotion promotion = new Promotion();
 	private List<Promotion> promotions = new ArrayList<Promotion>();
-	private String nameEnseignant;
-	private int idPromotion;
-	private int idUnite;
-	private String nomEnseignantSelected;
-	private String labelPromotionSelected;
-	private String nomUniteSelected;
 
 	// ************************ affichage par enseignant ********************
 	private List<UniteEnseignantPromotion> listeParEnseignants;
+	private String nomEnseignantSelected;
+	private String nameEnseignant;
+
+	// ************************* affichage par promotion *********************
 	private List<UniteEnseignantPromotion> listeParPromotions;
+	private int idPromotion;
+	private String labelPromotionSelected;
+
+	// ************************ affichage par unite **************************
 	private List<UniteEnseignantPromotion> listeParUnite;
+	private int idUnite;
+	private String nomUniteSelected;
 
 	public String doAdd() {
 
@@ -72,30 +76,37 @@ public class AffectationUniteEnseignants {
 				enseignantTMP, promotionTMP, uniteTMP);
 		setNameEnseignant(enseignantTMP.getNom());
 		nameEnseignant = enseignantTMP.getNom();
-		
 
 		return "";
 	}
-	
-	
-	//************ affichage par enseignant ************
-	
+
+	// ************ affichage par enseignant *************************
+
 	public String updateDataTable() {
-		nomEnseignantSelected = gestionEnseignantLocal.findByMat(nameEnseignant)
-				.getNom();
+		nomEnseignantSelected = gestionEnseignantLocal
+				.findByMat(nameEnseignant).getNom();
 		listeParEnseignants = affectationUniteEnseignantPromotionLocal
 				.findAllByNomEnseignant(nomEnseignantSelected);
-		
-//		labelPromotionSelected = gestionPromotionLocal.findById(idPromotion)
-//				.getPromotion();
-//		listeParPromotions = affectationUniteEnseignantPromotionLocal
-//				.findAllByNomPromotion(labelPromotionSelected);
-//		
-//		nomUniteSelected = gestionUniteLocal.findByRef(idUnite)
-//				.getNomUnite();
-//		listeParUnite = affectationUniteEnseignantPromotionLocal
-//				.findAllByNomUnite(nomUniteSelected);
-		
+		return "";
+	}
+
+	// ******************** affichage par promotion ********************
+	public String updateDataTablePromotion() {
+		labelPromotionSelected = gestionPromotionLocal.findById(idPromotion)
+				.getPromotion();
+		listeParPromotions = affectationUniteEnseignantPromotionLocal
+				.findAllByNomPromotion(labelPromotionSelected);
+		return "";
+	}
+
+	// ********************* affichage par unite ***********************
+	public String updateDataTableUnite() {
+		System.out.println("bonjour....");
+		nomUniteSelected = gestionUniteLocal.findByRef(idUnite).getNomUnite();
+		System.out.println(nomUniteSelected);
+		listeParUnite = affectationUniteEnseignantPromotionLocal
+				.findAllByNomUnite(nomUniteSelected);
+		System.out.println(listeParUnite.size());
 
 		return "";
 	}
@@ -251,17 +262,12 @@ public class AffectationUniteEnseignants {
 		this.gestionPromotionLocal = gestionPromotionLocal;
 	}
 
-	
+	// *********** affichage par enseignant ***********
 
-	
-	
-	
-	//*********** affichage par enseignant ***********
-	
 	public List<UniteEnseignantPromotion> getListeParEnseignants() {
 		return listeParEnseignants;
 	}
-	
+
 	public void setListeParEnseignants(
 			List<UniteEnseignantPromotion> listeParEnseignants) {
 		this.listeParEnseignants = listeParEnseignants;
@@ -284,57 +290,44 @@ public class AffectationUniteEnseignants {
 		this.listeParUnite = listeParUnite;
 	}
 
-
 	public String getNomEnseignantSelected() {
 		return nomEnseignantSelected;
 	}
-
 
 	public void setNomEnseignantSelected(String nomEnseignantSelected) {
 		this.nomEnseignantSelected = nomEnseignantSelected;
 	}
 
-
 	public String getLabelPromotionSelected() {
 		return labelPromotionSelected;
 	}
-
 
 	public void setLabelPromotionSelected(String labelPromotionSelected) {
 		this.labelPromotionSelected = labelPromotionSelected;
 	}
 
-
 	public String getNomUniteSelected() {
 		return nomUniteSelected;
 	}
-
 
 	public void setNomUniteSelected(String nomUniteSelected) {
 		this.nomUniteSelected = nomUniteSelected;
 	}
 
-
 	public int getIdPromotion() {
 		return idPromotion;
 	}
-
 
 	public void setIdPromotion(int idPromotion) {
 		this.idPromotion = idPromotion;
 	}
 
-
 	public int getIdUnite() {
 		return idUnite;
 	}
 
-
 	public void setIdUnite(int idUnite) {
 		this.idUnite = idUnite;
 	}
-	
-	
-
 
 }

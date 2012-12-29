@@ -8,6 +8,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 
 import org.hibernate.annotations.LazyCollection;
@@ -23,6 +24,7 @@ public class Locale implements Serializable {
 	private Integer id;
 	private String libelleLocal;
 	private List<Unite> unites;
+	private Unite unite;
 	private static final long serialVersionUID = 1L;
 
 	public Locale() {
@@ -87,6 +89,15 @@ public class Locale implements Serializable {
 
 	public void setUnites(List<Unite> unites) {
 		this.unites = unites;
+	}
+
+	@ManyToOne
+	public Unite getUnite() {
+		return unite;
+	}
+
+	public void setUnite(Unite unite) {
+		this.unite = unite;
 	}
 
 }

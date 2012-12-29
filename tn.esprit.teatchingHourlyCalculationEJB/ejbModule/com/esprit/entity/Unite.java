@@ -25,13 +25,18 @@ public class Unite implements Serializable {
 	private String NomUnite;
 	private String nomChefProjet;
 	private String description;
-	private Locale locale;
+	
 	
 	private List<UniteEnseignantPromotion> uniteEnseignantPromotions;
 
 	private List<Enseignant> enseignants;
-
 	private Enseignant enseignant;
+	
+	private List<Promotion> promotions;
+	private Promotion promotion;
+	
+	private List<Locale> locales;
+	private Locale locale;	
 
 	private static final long serialVersionUID = 1L;
 
@@ -92,17 +97,10 @@ public class Unite implements Serializable {
 		this.nomChefProjet = nomChefProjet;
 	}
 
-	public Unite(int refUnite, String nomUnite, ChefProjet chefProjet,
-			String nomChefProjet, String description, Locale locale,
-			List<Enseignant> enseignants) {
+	public Unite(String nomUnite) {
 		super();
-		RefUnite = refUnite;
 		NomUnite = nomUnite;
 
-		this.nomChefProjet = nomChefProjet;
-		this.description = description;
-		this.locale = locale;
-		this.enseignants = enseignants;
 	}
 
 	
@@ -127,5 +125,36 @@ public class Unite implements Serializable {
 		this.uniteEnseignantPromotions = uniteEnseignantPromotions;
 	}
 
+	@OneToMany(mappedBy = "unite", cascade = CascadeType.ALL)
+	@LazyCollection(LazyCollectionOption.FALSE)
+	public List<Promotion> getPromotions() {
+		return promotions;
+	}
+
+	public void setPromotions(List<Promotion> promotions) {
+		this.promotions = promotions;
+	}
+
+	@ManyToOne
+	public Promotion getPromotion() {
+		return promotion;
+	}
+
+	public void setPromotion(Promotion promotion) {
+		this.promotion = promotion;
+	}
+
+	@OneToMany(mappedBy = "unite", cascade = CascadeType.ALL)
+	@LazyCollection(LazyCollectionOption.FALSE)
+	public List<Locale> getLocales() {
+		return locales;
+	}
+
+	public void setLocales(List<Locale> locales) {
+		this.locales = locales;
+	}
+
+	
+	
 	
 }

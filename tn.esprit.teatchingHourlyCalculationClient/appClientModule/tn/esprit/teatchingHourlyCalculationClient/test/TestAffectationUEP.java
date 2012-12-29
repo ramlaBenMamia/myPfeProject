@@ -32,7 +32,7 @@ public class TestAffectationUEP {
 
 			Enseignant enseignant = gestionEnseignantRemote.findByMat("mat02");
 			Unite unite = gestionUniteRemote.findByRef(1);
-			Promotion promotion = gestionPromotionRemote.findById(1);
+			Promotion promotion = gestionPromotionRemote.findById(2);
 
 			affectationUniteEnseignantPromotionRemote.createAffectationEPU(
 					enseignant, promotion, unite);
