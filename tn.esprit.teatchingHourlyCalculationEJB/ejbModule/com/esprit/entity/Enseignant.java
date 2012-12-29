@@ -4,12 +4,14 @@ import java.io.Serializable;
 import java.util.Date;
 import java.util.List;
 
-import javax.persistence.*;
+import javax.persistence.CascadeType;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 
 import org.hibernate.annotations.LazyCollection;
 import org.hibernate.annotations.LazyCollectionOption;
-
-import com.esprit.entity.ProjetEnseignant;
 
 //import org.hibernate.annotations.LazyCollection;
 //import org.hibernate.annotations.LazyCollectionOption;
@@ -41,21 +43,19 @@ public class Enseignant implements Serializable {
 	private int privilege;
 
 	private List<ProjetEnseignant> projetEnseignants;
-	private List<ActiviteEnseignant> activiteEnseignants;
 	private List<UniteEnseignantPromotion> uniteEnseignantPromotions;
 
-	
+	private List<ActiviteEnseignant> activiteEnseignants;
+
 	private List<Projet> projets;
 	private Projet projet;
-	
+
 	private List<Activite> activites;
 	private Activite activite;
-	
+
 	private Unite unite;
 	private List<Unite> unites;
 
-
-	
 	private static final long serialVersionUID = 1L;
 
 	public Enseignant() {
@@ -164,8 +164,6 @@ public class Enseignant implements Serializable {
 		this.activiteEnseignants = activiteEnseignants;
 	}
 
-	
-	
 	public int getCodePostal() {
 		return codePostal;
 	}
@@ -198,10 +196,8 @@ public class Enseignant implements Serializable {
 		this.ville = ville;
 	}
 
-	
-	//******************* affichage par activite ********
-	
-	
+	// ******************* affichage par activite ********
+
 	@OneToMany(mappedBy = "enseignant", cascade = CascadeType.ALL)
 	@LazyCollection(LazyCollectionOption.FALSE)
 	public List<Activite> getActivites() {
@@ -211,7 +207,7 @@ public class Enseignant implements Serializable {
 	public void setActivites(List<Activite> activites) {
 		this.activites = activites;
 	}
-	
+
 	@ManyToOne
 	public Activite getActivite() {
 		return activite;
@@ -220,10 +216,9 @@ public class Enseignant implements Serializable {
 	public void setActivite(Activite activite) {
 		this.activite = activite;
 	}
-	
-	
-	//********** affichage par projet  **************
-	
+
+	// ********** affichage par projet **************
+
 	@OneToMany(mappedBy = "enseignant", cascade = CascadeType.ALL)
 	@LazyCollection(LazyCollectionOption.FALSE)
 	public List<Projet> getProjets() {
@@ -242,9 +237,8 @@ public class Enseignant implements Serializable {
 	public void setProjet(Projet projet) {
 		this.projet = projet;
 	}
-	
-	
-	//********* affichage par unite  ***************
+
+	// ********* affichage par unite ***************
 
 	@ManyToOne
 	public Unite getUnite() {
@@ -275,6 +269,6 @@ public class Enseignant implements Serializable {
 			List<UniteEnseignantPromotion> uniteEnseignantPromotions) {
 		this.uniteEnseignantPromotions = uniteEnseignantPromotions;
 	}
-	
-	
+
+
 }

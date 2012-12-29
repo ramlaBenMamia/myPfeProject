@@ -36,10 +36,11 @@ public class TestAffectation {
 			
 			Enseignant enseignant = gestionEnseignantRemote.findByMat("mat02");
 			Projet projet = gestionProjetRemote.findByRef(1);
+			
 			Activite activite=gestionActiviteRemote.findByRef(1);
 			
 			gestionAffActiviteEnseigRemote.createAffectationActivite(1, 11, 24, enseignant, activite);
-			gestionAffProjEnseigRemote.createAffectation(1, 11, 22, enseignant,
+			gestionAffProjEnseigRemote.createAffectation(1, 11, 22,null,enseignant,
 					projet);
 
 		} catch (Exception e) {

@@ -130,6 +130,8 @@ public class Activite implements Serializable {
 	public void setEnseignant(Enseignant enseignant) {
 		this.enseignant = enseignant;
 	}
+	
+	
 
 	
 }

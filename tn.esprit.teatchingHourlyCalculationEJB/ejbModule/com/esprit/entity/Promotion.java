@@ -26,9 +26,8 @@ public class Promotion implements Serializable {
 	private Unite unite;
 	private List<Unite> unites;
 	private List<UniteEnseignantPromotion> uniteEnseignantPromotions;
-	
-	private static final long serialVersionUID = 1L;
 
+	private static final long serialVersionUID = 1L;
 
 	private List<ChargeHoraireActivite> chargeHoraireActivites;
 	private List<ChargeHoraireProjet> chargeHoraireProjets;
@@ -107,5 +106,5 @@ public class Promotion implements Serializable {
 		this.unites = unites;
 	}
 
-	
+
 }

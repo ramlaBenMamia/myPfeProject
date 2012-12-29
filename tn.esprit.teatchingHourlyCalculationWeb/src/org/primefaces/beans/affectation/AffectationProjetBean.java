@@ -1,6 +1,7 @@
 package org.primefaces.beans.affectation;
 
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 import javax.ejb.EJB;
@@ -22,10 +23,10 @@ public class AffectationProjetBean {
 	// the model
 	private List<Projet> projets = new ArrayList<Projet>();
 	private List<Enseignant> enseignants = new ArrayList<Enseignant>();
-	private int hour;
+	private Integer hour;
 	private int semester;
 	private int periode;
-
+	private Date dateAffectation;
 	private String nameEnseignant;
 	private String nomEnseignantSelect;
 
@@ -34,7 +35,7 @@ public class AffectationProjetBean {
 
 	private List<SelectItem> selectItemsEnseignant;
 	private String matSelectedEnseignant;
-	
+
 	private int chargeHoraireParEnseignant;
 
 	// ************************ affichage par enseignant ********************
@@ -55,8 +56,8 @@ public class AffectationProjetBean {
 		Enseignant enseignantTMP = gestionEnseignantLocal
 				.findByMat(matSelectedEnseignant);
 		System.out.println("good luck ramla ...");
-		gestionAffectationProjetEnseignantLocal.createAffectation(semester, periode,
-				hour, enseignantTMP, projetTMP);
+		gestionAffectationProjetEnseignantLocal.createAffectation(semester,
+				periode, hour, dateAffectation, enseignantTMP, projetTMP);
 		nameEnseignant = enseignantTMP.getNom();
 
 		return "ok";
@@ -103,7 +104,7 @@ public class AffectationProjetBean {
 	public List<SelectItem> getSelectItemsProjects() {
 		selectItemsProjects = new ArrayList<SelectItem>();
 		projets = gestionProjetLocal.findAll();
-		selectItemsProjects.add(new SelectItem(-1, "please select one ..."));
+		selectItemsProjects.add(new SelectItem(-1, "choisir un element..."));
 		for (Projet p : projets) {
 			selectItemsProjects.add(new SelectItem(p.getRefProjet(), p
 					.getLibelleProjet()));
@@ -127,7 +128,7 @@ public class AffectationProjetBean {
 	public List<SelectItem> getSelectItemsEnseignant() {
 		selectItemsEnseignant = new ArrayList<SelectItem>();
 		enseignants = gestionEnseignantLocal.findAll();
-		selectItemsEnseignant.add(new SelectItem(-1, "please"));
+		selectItemsEnseignant.add(new SelectItem(-1, "choisir un element..."));
 		for (Enseignant e : enseignants) {
 			selectItemsEnseignant.add(new SelectItem(e.getMatriculeEnseigant(),
 					e.getNom()));
@@ -148,11 +149,19 @@ public class AffectationProjetBean {
 		this.matSelectedEnseignant = matSelectedEnseignant;
 	}
 
-	public int getHour() {
+	public Date getDateAffectation() {
+		return dateAffectation;
+	}
+
+	public void setDateAffectation(Date dateAffectation) {
+		this.dateAffectation = dateAffectation;
+	}
+
+	public Integer getHour() {
 		return hour;
 	}
 
-	public void setHour(int hour) {
+	public void setHour(Integer hour) {
 		this.hour = hour;
 	}
 

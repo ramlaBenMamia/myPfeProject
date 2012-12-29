@@ -5,7 +5,7 @@
 	xmlns:ui="http://java.sun.com/jsf/facelets"
 	xmlns:p="http://primefaces.org/ui">
 <head>
-<title>AffectationDesProjets</title>
+<title>AjouterEnseignantUnitePromotion</title>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <meta name="title" content="Web site" />
 <meta name="description" content="Site description here" />
@@ -132,80 +132,57 @@
 									<h:body>
 										<f:view>
 											<h:form id="form">
-												<p:panel>
-													<p:fieldset
-														legend="Affectation des Projets aux Enseignants">
+
+
+
+												<p:scrollPanel style="height:500px;width:600px">
+
+													<p:panel id="panel"
+														header="Esprit----Ajouter une nouvelle Unite"
+														style="height:500px;width:600px">
+
+
+														<h:panelGrid columns="2">
+
+															<h:outputText value="Enseignant :" />
+															<p:selectOneMenu
+																value="#{affectationUniteEnseignants.selectedEnseignantId}">
+																<f:selectItems
+																	value="#{affectationUniteEnseignants.itemsEnseignants}" />
+															</p:selectOneMenu>
+
+															<h:outputText value="Unite :" />
+															<p:selectOneMenu
+																value="#{affectationUniteEnseignants.idSelectedUnite}">
+																<f:selectItems
+																	value="#{affectationUniteEnseignants.itemsUnites}" />
+															</p:selectOneMenu>
+
+															<h:outputText value="Promotion :" />
+															<p:selectOneMenu
+																value="#{affectationUniteEnseignants.selectedPromotionId}">
+																<f:selectItems
+																	value="#{affectationUniteEnseignants.itemsPromotions}" />
+															</p:selectOneMenu>
+
+														</h:panelGrid>
+
+
 														<br />
-														<h6>Veuillez saisir les champs suivants :</h6>
-
 														<br />
-														<center>
-															<h:panelGrid columns="2">
-																<h:outputLabel for="nomp" value="Nom du Projet : " />
-																<p:selectOneMenu
-																	value="#{affectationProjetBean.idSelectedProject}"
-																	id="nomp">
-																	<f:selectItems
-																		value="#{affectationProjetBean.selectItemsProjects}" />
-																</p:selectOneMenu>
-																<h:outputLabel for="nome" value="Nom de l'Enseignant : " />
-																<p:selectOneMenu
-																	value="#{affectationProjetBean.matSelectedEnseignant}"
-																	id="nome">
-																	<f:selectItems
-																		value="#{affectationProjetBean.selectItemsEnseignant}" />
-																</p:selectOneMenu>
+														<br />
 
-																<h:outputLabel value="Volume Horaire : " />
-																<p:keyboard value="#{affectationProjetBean.hour}"
-																	keypadOnly="true" maxlength="42" showMode="button" />
-																<h:outputLabel value="Semester : " />
-																<p:selectOneRadio id="options"
-																	value="#{affectationProjetBean.semester}">
-																	<f:selectItem itemLabel="numero 1" itemValue="1" />
-																	<f:selectItem itemLabel="numero 2" itemValue="2" />
-																</p:selectOneRadio>
-																<h:outputLabel value="Periode : " />
-																<p:selectOneRadio id="options1"
-																	value="#{affectationProjetBean.periode}">
-																	<f:selectItem itemLabel="numero 1" itemValue="1" />
-																	<f:selectItem itemLabel="numero 2" itemValue="2" />
-																</p:selectOneRadio>
+														<p:commandButton value="Valider" update="panel" id="ajax"
+															actionListener="#{affectationUniteEnseignants.doAdd}"
+															onclick="dlg.show();" />
+														<p:commandButton value="Reset" type="reset" />
 
-																<h:outputLabel value="Date d'affectation" />
-
-																<p:calendar
-																	value="#{affectationProjetBean.dateAffectation}"
-																	id="popupButtonCal" showOn="button" />
-															</h:panelGrid>
-														</center>
-														<p:commandButton action="#{affectationProjetBean.doAdd}"
-															value="Affecter" update="display"
-															oncomplete="dialog.show()" />
+													</p:panel>
 
 
-														<p:dialog widgetVar="dialog" showEffect="fade"
-															hideEffect="fade" header="Values">
-															<h:panelGrid columns="2" id="display" cellpadding="5">
-																<h:outputText value="volume horaire: " />
-																<h:outputText value="#{affectationProjetBean.hour}" />
-
-																<h:outputText value="enseignant: " />
-																<h:outputText
-																	value="#{affectationProjetBean.nameEnseignant}" />
+												</p:scrollPanel>
 
 
-															</h:panelGrid>
-
-														</p:dialog>
-													</p:fieldset>
-												</p:panel>
-												<p>
-													<a style="" href="#">Supprimer une Affectation</a><br /> <a
-														href="#">Visualer la Charge Horaire par Enseignant</a>
-
-
-												</p>
 											</h:form>
 										</f:view>
 									</h:body>

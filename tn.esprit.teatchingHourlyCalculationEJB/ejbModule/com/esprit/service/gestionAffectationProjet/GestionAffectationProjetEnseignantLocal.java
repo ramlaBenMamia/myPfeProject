@@ -1,5 +1,6 @@
 package com.esprit.service.gestionAffectationProjet;
 
+import java.util.Date;
 import java.util.List;
 
 import javax.ejb.Local;
@@ -47,6 +48,6 @@ public interface GestionAffectationProjetEnseignantLocal {
 
 		public Projet getProjetByRef(int refProjet);
 
-		public void createAffectation(int semestre, int periode, int volumeHoraire,
+		public void createAffectation(int semestre, int periode, int volumeHoraire,Date dateAffectation,
 				Enseignant enseignant, Projet projet);
 }

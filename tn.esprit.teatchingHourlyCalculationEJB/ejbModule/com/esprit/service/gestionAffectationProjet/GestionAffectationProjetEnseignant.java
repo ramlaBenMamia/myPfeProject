@@ -1,5 +1,6 @@
 package com.esprit.service.gestionAffectationProjet;
 
+import java.util.Date;
 import java.util.List;
 import java.util.logging.Level;
 
@@ -119,10 +120,10 @@ public class GestionAffectationProjetEnseignant implements
 	}
 
 	@Override
-	public void createAffectation(int semestre, int periode, int volumeHoraire,
+	public void createAffectation(int semestre, int periode, int volumeHoraire,Date dateAffectation,
 			Enseignant enseignant, Projet projet) {
 		ProjetEnseignant projetEnseignant = new ProjetEnseignant(semestre,
-				periode, volumeHoraire, em.merge(enseignant), em.merge(projet));
+				periode, volumeHoraire,dateAffectation, em.merge(enseignant), em.merge(projet));
 		em.persist(projetEnseignant);
 
 		ChargeHoraireProjet chargeHoraireProjet = new ChargeHoraireProjet();

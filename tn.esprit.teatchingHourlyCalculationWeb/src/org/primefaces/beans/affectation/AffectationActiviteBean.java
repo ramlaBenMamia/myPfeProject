@@ -69,6 +69,7 @@ public class AffectationActiviteBean {
 		System.out.println("good luck ramla ...");
 		gestionAffectationActiviteEnseignantLocal.createAffectationActivite(
 				semester, periode, hour, enseignantTMP, activiteTMP);
+		
 		nameEnseignant = enseignantTMP.getNom();
 
 		return "ok";

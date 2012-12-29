@@ -1,6 +1,7 @@
 package com.esprit.entity;
 
 import java.io.Serializable;
+import java.util.Date;
 
 import javax.persistence.EmbeddedId;
 import javax.persistence.Entity;
@@ -20,6 +21,7 @@ public class ProjetEnseignant implements Serializable {
 	private int periode;
 	private String nom;
 	private int volumeHoraire;
+	private Date dateAffectation;
 	
 	private Enseignant enseignant;
 	private Projet projet;
@@ -91,7 +93,7 @@ public class ProjetEnseignant implements Serializable {
 		this.projetEnseignantPK = projetEnseignantPK;
 	}
 
-	public ProjetEnseignant(int semestre, int periode, int volumeHoraire,
+	public ProjetEnseignant(int semestre, int periode, int volumeHoraire,Date dateAffectation,
 			Enseignant enseignant, Projet projet) {
 		super();
 		this.semestre = semestre;
@@ -99,8 +101,17 @@ public class ProjetEnseignant implements Serializable {
 		this.volumeHoraire = volumeHoraire;
 		this.enseignant = enseignant;
 		this.projet = projet;
+		this.dateAffectation=dateAffectation;
 		this.projetEnseignantPK = new ProjetEnseignantPK(projet.getRefProjet(),
 				enseignant.getMatriculeEnseigant());
+	}
+
+	public Date getDateAffectation() {
+		return dateAffectation;
+	}
+
+	public void setDateAffectation(Date dateAffectation) {
+		this.dateAffectation = dateAffectation;
 	}
 
 
