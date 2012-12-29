@@ -9,8 +9,6 @@ import javax.faces.bean.SessionScoped;
 import javax.faces.model.SelectItem;
 
 import com.esprit.entity.Enseignant;
-import com.esprit.entity.Projet;
-import com.esprit.entity.ProjetEnseignant;
 import com.esprit.entity.Promotion;
 import com.esprit.entity.Unite;
 import com.esprit.entity.UniteEnseignantPromotion;

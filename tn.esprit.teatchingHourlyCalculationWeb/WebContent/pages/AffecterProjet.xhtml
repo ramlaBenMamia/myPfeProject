@@ -168,6 +168,14 @@
 																	<f:selectItem itemLabel="semester 2" itemValue="2" />
 
 																</p:selectOneRadio>
+																
+																<h:outputText value="periode" />
+															<p:selectOneRadio id="options1"
+																value="#{affectationProjetBean.periode}">
+																<f:selectItem itemLabel="semester 1" itemValue="1" />
+																<f:selectItem itemLabel="semester 2" itemValue="2" />
+
+															</p:selectOneRadio>
 
 															</h:panelGrid>
 														<p:commandButton action="#{affectationProjetBean.doAdd}"

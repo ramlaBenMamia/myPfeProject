@@ -15,11 +15,13 @@ import com.esprit.entity.ActiviteEnseignant;
 import com.esprit.entity.Enseignant;
 import com.esprit.entity.Projet;
 import com.esprit.entity.ProjetEnseignant;
+import com.esprit.entity.Promotion;
 import com.esprit.service.gestionActivite.GestionActiviteLocal;
 import com.esprit.service.gestionAffectationActivite.GestionAffectationActiviteEnseignantLocal;
 import com.esprit.service.gestionAffectationProjet.GestionAffectationProjetEnseignantLocal;
 import com.esprit.service.gestionEnseignant.GestionEnseignantLocal;
 import com.esprit.service.gestionProjet.GestionProjetLocal;
+import com.esprit.service.gestionPromotion.GestionPromotionLocal;
 
 @ManagedBean
 @SessionScoped
@@ -28,6 +30,7 @@ public class AffectationActiviteBean {
 	private List<Enseignant> enseignants = new ArrayList<Enseignant>();
 	private int hour;
 	private int semester;
+	private int periode;
 	private String nameEnseignant;
 	private String nomEnseignantSelect;
 
@@ -38,7 +41,10 @@ public class AffectationActiviteBean {
 	private String matSelectedEnseignant;
 	private int chargeHoraireParEnseignant;
 
-	private int i = 0;
+	private List<SelectItem> itemsPromotions;
+	private int selectedPromotionId;
+	private Promotion promotion = new Promotion();
+	private List<Promotion> promotions = new ArrayList<Promotion>();
 
 	// ************************ affichage par enseignant ********************
 	private List<ActiviteEnseignant> listeParEnseignantActivites;
@@ -52,6 +58,8 @@ public class AffectationActiviteBean {
 	private GestionAffectationActiviteEnseignantLocal gestionAffectationActiviteEnseignantLocal;
 	@EJB
 	private GestionChargeHoraireProjetLocal gestionChargeHoraireProjetLocal;
+	@EJB
+	private GestionPromotionLocal gestionPromotionLocal;
 
 	public String doAdd() {
 		Activite activiteTMP = gestionActiviteLocal
@@ -60,7 +68,7 @@ public class AffectationActiviteBean {
 				.findByMat(matSelectedEnseignant);
 		System.out.println("good luck ramla ...");
 		gestionAffectationActiviteEnseignantLocal.createAffectationActivite(
-				semester, 1, hour, enseignantTMP, activiteTMP);
+				semester, periode, hour, enseignantTMP, activiteTMP);
 		nameEnseignant = enseignantTMP.getNom();
 
 		return "ok";
@@ -74,7 +82,6 @@ public class AffectationActiviteBean {
 
 		return "";
 	}
-	
 
 	public String doCalculChargeHoraire() {
 		int chargeHoraireParEnseignantActivite = gestionEnseignantLocal
@@ -84,9 +91,18 @@ public class AffectationActiviteBean {
 	}
 
 	public String TotalChargeHoraire() {
-		
 
 		return "";
+	}
+
+	public List<SelectItem> getItemsPromotions() {
+		itemsPromotions = new ArrayList<SelectItem>();
+		promotions = gestionPromotionLocal.findAll();
+		itemsPromotions.add(new SelectItem(-1, "select one..."));
+		for (Promotion s : promotions)
+			itemsPromotions.add(new SelectItem(s.getIdPromotion(), s
+					.getPromotion()));
+		return itemsPromotions;
 	}
 
 	public List<Activite> getActivites() {
@@ -225,6 +241,22 @@ public class AffectationActiviteBean {
 
 	public void setChargeHoraireParEnseignant(int chargeHoraireParEnseignant) {
 		this.chargeHoraireParEnseignant = chargeHoraireParEnseignant;
+	}
+
+	public int getSelectedPromotionId() {
+		return selectedPromotionId;
+	}
+
+	public void setSelectedPromotionId(int selectedPromotionId) {
+		this.selectedPromotionId = selectedPromotionId;
+	}
+
+	public int getPeriode() {
+		return periode;
+	}
+
+	public void setPeriode(int periode) {
+		this.periode = periode;
 	}
 
 }

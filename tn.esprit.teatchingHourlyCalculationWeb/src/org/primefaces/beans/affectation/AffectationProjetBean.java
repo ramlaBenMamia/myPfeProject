@@ -24,6 +24,8 @@ public class AffectationProjetBean {
 	private List<Enseignant> enseignants = new ArrayList<Enseignant>();
 	private int hour;
 	private int semester;
+	private int periode;
+
 	private String nameEnseignant;
 	private String nomEnseignantSelect;
 
@@ -53,7 +55,7 @@ public class AffectationProjetBean {
 		Enseignant enseignantTMP = gestionEnseignantLocal
 				.findByMat(matSelectedEnseignant);
 		System.out.println("good luck ramla ...");
-		gestionAffectationProjetEnseignantLocal.createAffectation(semester, 1,
+		gestionAffectationProjetEnseignantLocal.createAffectation(semester, periode,
 				hour, enseignantTMP, projetTMP);
 		nameEnseignant = enseignantTMP.getNom();
 
@@ -217,6 +219,14 @@ public class AffectationProjetBean {
 
 	public void setChargeHoraireParEnseignant(int chargeHoraireParEnseignant) {
 		this.chargeHoraireParEnseignant = chargeHoraireParEnseignant;
+	}
+
+	public int getPeriode() {
+		return periode;
+	}
+
+	public void setPeriode(int periode) {
+		this.periode = periode;
 	}
 
 }

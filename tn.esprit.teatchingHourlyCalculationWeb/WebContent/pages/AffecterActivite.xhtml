@@ -138,38 +138,45 @@
 
 														<p:messages id="messages" showDetail="true"
 															autoUpdate="true" />
-															<h:panelGrid columns="2">
+															
+														<h:panelGrid columns="2">
 
 
-																	<h:outputText value="activite" />
-																	<p:selectOneMenu
-																		value="#{affectationActiviteBean.idSelectedActivite}">
-																		<f:selectItems
-																			value="#{affectationActiviteBean.selectItemsActivites}" />
-																	</p:selectOneMenu>
+															<h:outputText value="activite" />
+															<p:selectOneMenu
+																value="#{affectationActiviteBean.idSelectedActivite}">
+																<f:selectItems
+																	value="#{affectationActiviteBean.selectItemsActivites}" />
+															</p:selectOneMenu>
 
-																<h:outputText value="Enseignant" />
-																<p:selectOneMenu
-																	value="#{affectationActiviteBean.matSelectedEnseignant}">
-																	<f:selectItems
-																		value="#{affectationActiviteBean.selectItemsEnseignant}" />
-																</p:selectOneMenu>
-															</h:panelGrid>
+															<h:outputText value="Enseignant" />
+															<p:selectOneMenu
+																value="#{affectationActiviteBean.matSelectedEnseignant}">
+																<f:selectItems
+																	value="#{affectationActiviteBean.selectItemsEnseignant}" />
+															</p:selectOneMenu>
+														</h:panelGrid>
 
 
-															<h:panelGrid columns="2">
-																<h:outputText value="hours" />
-																<p:keyboard value="#{affectationActiviteBean.hour}"
-																	showMode="button" keypadOnly="true" />
-																<h:outputText value="semester" />
-																<p:selectOneRadio id="options"
-																	value="#{affectationActiviteBean.semester}">
-																	<f:selectItem itemLabel="semester 1" itemValue="1" />
-																	<f:selectItem itemLabel="semester 2" itemValue="2" />
+														<h:panelGrid columns="2">
+															<h:outputText value="hours" />
+															<p:keyboard value="#{affectationActiviteBean.hour}"
+																showMode="button" keypadOnly="true" />
+															<h:outputText value="semester" />
+															<p:selectOneRadio id="options"
+																value="#{affectationActiviteBean.semester}">
+																<f:selectItem itemLabel="semester 1" itemValue="1" />
+																<f:selectItem itemLabel="semester 2" itemValue="2" />
 
-																</p:selectOneRadio>
+															</p:selectOneRadio>
+															<h:outputText value="periode" />
+															<p:selectOneRadio id="options1"
+																value="#{affectationActiviteBean.periode}">
+																<f:selectItem itemLabel="semester 1" itemValue="1" />
+																<f:selectItem itemLabel="semester 2" itemValue="2" />
 
-															</h:panelGrid>
+															</p:selectOneRadio>
+														</h:panelGrid>
 														<p:commandButton action="#{affectationActiviteBean.doAdd}"
 															value="valider" update="display"
 															oncomplete="dialog.show()" />
@@ -182,7 +189,8 @@
 																<h:outputText value="#{affectationActiviteBean.hour}" />
 
 																<h:outputText value="enseignant: " />
-																<h:outputText value="#{affectationActiviteBean.nameEnseignant}" />
+																<h:outputText
+																	value="#{affectationActiviteBean.nameEnseignant}" />
 
 
 															</h:panelGrid>
