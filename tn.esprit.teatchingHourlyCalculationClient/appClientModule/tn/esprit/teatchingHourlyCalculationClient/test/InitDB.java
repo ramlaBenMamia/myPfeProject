@@ -7,10 +7,12 @@ import com.esprit.entity.Activite;
 import com.esprit.entity.Enseignant;
 import com.esprit.entity.Locale;
 import com.esprit.entity.Projet;
+import com.esprit.entity.Unite;
 import com.esprit.service.gestionActivite.GestionActiviteRemote;
 import com.esprit.service.gestionEnseignant.GestionEnseignantRemote;
 import com.esprit.service.gestionLocal.GestionLocaleRemote;
 import com.esprit.service.gestionProjet.GestionProjetRemote;
+import com.esprit.service.gestionUnite.GestionUniteRemote;
 
 public class InitDB {
 
@@ -30,6 +32,15 @@ public class InitDB {
 			GestionActiviteRemote gestionActiviteRemote = (GestionActiviteRemote) context
 					.lookup("tn.esprit.teatchingHourlyCalculation/tn.esprit.teatchingHourlyCalculationEJB/GestionActivite!com.esprit.service.gestionActivite.GestionActiviteRemote");
 
+			GestionUniteRemote gestionUniteRemote = (GestionUniteRemote) context
+					.lookup("tn.esprit.teatchingHourlyCalculation/tn.esprit.teatchingHourlyCalculationEJB/GestionUnite!com.esprit.service.gestionUnite.GestionUniteRemote");
+
+			Unite unite=new Unite();
+			unite.setNomUnite("mobile");
+			
+			gestionUniteRemote.save(unite);
+			
+			
 			Enseignant enseignant = new Enseignant();
 			enseignant.setMatriculeEnseigant("mat02");
 			enseignant.setNom("ramla");
@@ -53,8 +64,7 @@ public class InitDB {
 			activite.setDescription("description");
 
 			gestionActiviteRemote.addActivite(activite);
-			
-			
+
 			Locale locale = new Locale();
 			locale.setLibelleLocal("D12");
 

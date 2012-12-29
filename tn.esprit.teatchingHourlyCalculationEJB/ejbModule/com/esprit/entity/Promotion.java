@@ -10,6 +10,9 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 
+import org.hibernate.annotations.LazyCollection;
+import org.hibernate.annotations.LazyCollectionOption;
+
 /**
  * Entity implementation class for Entity: Promotion
  * 
@@ -19,13 +22,15 @@ public class Promotion implements Serializable {
 
 	private int idPromotion;
 	private String promotion;
+	
+	private List<UniteEnseignantPromotion> uniteEnseignantPromotions;
+	
 	private static final long serialVersionUID = 1L;
-	private List<Semestre> semestres;
+
 
 	private List<ChargeHoraireActivite> chargeHoraireActivites;
 	private List<ChargeHoraireProjet> chargeHoraireProjets;
 
-	// private List<ChargeEnseignement> chargeEnseignements ;
 	public Promotion() {
 		super();
 	}
@@ -40,24 +45,6 @@ public class Promotion implements Serializable {
 		this.idPromotion = idPromotion;
 	}
 
-	public void setSemestres(List<Semestre> semestres) {
-		this.semestres = semestres;
-	}
-
-	@OneToMany(mappedBy = "promotion", cascade = CascadeType.ALL)
-	public List<Semestre> getSemestres() {
-		return semestres;
-
-	}
-
-	// @OneToMany(mappedBy="promotion",cascade=CascadeType.ALL)
-	// public List<ChargeEnseignement> getChargeEnseignements() {
-	// return chargeEnseignements;
-	// }
-	// public void setChargeEnseignements(List<ChargeEnseignement>
-	// chargeEnseignements) {
-	// this.chargeEnseignements = chargeEnseignements;
-	// }
 	public String getPromotion() {
 		return promotion;
 	}
@@ -66,7 +53,8 @@ public class Promotion implements Serializable {
 		this.promotion = promotion;
 	}
 
-	@OneToMany(mappedBy = "promotion")
+	@OneToMany(mappedBy = "promotion", cascade = CascadeType.ALL)
+	@LazyCollection(LazyCollectionOption.FALSE)
 	public List<ChargeHoraireActivite> getChargeHoraireActivites() {
 		return chargeHoraireActivites;
 	}
@@ -76,7 +64,8 @@ public class Promotion implements Serializable {
 		this.chargeHoraireActivites = chargeHoraireActivites;
 	}
 
-	@OneToMany(mappedBy = "promotion")
+	@OneToMany(mappedBy = "promotion", cascade = CascadeType.ALL)
+	@LazyCollection(LazyCollectionOption.FALSE)
 	public List<ChargeHoraireProjet> getChargeHoraireProjets() {
 		return chargeHoraireProjets;
 	}
@@ -85,4 +74,17 @@ public class Promotion implements Serializable {
 			List<ChargeHoraireProjet> chargeHoraireProjets) {
 		this.chargeHoraireProjets = chargeHoraireProjets;
 	}
+
+	@OneToMany(mappedBy = "promotion", cascade = CascadeType.ALL)
+	@LazyCollection(LazyCollectionOption.FALSE)
+	public List<UniteEnseignantPromotion> getUniteEnseignantPromotions() {
+		return uniteEnseignantPromotions;
+	}
+
+	public void setUniteEnseignantPromotions(
+			List<UniteEnseignantPromotion> uniteEnseignantPromotions) {
+		this.uniteEnseignantPromotions = uniteEnseignantPromotions;
+	}
+
+	
 }

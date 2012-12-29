@@ -1,4 +1,4 @@
-package com.esprit.service.gestionParametrage;
+package com.esprit.service.gestionPromotion;
 
 import java.util.List;
 

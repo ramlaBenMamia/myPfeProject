@@ -1,35 +1,38 @@
 package com.esprit.entity;
+
 import java.io.Serializable;
 
 import javax.persistence.Embeddable;
 
-/**
- * Entity implementation class for Entity: ProjetEnseignant
- *
- */
-
 @Embeddable
-public class ProjetEnseignantPK implements Serializable {
+public class UniteEnseignantPromotionPK implements Serializable{
 	
+	/**
+	 * 
+	 */
 	private static final long serialVersionUID = 1L;
-	private int refProjet;
-	private String matriculeEnseigant;	
+	private String matriculeEnseigant;
+	private int idPromotion;
+	private int RefUnite;
 
+	public UniteEnseignantPromotionPK() {
 
-	public ProjetEnseignantPK() {
 	}
-	
-	public ProjetEnseignantPK(int refProjet, String matriculeEnseigant) {
-		this.refProjet = refProjet;
+
+	public UniteEnseignantPromotionPK(String matriculeEnseigant,
+			int idPromotion, int refUnite) {
+		super();
 		this.matriculeEnseigant = matriculeEnseigant;
+		this.idPromotion = idPromotion;
+		this.RefUnite = refUnite;
 	}
 
-	public int getRefProjet() {
-		return refProjet;
+	public int getRefUnite() {
+		return RefUnite;
 	}
 
-	public void setRefProjet(int refProjet) {
-		this.refProjet = refProjet;
+	public void setRefUnite(int RefUnite) {
+		this.RefUnite = RefUnite;
 	}
 
 	public String getMatriculeEnseigant() {
@@ -40,21 +43,26 @@ public class ProjetEnseignantPK implements Serializable {
 		this.matriculeEnseigant = matriculeEnseigant;
 	}
 
+	public int getIdPromotion() {
+		return idPromotion;
+	}
 
+	public void setIdPromotion(int idPromotion) {
+		this.idPromotion = idPromotion;
+	}
 
 	@Override
 	public int hashCode() {
 		final int prime = 31;
 		int result = 1;
+		result = prime * result + idPromotion;
 		result = prime
 				* result
 				+ ((matriculeEnseigant == null) ? 0 : matriculeEnseigant
 						.hashCode());
-		result = prime * result + refProjet;
+		result = prime * result + RefUnite;
 		return result;
 	}
-
-
 
 	@Override
 	public boolean equals(Object obj) {
@@ -64,17 +72,18 @@ public class ProjetEnseignantPK implements Serializable {
 			return false;
 		if (getClass() != obj.getClass())
 			return false;
-		ProjetEnseignantPK other = (ProjetEnseignantPK) obj;
+		UniteEnseignantPromotionPK other = (UniteEnseignantPromotionPK) obj;
+		if (idPromotion != other.idPromotion)
+			return false;
 		if (matriculeEnseigant == null) {
 			if (other.matriculeEnseigant != null)
 				return false;
 		} else if (!matriculeEnseigant.equals(other.matriculeEnseigant))
 			return false;
-		if (refProjet != other.refProjet)
+		if (RefUnite != other.RefUnite)
 			return false;
 		return true;
 	}
 
-
-
+	
 }

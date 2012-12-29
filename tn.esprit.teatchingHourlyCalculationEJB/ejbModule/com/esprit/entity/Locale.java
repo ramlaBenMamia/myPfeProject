@@ -22,8 +22,6 @@ public class Locale implements Serializable {
 
 	private Integer id;
 	private String libelleLocal;
-//	private int nombreUnites;
-//	private int nombreActivites;
 	private List<Unite> unites;
 	private static final long serialVersionUID = 1L;
 

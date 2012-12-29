@@ -32,9 +32,8 @@ public class AffectationProjetBean {
 
 	private List<SelectItem> selectItemsEnseignant;
 	private String matSelectedEnseignant;
+	
 	private int chargeHoraireParEnseignant;
-
-	private int i = 0;
 
 	// ************************ affichage par enseignant ********************
 	private List<ProjetEnseignant> listeParEnseignants;

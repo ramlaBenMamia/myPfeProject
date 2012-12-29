@@ -1,4 +1,4 @@
-package com.esprit.service.gestionParametrage;
+package com.esprit.service.gestionPromotion;
 
 import java.util.List;
 
@@ -9,10 +9,13 @@ import com.esprit.entity.Promotion;
 @Local
 public interface GestionPromotionLocal {
 
-
 	public void addPromotion(Promotion P);
+
 	public List<Promotion> findAll();
+
 	Promotion findById(int id);
+
 	public List<Promotion> findByAnnee(String anneeUniv);
+
 	public void update(Promotion P);
 }

@@ -42,8 +42,8 @@ public class Enseignant implements Serializable {
 
 	private List<ProjetEnseignant> projetEnseignants;
 	private List<ActiviteEnseignant> activiteEnseignants;
+	private List<UniteEnseignantPromotion> uniteEnseignantPromotions;
 
-	private Unite unite;
 	
 	private List<Projet> projets;
 	private Projet projet;
@@ -51,6 +51,9 @@ public class Enseignant implements Serializable {
 	private List<Activite> activites;
 	private Activite activite;
 	
+	private Unite unite;
+	private List<Unite> unites;
+
 
 	
 	private static final long serialVersionUID = 1L;
@@ -196,20 +199,11 @@ public class Enseignant implements Serializable {
 	}
 
 	
-
-	@ManyToOne
-	public Unite getUnite() {
-		return unite;
-	}
-
-	public void setUnite(Unite unite) {
-		this.unite = unite;
-	}
-	
 	//******************* affichage par activite ********
 	
 	
-	@OneToMany(mappedBy = "enseignant")
+	@OneToMany(mappedBy = "enseignant", cascade = CascadeType.ALL)
+	@LazyCollection(LazyCollectionOption.FALSE)
 	public List<Activite> getActivites() {
 		return activites;
 	}
@@ -228,9 +222,10 @@ public class Enseignant implements Serializable {
 	}
 	
 	
-	//********** affichage par projet**************
+	//********** affichage par projet  **************
 	
-	@OneToMany(mappedBy = "enseignant")
+	@OneToMany(mappedBy = "enseignant", cascade = CascadeType.ALL)
+	@LazyCollection(LazyCollectionOption.FALSE)
 	public List<Projet> getProjets() {
 		return projets;
 	}
@@ -247,5 +242,39 @@ public class Enseignant implements Serializable {
 	public void setProjet(Projet projet) {
 		this.projet = projet;
 	}
+	
+	
+	//********* affichage par unite  ***************
 
+	@ManyToOne
+	public Unite getUnite() {
+		return unite;
+	}
+
+	public void setUnite(Unite unite) {
+		this.unite = unite;
+	}
+
+	@OneToMany(mappedBy = "enseignant", cascade = CascadeType.ALL)
+	@LazyCollection(LazyCollectionOption.FALSE)
+	public List<Unite> getUnites() {
+		return unites;
+	}
+
+	public void setUnites(List<Unite> unites) {
+		this.unites = unites;
+	}
+
+	@OneToMany(mappedBy = "enseignant", cascade = CascadeType.ALL)
+	@LazyCollection(LazyCollectionOption.FALSE)
+	public List<UniteEnseignantPromotion> getUniteEnseignantPromotions() {
+		return uniteEnseignantPromotions;
+	}
+
+	public void setUniteEnseignantPromotions(
+			List<UniteEnseignantPromotion> uniteEnseignantPromotions) {
+		this.uniteEnseignantPromotions = uniteEnseignantPromotions;
+	}
+	
+	
 }

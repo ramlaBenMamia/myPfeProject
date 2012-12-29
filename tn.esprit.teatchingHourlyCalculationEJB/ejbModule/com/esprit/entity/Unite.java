@@ -10,7 +10,6 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
-import javax.persistence.OneToOne;
 
 import org.hibernate.annotations.LazyCollection;
 import org.hibernate.annotations.LazyCollectionOption;
@@ -27,8 +26,12 @@ public class Unite implements Serializable {
 	private String nomChefProjet;
 	private String description;
 	private Locale locale;
+	
+	private List<UniteEnseignantPromotion> uniteEnseignantPromotions;
 
 	private List<Enseignant> enseignants;
+
+	private Enseignant enseignant;
 
 	private static final long serialVersionUID = 1L;
 
@@ -63,7 +66,6 @@ public class Unite implements Serializable {
 		this.locale = locale;
 	}
 
-
 	@OneToMany(mappedBy = "unite", cascade = CascadeType.ALL)
 	@LazyCollection(LazyCollectionOption.FALSE)
 	public List<Enseignant> getEnseignants() {
@@ -96,19 +98,33 @@ public class Unite implements Serializable {
 		super();
 		RefUnite = refUnite;
 		NomUnite = nomUnite;
-		
+
 		this.nomChefProjet = nomChefProjet;
 		this.description = description;
 		this.locale = locale;
 		this.enseignants = enseignants;
 	}
 
-	@Override
-	public String toString() {
-		return "Unite [RefUnite=" + RefUnite + ", NomUnite=" + NomUnite
-				+ ", nomChefProjet=" + nomChefProjet + ", description="
-				+ description + ", locale=" + locale + ", enseignants="
-				+ enseignants + "]";
+	
+
+	@ManyToOne
+	public Enseignant getEnseignant() {
+		return enseignant;
+	}
+
+	public void setEnseignant(Enseignant enseignant) {
+		this.enseignant = enseignant;
+	}
+
+	@OneToMany(mappedBy = "unite", cascade = CascadeType.ALL)
+	@LazyCollection(LazyCollectionOption.FALSE)
+	public List<UniteEnseignantPromotion> getUniteEnseignantPromotions() {
+		return uniteEnseignantPromotions;
+	}
+
+	public void setUniteEnseignantPromotions(
+			List<UniteEnseignantPromotion> uniteEnseignantPromotions) {
+		this.uniteEnseignantPromotions = uniteEnseignantPromotions;
 	}
 
 	

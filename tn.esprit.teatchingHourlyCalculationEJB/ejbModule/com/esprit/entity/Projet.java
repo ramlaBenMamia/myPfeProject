@@ -81,7 +81,8 @@ public class Projet implements Serializable {
 	
 	//********************* affichage par projet ******************
 	
-	@OneToMany(mappedBy = "projet")
+	@OneToMany(mappedBy = "projet", cascade = CascadeType.ALL)
+	@LazyCollection(LazyCollectionOption.FALSE)
 	public List<Enseignant> getEnseignants() {
 		return enseignants;
 	}

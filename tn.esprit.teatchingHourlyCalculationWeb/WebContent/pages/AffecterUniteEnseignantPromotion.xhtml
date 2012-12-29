@@ -5,7 +5,7 @@
 	xmlns:ui="http://java.sun.com/jsf/facelets"
 	xmlns:p="http://primefaces.org/ui">
 <head>
-<title>AjouterProjet</title>
+<title>AjouterEnseignantUnitePromotion</title>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <meta name="title" content="Web site" />
 <meta name="description" content="Site description here" />
@@ -135,43 +135,36 @@
 
 
 
-										<p:scrollPanel style="height:700px;width:700px">
+												<p:scrollPanel style="height:500px;width:600px">
 
-													<p:panel id="panel" style="height:1200px;width:700px">
-														<h3>Ajouter un nouveau projet :</h3>
-														<br />
+													<p:panel id="panel"
+														header="Esprit----Ajouter une nouvelle Unite"
+														style="height:500px;width:600px">
+
 
 														<h:panelGrid columns="2">
 
-															<h:outputLabel for="Projet"
-																value="Projet : *" />
-
-
+															<h:outputText value="Enseignant :" />
 															<p:selectOneMenu
-																value="#{projetBean.projet.libelleProjet}">
-																<f:selectItem itemLabel="choisir" itemValue="" />
-																<f:selectItem itemLabel="PFE"
-																	itemValue="PFE" />
-																<f:selectItem itemLabel="Mini Projet"
-																	itemValue="Mini Projet" />
-																<f:selectItem itemLabel="PFA" itemValue="PFA" />
-																<f:selectItem itemLabel="Projet"
-																	itemValue="Projet" />
+																value="#{affectationUniteEnseignants.selectedEnseignantId}">
+																<f:selectItems
+																	value="#{affectationUniteEnseignants.itemsEnseignants}" />
 															</p:selectOneMenu>
-															<h:outputLabel value=""/>
 
-															<br />
-															<h:outputLabel value=""/>
-															<br />
-															<h:outputLabel value=""/>
-															<br/>
-															<h:outputLabel value=""/>
-															<h:outputLabel for="description" value="Description :*"/>
-															<p:editor id="editor"
-																value="#{projetBean.projet.description}" width="400"/>
-															<h:outputLabel value=""/>
-															
-														    
+															<h:outputText value="Unite :" />
+															<p:selectOneMenu
+																value="#{affectationUniteEnseignants.idSelectedUnite}">
+																<f:selectItems
+																	value="#{affectationUniteEnseignants.itemsUnites}" />
+															</p:selectOneMenu>
+
+															<h:outputText value="Promotion :" />
+															<p:selectOneMenu
+																value="#{affectationUniteEnseignants.selectedPromotionId}">
+																<f:selectItems
+																	value="#{affectationUniteEnseignants.itemsPromotions}" />
+															</p:selectOneMenu>
+
 														</h:panelGrid>
 
 
@@ -180,16 +173,17 @@
 														<br />
 
 														<p:commandButton value="Valider" update="panel" id="ajax"
-															actionListener="#{projetBean.doAddProjet}" onclick="dlg.show();"/>
-															<p:commandButton value="Reset" type="reset" />
-															
-  												</p:panel>
-                          
-                          
-                          </p:scrollPanel>
- 
-      
-									</h:form>
+															actionListener="#{affectationUniteEnseignants.doAdd}"
+															onclick="dlg.show();" />
+														<p:commandButton value="Reset" type="reset" />
+
+													</p:panel>
+
+
+												</p:scrollPanel>
+
+
+											</h:form>
 										</f:view>
 									</h:body>
 									<!-- TO REMOVE -->

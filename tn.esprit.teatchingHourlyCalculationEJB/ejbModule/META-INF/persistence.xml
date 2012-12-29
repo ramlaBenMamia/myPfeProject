@@ -14,13 +14,13 @@
 		<class>com.esprit.entity.Projet</class>
 		<class>com.esprit.entity.ChefProjet</class>
 		<class>com.esprit.entity.ChargeHoraireProjet</class>
-		<class>com.esprit.entity.Semestre</class>
 		<class>com.esprit.entity.Promotion</class>
-		<class>com.esprit.entity.Periode</class>
 		<class>com.esprit.entity.SeuilCharge</class>
 		<class>com.esprit.entity.ProjetEnseignantPK</class>
 		<class>com.esprit.entity.Locale</class>
 		<class>com.esprit.entity.ActiviteEnseignantPK</class>
+		<class>com.esprit.entity.UniteEnseignantPromotion</class>
+		<class>com.esprit.entity.UniteEnseignantPromotionPK</class>
 		<properties>
 			<property name="hibernate.dialect" value="org.hibernate.dialect.MySQLInnoDBDialect" />
 			<property name="hibernate.hbm2ddl.auto" value="create" />
