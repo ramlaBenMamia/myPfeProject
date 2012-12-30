@@ -140,4 +140,13 @@ public class GestionAffectationProjetEnseignant implements
 				.setParameter("pnom", nom).getResultList();
 	}
 
+	@Override
+	public List<ProjetEnseignant> findAllByNomProjet(String nom) {
+		return em
+				.createQuery(
+						"select p from ProjetEnseignant p where p.projet.libelleProjet like :pnom ")
+				.setParameter("pnom", nom).getResultList();
+		
+	}
+
 }

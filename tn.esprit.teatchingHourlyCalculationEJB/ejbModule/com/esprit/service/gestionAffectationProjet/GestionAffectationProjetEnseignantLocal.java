@@ -35,10 +35,13 @@ public interface GestionAffectationProjetEnseignantLocal {
 	public List<ProjetEnseignant> findAllAffEnseig();
 	
 	public List<ProjetEnseignant> findAllByNomEnsei(String nom);
+	
+	public List<ProjetEnseignant> findAllByNomProjet(String nom);
+
 
 
 	
-	// *********** porteuse de donné**********
+	// *********** porteuse de données**********
 
 		public void createEnseignant(Enseignant enseignant);
 

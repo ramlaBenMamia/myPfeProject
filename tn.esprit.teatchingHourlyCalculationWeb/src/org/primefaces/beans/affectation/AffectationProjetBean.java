@@ -10,6 +10,7 @@ import javax.faces.bean.SessionScoped;
 import javax.faces.model.SelectItem;
 
 import com.esprit.domain.gestionEntites.calculChargeHoraire.GestionChargeHoraireProjetLocal;
+import com.esprit.entity.ActiviteEnseignant;
 import com.esprit.entity.Enseignant;
 import com.esprit.entity.Projet;
 import com.esprit.entity.ProjetEnseignant;
@@ -38,8 +39,14 @@ public class AffectationProjetBean {
 
 	private int chargeHoraireParEnseignant;
 
-	// ************************ affichage par enseignant ********************
+	// ************************ affichage projets par enseignant ********************
 	private List<ProjetEnseignant> listeParEnseignants;
+	
+	// *********************** affichage enseignants par projet ***************
+	private int idProjet;
+	private Enseignant enseignant;
+	private String nomProjetSelected;
+	private List<ProjetEnseignant> listeParProjetEnseignants;
 
 	// injection of the proxy
 	@EJB
@@ -68,6 +75,15 @@ public class AffectationProjetBean {
 				.getNom();
 		listeParEnseignants = gestionAffectationProjetEnseignantLocal
 				.findAllByNomEnsei(nomEnseignantSelect);
+
+		return "";
+	}
+	
+	public String updateDataTableProjets(){
+		nomProjetSelected = gestionProjetLocal.findById(idProjet)
+				.getLibelleProjet();
+		listeParProjetEnseignants = gestionAffectationProjetEnseignantLocal
+				.findAllByNomProjet(nomProjetSelected);
 
 		return "";
 	}
@@ -181,7 +197,7 @@ public class AffectationProjetBean {
 		this.nameEnseignant = nameEnseignant;
 	}
 
-	// ************* affichage par enseignant************
+	// ************* affichage projets par enseignant************
 	public List<ProjetEnseignant> getListeParEnseignants() {
 
 		return listeParEnseignants;
@@ -191,6 +207,51 @@ public class AffectationProjetBean {
 			List<ProjetEnseignant> listeParEnseignants) {
 		this.listeParEnseignants = listeParEnseignants;
 	}
+	
+	// ************* affichage enseignants par projet ************
+	public int getIdProjet() {
+		return idProjet;
+	}
+
+	public void setIdProjet(int idProjet) {
+		this.idProjet = idProjet;
+	}
+
+	public Enseignant getEnseignant() {
+		return enseignant;
+	}
+
+	public void setEnseignant(Enseignant enseignant) {
+		this.enseignant = enseignant;
+	}
+
+	public String getNomProjetSelected() {
+		return nomProjetSelected;
+	}
+
+	public void setNomProjetSelected(String nomProjetSelected) {
+		this.nomProjetSelected = nomProjetSelected;
+	}
+
+	public List<ProjetEnseignant> getListeParProjetEnseignants() {
+		return listeParProjetEnseignants;
+	}
+
+	public void setListeParProjetEnseignants(
+			List<ProjetEnseignant> listeParProjetEnseignants) {
+		this.listeParProjetEnseignants = listeParProjetEnseignants;
+	}
+
+	public String getNomEnseignantSelect() {
+		return nomEnseignantSelect;
+	}
+
+	public void setNomEnseignantSelect(String nomEnseignantSelect) {
+		this.nomEnseignantSelect = nomEnseignantSelect;
+	}
+	
+	//
+	
 
 	public void recupererdataModelProjet() {
 		List<Enseignant> listEnseignants;
@@ -212,13 +273,7 @@ public class AffectationProjetBean {
 
 	}
 
-	public String getNomEnseignantSelect() {
-		return nomEnseignantSelect;
-	}
-
-	public void setNomEnseignantSelect(String nomEnseignantSelect) {
-		this.nomEnseignantSelect = nomEnseignantSelect;
-	}
+	
 
 	public int getChargeHoraireParEnseignant() {
 		int chargeHoraireParEnseignant = gestionEnseignantLocal
