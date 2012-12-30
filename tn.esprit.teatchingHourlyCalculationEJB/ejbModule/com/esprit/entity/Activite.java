@@ -25,21 +25,24 @@ import org.hibernate.annotations.LazyCollectionOption;
 public class Activite implements Serializable {
 
 	private int refActivite;
-	
-	//***************** siminaire , club , conference , 
+
+	// ***************** siminaire , club , conference ,
 	private String libelleActivite;
-	
-	//*********** theme
+
+	// *********** theme
 	private String description;
 	private Date dateDebut;
 	private Date dateFin;
 	private String local;
 
 	private List<ActiviteEnseignant> activiteEnseignants;
-	
+
+	private List<Promotion> promotions;
+	private Promotion promotion;
+
+	// **************   affichage des enseignants par activite**************
 	private List<Enseignant> enseignants;
 	private Enseignant enseignant;
-
 
 	private static final long serialVersionUID = 1L;
 
@@ -56,9 +59,6 @@ public class Activite implements Serializable {
 	public void setRefActivite(int refActivite) {
 		this.refActivite = refActivite;
 	}
-
-	
-	
 
 	public String getDescription() {
 		return description;
@@ -113,7 +113,8 @@ public class Activite implements Serializable {
 		this.libelleActivite = libelleActivite;
 	}
 
-	@OneToMany(mappedBy = "activite")
+	@OneToMany(mappedBy = "activite", cascade = CascadeType.ALL)
+	@LazyCollection(LazyCollectionOption.FALSE)
 	public List<Enseignant> getEnseignants() {
 		return enseignants;
 	}
@@ -130,8 +131,26 @@ public class Activite implements Serializable {
 	public void setEnseignant(Enseignant enseignant) {
 		this.enseignant = enseignant;
 	}
-	
-	
 
-	
+	// ****************** affichage par activite ************************
+
+	@OneToMany(mappedBy = "activite", cascade = CascadeType.ALL)
+	@LazyCollection(LazyCollectionOption.FALSE)
+	public List<Promotion> getPromotions() {
+		return promotions;
+	}
+
+	public void setPromotions(List<Promotion> promotions) {
+		this.promotions = promotions;
+	}
+
+	@ManyToOne
+	public Promotion getPromotion() {
+		return promotion;
+	}
+
+	public void setPromotion(Promotion promotion) {
+		this.promotion = promotion;
+	}
+
 }

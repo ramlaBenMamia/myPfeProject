@@ -30,6 +30,10 @@ public interface GestionAffectationActiviteEnseignantLocal {
 	
 	public List<ActiviteEnseignant> findAllByNomEnsei(String nom);
 	
+	public List<ActiviteEnseignant> findAllByNomActivite(String libelleActivite);
+
+	
+	
 	//***************** proteuse de données ***********
 	public void createEnseignant(Enseignant enseignant);
 

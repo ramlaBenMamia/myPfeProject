@@ -15,6 +15,10 @@ public class ListeActiviteCtr {
 
 	@EJB
 	GestionActiviteLocal bean;
+	
+	//****************** afficher les détails d'un Activite ******************************
+	
+	
 
 	public Activite getActivite() {
 		return activite;

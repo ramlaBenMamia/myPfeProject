@@ -11,7 +11,6 @@ import javax.persistence.Query;
 import com.esprit.entity.Activite;
 import com.esprit.entity.ActiviteEnseignant;
 import com.esprit.entity.ChargeHoraireActivite;
-import com.esprit.entity.ChargeHoraireProjet;
 import com.esprit.entity.Enseignant;
 import com.log.LogUtil;
 
@@ -124,8 +123,8 @@ public class GestionAffectationActiviteEnseignant implements
 	}
 
 	@Override
-	public void createAffectationActivite(int semestre, int periode, int volumeHoraire,
-			Enseignant enseignant, Activite activite) {
+	public void createAffectationActivite(int semestre, int periode,
+			int volumeHoraire, Enseignant enseignant, Activite activite) {
 		ActiviteEnseignant activiteEnseignant = new ActiviteEnseignant(
 				semestre, periode, volumeHoraire,
 				entityManager.merge(enseignant), entityManager.merge(activite));
@@ -136,6 +135,14 @@ public class GestionAffectationActiviteEnseignant implements
 		chargeHoraireActivite.setEnseignant(enseignant);
 		entityManager.persist(chargeHoraireActivite);
 
+	}
+
+	@Override
+	public List<ActiviteEnseignant> findAllByNomActivite(String libelleActivite) {
+		return entityManager
+				.createQuery(
+						"select p from ActiviteEnseignant p where p.activite.libelleActivite like :pnom ")
+				.setParameter("pnom", libelleActivite).getResultList();
 	}
 
 }

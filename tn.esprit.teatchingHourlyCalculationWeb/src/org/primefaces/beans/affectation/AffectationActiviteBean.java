@@ -33,6 +33,12 @@ public class AffectationActiviteBean {
 	private int periode;
 	private String nameEnseignant;
 	private String nomEnseignantSelect;
+	
+	// ******************** affichage par activite *****************
+	private int idActivite;
+	private Enseignant enseignant;
+	private String nomActiviteSelected;
+	private List<ActiviteEnseignant> listeParActiviteEnseignants;
 
 	private List<SelectItem> selectItemsActivites;
 	private int idSelectedActivite;
@@ -83,6 +89,15 @@ public class AffectationActiviteBean {
 
 		return "";
 	}
+	
+	public String updateDataTableActivites(){
+		nomActiviteSelected = gestionActiviteLocal.findByRef(idActivite)
+				.getLibelleActivite();
+		listeParActiviteEnseignants = gestionAffectationActiviteEnseignantLocal
+				.findAllByNomActivite(nomActiviteSelected);
+
+		return "";
+	}
 
 	public String doCalculChargeHoraire() {
 		int chargeHoraireParEnseignantActivite = gestionEnseignantLocal
@@ -91,10 +106,6 @@ public class AffectationActiviteBean {
 		return "";
 	}
 
-	public String TotalChargeHoraire() {
-
-		return "";
-	}
 
 	public List<SelectItem> getItemsPromotions() {
 		itemsPromotions = new ArrayList<SelectItem>();
@@ -141,6 +152,30 @@ public class AffectationActiviteBean {
 
 	public int getIdSelectedActivite() {
 		return idSelectedActivite;
+	}
+
+	public int getIdActivite() {
+		return idActivite;
+	}
+
+	public void setIdActivite(int idActivite) {
+		this.idActivite = idActivite;
+	}
+
+	public Enseignant getEnseignant() {
+		return enseignant;
+	}
+
+	public void setEnseignant(Enseignant enseignant) {
+		this.enseignant = enseignant;
+	}
+
+	public String getNomActiviteSelected() {
+		return nomActiviteSelected;
+	}
+
+	public void setNomActiviteSelected(String nomActiviteSelected) {
+		this.nomActiviteSelected = nomActiviteSelected;
 	}
 
 	public void setIdSelectedActivite(int idSelectedActivite) {
@@ -197,7 +232,6 @@ public class AffectationActiviteBean {
 
 	// ************* affichage par enseignant************
 	public List<ActiviteEnseignant> getListeParEnseignantActivites() {
-
 		return listeParEnseignantActivites;
 	}
 
@@ -206,6 +240,16 @@ public class AffectationActiviteBean {
 		this.listeParEnseignantActivites = listeParEnseignantActivites;
 	}
 
+	// ************* affichage par activite  ************
+	public List<ActiviteEnseignant> getListeParActiviteEnseignants() {
+		return listeParActiviteEnseignants;
+	}
+
+	public void setListeParActiviteEnseignants(
+			List<ActiviteEnseignant> listeParActiviteEnseignants) {
+		this.listeParActiviteEnseignants = listeParActiviteEnseignants;
+	}
+	
 	public void recupererdataModelActivite() {
 		List<Enseignant> listEnseignants;
 		listEnseignants = gestionEnseignantLocal.findByNom(getNameEnseignant());

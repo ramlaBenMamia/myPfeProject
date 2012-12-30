@@ -43,6 +43,7 @@ public class Enseignant implements Serializable {
 	private int privilege;
 
 	private List<ProjetEnseignant> projetEnseignants;
+	
 	private List<UniteEnseignantPromotion> uniteEnseignantPromotions;
 
 	private List<ActiviteEnseignant> activiteEnseignants;
@@ -216,6 +217,7 @@ public class Enseignant implements Serializable {
 	public void setActivite(Activite activite) {
 		this.activite = activite;
 	}
+	
 
 	// ********** affichage par projet **************
 
@@ -270,5 +272,5 @@ public class Enseignant implements Serializable {
 		this.uniteEnseignantPromotions = uniteEnseignantPromotions;
 	}
 
-
+	
 }

@@ -23,8 +23,13 @@ public class Promotion implements Serializable {
 
 	private int idPromotion;
 	private String promotion;
+	
 	private Unite unite;
 	private List<Unite> unites;
+	
+	private Activite activite;
+	private List<Activite> activites;
+
 	private List<UniteEnseignantPromotion> uniteEnseignantPromotions;
 
 	private static final long serialVersionUID = 1L;
@@ -106,5 +111,30 @@ public class Promotion implements Serializable {
 		this.unites = unites;
 	}
 
+	
+	
+	//**************** affichage par activite ************************
+	
+
+	@ManyToOne
+	public Activite getActivite() {
+		return activite;
+	}
+
+	public void setActivite(Activite activite) {
+		this.activite = activite;
+	}
+
+	@OneToMany(mappedBy = "promotion", cascade = CascadeType.ALL)
+	@LazyCollection(LazyCollectionOption.FALSE)
+	public List<Activite> getActivites() {
+		return activites;
+	}
+
+	public void setActivites(List<Activite> activites) {
+		this.activites = activites;
+	}
+	
+	
 
 }

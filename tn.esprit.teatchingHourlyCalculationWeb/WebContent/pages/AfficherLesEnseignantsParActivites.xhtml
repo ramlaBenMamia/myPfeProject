@@ -150,14 +150,14 @@
 															<table>
 																<tr>
 																	<td><p:selectOneMenu
-																			value="#{affectationActiviteBean.idActivite}">
+																			value="#{affectationActiviteBean.nameEnseignant}">
 																			<f:selectItems
-																				value="#{affectationActiviteBean.selectItemsActivites}" />
+																				value="#{affectationActiviteBean.selectItemsEnseignant}" />
 																		</p:selectOneMenu></td>
 
 																	<td><p:commandButton value="Afficher"
 																			update="dataTable"
-																			actionListener="#{affectationActiviteBean.updateDataTableActivites}" /></td>
+																			actionListener="#{affectationActiviteBean.updateDataTable}" /></td>
 																</tr>
 															</table>
 
@@ -165,11 +165,11 @@
 
 
 
-															<p:dataTable id="dataTable" var="ensParActivite"
-																value="#{affectationActiviteBean.listeParActiviteEnseignants}"
-																rowKey="#{ensParActivite.activite.refActivite}"
+															<p:dataTable id="dataTable" var="activiteParEns"
+																value="#{affectationActiviteBean.listeParEnseignantActivites}"
+																rowKey="#{activiteParEns.enseignant.matriculeEnseigant}"
 																selectionMode="single"
-																emptyMessage="Aucun enseignants dans la base avec cette information"
+																emptyMessage="Aucun activites dans la base avec cette information"
 																paginator="true" rows="10"
 																paginatorTemplate="{CurrentPageReport}  {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink} {RowsPerPageDropdown}"
 																rowsPerPageTemplate="5,10,15">
@@ -182,35 +182,35 @@
 
 
 
-																<p:column headerText="Reference"
-																	filterBy="#{ensParActivite.activite.refActivite}"
-																	sortBy="#{ensParActivite.activite.refActivite}">
+																<p:column headerText="Matricule"
+																	filterBy="#{activiteParEns.enseignant.matriculeEnseigant}"
+																	sortBy="#{activiteParEns.enseignant.matriculeEnseigant}">
 																	<f:facet name="header">
-																		<h:outputText value="Reference" />
+																		<h:outputText value="Matricule" />
 																	</f:facet>
 																	<h:outputText
-																		value="#{ensParActivite.activite.refActivite}" />
+																		value="#{activiteParEns.enseignant.matriculeEnseigant}" />
 
 																</p:column>
 
 
 																<p:column headerText="NomActivite"
-																	filterBy="#{ensParActivite.enseignant.nom}"
-																	sortBy="#{ensParActivite.enseignant.nom}">
+																	filterBy="#{activiteParEns.activite.libelleActivite}"
+																	sortBy="#{activiteParEns.activite.libelleActivite}">
 																	<f:facet name="header">
-																		<h:outputText value="Enseignant" />
+																		<h:outputText value="Nom du Activite" />
 																	</f:facet>
 																	<h:outputText
-																		value="#{ensParActivite.enseignant.nom}" />
+																		value="#{activiteParEns.activite.libelleActivite}" />
 																</p:column>
 
 																<p:column headerText="VolumeHoraire"
-																	filterBy="#{ensParActivite.volumeHoraire}"
-																	sortBy="#{ensParActivite.volumeHoraire}">
+																	filterBy="#{activiteParEns.volumeHoraire}"
+																	sortBy="#{activiteParEns.volumeHoraire}">
 																	<f:facet name="header">
 																		<h:outputText value="Volume Horaire" />
 																	</f:facet>
-																	<h:outputText value="#{ensParActivite.volumeHoraire}" />
+																	<h:outputText value="#{activiteParEns.volumeHoraire}" />
 
 																</p:column>
 

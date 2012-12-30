@@ -25,8 +25,7 @@ public class Unite implements Serializable {
 	private String NomUnite;
 	private String nomChefProjet;
 	private String description;
-	
-	
+		
 	private List<UniteEnseignantPromotion> uniteEnseignantPromotions;
 
 	private List<Enseignant> enseignants;

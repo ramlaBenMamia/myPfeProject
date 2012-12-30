@@ -21,17 +21,19 @@ public interface GestionAffectationActiviteEnseignantRemote {
 	public List<ActiviteEnseignant> findAllByYearSemestre(int semestre,
 			String promotion);
 
-	public List<ActiviteEnseignant> findAllBySemestre(int semestre,
-			String Promotion);
+	public List<ActiviteEnseignant> findAllBySemestre(int semestre, String Promotion);
 
-	public List<ActiviteEnseignant> chargeTotal(int refActivite,
-			String promotion);
+	public List<ActiviteEnseignant> chargeTotal(int refActivite, String promotion);
 
 	public List<ActiviteEnseignant> findAllAffEnseig();
-
+	
 	public List<ActiviteEnseignant> findAllByNomEnsei(String nom);
+	
+	public List<ActiviteEnseignant> findAllByNomActivite(String libelleActivite);
 
-	// ***************** proteuse de données ***********
+	
+	
+	//***************** proteuse de données ***********
 	public void createEnseignant(Enseignant enseignant);
 
 	public void createActivite(Activite activite);
@@ -40,7 +42,8 @@ public interface GestionAffectationActiviteEnseignantRemote {
 
 	public Activite getActiviteByRef(int refActivite);
 
-	public void createAffectationActivite(int semestre, int periode,
-			int volumeHoraire, Enseignant enseignant, Activite activite);
+	public void createAffectationActivite(int semestre, int periode, int volumeHoraire,
+			Enseignant enseignant, Activite activite);
+
 
 }
