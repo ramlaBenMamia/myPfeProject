@@ -5,7 +5,7 @@
 	xmlns:ui="http://java.sun.com/jsf/facelets"
 	xmlns:p="http://primefaces.org/ui">
 <head>
-<title>AffectationDesActivites</title>
+<title>AcceuilAdmin</title>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <meta name="title" content="Web site" />
 <meta name="description" content="Site description here" />
@@ -37,8 +37,8 @@
 					<div id="hmenu-wpr">
 						<ul id="hmenu" class="sf-menu sf-js-enabled sf-shadow">
 							<li class="current" style="border: none"><a
-								class="toplvl sf-with-ul" href="#">Acceuil</a></li>
-							<li><a href="#" class="toplvl">.......</a>
+								class="toplvl sf-with-ul" href="#">Home</a></li>
+							<li><a href="#" class="toplvl">Products</a>
 								<ul>
 									<li><a href="#">menu item</a></li>
 									<li class="current"><a href="#">menu item</a>
@@ -66,7 +66,7 @@
 											<li><a href="#">menu item</a></li>
 										</ul></li>
 								</ul></li>
-							<li><a class="toplvl" href="#">.....</a>
+							<li><a class="toplvl" href="#">Services</a>
 								<ul>
 									<li><a href="#">menu item</a></li>
 									<li class="current"><a href="#">menu item</a>
@@ -94,7 +94,7 @@
 											<li><a href="#">menu item</a></li>
 										</ul></li>
 								</ul></li>
-							<li><a class="toplvl" href="#">.......</a></li>
+							<li><a class="toplvl" href="#">About Us</a></li>
 						</ul>
 					</div>
 				</div>
@@ -106,121 +106,40 @@
 								<div class="sidebox1">
 									<div class="vmenu">
 										<ul>
-											<li><a href="#">....</a></li>
-											<li><a href="#">......</a></li>
-											<li><a href="#">.......</a></li>
-											<li><a href="#">.......</a></li>
-											<li><a href="#">.........</a></li>
+											<li><a href="#">Category 1</a></li>
+											<li><a href="#">Category 2</a></li>
+											
 										</ul>
 									</div>
 								</div>
 								<div>
 									<img src="images/business-man-1.png" style="width: 100%" />
 								</div>
-								<div class="sidebox1">
-									<p></p>
-								</div>
+								
 							</div>
 						</div>
 						<!-- END SIDEBAR  -->
 						<!-- MAIN COLUMN -->
 						<div id="main">
-							<div class="content">
-
+							<div class="content" style="width: 930px;">
 								<div style="margin-top: 25px;">
-									<h:head></h:head>
-									<h:body>
+								
+								<h:body>
+										<h:head></h:head>
 										<f:view>
-											<h:form id="form">
-												<p:scrollPanel style="height:700px;width:700px">
-													<p:panel id="panel" style="height:1000px;width:700px"
-														header=" ESPRIT ---- Affectation des activites par enseignants-----">
-															
-														<h:panelGrid columns="2">
+											<p:galleria var="image" value="#{ramlaGalleria.images}">
+												<p:graphicImage value="/images/galleria/#{image}"></p:graphicImage>
 
-
-															<h:outputText value="activite" />
-															<p:selectOneMenu
-																value="#{affectationActiviteBean.idSelectedActivite}">
-																<f:selectItems
-																	value="#{affectationActiviteBean.selectItemsActivites}" />
-															</p:selectOneMenu>
-
-															<h:outputText value="Enseignant" />
-															<p:selectOneMenu
-																value="#{affectationActiviteBean.matSelectedEnseignant}">
-																<f:selectItems
-																	value="#{affectationActiviteBean.selectItemsEnseignant}" />
-															</p:selectOneMenu>
-														</h:panelGrid>
-
-
-														<h:panelGrid columns="2">
-															<h:outputText value="hours" />
-															<p:keyboard value="#{affectationActiviteBean.hour}"
-																showMode="button" keypadOnly="true" />
-															<h:outputText value="semester" />
-															<p:selectOneRadio id="options"
-																value="#{affectationActiviteBean.semester}">
-																<f:selectItem itemLabel="semester 1" itemValue="1" />
-																<f:selectItem itemLabel="semester 2" itemValue="2" />
-
-															</p:selectOneRadio>
-															<h:outputText value="periode" />
-															<p:selectOneRadio id="options1"
-																value="#{affectationActiviteBean.periode}">
-																<f:selectItem itemLabel="periode 1" itemValue="1" />
-																<f:selectItem itemLabel="periode 2" itemValue="2" />
-
-															</p:selectOneRadio>
-														</h:panelGrid>
-														<p:commandButton action="#{affectationActiviteBean.doAdd}"
-															value="valider" update="display"
-															oncomplete="dialog.show()" />
-
-
-														<p:dialog widgetVar="dialog" showEffect="fade"
-															hideEffect="fade" header="Values">
-															<h:panelGrid columns="2" id="display" cellpadding="5">
-																<h:outputText value="volume horaire: " />
-																<h:outputText value="#{affectationActiviteBean.hour}" />
-
-																<h:outputText value="enseignant: " />
-																<h:outputText
-																	value="#{affectationActiviteBean.nameEnseignant}" />
-
-
-															</h:panelGrid>
-
-														</p:dialog>
-
-
-
-
-
-													</p:panel>
-
-
-												</p:scrollPanel>
-
-											</h:form>
+											</p:galleria>
 										</f:view>
 									</h:body>
-									<!-- TO REMOVE -->
+								
+								
+								
 								</div>
 							</div>
 						</div>
 						<!-- END MAIN -->
-						<!-- SIDEBAR 2  -->
-						<div id="sidebar2">
-							<div class="content">
-								<div class="sidebox2">
-									<div class="vmenu"></div>
-								</div>
-								<div class="sidebox2"></div>
-							</div>
-						</div>
-						<!-- END SIDEBAR 2  -->
 						<div class="clear" style="height: 60px"></div>
 					</div>
 				</div>
@@ -230,7 +149,11 @@
 							<!-- 
 Keep this footer link UNCHANGED AND VISIBLE or make a 10 dollars donation at www.dotemplate.com/#donate to remove it.
 -->
-							<p>2012-2013</p>
+							<p>
+								<a href="http://www.dotemplate.com">Free templates</a>
+							</p>
+														<center>	<p style="background: black;width: 100px;" > 2012-2013</p></center>
+							
 						</div>
 					</div>
 					<div id="container-bottom"></div>

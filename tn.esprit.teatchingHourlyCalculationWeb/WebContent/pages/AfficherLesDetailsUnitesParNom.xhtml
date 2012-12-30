@@ -5,8 +5,7 @@
 	xmlns:ui="http://java.sun.com/jsf/facelets"
 	xmlns:p="http://primefaces.org/ui">
 <head>
-
-<title>AfficherLesUnites</title>
+<title>AffectationUniteEnseignants</title>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <meta name="title" content="Web site" />
 <meta name="description" content="Site description here" />
@@ -38,8 +37,8 @@
 					<div id="hmenu-wpr">
 						<ul id="hmenu" class="sf-menu sf-js-enabled sf-shadow">
 							<li class="current" style="border: none"><a
-								class="toplvl sf-with-ul" href="#">Acceuil</a></li>
-							<li><a href="#" class="toplvl">.......</a>
+								class="toplvl sf-with-ul" href="#">Home</a></li>
+							<li><a href="#" class="toplvl">Products</a>
 								<ul>
 									<li><a href="#">menu item</a></li>
 									<li class="current"><a href="#">menu item</a>
@@ -67,7 +66,7 @@
 											<li><a href="#">menu item</a></li>
 										</ul></li>
 								</ul></li>
-							<li><a class="toplvl" href="#">.....</a>
+							<li><a class="toplvl" href="#">Services</a>
 								<ul>
 									<li><a href="#">menu item</a></li>
 									<li class="current"><a href="#">menu item</a>
@@ -95,7 +94,7 @@
 											<li><a href="#">menu item</a></li>
 										</ul></li>
 								</ul></li>
-							<li><a class="toplvl" href="#">.......</a></li>
+							<li><a class="toplvl" href="#">About Us</a></li>
 						</ul>
 					</div>
 				</div>
@@ -107,29 +106,22 @@
 								<div class="sidebox1">
 									<div class="vmenu">
 										<ul>
-											<li><a href="#">....</a></li>
-											<li><a href="#">......</a></li>
-											<li><a href="#">.......</a></li>
-											<li><a href="#">.......</a></li>
-											<li><a href="#">.........</a></li>
+											<li><a href="#">Espace Enseignant</a></li>
+											<li><a href="#">Espace Administration</a></li>
+
 										</ul>
 									</div>
 								</div>
-								<div>
-									<img src="images/business-man-1.png" style="width: 100%" />
-								</div>
-								<div class="sidebox1">
-									<p></p>
-								</div>
+
 							</div>
 						</div>
 						<!-- END SIDEBAR  -->
 						<!-- MAIN COLUMN -->
 						<div id="main">
-							<div class="content">
-
+							<div class="content" style="width: 800px;">
 								<div style="margin-top: 25px;">
 									<h:head></h:head>
+
 									<h:body>
 										<f:view>
 											<h:form id="form">
@@ -316,6 +308,185 @@
 															</center>
 
 														</p:tab>
+														
+														
+														<p:tab id="tabb" title="JavaTech">
+															<center>
+
+																<h:panelGrid columns="1" cellpadding="10">
+
+
+																	<table>
+																		<tr>
+																			<td><p:selectOneMenu
+																					value="#{affectationUniteEnseignants.idUnite}">
+																					<f:selectItems
+																						value="#{affectationUniteEnseignants.itemsUnites}" />
+																				</p:selectOneMenu></td>
+																		</tr>
+
+																	</table>
+
+																	<p:dataTable id="dataTableee" var="uniteParEns"
+																		value="#{affectationUniteEnseignants.listeParUnite}"
+																		rowKey="#{uniteParEns.unite.refUnite}"
+																		selectionMode="single"
+																		emptyMessage="Aucune unites dans la base avec cette information"
+																		paginator="true" rows="10"
+																		paginatorTemplate="{CurrentPageReport}  {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink} {RowsPerPageDropdown}"
+																		rowsPerPageTemplate="5,10,15" style="width:600px">
+																		<f:facet name="header">
+
+
+																		</f:facet>
+																		<f:facet name="header">
+
+																			<p:commandButton style="margin-right:70%"
+																				icon="ui-icon-search" value="Afficher"
+																				update="dataTableee"
+																				actionListener="#{affectationUniteEnseignants.updateDataTableUnite}" />
+																		</f:facet>
+
+
+
+																		<p:column headerText="Annee Universitaire"
+																			filterBy="#{uniteParEns.promotion.promotion}"
+																			sortBy="#{uniteParEns.promotion.promotion}">
+																			<f:facet name="header">
+																				<h:outputText value="Annee Universitaire" />
+																			</f:facet>
+																			<h:outputText
+																				value="#{uniteParEns.promotion.promotion}" />
+
+																		</p:column>
+
+
+																		<p:column headerText="Enseignant :"
+																			filterBy="#{uniteParEns.enseignant.nom}"
+																			sortBy="#{uniteParEns.enseignant.nom}">
+																			<f:facet name="header">
+																				<h:outputText value="Enseignant :" />
+																			</f:facet>
+																			<h:outputText value="#{uniteParEns.enseignant.nom}" />
+																		</p:column>
+
+																		<p:column headerText="Local :"
+																			filterBy="#{uniteParEns.unite.locale.libelleLocal}"
+																			sortBy="#{uniteParEns.unite.locale.libelleLocal}">
+																			<f:facet name="header">
+																				<h:outputText value="Local :" />
+																			</f:facet>
+																			<h:outputText
+																				value="#{uniteParEns.unite.locale.libelleLocal}" />
+																		</p:column>
+
+
+																		<f:facet name="footer">
+																			<p:commandButton style="margin-right:70%"
+																				id="viewButton" value="Afficher" icon="ui-icon-search"
+																				update=":form:display"
+																				oncomplete="uniteDialog.show()" />
+																		</f:facet>
+
+																	</p:dataTable>
+
+
+
+
+																</h:panelGrid>
+															</center>
+
+														</p:tab>
+														
+														
+														<p:tab id="tab3" title="EspritOnLine">
+															<center>
+
+																<h:panelGrid columns="1" cellpadding="10">
+
+
+																	<table>
+																		<tr>
+																			<td><p:selectOneMenu
+																					value="#{affectationUniteEnseignants.idUnite}">
+																					<f:selectItems
+																						value="#{affectationUniteEnseignants.itemsUnites}" />
+																				</p:selectOneMenu></td>
+																		</tr>
+
+																	</table>
+
+																	<p:dataTable id="dataTablee" var="uniteParEns"
+																		value="#{affectationUniteEnseignants.listeParUnite}"
+																		rowKey="#{uniteParEns.unite.refUnite}"
+																		selectionMode="single"
+																		emptyMessage="Aucune unites dans la base avec cette information"
+																		paginator="true" rows="10"
+																		paginatorTemplate="{CurrentPageReport}  {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink} {RowsPerPageDropdown}"
+																		rowsPerPageTemplate="5,10,15" style="width:600px">
+																		<f:facet name="header">
+
+
+																		</f:facet>
+																		<f:facet name="header">
+
+																			<p:commandButton style="margin-right:70%"
+																				icon="ui-icon-search" value="Afficher"
+																				update="dataTablee"
+																				actionListener="#{affectationUniteEnseignants.updateDataTableUnite}" />
+																		</f:facet>
+
+
+
+																		<p:column headerText="Annee Universitaire"
+																			filterBy="#{uniteParEns.promotion.promotion}"
+																			sortBy="#{uniteParEns.promotion.promotion}">
+																			<f:facet name="header">
+																				<h:outputText value="Annee Universitaire" />
+																			</f:facet>
+																			<h:outputText
+																				value="#{uniteParEns.promotion.promotion}" />
+
+																		</p:column>
+
+
+																		<p:column headerText="Enseignant :"
+																			filterBy="#{uniteParEns.enseignant.nom}"
+																			sortBy="#{uniteParEns.enseignant.nom}">
+																			<f:facet name="header">
+																				<h:outputText value="Enseignant :" />
+																			</f:facet>
+																			<h:outputText value="#{uniteParEns.enseignant.nom}" />
+																		</p:column>
+
+																		<p:column headerText="Local :"
+																			filterBy="#{uniteParEns.unite.locale.libelleLocal}"
+																			sortBy="#{uniteParEns.unite.locale.libelleLocal}">
+																			<f:facet name="header">
+																				<h:outputText value="Local :" />
+																			</f:facet>
+																			<h:outputText
+																				value="#{uniteParEns.unite.locale.libelleLocal}" />
+																		</p:column>
+
+
+																		<f:facet name="footer">
+																			<p:commandButton style="margin-right:70%"
+																				id="viewButton" value="Total" icon="ui-icon-search"
+																				update=":form:display"
+																				oncomplete="uniteDialog.show()" />
+																		</f:facet>
+
+																	</p:dataTable>
+
+
+
+
+																</h:panelGrid>
+															</center>
+
+														</p:tab>
+														
 
 
 													</p:tabView>
@@ -324,21 +495,11 @@
 											</h:form>
 										</f:view>
 									</h:body>
-									<!-- TO REMOVE -->
+
 								</div>
 							</div>
 						</div>
 						<!-- END MAIN -->
-						<!-- SIDEBAR 2  -->
-						<div id="sidebar2">
-							<div class="content">
-								<div class="sidebox2">
-									<div class="vmenu"></div>
-								</div>
-								<div class="sidebox2"></div>
-							</div>
-						</div>
-						<!-- END SIDEBAR 2  -->
 						<div class="clear" style="height: 60px"></div>
 					</div>
 				</div>
@@ -348,7 +509,13 @@
 							<!-- 
 Keep this footer link UNCHANGED AND VISIBLE or make a 10 dollars donation at www.dotemplate.com/#donate to remove it.
 -->
-							<p>2012-2013</p>
+							<p>
+								<a href="http://www.dotemplate.com">Free templates</a>
+							</p>
+							<center>
+								<p style="background: black; width: 100px;">2012-2013</p>
+							</center>
+
 						</div>
 					</div>
 					<div id="container-bottom"></div>

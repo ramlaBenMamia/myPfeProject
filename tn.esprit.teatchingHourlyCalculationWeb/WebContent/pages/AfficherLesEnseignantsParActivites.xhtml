@@ -108,14 +108,14 @@
 										<ul>
 											<li><a href="#">Category 1</a></li>
 											<li><a href="#">Category 2</a></li>
-
+											
 										</ul>
 									</div>
 								</div>
 								<div>
 									<img src="images/business-man-1.png" style="width: 100%" />
 								</div>
-
+								
 							</div>
 						</div>
 						<!-- END SIDEBAR  -->
@@ -123,9 +123,9 @@
 						<div id="main">
 							<div class="content" style="width: 800px;">
 								<div style="margin-top: 25px;">
-									<h:head></h:head>
-
-									<h:body>
+								<h:head></h:head>
+								
+								<h:body>
 										<f:view>
 											<h:form id="form">
 
@@ -134,7 +134,7 @@
 												<p:scrollPanel style="height:700px;width:700px">
 
 													<p:panel id="panel"
-														header="Esprit --- Gestion des Enseignants --- Affichage de la liste des projets de l'enseignant :"
+														header="Esprit --- Gestion des Enseignants --- Affichage de la liste des activites de l'enseignant :"
 														style="height:1000px;width:700px">
 
 
@@ -145,14 +145,14 @@
 															<table>
 																<tr>
 																	<td><p:selectOneMenu
-																			value="#{affectationProjetBean.nameEnseignant}">
+																			value="#{affectationActiviteBean.nameEnseignant}">
 																			<f:selectItems
-																				value="#{affectationProjetBean.selectItemsEnseignant}" />
+																				value="#{affectationActiviteBean.selectItemsEnseignant}" />
 																		</p:selectOneMenu></td>
 
 																	<td><p:commandButton value="Afficher"
 																			update="dataTable"
-																			actionListener="#{affectationProjetBean.updateDataTable}" /></td>
+																			actionListener="#{affectationActiviteBean.updateDataTable}" /></td>
 																</tr>
 															</table>
 
@@ -160,11 +160,11 @@
 
 
 
-															<p:dataTable id="dataTable" var="projetParEns"
-																value="#{affectationProjetBean.listeParEnseignants}"
-																rowKey="#{projetParEns.enseignant.matriculeEnseigant}"
+															<p:dataTable id="dataTable" var="activiteParEns"
+																value="#{affectationActiviteBean.listeParEnseignantActivites}"
+																rowKey="#{activiteParEns.enseignant.matriculeEnseigant}"
 																selectionMode="single"
-																emptyMessage="Aucun projets dans la base avec cette information"
+																emptyMessage="Aucun activites dans la base avec cette information"
 																paginator="true" rows="10"
 																paginatorTemplate="{CurrentPageReport}  {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink} {RowsPerPageDropdown}"
 																rowsPerPageTemplate="5,10,15">
@@ -178,34 +178,34 @@
 
 
 																<p:column headerText="Matricule"
-																	filterBy="#{projetParEns.enseignant.matriculeEnseigant}"
-																	sortBy="#{projetParEns.enseignant.matriculeEnseigant}">
+																	filterBy="#{activiteParEns.enseignant.matriculeEnseigant}"
+																	sortBy="#{activiteParEns.enseignant.matriculeEnseigant}">
 																	<f:facet name="header">
 																		<h:outputText value="Matricule" />
 																	</f:facet>
 																	<h:outputText
-																		value="#{projetParEns.enseignant.matriculeEnseigant}" />
+																		value="#{activiteParEns.enseignant.matriculeEnseigant}" />
 
 																</p:column>
 
 
-																<p:column headerText="NomProjet"
-																	filterBy="#{projetParEns.projet.libelleProjet}"
-																	sortBy="#{projetParEns.projet.libelleProjet}">
+																<p:column headerText="NomActivite"
+																	filterBy="#{activiteParEns.activite.libelleActivite}"
+																	sortBy="#{activiteParEns.activite.libelleActivite}">
 																	<f:facet name="header">
-																		<h:outputText value="Nom du Projet" />
+																		<h:outputText value="Nom du Activite" />
 																	</f:facet>
 																	<h:outputText
-																		value="#{projetParEns.projet.libelleProjet}" />
+																		value="#{activiteParEns.activite.libelleActivite}" />
 																</p:column>
 
 																<p:column headerText="VolumeHoraire"
-																	filterBy="#{projetParEns.volumeHoraire}"
-																	sortBy="#{projetParEns.volumeHoraire}">
+																	filterBy="#{activiteParEns.volumeHoraire}"
+																	sortBy="#{activiteParEns.volumeHoraire}">
 																	<f:facet name="header">
 																		<h:outputText value="Volume Horaire" />
 																	</f:facet>
-																	<h:outputText value="#{projetParEns.volumeHoraire}" />
+																	<h:outputText value="#{activiteParEns.volumeHoraire}" />
 
 																</p:column>
 
@@ -228,7 +228,7 @@
 
 
 																	<h:outputText
-																		value="#{affectationProjetBean.chargeHoraireParEnseignant}" />
+																		value="#{affectationActiviteBean.chargeHoraireParEnseignant}" />
 																</h:panelGrid>
 															</p:dialog>
 
@@ -244,7 +244,7 @@
 											</h:form>
 										</f:view>
 									</h:body>
-
+							
 								</div>
 							</div>
 						</div>
@@ -261,10 +261,8 @@ Keep this footer link UNCHANGED AND VISIBLE or make a 10 dollars donation at www
 							<p>
 								<a href="http://www.dotemplate.com">Free templates</a>
 							</p>
-							<center>
-								<p style="background: black; width: 100px;">2012-2013</p>
-							</center>
-
+														<center>	<p style="background: black;width: 100px;" > 2012-2013</p></center>
+							
 						</div>
 					</div>
 					<div id="container-bottom"></div>
