@@ -1,14 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <pageflow:Pageflow xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:pageflow="http://www.sybase.com/suade/pageflow" id="pf13563565679820" configfile="/tn.esprit.teatchingHourlyCalculationWeb/WebContent/WEB-INF/faces-config.xml">
-  <nodes xsi:type="pageflow:PFPage" name="assignPage.xhtml" x="554" y="562" id="pf13563566098183" referenceLink="//@navigationRule.0/@navigationCase.0/@toViewId|" inlinks="pf13564498597010" path="/assignPage.xhtml"/>
-  <nodes xsi:type="pageflow:PFPage" name="NewFile.xhtml" x="122" y="562" id="pf13563576333221" referenceLink="//@navigationRule.1/@fromViewId|" outlinks="pf13564498597011" path="/NewFile.xhtml"/>
-  <nodes xsi:type="pageflow:PFPage" name="login.xhtml" x="338" y="562" id="pf13564498597012" referenceLink="//@navigationRule.1/@navigationCase.0/@toViewId|" outlinks="pf13564498597010" inlinks="pf13564498597011" path="/loginEnseignant.xhtml"/>
-  <nodes xsi:type="pageflow:PFPage" name="pages/LoginEnseignant.xhtml" x="72" y="108" id="pf13564500569933" outlinks="pf13564500569934" path="/pages/LoginEnseignant.xhtml"/>
-  <nodes xsi:type="pageflow:PFPage" name="pages/AcceuilEnseignant.xhtml" x="490" y="76" id="pf13564500569935" inlinks="pf13564500569934" path="/pages/AcceuilEnseignant.xhtml" smallicon=""/>
-  <nodes xsi:type="pageflow:PFPage" name="pages/LoginAdmin.xhtml" x="92" y="216" id="pf13564501725766" outlinks="pf13564501725767" path="/pages/LoginAdmin.xhtml"/>
-  <nodes xsi:type="pageflow:PFPage" name="pages/AcceuilAdministrateur.xhtml" x="490" y="204" id="pf13564501725768" inlinks="pf13564501725767" path="/pages/AcceuilAdministrateur.xhtml"/>
-  <links id="pf13564498597010" target="pf13563566098183" source="pf13564498597012"/>
-  <links id="pf13564498597011" target="pf13564498597012" source="pf13563576333221"/>
+  <nodes xsi:type="pageflow:PFPage" name="assignPage.xhtml" x="122" y="178" id="pf13563566098183" referenceLink="//@navigationRule.0/@navigationCase.0/@toViewId|" path="/assignPage.xhtml"/>
+  <nodes xsi:type="pageflow:PFPage" name="NewFile.xhtml" x="122" y="946" id="pf13563576333221" referenceLink="//@navigationRule.1/@fromViewId|" path="/NewFile.xhtml"/>
+  <nodes xsi:type="pageflow:PFPage" name="login.xhtml" x="122" y="1330" id="pf13564498597012" referenceLink="//@navigationRule.1/@navigationCase.0/@toViewId|" path="/loginEnseignant.xhtml"/>
+  <nodes xsi:type="pageflow:PFPage" name="pages/LoginEnseignant.xhtml" x="122" y="562" id="pf13564500569933" referenceLink="//@navigationRule.0/@fromViewId|" outlinks="pf13564500569934" path="/pages/LoginEnseignant.xhtml"/>
+  <nodes xsi:type="pageflow:PFPage" name="pages/AcceuilEnseignant.xhtml" x="338" y="562" id="pf13564500569935" referenceLink="//@navigationRule.0/@navigationCase.0/@toViewId|" inlinks="pf13564500569934" path="/pages/AcceuilEnseignant.xhtml" smallicon=""/>
+  <nodes xsi:type="pageflow:PFPage" name="pages/LoginAdmin.xhtml" x="122" y="1714" id="pf13564501725766" referenceLink="//@navigationRule.1/@fromViewId|" outlinks="pf13564501725767" path="/pages/LoginAdmin.xhtml"/>
+  <nodes xsi:type="pageflow:PFPage" name="pages/AcceuilAdministrateur.xhtml" x="338" y="1714" id="pf13564501725768" referenceLink="//@navigationRule.1/@navigationCase.0/@toViewId|" inlinks="pf13564501725767" path="/pages/AcceuilAdministrateur.xhtml"/>
   <links id="pf13564500569934" target="pf13564500569935" source="pf13564500569933" outcome="ok"/>
   <links id="pf13564501725767" target="pf13564501725768" source="pf13564501725766" outcome="ok"/>
 </pageflow:Pageflow>

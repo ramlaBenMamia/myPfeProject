@@ -13,8 +13,6 @@ import com.esprit.entity.Locale;
 import com.esprit.service.gestionActivite.GestionActiviteLocal;
 import com.esprit.service.gestionLocal.GestionLocaleLocal;
 
-@ManagedBean
-@SessionScoped
 public class AffectationActiviteLocale {
 	@EJB
 	GestionActiviteLocal gestionActiviteLocal;
@@ -24,18 +22,42 @@ public class AffectationActiviteLocale {
 	private List<SelectItem> items;
 	private int selectedLocalId;
 
+	private List<String> selectedActivites;
+
 	private Activite activite = new Activite();
-	
+
 	private String libelleActivite;
 
 	private Locale locale = new Locale();
 	private List<Locale> locales = new ArrayList<Locale>();
 
+	private List<String> selectedTypes;
+
+	public List<String> getSelectedTypes() {
+		return selectedTypes;
+	}
+
+	public void setSelectedTypes(List<String> selectedTypes) {
+		this.selectedTypes = selectedTypes;
+	}
+
 	public String doAdd() {
 		activite.setLocale(gestionLocaleLocal.findLocaleById(selectedLocalId));
-
 		gestionActiviteLocal.add(activite);
+//		gestionActiviteLocal.ajouter(activite, activite.getRefActivite());;
+		
+//	    gestionActiviteLocal.update(activite);
+		reset();
 		return "";
+	}
+	
+	public void reset(){
+		activite=new Activite();
+		activite.setTypeActivite1(false);
+		activite.setDateDebut1(null);
+		activite.setDescription("");
+		activite.setLocal(null);
+		
 	}
 
 	public GestionActiviteLocal getGestionActiviteLocal() {
@@ -100,13 +122,21 @@ public class AffectationActiviteLocale {
 	public void setLocales(List<Locale> locales) {
 		this.locales = locales;
 	}
-	
+
 	public String getLibelleActivite() {
 		return libelleActivite;
 	}
 
 	public void setLibelleActivite(String libelleActivite) {
 		this.libelleActivite = libelleActivite;
+	}
+
+	public List<String> getSelectedActivites() {
+		return selectedActivites;
+	}
+
+	public void setSelectedActivites(List<String> selectedActivites) {
+		this.selectedActivites = selectedActivites;
 	}
 
 }

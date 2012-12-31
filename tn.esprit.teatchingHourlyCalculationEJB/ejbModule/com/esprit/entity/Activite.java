@@ -31,27 +31,27 @@ public class Activite implements Serializable {
 
 	// *********** theme
 	private String description;
-	private Date dateDebut;
+	private Date dateDebut1;
+	private Date dateDebut2;
+	private Date dateDebut3;
+
 	private Date dateFin;
 	private String local;
 	private boolean typeActivite1;
 	private boolean typeActivite2;
-
+	private boolean typeActivite3;
 
 	private List<ActiviteEnseignant> activiteEnseignants;
 
 	private List<Promotion> promotions;
 	private Promotion promotion;
-	
-	private List<Locale> locales;
+
 	private Locale locale;
 
-
-	// **************   affichage des enseignants par activite**************
+	// ************** affichage des enseignants par activite**************
 	private List<Enseignant> enseignants;
 	private Enseignant enseignant;
-	
-	
+
 	private static final long serialVersionUID = 1L;
 
 	public Activite() {
@@ -74,15 +74,6 @@ public class Activite implements Serializable {
 
 	public void setDescription(String description) {
 		this.description = description;
-	}
-
-	@Temporal(TemporalType.DATE)
-	public Date getDateDebut() {
-		return dateDebut;
-	}
-
-	public void setDateDebut(Date dateDebut) {
-		this.dateDebut = dateDebut;
 	}
 
 	@Temporal(TemporalType.DATE)
@@ -159,18 +150,9 @@ public class Activite implements Serializable {
 
 	public void setPromotion(Promotion promotion) {
 		this.promotion = promotion;
-	}	
-	
-	// *** local
-	@OneToMany(mappedBy = "unite", cascade = CascadeType.ALL)
-	@LazyCollection(LazyCollectionOption.FALSE)
-	public List<Locale> getLocales() {
-		return locales;
 	}
 
-	public void setLocales(List<Locale> locales) {
-		this.locales = locales;
-	}
+	// *** local
 
 	@ManyToOne
 	public Locale getLocale() {
@@ -181,7 +163,7 @@ public class Activite implements Serializable {
 		this.locale = locale;
 	}
 
-	public boolean isTypeActivite1() {
+	public boolean getTypeActivite1() {
 		return typeActivite1;
 	}
 
@@ -196,8 +178,40 @@ public class Activite implements Serializable {
 	public void setTypeActivite2(boolean typeActivite2) {
 		this.typeActivite2 = typeActivite2;
 	}
-	
-	
-	
+
+	public boolean isTypeActivite3() {
+		return typeActivite3;
+	}
+
+	public void setTypeActivite3(boolean typeActivite3) {
+		this.typeActivite3 = typeActivite3;
+	}
+
+	@Temporal(TemporalType.DATE)
+	public Date getDateDebut1() {
+		return dateDebut1;
+	}
+
+	public void setDateDebut1(Date dateDebut1) {
+		this.dateDebut1 = dateDebut1;
+	}
+
+	@Temporal(TemporalType.DATE)
+	public Date getDateDebut2() {
+		return dateDebut2;
+	}
+
+	public void setDateDebut2(Date dateDebut2) {
+		this.dateDebut2 = dateDebut2;
+	}
+
+	@Temporal(TemporalType.DATE)
+	public Date getDateDebut3() {
+		return dateDebut3;
+	}
+
+	public void setDateDebut3(Date dateDebut3) {
+		this.dateDebut3 = dateDebut3;
+	}
 
 }

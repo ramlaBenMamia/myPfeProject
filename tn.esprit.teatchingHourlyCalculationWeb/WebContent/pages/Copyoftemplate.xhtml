@@ -5,7 +5,7 @@
 	xmlns:ui="http://java.sun.com/jsf/facelets"
 	xmlns:p="http://primefaces.org/ui">
 <head>
-<title>Ajouter Acceuil</title>
+<title>template</title>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <meta name="title" content="Web site" />
 <meta name="description" content="Site description here" />
@@ -108,14 +108,14 @@
 										<ul>
 											<li><a href="#">Category 1</a></li>
 											<li><a href="#">Category 2</a></li>
-
+											
 										</ul>
 									</div>
 								</div>
 								<div>
 									<img src="images/business-man-1.png" style="width: 100%" />
 								</div>
-
+								
 							</div>
 						</div>
 						<!-- END SIDEBAR  -->
@@ -123,73 +123,43 @@
 						<div id="main">
 							<div class="content" style="width: 800px;">
 								<div style="margin-top: 25px;">
-									<h:head></h:head>
-
-									<h:body>
+								<h:head></h:head>
+								
+								<h:body>
 										<f:view>
-											<h:form id="form">
-												<p:fieldset style="width:500px;height:px"
-													legend="Ajouter une Activite">
-
-													<p>veuillez remplir le formulaire...</p>
-													<center>
+										<h:form>
+													<p:fieldset id="panel" style="width:500px;height:px">
 
 
-														<br /> <br />
-														<p:growl id="msg" />
-														<center>
-															<h:panelGrid columns="4" cellpadding="5">
+														<h3>Ajouter une nouvelle activite :</h3>
+													</p:fieldset>
 
-																<h:outputText value="Siminaire: " />
-																<p:selectBooleanCheckbox
-																	value="#{affectationActiviteLocale.activite.typeActivite1}" />
-																<h:outputLabel value="date Debut: *" />
-																<p:calendar label="dateDebut"
-																	value="#{affectationActiviteLocale.activite.dateDebut1}"
-																	id="popupCal" />
+													<br />
+													<br />
+													<p:growl />
+														<h:panelGrid columns="1" 
+															cellpadding="5">
 
-															
-															</h:panelGrid>
-															<p:separator style="margin-bottom:10px" />
+															<h:outputText value="Siminaire: " />
+															<p:selectBooleanCheckbox
+																value="#{affectationActiviteLocale.activite.typeActivite1}" />
+															<h:outputLabel value="date Debut: *" />
+															<p:calendar required="true" label="dateDebut"
+																value="#{affectationActiviteLocale.activite.dateDebut}"
+																id="popupCal" />
 
-														</center>
-														<br />
-														<h:panelGrid columns="2">
-															<h:outputLabel for="typeActivite"
-																value="Nom de l'acivite : *" />
-															<p:inputText id="nom"
-																value="#{affectationActiviteLocale.activite.libelleActivite}"
-																required="true" label="Nom">
-															</p:inputText>
-
-															<h:outputLabel />
-															<h:outputLabel />
-
-															<h:outputLabel for="description" value="Description :*" />
-															<p:inputTextarea
-																value="#{affectationActiviteLocale.activite.description}"></p:inputTextarea>
-															<h:outputLabel />
+															<h:outputText value="Club: " />
+															<p:selectBooleanCheckbox
+																value="#{affectationActiviteLocale.activite.typeActivite2}" />
+															<h:outputLabel value="date Debut: *" />
+															<p:calendar required="true" label="dateDebut"
+																value="#{affectationActiviteLocale.activite.dateDebut}"
+																id="popupCall" />
 														</h:panelGrid>
-														<p:separator style="margin-bottom:10px;width:500px" />
-														<h:panelGrid columns="2">
-															<h:outputText value="Local" />
-															<p:selectOneMenu
-																value="#{affectationActiviteLocale.selectedLocalId}">
-																<f:selectItems value="#{affectationUniteLocale.items}" />
-															</p:selectOneMenu>
-
-
-														</h:panelGrid>
-														<br /> <br /> <br />
-													</center>
-
-												</p:fieldset>
-												<p:commandButton value="Valider" update="panel" id="ajax"
-													actionListener="#{affectationActiviteLocale.doAdd}" />
-											</h:form>
+													<br /></h:form>
 										</f:view>
 									</h:body>
-
+							
 								</div>
 							</div>
 						</div>
@@ -206,10 +176,8 @@ Keep this footer link UNCHANGED AND VISIBLE or make a 10 dollars donation at www
 							<p>
 								<a href="http://www.dotemplate.com">Free templates</a>
 							</p>
-							<center>
-								<p style="background: black; width: 100px;">2012-2013</p>
-							</center>
-
+														<center>	<p style="background: black;width: 100px;" > 2012-2013</p></center>
+							
 						</div>
 					</div>
 					<div id="container-bottom"></div>

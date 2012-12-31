@@ -71,6 +71,12 @@ public class InitDB {
 			activite.setDescription("description");
 
 			gestionActiviteRemote.addActivite(activite);
+			
+			Activite activite1 = new Activite();
+			activite1.setLibelleActivite("activite2");
+			activite1.setDescription("description2");
+
+			gestionActiviteRemote.addActivite(activite1);
 
 			Locale locale = new Locale();
 			locale.setLibelleLocal("D12");

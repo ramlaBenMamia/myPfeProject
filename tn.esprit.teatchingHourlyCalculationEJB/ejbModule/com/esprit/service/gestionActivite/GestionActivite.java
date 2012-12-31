@@ -121,4 +121,6 @@ public class GestionActivite implements GestionActiviteLocal,
 
 	}
 
+	
+
 }
