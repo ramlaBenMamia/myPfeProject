@@ -15,10 +15,18 @@ public class RamlaGalleria {
 
 	@PostConstruct
 	public void init() {
-		images.add("galleria1.jpg");
-		images.add("galleria2.jpg");
-		images.add("galleria3.jpg");
-		images.add("galleria4.jpg");
+		images.add("galleria11.jpg");
+		images.add("galleria6.jpg");
+		images.add("galleria7.jpg");
+		images.add("galleria8.jpg");
+		images.add("galleria10.jpg");
+		images.add("galleria11.jpg");
+		images.add("galleria12.jpg");
+		images.add("galleria13.jpg");
+		images.add("galleria14.jpg");
+
+
+
 	}
 
 	public List<String> getImages() {

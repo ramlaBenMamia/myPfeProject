@@ -105,17 +105,18 @@
 							<div class="content">
 								<div class="sidebox1">
 									<div class="vmenu">
+									
 										<ul>
 											<li><a href="#">Espace Enseignant</a></li>
 											<li><a href="#">Espace Administration</a></li>
-											
+
 										</ul>
 									</div>
 								</div>
 								<div>
 									<img src="images/business-man-1.png" style="width: 100%" />
 								</div>
-								
+
 							</div>
 						</div>
 						<!-- END SIDEBAR  -->
@@ -123,75 +124,64 @@
 						<div id="main">
 							<div class="content" style="width: 800px;">
 								<div style="margin-top: 25px;">
-								<h:head></h:head>
-								
-								<h:body>
+									<h:head></h:head>
+
+									<h:body>
 										<f:view>
 											<h:form id="form">
-
-
-
-												<p:scrollPanel style="height:500px;width:600px">
-
-													<p:panel id="panel"
-														header="Esprit----Ajouter une nouvelle Unite"
-														style="height:500px;width:600px">
-
-
-														<h:panelGrid columns="2">
-
-															<h:outputText for="chefProjet" style="font-weight:bold;"
-																value="Chef du Projet :*" />
-															<p:inputText
-																value="#{affectationUniteLocale.unite.nomChefProjet}"
-																width="400" />
-
-															<h:outputText for="unite" style="font-weight:bold;"
-																value="Unite :*" />
-															<p:inputText value="#{affectationUniteLocale.unite.nomUnite}"
-																width="400" />
-
-
-
-
-															<h:outputText style="font-weight:bold;" for="description"
-																value="Description :*" />
-															<p:editor id="editor"
-																value="#{affectationUniteLocale.unite.description}"
-																width="400" />
-
-
-
-															<h:outputText value="Local" />
-															<p:selectOneMenu
-																value="#{affectationUniteLocale.selectedLocalId}">
-																<f:selectItems value="#{affectationUniteLocale.items}" />
-															</p:selectOneMenu>
-
-
-
-														</h:panelGrid>
-
-
+												<center>
+													<p:fieldset id="panel"
+														legend="Esprit----Ajouter une nouvelle Unite"
+														style="height:250px;width:450px">
 														<br />
 														<br />
-														<br />
+														<center>
+															<h:panelGrid columns="2">
 
-														<p:commandButton value="Valider" update="panel" id="ajax"
-															actionListener="#{affectationUniteLocale.doAdd}"
-															onclick="dlg.show();" />
-														<p:commandButton value="Reset" type="reset" />
+																<h:outputText for="chefProjet" style="font-weight:bold;"
+																	value="Chef du Projet :*" />
+																<p:inputText
+																	value="#{affectationUniteLocale.unite.nomChefProjet}"
+																	width="400" />
 
-													</p:panel>
+																<h:outputText for="unite" style="font-weight:bold;"
+																	value="Unite :*" />
+																<p:inputText
+																	value="#{affectationUniteLocale.unite.nomUnite}"
+																	width="400" />
 
 
-												</p:scrollPanel>
 
 
+																<h:outputText style="font-weight:bold;"
+																	for="description" value="Description :*" />
+																<p:inputTextarea
+																	value="#{affectationUniteLocale.unite.description}"
+																	width="400"></p:inputTextarea>
+
+
+
+																<h:outputText value="Local" style="font-weight:bold;" />
+																<p:selectOneMenu effect="fade"
+																	value="#{affectationUniteLocale.selectedLocalId}">
+																	<f:selectItems value="#{affectationUniteLocale.items}" />
+																</p:selectOneMenu>
+
+															</h:panelGrid>
+														</center>
+
+													</p:fieldset>
+
+
+													<p:commandButton value="Valider" update="panel" id="ajax"
+														actionListener="#{affectationUniteLocale.doAdd}"
+														onclick="dlg.show();" />
+													<p:commandButton value="Reset" type="reset" />
+												</center>
 											</h:form>
 										</f:view>
 									</h:body>
-							
+
 								</div>
 							</div>
 						</div>
@@ -208,8 +198,10 @@ Keep this footer link UNCHANGED AND VISIBLE or make a 10 dollars donation at www
 							<p>
 								<a href="http://www.dotemplate.com">Free templates</a>
 							</p>
-														<center>	<p style="background: black;width: 100px;" > 2012-2013</p></center>
-							
+							<center>
+								<p style="background: black; width: 100px;">2012-2013</p>
+							</center>
+
 						</div>
 					</div>
 					<div id="container-bottom"></div>
