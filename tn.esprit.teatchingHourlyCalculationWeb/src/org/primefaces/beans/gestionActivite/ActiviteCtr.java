@@ -1,10 +1,13 @@
 package org.primefaces.beans.gestionActivite;
 
+import javax.annotation.ManagedBean;
 import javax.ejb.EJB;
+import javax.faces.bean.SessionScoped;
 
 import com.esprit.service.gestionActivite.GestionActiviteLocal;
 import com.esprit.entity.Activite;
-
+@ManagedBean
+@SessionScoped
 public class ActiviteCtr {
 	private Activite activite = new Activite();
 	private String libelleActivite;

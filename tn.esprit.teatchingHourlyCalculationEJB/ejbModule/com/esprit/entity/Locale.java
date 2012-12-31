@@ -22,9 +22,13 @@ import org.hibernate.annotations.LazyCollectionOption;
 public class Locale implements Serializable {
 
 	private Integer id;
-	private String libelleLocal;
+	private String libelleLocal
+	;
 	private List<Unite> unites;
 	private Unite unite;
+	
+	private List<Activite> activites;
+	private Activite activite;
 	private static final long serialVersionUID = 1L;
 
 	public Locale() {
@@ -99,5 +103,26 @@ public class Locale implements Serializable {
 	public void setUnite(Unite unite) {
 		this.unite = unite;
 	}
+
+	@OneToMany(mappedBy = "locale", cascade = CascadeType.ALL)
+	@LazyCollection(LazyCollectionOption.FALSE)
+	public List<Activite> getActivites() {
+		return activites;
+	}
+
+	public void setActivites(List<Activite> activites) {
+		this.activites = activites;
+	}
+
+	@ManyToOne
+	public Activite getActivite() {
+		return activite;
+	}
+
+	public void setActivite(Activite activite) {
+		this.activite = activite;
+	}
+	
+	
 
 }

@@ -34,16 +34,24 @@ public class Activite implements Serializable {
 	private Date dateDebut;
 	private Date dateFin;
 	private String local;
+	private boolean typeActivite1;
+	private boolean typeActivite2;
+
 
 	private List<ActiviteEnseignant> activiteEnseignants;
 
 	private List<Promotion> promotions;
 	private Promotion promotion;
+	
+	private List<Locale> locales;
+	private Locale locale;
+
 
 	// **************   affichage des enseignants par activite**************
 	private List<Enseignant> enseignants;
 	private Enseignant enseignant;
-
+	
+	
 	private static final long serialVersionUID = 1L;
 
 	public Activite() {
@@ -151,6 +159,45 @@ public class Activite implements Serializable {
 
 	public void setPromotion(Promotion promotion) {
 		this.promotion = promotion;
+	}	
+	
+	// *** local
+	@OneToMany(mappedBy = "unite", cascade = CascadeType.ALL)
+	@LazyCollection(LazyCollectionOption.FALSE)
+	public List<Locale> getLocales() {
+		return locales;
 	}
+
+	public void setLocales(List<Locale> locales) {
+		this.locales = locales;
+	}
+
+	@ManyToOne
+	public Locale getLocale() {
+		return locale;
+	}
+
+	public void setLocale(Locale locale) {
+		this.locale = locale;
+	}
+
+	public boolean isTypeActivite1() {
+		return typeActivite1;
+	}
+
+	public void setTypeActivite1(boolean typeActivite1) {
+		this.typeActivite1 = typeActivite1;
+	}
+
+	public boolean isTypeActivite2() {
+		return typeActivite2;
+	}
+
+	public void setTypeActivite2(boolean typeActivite2) {
+		this.typeActivite2 = typeActivite2;
+	}
+	
+	
+	
 
 }
