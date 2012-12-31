@@ -25,6 +25,8 @@ public class Unite implements Serializable {
 	private String NomUnite;
 	private String nomChefProjet;
 	private String description;
+	private String local;
+
 		
 	private List<UniteEnseignantPromotion> uniteEnseignantPromotions;
 
@@ -151,6 +153,14 @@ public class Unite implements Serializable {
 
 	public void setLocales(List<Locale> locales) {
 		this.locales = locales;
+	}
+
+	public String getLocal() {
+		return local;
+	}
+
+	public void setLocal(String local) {
+		this.local = local;
 	}
 
 	

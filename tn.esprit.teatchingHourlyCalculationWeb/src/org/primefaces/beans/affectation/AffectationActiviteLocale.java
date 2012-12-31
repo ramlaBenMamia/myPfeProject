@@ -44,8 +44,7 @@ public class AffectationActiviteLocale {
 	public String doAdd() {
 		activite.setLocale(gestionLocaleLocal.findLocaleById(selectedLocalId));
 		gestionActiviteLocal.add(activite);
-//		gestionActiviteLocal.ajouter(activite, activite.getRefActivite());;
-		
+//		gestionActiviteLocal.ajouter(activite, activite.getRefActivite());;	
 //	    gestionActiviteLocal.update(activite);
 		reset();
 		return "";

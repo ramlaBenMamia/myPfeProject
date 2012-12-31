@@ -30,10 +30,17 @@ public class AffectationUniteLocale {
 
 	public String doAdd() {
 		unite.setLocale(gestionLocaleLocal.findLocaleById(selectedLocalId));
-		
-
 		gestionUniteLocal.save(unite);
+		reset();
 		return "";
+	}
+	
+	public void reset(){
+		unite = new Unite();
+		unite.setNomChefProjet("");
+		unite.setNomUnite("");
+		unite.setDescription("");
+		unite.setLocal("");
 	}
 
 	public GestionUniteLocal getGestionUniteLocal() {
