@@ -9,6 +9,7 @@ import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
 import javax.faces.model.SelectItem;
 
+import com.esprit.domain.gestionEntites.calculChargeHoraire.GestionChargeHoraireProjetLocal;
 import com.esprit.entity.Enseignant;
 import com.esprit.entity.Projet;
 import com.esprit.entity.TypeProjet;
@@ -29,6 +30,8 @@ public class AffectationTypeEnseignantProjet {
 	GestionProjetLocal gestionProjetLocal;
 	@EJB
 	AffectationTypeProjetEnseignantLocal affectationTypeProjetEnseignantLocal;
+	@EJB
+	private GestionChargeHoraireProjetLocal gestionChargeHoraireProjetLocal;
 
 	private Integer hour;
 	private int semester;
@@ -53,6 +56,8 @@ public class AffectationTypeEnseignantProjet {
 
 	private Projet projet = new Projet();
 	private List<Projet> projets = new ArrayList<Projet>();
+
+	private int chargeHoraireParEnseignant;
 
 	// ************************ affichage par enseignant ********************
 	private List<TypeProjetProjetEnseignant> listeParEnseignants;
@@ -80,9 +85,15 @@ public class AffectationTypeEnseignantProjet {
 				enseignantTMP, typeTMP, projetTMP, semester, hour, statut,
 				periode);
 
-		setNameEnseignant(enseignantTMP.getNom());
 		nameEnseignant = enseignantTMP.getNom();
 
+		return "";
+	}
+
+	public String doCalculChargeHoraire() {
+		int chargeHoraireParEnseignant = gestionEnseignantLocal
+				.volumeHoraireTotalParEnseignant(nameEnseignant);
+		System.out.println(chargeHoraireParEnseignant);
 		return "";
 	}
 
@@ -105,8 +116,8 @@ public class AffectationTypeEnseignantProjet {
 		return "";
 	}
 
-	// ********************* affichage par unite ***********************
-	public String updateDataTableUnite() {
+	// ********************* affichage par type ***********************
+	public String updateDataTableType() {
 		// System.out.println("bonjour....");
 		nomTypeSelected = gestionTypeProjetLocal.findById(idType)
 				.getLibelleType();
@@ -394,4 +405,13 @@ public class AffectationTypeEnseignantProjet {
 		this.nomTypeSelected = nomTypeSelected;
 	}
 
+	public int getChargeHoraireParEnseignant() {
+		int chargeHoraireParEnseignant = gestionEnseignantLocal
+				.volumeHoraireTotalParEnseignant(nameEnseignant);
+		return chargeHoraireParEnseignant;
+	}
+
+	public void setChargeHoraireParEnseignant(int chargeHoraireParEnseignant) {
+		this.chargeHoraireParEnseignant = chargeHoraireParEnseignant;
+	}
 }

@@ -1,8 +1,11 @@
 package com.esprit.entity;
 
 import java.io.Serializable;
-import java.lang.Integer;
-import javax.persistence.*;
+
+import javax.persistence.EmbeddedId;
+import javax.persistence.Entity;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 
 /**
  * Entity implementation class for Entity: TypeProjetProjetEnseignant
@@ -17,15 +20,15 @@ public class TypeProjetProjetEnseignant implements Serializable {
 	private Projet projet;
 
 	private boolean statut;
-	private Integer volumeHoraire;
+	private int volumeHoraire;
 	private int semsestre;
-	private Integer periode;
+	private int periode;
 
 	private static final long serialVersionUID = 1L;
 
 	public TypeProjetProjetEnseignant(TypeProjet typeProjet,
 			Enseignant enseignant, Projet projet, boolean statut,
-			Integer volumeHoraire, int semsestre, Integer periode) {
+			int volumeHoraire, int semsestre, int periode) {
 		super();
 		this.typeProjet = typeProjet;
 		this.enseignant = enseignant;
@@ -51,11 +54,11 @@ public class TypeProjetProjetEnseignant implements Serializable {
 		this.statut = statut;
 	}
 
-	public Integer getVolumeHoraire() {
+	public int getVolumeHoraire() {
 		return this.volumeHoraire;
 	}
 
-	public void setVolumeHoraire(Integer volumeHoraire) {
+	public void setVolumeHoraire(int volumeHoraire) {
 		this.volumeHoraire = volumeHoraire;
 	}
 
@@ -67,11 +70,11 @@ public class TypeProjetProjetEnseignant implements Serializable {
 		this.semsestre = semsestre;
 	}
 
-	public Integer getPeriode() {
+	public int getPeriode() {
 		return this.periode;
 	}
 
-	public void setPeriode(Integer periode) {
+	public void setPeriode(int periode) {
 		this.periode = periode;
 	}
 

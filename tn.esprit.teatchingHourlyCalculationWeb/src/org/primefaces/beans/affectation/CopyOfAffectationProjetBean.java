@@ -19,7 +19,7 @@ import com.esprit.service.gestionProjet.GestionProjetLocal;
 
 @ManagedBean
 @SessionScoped
-public class AffectationProjetBean {
+public class CopyOfAffectationProjetBean {
 	// the model
 	private List<Projet> projets = new ArrayList<Projet>();
 	private List<Enseignant> enseignants = new ArrayList<Enseignant>();
@@ -59,16 +59,12 @@ public class AffectationProjetBean {
 	private GestionChargeHoraireProjetLocal gestionChargeHoraireProjetLocal;
 
 	public String doAdd() {
-		
 		Projet projetTMP = gestionProjetLocal.findByRef(idSelectedProject);
-		
 		Enseignant enseignantTMP = gestionEnseignantLocal
 				.findByMat(matSelectedEnseignant);
-		
 		System.out.println("good luck ramla ...");
 		gestionAffectationProjetEnseignantLocal.createAffectation(semester,
 				periode, hour, dateAffectation, enseignantTMP, projetTMP);
-		
 		nameEnseignant = enseignantTMP.getNom();
 
 		return "ok";

@@ -7,6 +7,7 @@ import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 
+import com.esprit.entity.ChargeHoraireProjet;
 import com.esprit.entity.Enseignant;
 import com.esprit.entity.Projet;
 import com.esprit.entity.TypeProjet;
@@ -76,6 +77,11 @@ public class AffectationTypeProjetEnseignant implements
 				entityManager.merge(enseignant), entityManager.merge(projet),
 				statut, volumeHoraire, semestre, periode);
 		entityManager.persist(typeProjetProjetEnseignant);
+		
+		ChargeHoraireProjet chargeHoraireProjet = new ChargeHoraireProjet();
+		chargeHoraireProjet.setNbrHeures(volumeHoraire);
+		chargeHoraireProjet.setEnseignant(enseignant);
+		entityManager.persist(chargeHoraireProjet);
 
 	}
 

@@ -47,7 +47,7 @@ public class InitDB {
 
 			Unite unite1 = new Unite();
 			unite1.setNomUnite("EspritOnLine");
-
+			unite.setNomChefProjet("ihsen");
 			gestionUniteRemote.save(unite1);
 
 			Enseignant enseignant = new Enseignant();
@@ -57,10 +57,34 @@ public class InitDB {
 			enseignant.setCodePostal(2013);
 			enseignant.setPrivilege(1);
 			enseignant.setNumTelephone(98989898);
-			enseignant.setLogin("a");
-			enseignant.setPassword("a");
+			enseignant.setLogin("ramla");
+			enseignant.setPassword("ramla");
 
 			gestionEnseignantRemote.save(enseignant);
+			
+			Enseignant enseignant1 = new Enseignant();
+			enseignant1.setMatriculeEnseigant("mat03");
+			enseignant1.setNom("ihsen");
+			enseignant1.setCin(0123457);
+			enseignant1.setCodePostal(2013);
+			enseignant1.setPrivilege(1);
+			enseignant1.setNumTelephone(98989898);
+			enseignant1.setLogin("ihsen");
+			enseignant1.setPassword("ihsen");
+
+			gestionEnseignantRemote.save(enseignant1);
+			
+			Enseignant enseignant2 = new Enseignant();
+			enseignant2.setMatriculeEnseigant("mat04");
+			enseignant2.setNom("ahmed");
+			enseignant2.setCin(0123455);
+			enseignant2.setCodePostal(2013);
+			enseignant2.setPrivilege(1);
+			enseignant2.setNumTelephone(98989898);
+			enseignant2.setLogin("ahmed");
+			enseignant2.setPassword("ahmed");
+
+			gestionEnseignantRemote.save(enseignant2);
 
 			Projet projet = new Projet();
 			projet.setLibelleProjet("proj02");
@@ -68,6 +92,18 @@ public class InitDB {
 
 			gestionProjetRemote.addProject(projet);
 
+			Projet projet1 = new Projet();
+			projet1.setLibelleProjet("proj03");
+			projet1.setDescription("description");
+
+			gestionProjetRemote.addProject(projet1);
+			
+			Projet projet2 = new Projet();
+			projet2.setLibelleProjet("proj04");
+			projet2.setDescription("description");
+
+			gestionProjetRemote.addProject(projet2);
+			
 			Activite activite = new Activite();
 			activite.setLibelleActivite("activite1");
 			activite.setDescription("description");

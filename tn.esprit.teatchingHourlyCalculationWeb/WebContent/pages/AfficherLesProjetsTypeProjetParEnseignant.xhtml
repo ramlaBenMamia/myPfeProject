@@ -5,7 +5,7 @@
 	xmlns:ui="http://java.sun.com/jsf/facelets"
 	xmlns:p="http://primefaces.org/ui">
 <head>
-<title>template</title>
+<title>type Projet</title>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <meta name="title" content="Web site" />
 <meta name="description" content="Site description here" />
@@ -128,41 +128,26 @@
 									<h:body>
 										<f:view>
 											<h:form id="form">
-
-
-
-												<p:scrollPanel style="height:700px;width:700px">
-
-													<p:panel id="panel"
+												<p:scrollPanel style="height:700px;width:700px"><p:panel id="panel"
 														header="Esprit --- Gestion des Enseignants --- Affichage de la liste des projets de l'enseignant :"
 														style="height:1000px;width:700px">
-
-
-														<br />
-														<br />
-														<br />
 														<center>
 															<table>
 																<tr>
 																	<td><p:selectOneMenu
-																			value="#{affectationProjetBean.nameEnseignant}">
+																			value="#{affectationTypeEnseignantProjet.nameEnseignant}">
 																			<f:selectItems
-																				value="#{affectationProjetBean.selectItemsEnseignant}" />
+																				value="#{affectationTypeEnseignantProjet.itemsEnseignants}" />
 																		</p:selectOneMenu></td>
 
 																	<td><p:commandButton value="Afficher"
 																			update="dataTable"
-																			actionListener="#{affectationProjetBean.updateDataTable}" /></td>
+																			actionListener="#{affectationTypeEnseignantProjet.updateDataTable}" /></td>
 																</tr>
 															</table>
-
-
-
-
-
-															<p:dataTable id="dataTable" var="projetParEns"
-																value="#{affectationProjetBean.listeParEnseignants}"
-																rowKey="#{projetParEns.enseignant.matriculeEnseigant}"
+															<p:dataTable id="dataTable" var="typeParEns"
+																value="#{affectationTypeEnseignantProjet.listeParEnseignants}"
+																rowKey="#{typeParEns.enseignant.matriculeEnseigant}"
 																selectionMode="single"
 																emptyMessage="Aucun projets dans la base avec cette information"
 																paginator="true" rows="10"
@@ -174,61 +159,63 @@
 																		<p:inputText id="globalFilter" style="width:150px" />
 																	</p:outputPanel>
 																</f:facet>
-
-
-
 																<p:column headerText="Matricule"
-																	filterBy="#{projetParEns.enseignant.matriculeEnseigant}"
-																	sortBy="#{projetParEns.enseignant.matriculeEnseigant}">
+																	filterBy="#{typeParEns.enseignant.matriculeEnseigant}"
+																	sortBy="#{typeParEns.enseignant.matriculeEnseigant}">
 																	<f:facet name="header">
 																		<h:outputText value="Matricule" />
 																	</f:facet>
 																	<h:outputText
-																		value="#{projetParEns.enseignant.matriculeEnseigant}" />
-
+																		value="#{typeParEns.enseignant.matriculeEnseigant}" />
 																</p:column>
-
-
 																<p:column headerText="NomProjet"
-																	filterBy="#{projetParEns.projet.libelleProjet}"
-																	sortBy="#{projetParEns.projet.libelleProjet}">
+																	filterBy="#{typeParEns.projet.libelleProjet}"
+																	sortBy="#{typeParEns.projet.libelleProjet}">
 																	<f:facet name="header">
 																		<h:outputText value="Nom du Projet" />
 																	</f:facet>
 																	<h:outputText
-																		value="#{projetParEns.projet.libelleProjet}" />
+																		value="#{typeParEns.projet.libelleProjet}" />
 																</p:column>
-
+																<p:column headerText="TypeProjet"
+																	filterBy="#{typeParEns.typeProjet.libelleType}"
+																	sortBy="#{typeParEns.typeProjet.libelleType}">
+																	<f:facet name="header">
+																		<h:outputText value="Type du Projet" />
+																	</f:facet>
+																	<h:outputText
+																		value="#{typeParEns.typeProjet.libelleType}" />
+																</p:column>
+																<p:column headerText="Statut"
+																	filterBy="#{typeParEns.statut}"
+																	sortBy="#{typeParEns.statut}">
+																	<f:facet name="header">
+																		<h:outputText value="Statut" />
+																	</f:facet>
+																	<h:outputText
+																		value="#{typeParEns.statut}" />
+																</p:column>
 																<p:column headerText="VolumeHoraire"
-																	filterBy="#{projetParEns.volumeHoraire}"
-																	sortBy="#{projetParEns.volumeHoraire}">
+																	filterBy="#{typeParEns.volumeHoraire}"
+																	sortBy="#{typeParEns.volumeHoraire}">
 																	<f:facet name="header">
 																		<h:outputText value="Volume Horaire" />
 																	</f:facet>
-																	<h:outputText value="#{projetParEns.volumeHoraire}" />
-
+																	<h:outputText value="#{typeParEns.volumeHoraire}" />
 																</p:column>
-
-
 																<f:facet name="footer">
 																	<p:commandButton style="margin-right:70%"
 																		id="viewButton" value="Total" icon="ui-icon-search"
 																		update=":form:display" oncomplete="uniteDialog.show()" />
 																</f:facet>
-
 															</p:dataTable>
-
 															<p:dialog id="dialog" header="Total Charge Horaire"
 																widgetVar="uniteDialog" resizable="false" width="200"
 																height="100" showEffect="clip" hideEffect="fold">
-
 																<h:panelGrid id="display" columns="2" cellpadding="4">
-
 																	<h:outputText value="Total Volume Horaire:" />
-
-
 																	<h:outputText
-																		value="#{affectationProjetBean.chargeHoraireParEnseignant}" />
+																		value="#{affectationTypeEnseignantProjet.chargeHoraireParEnseignant}" />
 																</h:panelGrid>
 															</p:dialog>
 

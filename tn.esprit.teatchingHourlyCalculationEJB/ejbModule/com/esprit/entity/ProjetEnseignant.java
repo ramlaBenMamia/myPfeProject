@@ -21,8 +21,6 @@ public class ProjetEnseignant implements Serializable {
 	private int periode;
 	private String nom;
 	private int volumeHoraire;
-	private int volumeHoraireMaximal;
-	private int volumeHoraireSupp = volumeHoraireMaximal-volumeHoraire;
 	private Date dateAffectation;
 	
 	private Enseignant enseignant;
@@ -117,21 +115,6 @@ public class ProjetEnseignant implements Serializable {
 		this.dateAffectation = dateAffectation;
 	}
 
-	public int getVolumeHoraireMaximal() {
-		return volumeHoraireMaximal;
-	}
-
-	public void setVolumeHoraireMaximal(int volumeHoraireMaximal) {
-		this.volumeHoraireMaximal = volumeHoraireMaximal;
-	}
-
-	public int getVolumeHoraireSupp() {
-		return volumeHoraireSupp;
-	}
-
-	public void setVolumeHoraireSupp(int volumeHoraireSupp) {
-		this.volumeHoraireSupp = volumeHoraireSupp;
-	}
 
 	public ProjetEnseignant getProjetEnseignant() {
 		return projetEnseignant;
