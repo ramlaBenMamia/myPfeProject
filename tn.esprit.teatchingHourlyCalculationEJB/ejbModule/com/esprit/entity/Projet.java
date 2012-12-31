@@ -32,6 +32,10 @@ public class Projet implements Serializable {
 	private List<Enseignant> enseignants;
 	private Enseignant enseignant;
 
+	private List<TypeProjet> typeProjets;
+	private TypeProjet typeProjet;
+	private List<TypeProjetProjetEnseignant> typeProjetProjetEnseignants;
+	
 	private static final long serialVersionUID = 1L;
 
 	public Projet() {
@@ -77,8 +81,6 @@ public class Projet implements Serializable {
 	}
 
 	
-	
-	
 	//********************* affichage par projet ******************
 	
 	@OneToMany(mappedBy = "projet", cascade = CascadeType.ALL)
@@ -100,4 +102,36 @@ public class Projet implements Serializable {
 		this.enseignant = enseignant;
 	}
 
+	@OneToMany(mappedBy = "projet", cascade = CascadeType.ALL)
+	@LazyCollection(LazyCollectionOption.FALSE)
+	public List<TypeProjet> getTypeProjets() {
+		return typeProjets;
+	}
+
+	public void setTypeProjets(List<TypeProjet> typeProjets) {
+		this.typeProjets = typeProjets;
+	}
+
+	@ManyToOne
+	public TypeProjet getTypeProjet() {
+		return typeProjet;
+	}
+
+	public void setTypeProjet(TypeProjet typeProjet) {
+		this.typeProjet = typeProjet;
+	}
+
+	@OneToMany(mappedBy = "projet", cascade = CascadeType.ALL)
+	@LazyCollection(LazyCollectionOption.FALSE)
+	public List<TypeProjetProjetEnseignant> getTypeProjetProjetEnseignants() {
+		return typeProjetProjetEnseignants;
+	}
+
+	public void setTypeProjetProjetEnseignants(
+			List<TypeProjetProjetEnseignant> typeProjetProjetEnseignants) {
+		this.typeProjetProjetEnseignants = typeProjetProjetEnseignants;
+	}
+
+	
+	
 }

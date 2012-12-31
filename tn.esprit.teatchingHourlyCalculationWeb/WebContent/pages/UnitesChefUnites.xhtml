@@ -5,7 +5,7 @@
 	xmlns:ui="http://java.sun.com/jsf/facelets"
 	xmlns:p="http://primefaces.org/ui">
 <head>
-<title>Acceuil</title>
+<title>template</title>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <meta name="title" content="Web site" />
 <meta name="description" content="Site description here" />
@@ -121,21 +121,19 @@
 						<!-- END SIDEBAR  -->
 						<!-- MAIN COLUMN -->
 						<div id="main">
-							<div class="content" style="width: 930px;">
+							<div class="content" style="width: 800px;">
 								<div style="margin-top: 25px;">
+									<h:head></h:head>
 
 									<h:body>
-										<h:head></h:head>
 										<f:view>
-											<p:galleria var="image" value="#{ramlaGalleria.images}">
-												<p:graphicImage value="/images/galleria/#{image}"></p:graphicImage>
-
-											</p:galleria>
+										<h:form id="form">
+ 
+            							</h:form>
 										</f:view>
 									</h:body>
+
 								</div>
-
-
 							</div>
 						</div>
 						<!-- END MAIN -->
@@ -148,9 +146,11 @@
 							<!-- 
 Keep this footer link UNCHANGED AND VISIBLE or make a 10 dollars donation at www.dotemplate.com/#donate to remove it.
 -->
-							<p></p>
+							<p>
+								<a href="http://www.dotemplate.com">Free templates</a>
+							</p>
 							<center>
-								<p style="color: black; width: 100px;">2012-2013</p>
+								<p style="background: black; width: 100px;">2012-2013</p>
 							</center>
 
 						</div>

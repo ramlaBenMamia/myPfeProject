@@ -7,11 +7,13 @@ import com.esprit.entity.Activite;
 import com.esprit.entity.Enseignant;
 import com.esprit.entity.Locale;
 import com.esprit.entity.Projet;
+import com.esprit.entity.TypeProjet;
 import com.esprit.entity.Unite;
 import com.esprit.service.gestionActivite.GestionActiviteRemote;
 import com.esprit.service.gestionEnseignant.GestionEnseignantRemote;
 import com.esprit.service.gestionLocal.GestionLocaleRemote;
 import com.esprit.service.gestionProjet.GestionProjetRemote;
+import com.esprit.service.gestionTypeProjet.GestionTypeProjetRemote;
 import com.esprit.service.gestionUnite.GestionUniteRemote;
 
 public class InitDB {
@@ -35,19 +37,19 @@ public class InitDB {
 			GestionUniteRemote gestionUniteRemote = (GestionUniteRemote) context
 					.lookup("tn.esprit.teatchingHourlyCalculation/tn.esprit.teatchingHourlyCalculationEJB/GestionUnite!com.esprit.service.gestionUnite.GestionUniteRemote");
 
-			
-			Unite unite=new Unite();
+			GestionTypeProjetRemote gestionTypeProjetRemote = (GestionTypeProjetRemote) context
+					.lookup("tn.esprit.teatchingHourlyCalculation/tn.esprit.teatchingHourlyCalculationEJB/GestionTypeProjet!com.esprit.service.gestionTypeProjet.GestionTypeProjetRemote");
+
+			Unite unite = new Unite();
 			unite.setNomUnite("mobile");
-			
+			unite.setNomChefProjet("ramla");
 			gestionUniteRemote.save(unite);
-			
-			
-			Unite unite1=new Unite();
+
+			Unite unite1 = new Unite();
 			unite1.setNomUnite("EspritOnLine");
-			
+
 			gestionUniteRemote.save(unite1);
-			
-			
+
 			Enseignant enseignant = new Enseignant();
 			enseignant.setMatriculeEnseigant("mat02");
 			enseignant.setNom("ramla");
@@ -71,7 +73,7 @@ public class InitDB {
 			activite.setDescription("description");
 
 			gestionActiviteRemote.addActivite(activite);
-			
+
 			Activite activite1 = new Activite();
 			activite1.setLibelleActivite("activite2");
 			activite1.setDescription("description2");
@@ -88,7 +90,25 @@ public class InitDB {
 			gestionLocaleRemote.createLocal(locale2);
 			
 			
+			TypeProjet typeProjet= new TypeProjet();
+			typeProjet.setLibelleType("PFE");
 			
+			gestionTypeProjetRemote.save(typeProjet);
+			
+			TypeProjet typeProjet1= new TypeProjet();
+			typeProjet1.setLibelleType("PFA");
+			
+			gestionTypeProjetRemote.save(typeProjet1);
+			
+			TypeProjet typeProjet2= new TypeProjet();
+			typeProjet2.setLibelleType("Projet");
+			
+			gestionTypeProjetRemote.save(typeProjet2);
+			
+			TypeProjet typeProjet3= new TypeProjet();
+			typeProjet3.setLibelleType("Mini Projet");
+			
+			gestionTypeProjetRemote.save(typeProjet3);
 
 		} catch (Exception e) {
 			// TODO: handle exception

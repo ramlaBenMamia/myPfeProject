@@ -120,10 +120,11 @@ public class GestionAffectationProjetEnseignant implements
 	}
 
 	@Override
-	public void createAffectation(int semestre, int periode, int volumeHoraire,Date dateAffectation,
-			Enseignant enseignant, Projet projet) {
+	public void createAffectation(int semestre, int periode, int volumeHoraire,
+			Date dateAffectation, Enseignant enseignant, Projet projet) {
 		ProjetEnseignant projetEnseignant = new ProjetEnseignant(semestre,
-				periode, volumeHoraire,dateAffectation, em.merge(enseignant), em.merge(projet));
+				periode, volumeHoraire, dateAffectation, em.merge(enseignant),
+				em.merge(projet));
 		em.persist(projetEnseignant);
 
 		ChargeHoraireProjet chargeHoraireProjet = new ChargeHoraireProjet();
@@ -146,7 +147,7 @@ public class GestionAffectationProjetEnseignant implements
 				.createQuery(
 						"select p from ProjetEnseignant p where p.projet.libelleProjet like :pnom ")
 				.setParameter("pnom", nom).getResultList();
-		
+
 	}
 
 }

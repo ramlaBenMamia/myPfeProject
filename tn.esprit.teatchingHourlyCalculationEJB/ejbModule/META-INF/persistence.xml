@@ -21,6 +21,9 @@
 		<class>com.esprit.entity.ActiviteEnseignantPK</class>
 		<class>com.esprit.entity.UniteEnseignantPromotion</class>
 		<class>com.esprit.entity.UniteEnseignantPromotionPK</class>
+		<class>com.esprit.entity.TypeProjet</class>
+		<class>com.esprit.entity.TypeProjetProjetEnseignant</class>
+		<class>com.esprit.entity.TypeProjetProjetEnseignantPK</class>
 		<properties>
 			<property name="hibernate.dialect" value="org.hibernate.dialect.MySQLInnoDBDialect" />
 			<property name="hibernate.hbm2ddl.auto" value="create" />
