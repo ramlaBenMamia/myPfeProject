@@ -129,47 +129,38 @@
 										<f:view>
 											<h:form id="form">
 
+												<p:fieldset legend="Ajouter un Projet " id="panel"
+													style="height:250px;width:500px">
+
+													<br />
+													<h:panelGrid columns="2">
+
+														<h:outputLabel for="Projet" value="Projet : *" />
+														<p:inputText id="nom"
+															value="#{projetBean.projet.libelleProjet}"
+															required="true" label="Nom">
+														</p:inputText>
+														<h:outputLabel value="" />
+														<h:outputLabel value="" />
+
+														<h:outputLabel for="description" value="Description :*" />
+														<p:inputTextarea id="editor"
+															value="#{projetBean.projet.description}" width="400"></p:inputTextarea>
+													</h:panelGrid>
 
 
-												<p:scrollPanel style="height:700px;width:700px">
-
-													<p:panel id="panel" style="height:1200px;width:700px">
-														<h3>Ajouter un nouveau projet :</h3>
 
 
-														<h:panelGrid columns="3">
 
-															<h:outputLabel for="Projet" value="Projet : *" />
-															<p:inputText id="nom"
-																value="#{projetBean.projet.libelleProjet}"
-																required="true" label="Nom">
-															</p:inputText>
+													<br />
+													<br />
+													<br />
 
-
-															<h:outputLabel value="" />
-															<h:outputLabel for="description" value="Description :*" />
-															<p:editor id="editor"
-																value="#{projetBean.projet.description}" width="400" />
-															<h:outputLabel value="" />
-
-
-														</h:panelGrid>
-
-
-														<br />
-														<br />
-														<br />
-
-														<p:commandButton value="Valider" update="panel" id="ajax"
-															actionListener="#{projetBean.doAddProjet}"
-															onclick="dlg.show();" />
-														<p:commandButton value="Reset" type="reset" />
-
-													</p:panel>
-
-
-												</p:scrollPanel>
-
+													<p:commandButton value="Valider" update="panel" id="ajax"
+														actionListener="#{projetBean.doAddProjet}"
+														onclick="dlg.show();" />
+													<p:commandButton value="Reset" type="reset" />
+												</p:fieldset>
 
 											</h:form>
 										</f:view>

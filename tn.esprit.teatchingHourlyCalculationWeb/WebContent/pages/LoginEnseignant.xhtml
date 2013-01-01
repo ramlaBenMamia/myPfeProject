@@ -35,67 +35,18 @@
 					<div id="container-top"></div>
 					<div id="banner"></div>
 					<div id="hmenu-wpr">
-						<ul id="hmenu" class="sf-menu sf-js-enabled sf-shadow">
-							<li class="current" style="border: none"><a
-								class="toplvl sf-with-ul" href="#">Home</a></li>
-							<li><a href="#" class="toplvl">Products</a>
+											<ul id="hmenu" class="sf-menu sf-js-enabled sf-shadow">
+					
+						<li class="current" style="border: none"><a
+								class="toplvl sf-with-ul" href="#"></a></li>
+							<li><a href="#" class="toplvl"></a>
 								<ul>
-									<li><a href="#">menu item</a></li>
-									<li class="current"><a href="#">menu item</a>
-										<ul>
-											<li class="current"><a href="#">menu item</a></li>
-											<li><a href="#">menu item</a></li>
-											<li><a href="#">menu item</a></li>
-											<li><a href="#">menu item</a></li>
-											<li><a href="#">menu item</a></li>
-										</ul></li>
-									<li><a href="#">menu item</a>
-										<ul>
-											<li><a href="#">menu item</a></li>
-											<li><a href="#">menu item</a></li>
-											<li><a href="#">menu item</a></li>
-											<li><a href="#">menu item</a></li>
-											<li><a href="#">menu item</a></li>
-										</ul></li>
-									<li><a href="#">menu item</a>
-										<ul>
-											<li><a href="#">menu item</a></li>
-											<li><a href="#">menu item</a></li>
-											<li><a href="#">menu item</a></li>
-											<li><a href="#">menu item</a></li>
-											<li><a href="#">menu item</a></li>
-										</ul></li>
+									
+										
 								</ul></li>
-							<li><a class="toplvl" href="#">Services</a>
-								<ul>
-									<li><a href="#">menu item</a></li>
-									<li class="current"><a href="#">menu item</a>
-										<ul>
-											<li class="current"><a href="#">menu item</a></li>
-											<li><a href="#">menu item</a></li>
-											<li><a href="#">menu item</a></li>
-											<li><a href="#">menu item</a></li>
-											<li><a href="#">menu item</a></li>
-										</ul></li>
-									<li><a href="#">menu item</a>
-										<ul>
-											<li><a href="#">menu item</a></li>
-											<li><a href="#">menu item</a></li>
-											<li><a href="#">menu item</a></li>
-											<li><a href="#">menu item</a></li>
-											<li><a href="#">menu item</a></li>
-										</ul></li>
-									<li><a href="#">menu item</a>
-										<ul>
-											<li><a href="#">menu item</a></li>
-											<li><a href="#">menu item</a></li>
-											<li><a href="#">menu item</a></li>
-											<li><a href="#">menu item</a></li>
-											<li><a href="#">menu item</a></li>
-										</ul></li>
-								</ul></li>
-							<li><a class="toplvl" href="#">About Us</a></li>
+							<li><a class="toplvl" href="#"></a></li>
 						</ul>
+
 					</div>
 				</div>
 				<div class="bd">
@@ -106,14 +57,15 @@
 								<div class="sidebox1">
 									<div class="vmenu">
 										<ul>
-											<li><a href="#">Category 1</a></li>
-											<li><a href="#">Category 2</a></li>
+											<li><a href="#">Espace Enseignant</a></li>
+											<li><a href="#">Espace Administration</a></li>
+											<li><a href="#">Envoi de mail</a></li>
+											
 
 										</ul>
 									</div>
 								</div>
 								<div>
-									<img src="images/business-man-1.png" style="width: 100%" />
 								</div>
 
 							</div>
@@ -127,38 +79,42 @@
 
 									<h:body>
 										<f:view>
+									
 											<h:form id="form">
+											<br/>
+											<br/>
 											<center>
-												<p:panel id="panel" style="height:200px;width:400px">
+												<p:panel id="panel" style="height:150px;width:400px">
 
-													<p:panel header="login Panel">
+													<p:panel header="Bienvenue dans notre espace">
 
 														<h:panelGrid id="grid" columns="2"
 															style="margin-bottom:10px">
 															<f:facet name="header">
 															</f:facet>
 
-															<h:outputLabel value="login:" />
+															<h:outputLabel value="login :" />
 															<p:inputText value="#{enseignantLogin.login}" />
 
-															<h:outputLabel value="Password: *" />
+															<h:outputLabel value="Mot de passe : *" />
 															<p:password id="password" value="#{enseignantLogin.pwd}"
 																required="true" label="Mot de Passe" />
 														</h:panelGrid>
-
 													</p:panel>
 
 													<h:panelGrid columns="6" cellpadding="5">
-														<p:commandButton value="sign in" id="btnAll" update="grid"
-															action="#{enseignantLogin.doLogin}" ajax="false" />
+														
 
 
 
 													</h:panelGrid>
 
-												</p:panel>
-</center>
+												</p:panel><br/> <center>
+												<p:commandButton value="se connecter" id="btnAll" update="grid"
+															action="#{enseignantLogin.doLogin}" ajax="false" /></center>
+												</center>
 											</h:form>
+											
 										</f:view>
 									</h:body>
 
