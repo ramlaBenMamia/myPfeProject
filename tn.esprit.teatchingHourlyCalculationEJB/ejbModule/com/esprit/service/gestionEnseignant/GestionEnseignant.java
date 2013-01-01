@@ -234,4 +234,5 @@ public class GestionEnseignant implements GestionEnseignantLocal,
 		return total;
 	}
 
+	
 }

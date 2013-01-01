@@ -8,7 +8,6 @@ import com.esprit.entity.Enseignant;
 import com.esprit.entity.Projet;
 import com.esprit.service.gestionActivite.GestionActiviteRemote;
 import com.esprit.service.gestionAffectationActivite.GestionAffectationActiviteEnseignantRemote;
-import com.esprit.service.gestionAffectationProjet.GestionAffectationProjetEnseignantRemote;
 import com.esprit.service.gestionEnseignant.GestionEnseignantRemote;
 import com.esprit.service.gestionProjet.GestionProjetRemote;
 
@@ -21,8 +20,6 @@ public class TestAffectation {
 
 		try {
 			Context context = new InitialContext();
-			GestionAffectationProjetEnseignantRemote gestionAffProjEnseigRemote = (GestionAffectationProjetEnseignantRemote) context
-					.lookup("tn.esprit.teatchingHourlyCalculation/tn.esprit.teatchingHourlyCalculationEJB/GestionAffectationProjetEnseignant!com.esprit.service.gestionAffectationProjet.GestionAffectationProjetEnseignantRemote");
 			GestionEnseignantRemote gestionEnseignantRemote = (GestionEnseignantRemote) context
 					.lookup("tn.esprit.teatchingHourlyCalculation/tn.esprit.teatchingHourlyCalculationEJB/GestionEnseignant!com.esprit.service.gestionEnseignant.GestionEnseignantRemote");
 			GestionProjetRemote gestionProjetRemote = (GestionProjetRemote) context
@@ -39,10 +36,6 @@ public class TestAffectation {
 			
 			Activite activite=gestionActiviteRemote.findByRef(1);
 			
-			gestionAffActiviteEnseigRemote.createAffectationActivite(1, 11, 24, enseignant, activite);
-			gestionAffProjEnseigRemote.createAffectation(1, 11, 22,null,enseignant,
-					projet);
-
 		} catch (Exception e) {
 			// TODO: handle exception
 		}

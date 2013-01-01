@@ -1,6 +1,7 @@
 package org.primefaces.beans.affectation;
 
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 import javax.ejb.EJB;
@@ -13,8 +14,11 @@ import com.esprit.entity.Promotion;
 import com.esprit.entity.Unite;
 import com.esprit.entity.UniteEnseignantPromotion;
 import com.esprit.service.affectationUniteEnseignantPromotion.AffectationUniteEnseignantPromotionLocal;
+import com.esprit.service.gestionActivite.GestionActiviteLocal;
 import com.esprit.service.gestionEnseignant.GestionEnseignantLocal;
+import com.esprit.service.gestionProjet.GestionProjetLocal;
 import com.esprit.service.gestionPromotion.GestionPromotionLocal;
+import com.esprit.service.gestionTypeProjet.GestionTypeProjetLocal;
 import com.esprit.service.gestionUnite.GestionUniteLocal;
 
 @ManagedBean
@@ -28,12 +32,20 @@ public class AffectationUniteEnseignants {
 	GestionPromotionLocal gestionPromotionLocal;
 	@EJB
 	AffectationUniteEnseignantPromotionLocal affectationUniteEnseignantPromotionLocal;
+	@EJB
+	GestionProjetLocal gestionProjetLocal;
+	@EJB
+	GestionTypeProjetLocal gestionTypeProjetLocal;
+	@EJB
+	GestionActiviteLocal gestionActiviteLocal;
 
 	private List<SelectItem> itemsEnseignants;
 	private String selectedEnseignantId;
 
 	private List<SelectItem> itemsUnites;
 	private int idSelectedUnite;
+
+	private Date date;
 
 	private List<SelectItem> itemsPromotions;
 	private int selectedPromotionId;
@@ -43,6 +55,13 @@ public class AffectationUniteEnseignants {
 
 	private List<Unite> unites = new ArrayList<Unite>();
 	private Unite unite = new Unite();
+
+	private String nomActivite;
+	private int idActivite;
+	private String nomProjet;
+	private int idProjet;
+	private String NomTypeProjet;
+	private int idTypeProjet;
 
 	private Promotion promotion = new Promotion();
 	private List<Promotion> promotions = new ArrayList<Promotion>();
@@ -71,7 +90,7 @@ public class AffectationUniteEnseignants {
 				.findById(selectedPromotionId);
 		System.out.println("good luck ramla ...");
 		affectationUniteEnseignantPromotionLocal.createAffectationEPU(
-				enseignantTMP, promotionTMP, uniteTMP);
+				enseignantTMP, promotionTMP, uniteTMP, date);
 		setNameEnseignant(enseignantTMP.getNom());
 		nameEnseignant = enseignantTMP.getNom();
 
@@ -328,4 +347,67 @@ public class AffectationUniteEnseignants {
 		this.idUnite = idUnite;
 	}
 
+	public Date getDate() {
+		return date;
+	}
+
+	public void setDate(Date date) {
+		this.date = date;
+	}
+
+	public String getNomActivite() {
+		nomActivite = gestionActiviteLocal
+				.findByRef(idActivite).getLibelleActivite();
+		return nomActivite;
+	}
+
+	public void setNomActivite(String nomActivite) {
+		this.nomActivite = nomActivite;
+	}
+
+	public int getIdActivite() {
+		return idActivite;
+	}
+
+	public void setIdActivite(int idActivite) {
+		this.idActivite = idActivite;
+	}
+
+	public String getNomProjet() {
+		nomProjet = gestionProjetLocal
+				.findByRef(idProjet).getLibelleProjet();
+		return nomProjet;
+	}
+
+	public void setNomProjet(String nomProjet) {
+		this.nomProjet = nomProjet;
+	}
+
+	public int getIdProjet() {
+		return idProjet;
+	}
+
+	public void setIdProjet(int idProjet) {
+		this.idProjet = idProjet;
+	}
+
+	public String getNomTypeProjet() {
+		NomTypeProjet = gestionTypeProjetLocal
+				.findById(idTypeProjet).getLibelleType();
+		return NomTypeProjet;
+	}
+
+	public void setNomTypeProjet(String nomTypeProjet) {
+		NomTypeProjet = nomTypeProjet;
+	}
+
+	public int getIdTypeProjet() {
+		return idTypeProjet;
+	}
+
+	public void setIdTypeProjet(int idTypeProjet) {
+		this.idTypeProjet = idTypeProjet;
+	}
+
+	
 }

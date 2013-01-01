@@ -108,34 +108,22 @@
 										<ul>
 											<li><a href="#">Category 1</a></li>
 											<li><a href="#">Category 2</a></li>
-											
+
 										</ul>
 									</div>
 								</div>
-								<div>
-									<img src="images/business-man-1.png" style="width: 100%" />
-								</div>
-								
-							</div>
-						</div>
-						<!-- END SIDEBAR  -->
-						<!-- MAIN COLUMN -->
-						<div id="main">
-							<div class="content" style="width: 800px;">
-								<div style="margin-top: 25px;">
 								<h:head></h:head>
-								
+
 								<h:body>
-										<f:view>
-											<h:form id="form">
+									<f:view>
+										<h:form id="form">
+											<center>
+<br/>
+												<p:scrollPanel style="height:500px;width:1020px">
 
-
-
-												<p:scrollPanel style="height:700px;width:700px">
-
-													<p:panel id="panel"
-														header="Esprit --- Gestion des Enseignants --- Affichage de la liste des unites de l'enseignant :"
-														style="height:1000px;width:700px">
+													<p:fieldset id="panel"
+														legend="Affichage de la liste des unites de l'enseignant :"
+														style="height:700px;width:1000px">
 
 
 														<br />
@@ -197,6 +185,8 @@
 																	<h:outputText value="#{uniteParEns.unite.nomUnite}" />
 																</p:column>
 
+
+
 																<p:column headerText="Annee Universitaire"
 																	filterBy="#{uniteParEns.promotion.promotion}"
 																	sortBy="#{uniteParEns.promotion.promotion}">
@@ -205,6 +195,39 @@
 																	</f:facet>
 																	<h:outputText
 																		value="#{uniteParEns.promotion.promotion}" />
+
+																</p:column>
+
+																<p:column headerText="Activite"
+																	filterBy="#{uniteParEns.enseignant.activite.libelleActivite}"
+																	sortBy="#{uniteParEns.enseignant.activite.libelleActivite}">
+																	<f:facet name="header">
+																		<h:outputText value="Activite" />
+																	</f:facet>
+																	<h:outputText
+																		value="#{uniteParEns.enseignant.activite.libelleActivite}" />
+
+																</p:column>
+
+																<p:column headerText="Projet"
+																	filterBy="#{uniteParEns.enseignant.projet.libelleProjet}"
+																	sortBy="#{uniteParEns.enseignant.projet.libelleProjet}">
+																	<f:facet name="header">
+																		<h:outputText value="Projet" />
+																	</f:facet>
+																	<h:outputText
+																		value="#{uniteParEns.enseignant.projet.libelleProjet}" />
+
+																</p:column>
+
+																<p:column headerText="Type Projet"
+																	filterBy="#{uniteParEns.enseignant.typeProjet.libelleType}"
+																	sortBy="#{uniteParEns.enseignant.typeProjet.libelleType}">
+																	<f:facet name="header">
+																		<h:outputText value="Type Projet" />
+																	</f:facet>
+																	<h:outputText
+																		value="#{uniteParEns.enseignant.typeProjet.libelleType}" />
 
 																</p:column>
 
@@ -217,6 +240,22 @@
 
 															</p:dataTable>
 
+															<p:dialog id="dialog" header="unite Detail"
+																widgetVar="uniteDialog" resizable="false" width="200"
+																height="100" showEffect="clip" hideEffect="fold">
+
+																<h:panelGrid id="display" columns="2" cellpadding="4">
+
+																	<h:outputText value="enseignant:" />
+																	<h:outputText
+																		value="#{affectationUniteEnseignants.nomEnseignantSelected}" />
+
+
+
+
+																</h:panelGrid>
+															</p:dialog>
+
 
 
 
@@ -224,15 +263,22 @@
 
 
 
-													</p:panel>
+													</p:fieldset>
 
 												</p:scrollPanel>
+											</center>
+										</h:form>
+									</f:view>
+								</h:body>
 
-											</h:form>
-										</f:view>
-									</h:body>
-							
-								</div>
+
+							</div>
+						</div>
+						<!-- END SIDEBAR  -->
+						<!-- MAIN COLUMN -->
+						<div id="main">
+							<div class="content" style="width: 800px;">
+								<div style="margin-top: 25px;"></div>
 							</div>
 						</div>
 						<!-- END MAIN -->
@@ -248,8 +294,10 @@ Keep this footer link UNCHANGED AND VISIBLE or make a 10 dollars donation at www
 							<p>
 								<a href="http://www.dotemplate.com">Free templates</a>
 							</p>
-														<center>	<p style="background: black;width: 100px;" > 2012-2013</p></center>
-							
+							<center>
+								<p style="background: black; width: 100px;">2012-2013</p>
+							</center>
+
 						</div>
 					</div>
 					<div id="container-bottom"></div>

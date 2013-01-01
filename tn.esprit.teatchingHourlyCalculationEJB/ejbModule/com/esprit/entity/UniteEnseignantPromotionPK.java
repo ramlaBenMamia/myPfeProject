@@ -5,8 +5,8 @@ import java.io.Serializable;
 import javax.persistence.Embeddable;
 
 @Embeddable
-public class UniteEnseignantPromotionPK implements Serializable{
-	
+public class UniteEnseignantPromotionPK implements Serializable {
+
 	/**
 	 * 
 	 */
@@ -85,5 +85,4 @@ public class UniteEnseignantPromotionPK implements Serializable{
 		return true;
 	}
 
-	
 }

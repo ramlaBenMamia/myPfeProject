@@ -1,5 +1,6 @@
 package com.esprit.service.affectationUniteEnseignantPromotion;
 
+import java.util.Date;
 import java.util.List;
 
 import javax.ejb.Local;
@@ -24,7 +25,7 @@ public interface AffectationUniteEnseignantPromotionLocal {
 	public Promotion getPromotionById(int idPromotion);
 
 	public void createAffectationEPU(Enseignant enseignant,
-			Promotion promotion, Unite unite);
+			Promotion promotion, Unite unite,Date date);
 
 	public List<UniteEnseignantPromotion> findAllByNomEnseignant(
 			String nomEnseignant);

@@ -1,5 +1,6 @@
 package com.esprit.service.affectationUniteEnseignantPromotion;
 
+import java.util.Date;
 import java.util.List;
 
 import javax.ejb.LocalBean;
@@ -69,10 +70,10 @@ public class AffectationUniteEnseignantPromotion implements
 
 	@Override
 	public void createAffectationEPU(Enseignant enseignant,
-			Promotion promotion, Unite unite) {
+			Promotion promotion, Unite unite,Date date) {
 		UniteEnseignantPromotion uniteEnseignantPromotion = new UniteEnseignantPromotion(
 				entityManager.merge(enseignant), entityManager.merge(unite),
-				entityManager.merge(promotion));
+				entityManager.merge(promotion),date);
 		entityManager.persist(uniteEnseignantPromotion);
 		
 	}

@@ -127,10 +127,78 @@
 								<h:body>
 										<h:head></h:head>
 										<f:view>
-											<p:galleria var="image" value="#{ramlaGalleria.images}">
-												<p:graphicImage value="/images/galleria/#{image}"></p:graphicImage>
+										<h:form>
+											<p:scrollPanel style="height:700px;width:700px">
+													<p:panel id="panel" style="height:1000px;width:700px"
+														header=" ESPRIT ---- Affectation des activites par enseignants-----">
+															
+														<h:panelGrid columns="2">
 
-											</p:galleria>
+
+															<h:outputText value="activite" />
+															<p:selectOneMenu
+																value="#{affectationActiviteBean.idSelectedActivite}">
+																<f:selectItems
+																	value="#{affectationActiviteBean.selectItemsActivites}" />
+															</p:selectOneMenu>
+
+															<h:outputText value="Enseignant" />
+															<p:selectOneMenu
+																value="#{affectationActiviteBean.matSelectedEnseignant}">
+																<f:selectItems
+																	value="#{affectationActiviteBean.selectItemsEnseignant}" />
+															</p:selectOneMenu>
+														</h:panelGrid>
+
+
+														<h:panelGrid columns="2">
+															<h:outputText value="hours" />
+															<p:keyboard value="#{affectationActiviteBean.hour}"
+																showMode="button" keypadOnly="true" />
+															<h:outputText value="semester" />
+															<p:selectOneRadio id="options"
+																value="#{affectationActiviteBean.semester}">
+																<f:selectItem itemLabel="semester 1" itemValue="1" />
+																<f:selectItem itemLabel="semester 2" itemValue="2" />
+
+															</p:selectOneRadio>
+															<h:outputText value="periode" />
+															<p:selectOneRadio id="options1"
+																value="#{affectationActiviteBean.periode}">
+																<f:selectItem itemLabel="periode 1" itemValue="1" />
+																<f:selectItem itemLabel="periode 2" itemValue="2" />
+
+															</p:selectOneRadio>
+														</h:panelGrid>
+														<p:commandButton action="#{affectationActiviteBean.doAdd}"
+															value="valider" update="display"
+															oncomplete="dialog.show()" />
+
+
+														<p:dialog widgetVar="dialog" showEffect="fade"
+															hideEffect="fade" header="Values">
+															<h:panelGrid columns="2" id="display" cellpadding="5">
+																<h:outputText value="volume horaire: " />
+																<h:outputText value="#{affectationActiviteBean.hour}" />
+
+																<h:outputText value="enseignant: " />
+																<h:outputText
+																	value="#{affectationActiviteBean.nameEnseignant}" />
+
+
+															</h:panelGrid>
+
+														</p:dialog>
+
+
+
+
+
+													</p:panel>
+
+
+												</p:scrollPanel>
+												</h:form>
 										</f:view>
 									</h:body>
 								

@@ -52,40 +52,67 @@ public class InitDB {
 
 			Enseignant enseignant = new Enseignant();
 			enseignant.setMatriculeEnseigant("mat02");
-			enseignant.setNom("ramla");
+			enseignant.setNom("Ramla");
+			enseignant.setPrenom("Ben Mamia");
 			enseignant.setCin(0123456);
 			enseignant.setCodePostal(2013);
 			enseignant.setPrivilege(1);
 			enseignant.setNumTelephone(98989898);
 			enseignant.setLogin("ramla");
 			enseignant.setPassword("ramla");
+			enseignant.setEmail("ramla.benmamia@gmail.com");
+			enseignant.setRue("avenue habib bourguiba");
 
 			gestionEnseignantRemote.save(enseignant);
 			
 			Enseignant enseignant1 = new Enseignant();
 			enseignant1.setMatriculeEnseigant("mat03");
-			enseignant1.setNom("ihsen");
+			enseignant1.setNom("Ihsen");
+			enseignant1.setPrenom("Ben Mamia");
+			enseignant1.setEmail("ihsen.benmamia@gmail.com");
 			enseignant1.setCin(0123457);
 			enseignant1.setCodePostal(2013);
 			enseignant1.setPrivilege(1);
 			enseignant1.setNumTelephone(98989898);
 			enseignant1.setLogin("ihsen");
 			enseignant1.setPassword("ihsen");
+			enseignant.setRue("avenue habib bourguiba");
 
 			gestionEnseignantRemote.save(enseignant1);
 			
 			Enseignant enseignant2 = new Enseignant();
 			enseignant2.setMatriculeEnseigant("mat04");
-			enseignant2.setNom("ahmed");
+			enseignant2.setNom("Ahmed");
+			enseignant2.setPrenom("Ben Mamia");
+			enseignant2.setEmail("ahmed.benmamia@gmail.com");
 			enseignant2.setCin(0123455);
 			enseignant2.setCodePostal(2013);
 			enseignant2.setPrivilege(1);
 			enseignant2.setNumTelephone(98989898);
 			enseignant2.setLogin("ahmed");
 			enseignant2.setPassword("ahmed");
+			enseignant2.setRue("avenue habib bourguiba");
+
 
 			gestionEnseignantRemote.save(enseignant2);
 
+			Enseignant enseignant3 = new Enseignant();
+			enseignant3.setMatriculeEnseigant("mat05");
+			enseignant3.setPrenom("Med ali");
+			enseignant3.setNom("Bettaieb");
+			enseignant3.setEmail("dali.bettaieb@gmail.com");
+			enseignant3.setCin(0123457);
+			enseignant3.setCodePostal(2013);
+			enseignant3.setPrivilege(1);
+			enseignant3.setNumTelephone(98989898);
+			enseignant3.setLogin("dali");
+			enseignant3.setPassword("dali");
+			enseignant3.setRue("avenue habib bourguiba");
+			
+			gestionEnseignantRemote.save(enseignant3);
+
+			
+			
 			Projet projet = new Projet();
 			projet.setLibelleProjet("proj02");
 			projet.setDescription("description");

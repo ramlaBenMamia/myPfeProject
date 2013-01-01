@@ -42,7 +42,7 @@ public class Enseignant implements Serializable {
 	private String password;
 	private int privilege;
 
-	private List<ProjetEnseignant> projetEnseignants;
+//	private List<ProjetEnseignant> projetEnseignants;
 
 	private List<UniteEnseignantPromotion> uniteEnseignantPromotions;
 
@@ -148,15 +148,15 @@ public class Enseignant implements Serializable {
 		this.privilege = privilege;
 	}
 
-	@OneToMany(mappedBy = "enseignant", cascade = CascadeType.ALL)
-	@LazyCollection(LazyCollectionOption.FALSE)
-	public List<ProjetEnseignant> getProjetEnseignants() {
-		return projetEnseignants;
-	}
-
-	public void setProjetEnseignants(List<ProjetEnseignant> projetEnseignants) {
-		this.projetEnseignants = projetEnseignants;
-	}
+//	@OneToMany(mappedBy = "enseignant", cascade = CascadeType.ALL)
+//	@LazyCollection(LazyCollectionOption.FALSE)
+//	public List<ProjetEnseignant> getProjetEnseignants() {
+//		return projetEnseignants;
+//	}
+//
+//	public void setProjetEnseignants(List<ProjetEnseignant> projetEnseignants) {
+//		this.projetEnseignants = projetEnseignants;
+//	}
 
 	@OneToMany(mappedBy = "enseignant", cascade = CascadeType.ALL)
 	@LazyCollection(LazyCollectionOption.FALSE)

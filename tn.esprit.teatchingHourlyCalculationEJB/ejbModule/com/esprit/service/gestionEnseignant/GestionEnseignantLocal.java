@@ -50,7 +50,7 @@ public interface GestionEnseignantLocal {
 	public Enseignant update(Enseignant entity);
 
 	public Enseignant findByMat(String mat);
-
+	
 	/**
 	 * Find all Enseignant entities with a specific property value.
 	 * 

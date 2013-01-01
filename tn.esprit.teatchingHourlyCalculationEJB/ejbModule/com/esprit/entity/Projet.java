@@ -27,7 +27,7 @@ public class Projet implements Serializable {
 	private int refProjet;
 	private String libelleProjet;
 	private String description;
-	private List<ProjetEnseignant> projetEnseignants;
+//	private List<ProjetEnseignant> projetEnseignants;
 	
 	private List<Enseignant> enseignants;
 	private Enseignant enseignant;
@@ -70,15 +70,15 @@ public class Projet implements Serializable {
 		this.description = description;
 	}
 
-	@OneToMany(mappedBy = "projet", cascade = CascadeType.ALL)
-	@LazyCollection(LazyCollectionOption.FALSE)
-	public List<ProjetEnseignant> getProjetEnseignants() {
-		return projetEnseignants;
-	}
-
-	public void setProjetEnseignants(List<ProjetEnseignant> projetEnseignants) {
-		this.projetEnseignants = projetEnseignants;
-	}
+//	@OneToMany(mappedBy = "projet", cascade = CascadeType.ALL)
+//	@LazyCollection(LazyCollectionOption.FALSE)
+//	public List<ProjetEnseignant> getProjetEnseignants() {
+//		return projetEnseignants;
+//	}
+//
+//	public void setProjetEnseignants(List<ProjetEnseignant> projetEnseignants) {
+//		this.projetEnseignants = projetEnseignants;
+//	}
 
 	
 	//********************* affichage par projet ******************

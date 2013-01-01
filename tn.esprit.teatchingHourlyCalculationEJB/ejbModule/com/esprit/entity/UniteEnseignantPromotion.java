@@ -1,6 +1,8 @@
 package com.esprit.entity;
 
 import java.io.Serializable;
+import java.util.Date;
+
 import javax.persistence.*;
 
 /**
@@ -15,6 +17,7 @@ public class UniteEnseignantPromotion implements Serializable {
 	private Enseignant enseignant;
 	private Unite unite;
 	private Promotion promotion;
+	private Date date;
 
 	private static final long serialVersionUID = 1L;
 
@@ -63,14 +66,23 @@ public class UniteEnseignantPromotion implements Serializable {
 	}
 
 	public UniteEnseignantPromotion(Enseignant enseignant, Unite unite,
-			Promotion promotion) {
+			Promotion promotion,Date date) {
 		super();
 		this.enseignant = enseignant;
 		this.unite = unite;
 		this.promotion = promotion;
+		this.date=date;
 		this.uniteEnseignantPromotionPK = new UniteEnseignantPromotionPK(
 				enseignant.getMatriculeEnseigant(), promotion.getIdPromotion(),
 				unite.getRefUnite());
+	}
+
+	public Date getDate() {
+		return date;
+	}
+
+	public void setDate(Date date) {
+		this.date = date;
 	}
 
 }

@@ -5,7 +5,7 @@
 	xmlns:ui="http://java.sun.com/jsf/facelets"
 	xmlns:p="http://primefaces.org/ui">
 <head>
-<title>AffectationUniteEnseignants</title>
+<title>Details des unites </title>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <meta name="title" content="Web site" />
 <meta name="description" content="Site description here" />
@@ -125,7 +125,7 @@
 									<h:body>
 										<f:view>
 											<h:form id="form">
-
+<p align="left"><a style="" href="AfficherLesDetailsUnitesParNom.jsf">Actualiser</a></p>
 												<p:fieldset id="panel"
 													legend="Esprit ~~ Affichage de les details de l'Unite :"
 													style="height:500px;width:650px">
@@ -200,6 +200,16 @@
 																		</f:facet>
 																		<h:outputText
 																			value="#{uniteParEns.unite.locale.libelleLocal}" />
+																	</p:column>
+																	
+																	<p:column headerText="Date d'affectation :"
+																		filterBy="#{uniteParEns.date}"
+																		sortBy="#{uniteParEns.date}">
+																		<f:facet name="header">
+																			<h:outputText value="Date d'affectation :" />
+																		</f:facet>
+																		<h:outputText
+																			value="#{uniteParEns.date}" />
 																	</p:column>
 
 
@@ -492,6 +502,8 @@
 													</p:tabView>
 
 												</p:fieldset>
+																									
+												
 											</h:form>
 										</f:view>
 									</h:body>

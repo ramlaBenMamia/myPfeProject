@@ -1,5 +1,7 @@
 package com.esprit.service.affectationUniteEnseignantPromotion;
 
+import java.util.Date;
+
 import javax.ejb.Remote;
 
 import com.esprit.entity.Enseignant;
@@ -21,6 +23,6 @@ public interface AffectationUniteEnseignantPromotionRemote {
 	public Promotion getPromotionById(int idPromotion);
 
 	public void createAffectationEPU(Enseignant enseignant,
-			Promotion promotion, Unite unite);
+			Promotion promotion, Unite unite,Date date);
 
 }
