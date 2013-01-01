@@ -161,7 +161,7 @@ body{
 }
 
 #container .hd{
-	height:360px;
+	height:370px;
 	width:100%;
 	background-color:transparent;
 	margin:0 auto;
@@ -186,14 +186,14 @@ body{
 }
 
 #hmenu-wpr{
-	height:40px;
+	height:50px;
 	width:1048px;
 	margin:0 auto;
 }
 
 ul#hmenu{
 	list-style-type:none;
-	height:40px;
+	height:50px;
 	font:11px Helvetica,sans-serif;
 	text-transform:uppercase;
 	width:1048px;
@@ -203,18 +203,18 @@ ul#hmenu{
 
 ul#hmenu li a, ul#hmenu li a:visited{
 	line-height:24px;
-	color:#ffffff;
+	color:#000000;
 }
 
 ul#hmenu li a.toplvl, ul#hmenu li a.toplvl:visited{
-	line-height:40px;
-	color:#FFFFFF;
+	line-height:50px;
+	color:#000000;
 	font-weight:bold;
 	padding:0 70px;
 }
 
 ul#hmenu li a.toplvl:hover, ul#hmenu li.current a.toplvl{
-	color:#ffffff;
+	color:#000000;
 	background-color:transparent;
 	background-image:url('images/css/hmenu-sel.png');
 	background-position:left top;
@@ -238,7 +238,7 @@ ul#hmenu li a.toplvl:hover, ul#hmenu li.current a.toplvl{
 }
 
 #hmenu .sf-menu ul{
-	height:40px;
+	height:50px;
 }
 
 .sf-menu ul li{
@@ -264,11 +264,11 @@ ul#hmenu li a.toplvl:hover, ul#hmenu li.current a.toplvl{
 .sf-menu li:hover ul,.sf-menu li.sfHover ul{
 	left:0;
 	z-index:99;
-	top:40px;
+	top:50px;
 }
 
 #hmenu .sf-menu li:hover ul,#hmenu .sf-menu li.sfHover ul{
-	top:40px;
+	top:50px;
 }
 
 ul.sf-menu li:hover li ul,ul.sf-menu li.sfHover li ul{
@@ -328,7 +328,7 @@ a > .sf-sub-indicator{
 }
 
 a.toplvl > .sf-sub-indicator{
-	/* give all except IE6 the correct values */top:17.0px;
+	/* give all except IE6 the correct values */top:22.0px;
 	background-position:0 -10px;
 }
 
@@ -508,7 +508,7 @@ a:focus > .sf-sub-indicator,a:hover > .sf-sub-indicator,a:active > .sf-sub-indic
 	font-weight:bold;
 	line-height:1.6em;
 	height:100px;
-	color:#404040;
+	color:#000000;
 	text-transform:lowercase;
 	font-size:14px;
 	font-family:Helvetica, Arial, sans-serif;
@@ -591,12 +591,12 @@ a:focus > .sf-sub-indicator,a:hover > .sf-sub-indicator,a:active > .sf-sub-indic
 	text-decoration:none;
 	margin:7px 0px 8px 0px;
 	list-style:none;
-	border-top:1px solid #a5a5a5;
+	border-top:1px solid #808080;
 	padding:0;
 }
 
 .sidebox1 .vmenu ul li{
-	border-bottom:1px solid #a5a5a5;
+	border-bottom:1px solid #808080;
 	margin:0;
 	list-style:none;
 	padding:6px 0 6px 5px;
@@ -604,7 +604,7 @@ a:focus > .sf-sub-indicator,a:hover > .sf-sub-indicator,a:active > .sf-sub-indic
 
 .sidebox1 .vmenu ul li a:link, .sidebox1 .vmenu ul li a:visited{
 	letter-spacing:normal;
-	color:#f5e9d3;
+	color:#000000;
 	text-transform:normal;
 	font-style:normal;
 	font-size:12px;
