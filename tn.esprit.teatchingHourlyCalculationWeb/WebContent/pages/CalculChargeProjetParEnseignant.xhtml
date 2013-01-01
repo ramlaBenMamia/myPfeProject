@@ -247,9 +247,13 @@
 
 															
 															<p:dialog id="dialog" header="Total Charge Horaire"
-																widgetVar="uniteDialog" resizable="false" width="200"
+																widgetVar="uniteDialog" resizable="false" width="400"
 																height="100" showEffect="clip" hideEffect="fold">
 																<h:panelGrid id="display" columns="2" cellpadding="4">
+																																	<h:outputText value="L'enseignant:" />
+																																	<h:outputText
+																		value="#{affectationTypeEnseignantProjet.nomEnseignantSelected}" />
+																
 																	<h:outputText value="Total Volume Horaire:" />
 																	<h:outputText
 																		value="#{affectationTypeEnseignantProjet.chargeHoraireParEnseignant}" />
