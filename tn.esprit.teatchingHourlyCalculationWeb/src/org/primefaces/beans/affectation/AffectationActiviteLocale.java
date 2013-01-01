@@ -4,8 +4,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 import javax.ejb.EJB;
-import javax.faces.bean.ManagedBean;
-import javax.faces.bean.SessionScoped;
 import javax.faces.model.SelectItem;
 
 import com.esprit.entity.Activite;
@@ -44,19 +42,24 @@ public class AffectationActiviteLocale {
 	public String doAdd() {
 		activite.setLocale(gestionLocaleLocal.findLocaleById(selectedLocalId));
 		gestionActiviteLocal.add(activite);
-//		gestionActiviteLocal.ajouter(activite, activite.getRefActivite());;	
-//	    gestionActiviteLocal.update(activite);
+		// gestionActiviteLocal.ajouter(activite, activite.getRefActivite());;
+		// gestionActiviteLocal.update(activite);
 		reset();
 		return "";
 	}
-	
-	public void reset(){
-		activite=new Activite();
-		activite.setTypeActivite1(false);
-		activite.setDateDebut1(null);
+
+	public void reset() {
+		activite = new Activite();
+		activite.setSiminaire(false);
+		activite.setDateSiminaire(null);
+		activite.setDateFin(null);
+		activite.setConference(false);
+		activite.setClub(false);
+		activite.setDateConference(null);
+		activite.setDateClub(null);
 		activite.setDescription("");
 		activite.setLocal(null);
-		
+
 	}
 
 	public GestionActiviteLocal getGestionActiviteLocal() {

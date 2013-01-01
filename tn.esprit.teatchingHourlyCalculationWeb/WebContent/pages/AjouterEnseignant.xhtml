@@ -5,7 +5,7 @@
 	xmlns:ui="http://java.sun.com/jsf/facelets"
 	xmlns:p="http://primefaces.org/ui">
 <head>
-<title>template</title>
+<title>Ajouter Enseignant</title>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <meta name="title" content="Web site" />
 <meta name="description" content="Site description here" />
@@ -129,136 +129,130 @@
 										<f:view>
 											<h:form id="form">
 
+													<p:fieldset legend="Ajouter un nouveau enseigant "
+														id="panel" style="height:700px;width:700px">
 
-
-												<p:scrollPanel style="height:700px;width:700px">
-
-													<p:panel id="panel" style="height:1200px;width:700px">
-														<h3>Ajouter un nouveau enseigant :</h3>
 														<br />
-														<p:messages id="messages" />
-														<h3>Informations Personnelles :</h3>
+														<p:panel header="Informations Personnelles :">
 
 														<h:panelGrid columns="3">
 
-															<h:outputLabel for="nom" value="Nom :*" />
-															<p:inputText id="nom"
-																value="#{teacherBean.enseignant.nom}" required="true"
-																label="Nom">
-															</p:inputText>
-															<p:message for="nom" display="icon" />
+																<h:outputLabel for="nom" value="Nom :*" />
+																<p:inputText id="nom"
+																	value="#{teacherBean.enseignant.nom}" required="true"
+																	label="Nom">
+																</p:inputText>
+																<p:message for="nom" display="icon" />
 
-															<h:outputLabel for="prenom" value="Prénom :*" />
-															<p:inputText id="prenom"
-																value="#{teacherBean.enseignant.prenom}" required="true"
-																label="Prénom">
-															</p:inputText>
-															<p:message for="prenom" display="icon" />
-
-
-															<h:outputLabel for="cin" value="CIN :*" />
-															<p:inputText id="cin"
-																value="#{teacherBean.enseignant.cin}" required="true"
-																label="CIN">
-																<f:validateLength minimum="7" />
-
-															</p:inputText>
-															<p:message for="cin" display="icon" />
-
-															<h:outputLabel value="Date de Naissance: *" />
-															<p:calendar required="true" label="date"
-																value="#{teacherBean.enseignant.date}" id="popupCal" />
-															<h:outputLabel value="" />
+																<h:outputLabel for="prenom" value="Prénom :*" />
+																<p:inputText id="prenom"
+																	value="#{teacherBean.enseignant.prenom}"
+																	required="true" label="Prénom">
+																</p:inputText>
+																<p:message for="prenom" display="icon" />
 
 
-															<h:outputLabel for="nationalite" value="Nationalité :*" />
-															<p:inputText id="nationalite"
-																value="#{teacherBean.enseignant.nationalite}"
-																required="true" label="Nationalité">
-															</p:inputText>
-															<p:message for="nationalite" display="icon" />
+																<h:outputLabel for="cin" value="CIN :*" />
+																<p:inputText id="cin"
+																	value="#{teacherBean.enseignant.cin}" required="true"
+																	label="CIN">
+																	<f:validateLength minimum="7" />
 
-														</h:panelGrid>
+																</p:inputText>
+																<p:message for="cin" display="icon" />
 
-														<h3>Contacts :</h3>
-														<table>
-															<tr>
-																<td><h:outputLabel for="email" value="EMAIL :*" /></td>
-																<td><p:inputText id="email"
-																		value="#{teacherBean.enseignant.email}"
-																		required="true" label="EMAIL">
-																	</p:inputText> <p:message for="email" display="icon" /></td>
-															</tr>
-															<tr>
-																<td><h:outputLabel for="numTel"
-																		value="Numero de Telephone :*" /></td>
-																<td><p:inputText id="numTel"
-																		value="#{teacherBean.enseignant.numTelephone}"
-																		required="true" label="Numero de Telephone">
-																	</p:inputText> <p:message for="numTel" display="icon" /></td>
-															</tr>
-														</table>
+																<h:outputLabel value="Date de Naissance: *" />
+																<p:calendar required="true" label="date"
+																	value="#{teacherBean.enseignant.date}" id="popupCal" />
+																<h:outputLabel value="" />
+
+
+																<h:outputLabel for="nationalite" value="Nationalité :*" />
+																<p:inputText id="nationalite"
+																	value="#{teacherBean.enseignant.nationalite}"
+																	required="true" label="Nationalité">
+																</p:inputText>
+																<h:outputLabel value="" />
+															</h:panelGrid>
+														</p:panel>
+
+														<p:panel header="Contacts :">
+															<h:panelGrid columns="3">
+																<h:outputLabel for="email" value="EMAIL :*" />
+																<p:inputText id="email"
+																	value="#{teacherBean.enseignant.email}" required="true"
+																	label="EMAIL">
+																</p:inputText>
+																<p:message for="email" display="icon" />
+
+																<h:outputLabel for="numTel"
+																	value="Numero de Telephone :*" />
+																<p:inputText id="numTel"
+																	value="#{teacherBean.enseignant.numTelephone}"
+																	required="true" label="Numero de Telephone">
+																</p:inputText>
+																<h:outputLabel />
+															</h:panelGrid>
+														</p:panel>
 														<br />
-														<h3>Adresse :</h3>
-														<h:panelGrid columns="3">
-															<h:outputLabel for="codePostal" value="CodePostal :*" />
-															<p:inputText id="codePostal"
-																value="#{teacherBean.enseignant.codePostal}"
-																required="true" label="CodePostal">
-															</p:inputText>
-															<p:message for="codePostal" display="icon" />
+														<p:panel header=" Adresse :">
+															<h:panelGrid columns="3">
+																<h:outputLabel for="codePostal" value="CodePostal :*" />
+																<p:inputText id="codePostal"
+																	value="#{teacherBean.enseignant.codePostal}"
+																	required="true" label="CodePostal">
+																</p:inputText>
+																<p:message for="codePostal" display="icon" />
 
 
 
-															<h:outputLabel for="rue" value="Rue :*" />
-															<p:inputText id="rue"
-																value="#{teacherBean.enseignant.rue}" required="true"
-																label="Rue">
-															</p:inputText>
-															<p:message for="rue" display="icon" />
+																<h:outputLabel for="rue" value="Rue :*" />
+																<p:inputText id="rue"
+																	value="#{teacherBean.enseignant.rue}" required="true"
+																	label="Rue">
+																</p:inputText>
+																<p:message for="rue" display="icon" />
 
 
-															<h:outputLabel for="ville" value="Ville :*" />
-															<p:inputText id="ville"
-																value="#{teacherBean.enseignant.ville}" required="true"
-																label="Ville">
-															</p:inputText>
-															<p:message for="ville" display="icon" />
+																<h:outputLabel for="ville" value="Ville :*" />
+																<p:inputText id="ville"
+																	value="#{teacherBean.enseignant.ville}" required="true"
+																	label="Ville">
+																</p:inputText>
+																<p:message for="ville" display="icon" />
+
+															</h:panelGrid>
+
+														</p:panel>
 
 
-
-														</h:panelGrid>
-
-
-
-														<br />
-														<h3>Administration :</h3>
-														<h:panelGrid columns="3">
-															<h:outputLabel for="matricule" value="Matricule : *" />
-															<p:inputText id="matricule"
-																value="#{teacherBean.enseignant.matriculeEnseigant}"
-																required="true" label="Matricule">
-																<f:validateLength minimum="3" />
-															</p:inputText>
-															<p:message for="matricule" />
+														<p:panel header="Administration :">
+															<h:panelGrid columns="3">
+																<h:outputLabel for="matricule" value="Matricule : *" />
+																<p:inputText id="matricule"
+																	value="#{teacherBean.enseignant.matriculeEnseigant}"
+																	required="true" label="Matricule">
+																	<f:validateLength minimum="3" />
+																</p:inputText>
+																<p:message for="matricule" />
 
 
-															<h:outputLabel for="login" value="Login : *" />
-															<p:inputText id="login"
-																value="#{teacherBean.enseignant.login}" required="true"
-																label="Login">
-																<f:validateLength minimum="3" />
-															</p:inputText>
-															<p:message for="login" />
+																<h:outputLabel for="login" value="Login : *" />
+																<p:inputText id="login"
+																	value="#{teacherBean.enseignant.login}" required="true"
+																	label="Login">
+																	<f:validateLength minimum="3" />
+																</p:inputText>
+																<p:message for="login" />
 
 
-															<h:outputLabel for="password" value="Mot de Passe : *" />
-															<p:password id="password"
-																value="#{teacherBean.enseignant.password}"
-																required="true" label="Mot de Passe" />
-															<p:message for="password" />
-														</h:panelGrid>
-
+																<h:outputLabel for="password" value="Mot de Passe : *" />
+																<p:password id="password"
+																	value="#{teacherBean.enseignant.password}"
+																	required="true" label="Mot de Passe" />
+																<p:message for="password" />
+															</h:panelGrid>
+														</p:panel>
 
 														<br />
 														<br />
@@ -269,10 +263,7 @@
 															onclick="dlg.show();" />
 														<p:commandButton value="Reset" type="reset" />
 
-													</p:panel>
-
-
-												</p:scrollPanel>
+													</p:fieldset>
 
 
 											</h:form>

@@ -31,15 +31,15 @@ public class Activite implements Serializable {
 
 	// *********** theme
 	private String description;
-	private Date dateDebut1;
-	private Date dateDebut2;
-	private Date dateDebut3;
+	private Date dateSiminaire;
+	private Date dateClub;
+	private Date dateConference;
 
 	private Date dateFin;
 	private String local;
-	private boolean typeActivite1;
-	private boolean typeActivite2;
-	private boolean typeActivite3;
+	private boolean siminaire;
+	private boolean conference;
+	private boolean club;
 
 	private List<ActiviteEnseignant> activiteEnseignants;
 
@@ -163,55 +163,55 @@ public class Activite implements Serializable {
 		this.locale = locale;
 	}
 
-	public boolean getTypeActivite1() {
-		return typeActivite1;
-	}
-
-	public void setTypeActivite1(boolean typeActivite1) {
-		this.typeActivite1 = typeActivite1;
-	}
-
-	public boolean isTypeActivite2() {
-		return typeActivite2;
-	}
-
-	public void setTypeActivite2(boolean typeActivite2) {
-		this.typeActivite2 = typeActivite2;
-	}
-
-	public boolean isTypeActivite3() {
-		return typeActivite3;
-	}
-
-	public void setTypeActivite3(boolean typeActivite3) {
-		this.typeActivite3 = typeActivite3;
-	}
-
+	//
 	@Temporal(TemporalType.DATE)
-	public Date getDateDebut1() {
-		return dateDebut1;
+	public Date getDateSiminaire() {
+		return dateSiminaire;
 	}
 
-	public void setDateDebut1(Date dateDebut1) {
-		this.dateDebut1 = dateDebut1;
+	public void setDateSiminaire(Date dateSiminaire) {
+		this.dateSiminaire = dateSiminaire;
 	}
-
 	@Temporal(TemporalType.DATE)
-	public Date getDateDebut2() {
-		return dateDebut2;
+	public Date getDateClub() {
+		return dateClub;
 	}
 
-	public void setDateDebut2(Date dateDebut2) {
-		this.dateDebut2 = dateDebut2;
+	public void setDateClub(Date dateClub) {
+		this.dateClub = dateClub;
 	}
-
 	@Temporal(TemporalType.DATE)
-	public Date getDateDebut3() {
-		return dateDebut3;
+	public Date getDateConference() {
+		return dateConference;
 	}
 
-	public void setDateDebut3(Date dateDebut3) {
-		this.dateDebut3 = dateDebut3;
+	public void setDateConference(Date dateConference) {
+		this.dateConference = dateConference;
 	}
 
+	public boolean isSiminaire() {
+		return siminaire;
+	}
+
+	public void setSiminaire(boolean siminaire) {
+		this.siminaire = siminaire;
+	}
+
+	public boolean isConference() {
+		return conference;
+	}
+
+	public void setConference(boolean conference) {
+		this.conference = conference;
+	}
+
+	public boolean isClub() {
+		return club;
+	}
+
+	public void setClub(boolean club) {
+		this.club = club;
+	}
+
+	
 }

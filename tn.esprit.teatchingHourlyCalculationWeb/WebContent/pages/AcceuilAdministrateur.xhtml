@@ -5,7 +5,7 @@
 	xmlns:ui="http://java.sun.com/jsf/facelets"
 	xmlns:p="http://primefaces.org/ui">
 <head>
-<title>AdminAdmin</title>
+<title>Acceuil</title>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <meta name="title" content="Web site" />
 <meta name="description" content="Site description here" />
@@ -106,16 +106,23 @@
 								<div class="sidebox1">
 									<div class="vmenu">
 										<ul>
-											<li><a href="#">Category 1</a></li>
-											<li><a href="#">Category 2</a></li>
-											
-										</ul>
+											<li><a href="LoginEnseignant.jsf">Espace Enseignant</a></li>
+											<li><a href="LoginAdmin.jsf">Espace Administration</a></li>
+
+										</ul><br/><br/>Dans le cadre de son ouverture sur l'Internatinal ESPRIT cherche à développer 
+																				des partenaires avec des établissements similaires à l'étranger pour étre en phase avec les 
+																				tendances internationales aussi bien dans les domaines pédagogiques que scientifiques et 
+										techniques
+										
 									</div>
+									<br />
+									<br />
+									<br />
+									
+										
 								</div>
-								<div>
-									<img src="images/business-man-1.png" style="width: 100%" />
-								</div>
-								
+								<div></div>
+
 							</div>
 						</div>
 						<!-- END SIDEBAR  -->
@@ -123,17 +130,24 @@
 						<div id="main">
 							<div class="content" style="width: 930px;">
 								<div style="margin-top: 25px;">
-								
-								<h:body>
+
+									<h:body>
 										<h:head></h:head>
 										<f:view>
-											<p:galleria var="image" value="#{ramlaGalleria.images}">
-												<p:graphicImage value="/images/galleria/#{image}"></p:graphicImage>
+											<br />
+											<br />
+											<center>
+												<p:galleria var="image" value="#{ramlaGalleria.images}">
+													<p:graphicImage value="/images/galleria/#{image}"></p:graphicImage>
 
-											</p:galleria>
+												</p:galleria>
+											</center>
+
 										</f:view>
 									</h:body>
 								</div>
+
+
 							</div>
 						</div>
 						<!-- END MAIN -->
@@ -146,11 +160,11 @@
 							<!-- 
 Keep this footer link UNCHANGED AND VISIBLE or make a 10 dollars donation at www.dotemplate.com/#donate to remove it.
 -->
-							<p>
-								<a href="http://www.dotemplate.com">Free templates</a>
-							</p>
-														<center>	<p style="background: black;width: 100px;" > 2012-2013</p></center>
-							
+							<p></p>
+							<center>
+								<p style="color: black; width: 100px;">2012-2013</p>
+							</center>
+
 						</div>
 					</div>
 					<div id="container-bottom"></div>
@@ -159,6 +173,5 @@ Keep this footer link UNCHANGED AND VISIBLE or make a 10 dollars donation at www
 		</div>
 	</div>
 	<div class="clear"></div>
-	
 </body>
 </html>
