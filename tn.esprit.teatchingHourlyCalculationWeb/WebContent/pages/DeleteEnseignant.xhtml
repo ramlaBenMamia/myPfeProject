@@ -153,23 +153,23 @@
             													</f:facet>
 
 
-															<p:column headerText="Nom"
-																filterBy="#{enseignant.prenom}"
-																sortBy="#{enseignant.prenom}">
-																<f:facet name="header">
-																	<h:outputText value="Prenom" />
-																</f:facet>
-																<h:outputText value="#{enseignant.prenom}" />
-
-															</p:column>
-
-
 															<p:column headerText="Prenom"
 																filterBy="#{enseignant.nom}" sortBy="#{enseignant.nom}">
 																<f:facet name="header">
 																	<h:outputText value="Prenom" />
 																</f:facet>
 																<h:outputText value="#{enseignant.nom}" />
+
+															</p:column>
+
+
+															<p:column headerText="Nom"
+																filterBy="#{enseignant.prenom}"
+																sortBy="#{enseignant.prenom}">
+																<f:facet name="header">
+																	<h:outputText value="Nom" />
+																</f:facet>
+																<h:outputText value="#{enseignant.prenom}" />
 
 															</p:column>
 
@@ -283,7 +283,8 @@
 															</p:panel>
 
 														</h:panelGrid>
-														<p:dialog id="dialog" header="Confirmation de la Suppression"
+														<p:dialog id="dialog"
+															header="Confirmation de la Suppression"
 															widgetVar="enseignantDialog" resizable="false"
 															width="500" height="200" showEffect="clip"
 															hideEffect="fold">

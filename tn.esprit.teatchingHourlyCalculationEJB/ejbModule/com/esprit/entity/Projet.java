@@ -35,6 +35,7 @@ public class Projet implements Serializable {
 	private List<TypeProjet> typeProjets;
 	private TypeProjet typeProjet;
 	private List<TypeProjetProjetEnseignant> typeProjetProjetEnseignants;
+	private TypeProjetProjetEnseignant typeProjetProjetEnseignant;
 	
 	private static final long serialVersionUID = 1L;
 
@@ -130,6 +131,14 @@ public class Projet implements Serializable {
 	public void setTypeProjetProjetEnseignants(
 			List<TypeProjetProjetEnseignant> typeProjetProjetEnseignants) {
 		this.typeProjetProjetEnseignants = typeProjetProjetEnseignants;
+	}
+
+	public TypeProjetProjetEnseignant getTypeProjetProjetEnseignant() {
+		return typeProjetProjetEnseignant;
+	}
+
+	public void setTypeProjetProjetEnseignant(TypeProjetProjetEnseignant typeProjetProjetEnseignant) {
+		this.typeProjetProjetEnseignant = typeProjetProjetEnseignant;
 	}
 
 	

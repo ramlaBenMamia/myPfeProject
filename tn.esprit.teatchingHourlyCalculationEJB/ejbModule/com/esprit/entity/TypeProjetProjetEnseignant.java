@@ -1,11 +1,17 @@
 package com.esprit.entity;
 
 import java.io.Serializable;
+import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.EmbeddedId;
 import javax.persistence.Entity;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
+
+import org.hibernate.annotations.LazyCollection;
+import org.hibernate.annotations.LazyCollectionOption;
 
 /**
  * Entity implementation class for Entity: TypeProjetProjetEnseignant
@@ -23,6 +29,8 @@ public class TypeProjetProjetEnseignant implements Serializable {
 	private int volumeHoraire;
 	private int semsestre;
 	private int periode;
+	
+	private List<Enseignant> enseignants;
 
 	private static final long serialVersionUID = 1L;
 
@@ -116,6 +124,16 @@ public class TypeProjetProjetEnseignant implements Serializable {
 
 	public void setProjet(Projet projet) {
 		this.projet = projet;
+	}
+
+	@OneToMany(mappedBy = "typePEnseignant", cascade = CascadeType.ALL)
+	@LazyCollection(LazyCollectionOption.FALSE)
+	public List<Enseignant> getEnseignants() {
+		return enseignants;
+	}
+
+	public void setEnseignants(List<Enseignant> enseignants) {
+		this.enseignants = enseignants;
 	}
 
 }

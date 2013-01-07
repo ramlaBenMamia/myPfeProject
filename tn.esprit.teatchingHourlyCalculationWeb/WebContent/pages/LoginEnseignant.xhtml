@@ -5,7 +5,7 @@
 	xmlns:ui="http://java.sun.com/jsf/facelets"
 	xmlns:p="http://primefaces.org/ui">
 <head>
-<title>template</title>
+<title>Login</title>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <meta name="title" content="Web site" />
 <meta name="description" content="Site description here" />
@@ -35,14 +35,14 @@
 					<div id="container-top"></div>
 					<div id="banner"></div>
 					<div id="hmenu-wpr">
-											<ul id="hmenu" class="sf-menu sf-js-enabled sf-shadow">
-					
-						<li class="current" style="border: none"><a
+						<ul id="hmenu" class="sf-menu sf-js-enabled sf-shadow">
+
+							<li class="current" style="border: none"><a
 								class="toplvl sf-with-ul" href="#"></a></li>
 							<li><a href="#" class="toplvl"></a>
 								<ul>
-									
-										
+
+
 								</ul></li>
 							<li><a class="toplvl" href="#"></a></li>
 						</ul>
@@ -59,14 +59,12 @@
 										<ul>
 											<li><a href="#">Espace Enseignant</a></li>
 											<li><a href="#">Espace Administration</a></li>
-											<li><a href="#">Envoi de mail</a></li>
-											
+
 
 										</ul>
 									</div>
 								</div>
-								<div>
-								</div>
+								<div></div>
 
 							</div>
 						</div>
@@ -79,42 +77,46 @@
 
 									<h:body>
 										<f:view>
-									
+
 											<h:form id="form">
-											<br/>
-											<br/>
-											<center>
-												<p:panel id="panel" style="height:150px;width:400px">
+												<br />
+												<br />
+												<center>
+													<p:panel id="panel" style="height:150px;width:400px">
 
-													<p:panel header="Bienvenue dans notre espace">
+														<p:panel header="Bienvenue dans notre espace">
 
-														<h:panelGrid id="grid" columns="2"
-															style="margin-bottom:10px">
-															<f:facet name="header">
-															</f:facet>
+															<h:panelGrid id="grid" columns="2"
+																style="margin-bottom:10px">
+																<f:facet name="header">
+																</f:facet>
 
-															<h:outputLabel value="login :" />
-															<p:inputText value="#{enseignantLogin.login}" />
+																<h:outputLabel value="login :" />
+																<p:inputText value="#{enseignantLogin.login}" />
 
-															<h:outputLabel value="Mot de passe : *" />
-															<p:password id="password" value="#{enseignantLogin.pwd}"
-																required="true" label="Mot de Passe" />
+																<h:outputLabel value="Mot de passe : *" />
+																<p:password id="password" value="#{enseignantLogin.pwd}"
+																	required="true" label="Mot de Passe" />
+															</h:panelGrid>
+														</p:panel>
+
+														<h:panelGrid columns="6" cellpadding="5">
+
+
+
+
 														</h:panelGrid>
+
 													</p:panel>
-
-													<h:panelGrid columns="6" cellpadding="5">
-														
-
-
-
-													</h:panelGrid>
-
-												</p:panel><br/> <center>
-												<p:commandButton value="se connecter" id="btnAll" update="grid"
-															action="#{enseignantLogin.doLogin}" ajax="false" /></center>
+													<br />
+													<center>
+														<p:commandButton value="se connecter" id="btnAll"
+															update="grid" action="#{enseignantLogin.doLogin}"
+															ajax="false" />
+													</center>
 												</center>
 											</h:form>
-											
+
 										</f:view>
 									</h:body>
 
@@ -128,13 +130,10 @@
 				<div class="ft">
 					<div id="footer">
 						<div class="content">
-							<!-- 
-Keep this footer link UNCHANGED AND VISIBLE or make a 10 dollars donation at www.dotemplate.com/#donate to remove it.
--->
-							<p>
-							</p>
-							<center>
-							</center>
+							
+													Conception <a href="http://www.esprit-tn.com">Esprit</a> , 2013
+								
+								 
 
 						</div>
 					</div>

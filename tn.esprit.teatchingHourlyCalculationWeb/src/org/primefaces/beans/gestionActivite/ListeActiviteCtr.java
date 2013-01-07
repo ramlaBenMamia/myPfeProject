@@ -2,11 +2,15 @@ package org.primefaces.beans.gestionActivite;
 
 import java.util.List;
 
+import javax.annotation.ManagedBean;
 import javax.ejb.EJB;
+import javax.faces.bean.SessionScoped;
 
 import com.esprit.service.gestionActivite.GestionActiviteLocal;
 import com.esprit.entity.Activite;
 
+@ManagedBean
+@SessionScoped
 public class ListeActiviteCtr {
 	private Activite activite = new Activite();
 	private List<String> typeActivites;

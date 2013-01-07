@@ -76,7 +76,7 @@ public class InitDB {
 			enseignant1.setNumTelephone(98989898);
 			enseignant1.setLogin("ihsen");
 			enseignant1.setPassword("ihsen");
-			enseignant.setRue("avenue habib bourguiba");
+			enseignant1.setRue("avenue habib bourguiba");
 
 			gestionEnseignantRemote.save(enseignant1);
 			

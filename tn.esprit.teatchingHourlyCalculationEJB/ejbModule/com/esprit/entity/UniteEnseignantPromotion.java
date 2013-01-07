@@ -2,8 +2,12 @@ package com.esprit.entity;
 
 import java.io.Serializable;
 import java.util.Date;
+import java.util.List;
 
 import javax.persistence.*;
+
+import org.hibernate.annotations.LazyCollection;
+import org.hibernate.annotations.LazyCollectionOption;
 
 /**
  * Entity implementation class for Entity: UniteEnseignantPromotion
@@ -19,6 +23,7 @@ public class UniteEnseignantPromotion implements Serializable {
 	private Promotion promotion;
 	private Date date;
 
+	private List<Enseignant> enseignants;
 	private static final long serialVersionUID = 1L;
 
 	public UniteEnseignantPromotion() {
@@ -83,6 +88,16 @@ public class UniteEnseignantPromotion implements Serializable {
 
 	public void setDate(Date date) {
 		this.date = date;
+	}
+
+	@OneToMany(mappedBy = "uniteEnseignantPromotion", cascade = CascadeType.ALL)
+	@LazyCollection(LazyCollectionOption.FALSE)
+	public List<Enseignant> getEnseignants() {
+		return enseignants;
+	}
+
+	public void setEnseignants(List<Enseignant> enseignants) {
+		this.enseignants = enseignants;
 	}
 
 }

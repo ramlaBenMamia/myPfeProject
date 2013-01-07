@@ -5,7 +5,7 @@
 	xmlns:ui="http://java.sun.com/jsf/facelets"
 	xmlns:p="http://primefaces.org/ui">
 <head>
-<title>Details des unites </title>
+<title>Details des unites</title>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <meta name="title" content="Web site" />
 <meta name="description" content="Site description here" />
@@ -109,7 +109,7 @@
 											<li><a href="LoginEnseignant.jsf">Espace Enseignant</a></li>
 											<li><a href="LoginAdmin.jsf">Espace Administration</a></li>
 											<li><a href="SendMail.jsf">Envoi de mail</a></li>
-											
+
 
 										</ul>
 									</div>
@@ -130,117 +130,13 @@
 									<h:body>
 										<f:view>
 											<h:form id="form">
-												<p:fieldset id="panel"
-													legend="Les Unites sont :"
+												<p:fieldset id="panel" legend="Les Unites sont :"
 													style="height:400px;width:750px">
 													<p>Veuillez choisir une unite pour ses détails...</p>
-<center>
-													<p:tabView id="tabview" dynamic="true">
-
-														<p:tab id="tab1" title="Mobile">
-
-															<h:panelGrid columns="1" cellpadding="10">
-
-
-																<table>
-																	<tr>
-																		<td><p:selectOneMenu
-																				value="#{affectationUniteEnseignants.idUnite}">
-																				<f:selectItems
-																					value="#{affectationUniteEnseignants.itemsUnites}" />
-																			</p:selectOneMenu></td>
-																	</tr>
-
-																</table>
-
-																<p:dataTable id="dataTable1" var="uniteParEns"
-																	value="#{affectationUniteEnseignants.listeParUnite}"
-																	rowKey="#{uniteParEns.unite.refUnite}"
-																	selectionMode="single"
-																	emptyMessage="Aucune unites dans la base avec cette information"
-																	paginator="true" rows="10"
-																	paginatorTemplate="{CurrentPageReport}  {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink} {RowsPerPageDropdown}"
-																	rowsPerPageTemplate="5,10,15" style="width:600px">
-																	<f:facet name="header">
-
-
-																	</f:facet>
-																	<f:facet name="header">
-
-																		<p:commandButton style="margin-right:70%"
-																			icon="ui-icon-search" value="Afficher"
-																			update="dataTable1"
-																			actionListener="#{affectationUniteEnseignants.updateDataTableUnite}" />
-																	</f:facet>
-
-
-
-																	<p:column headerText="Annee Universitaire"
-																		filterBy="#{uniteParEns.promotion.promotion}"
-																		sortBy="#{uniteParEns.promotion.promotion}">
-																		<f:facet name="header">
-																			<h:outputText value="Annee Universitaire" />
-																		</f:facet>
-																		<h:outputText
-																			value="#{uniteParEns.promotion.promotion}" />
-
-																	</p:column>
-
-
-																	<p:column headerText="Enseignant :"
-																		filterBy="#{uniteParEns.enseignant.nom}"
-																		sortBy="#{uniteParEns.enseignant.nom}">
-																		<f:facet name="header">
-																			<h:outputText value="Enseignant :" />
-																		</f:facet>
-																		<h:outputText value="#{uniteParEns.enseignant.nom}" />
-																	</p:column>
-
-																	<p:column headerText="Local :"
-																		filterBy="#{uniteParEns.unite.locale.libelleLocal}"
-																		sortBy="#{uniteParEns.unite.locale.libelleLocal}">
-																		<f:facet name="header">
-																			<h:outputText value="Local :" />
-																		</f:facet>
-																		<h:outputText
-																			value="#{uniteParEns.unite.locale.libelleLocal}" />
-																	</p:column>
-																	
-																	<p:column headerText="Date d'affectation :"
-																		filterBy="#{uniteParEns.date}"
-																		sortBy="#{uniteParEns.date}">
-																		<f:facet name="header">
-																			<h:outputText value="Date d'affectation :" />
-																		</f:facet>
-																		<h:outputText
-																			value="#{uniteParEns.date}" />
-																	</p:column>
-
-
-																	<f:facet name="footer">
-																		<p:commandButton style="margin-right:70%"
-																			id="viewButton" value="Total" icon="ui-icon-search"
-																			update=":form:display"
-																			oncomplete="uniteDialog.show()" />
-																	</f:facet>
-
-																</p:dataTable>
-
-
-
-
-															</h:panelGrid>
-
-
-														</p:tab>
-
-
-														<p:tab id="tab2" title="JEE">
-															<center>
-
+													<center>
+														<p:tabView id="tabview" dynamic="true">
+															<p:tab id="tab1" title="Mobile">
 																<h:panelGrid columns="1" cellpadding="10">
-
-
 																	<table>
 																		<tr>
 																			<td><p:selectOneMenu
@@ -252,7 +148,7 @@
 
 																	</table>
 
-																	<p:dataTable id="dataTable" var="uniteParEns"
+																	<p:dataTable id="dataTable1" var="uniteParEns"
 																		value="#{affectationUniteEnseignants.listeParUnite}"
 																		rowKey="#{uniteParEns.unite.refUnite}"
 																		selectionMode="single"
@@ -268,7 +164,7 @@
 
 																			<p:commandButton style="margin-right:70%"
 																				icon="ui-icon-search" value="Afficher"
-																				update="dataTable"
+																				update="dataTable1"
 																				actionListener="#{affectationUniteEnseignants.updateDataTableUnite}" />
 																		</f:facet>
 
@@ -303,6 +199,15 @@
 																			</f:facet>
 																			<h:outputText
 																				value="#{uniteParEns.unite.locale.libelleLocal}" />
+																		</p:column>
+
+																		<p:column headerText="Date d'affectation :"
+																			filterBy="#{uniteParEns.date}"
+																			sortBy="#{uniteParEns.date}">
+																			<f:facet name="header">
+																				<h:outputText value="Date d'affectation :" />
+																			</f:facet>
+																			<h:outputText value="#{uniteParEns.date}" />
 																		</p:column>
 
 
@@ -319,198 +224,294 @@
 
 
 																</h:panelGrid>
-															</center>
-
-														</p:tab>
-														
-														
-														<p:tab id="tabb" title="JavaTech">
-															<center>
-
-																<h:panelGrid columns="1" cellpadding="10">
 
 
-																	<table>
-																		<tr>
-																			<td><p:selectOneMenu
-																					value="#{affectationUniteEnseignants.idUnite}">
-																					<f:selectItems
-																						value="#{affectationUniteEnseignants.itemsUnites}" />
-																				</p:selectOneMenu></td>
-																		</tr>
-
-																	</table>
-
-																	<p:dataTable id="dataTableee" var="uniteParEns"
-																		value="#{affectationUniteEnseignants.listeParUnite}"
-																		rowKey="#{uniteParEns.unite.refUnite}"
-																		selectionMode="single"
-																		emptyMessage="Aucune unites dans la base avec cette information"
-																		paginator="true" rows="10"
-																		paginatorTemplate="{CurrentPageReport}  {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink} {RowsPerPageDropdown}"
-																		rowsPerPageTemplate="5,10,15" style="width:600px">
-																		<f:facet name="header">
+															</p:tab>
 
 
-																		</f:facet>
-																		<f:facet name="header">
+															<p:tab id="tab2" title="JEE">
+																<center>
 
-																			<p:commandButton style="margin-right:70%"
-																				icon="ui-icon-search" value="Afficher"
-																				update="dataTableee"
-																				actionListener="#{affectationUniteEnseignants.updateDataTableUnite}" />
-																		</f:facet>
+																	<h:panelGrid columns="1" cellpadding="10">
 
 
+																		<table>
+																			<tr>
+																				<td><p:selectOneMenu
+																						value="#{affectationUniteEnseignants.idUnite}">
+																						<f:selectItems
+																							value="#{affectationUniteEnseignants.itemsUnites}" />
+																					</p:selectOneMenu></td>
+																			</tr>
 
-																		<p:column headerText="Annee Universitaire"
-																			filterBy="#{uniteParEns.promotion.promotion}"
-																			sortBy="#{uniteParEns.promotion.promotion}">
+																		</table>
+
+																		<p:dataTable id="dataTable" var="uniteParEns"
+																			value="#{affectationUniteEnseignants.listeParUnite}"
+																			rowKey="#{uniteParEns.unite.refUnite}"
+																			selectionMode="single"
+																			emptyMessage="Aucune unites dans la base avec cette information"
+																			paginator="true" rows="10"
+																			paginatorTemplate="{CurrentPageReport}  {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink} {RowsPerPageDropdown}"
+																			rowsPerPageTemplate="5,10,15" style="width:600px">
 																			<f:facet name="header">
-																				<h:outputText value="Annee Universitaire" />
+
+
 																			</f:facet>
-																			<h:outputText
-																				value="#{uniteParEns.promotion.promotion}" />
-
-																		</p:column>
-
-
-																		<p:column headerText="Enseignant :"
-																			filterBy="#{uniteParEns.enseignant.nom}"
-																			sortBy="#{uniteParEns.enseignant.nom}">
 																			<f:facet name="header">
-																				<h:outputText value="Enseignant :" />
-																			</f:facet>
-																			<h:outputText value="#{uniteParEns.enseignant.nom}" />
-																		</p:column>
 
-																		<p:column headerText="Local :"
-																			filterBy="#{uniteParEns.unite.locale.libelleLocal}"
-																			sortBy="#{uniteParEns.unite.locale.libelleLocal}">
+																				<p:commandButton style="margin-right:70%"
+																					icon="ui-icon-search" value="Afficher"
+																					update="dataTable"
+																					actionListener="#{affectationUniteEnseignants.updateDataTableUnite}" />
+																			</f:facet>
+
+
+
+																			<p:column headerText="Annee Universitaire"
+																				filterBy="#{uniteParEns.promotion.promotion}"
+																				sortBy="#{uniteParEns.promotion.promotion}">
+																				<f:facet name="header">
+																					<h:outputText value="Annee Universitaire" />
+																				</f:facet>
+																				<h:outputText
+																					value="#{uniteParEns.promotion.promotion}" />
+
+																			</p:column>
+
+
+																			<p:column headerText="Enseignant :"
+																				filterBy="#{uniteParEns.enseignant.nom}"
+																				sortBy="#{uniteParEns.enseignant.nom}">
+																				<f:facet name="header">
+																					<h:outputText value="Enseignant :" />
+																				</f:facet>
+																				<h:outputText value="#{uniteParEns.enseignant.nom}" />
+																			</p:column>
+
+																			<p:column headerText="Local :"
+																				filterBy="#{uniteParEns.unite.locale.libelleLocal}"
+																				sortBy="#{uniteParEns.unite.locale.libelleLocal}">
+																				<f:facet name="header">
+																					<h:outputText value="Local :" />
+																				</f:facet>
+																				<h:outputText
+																					value="#{uniteParEns.unite.locale.libelleLocal}" />
+																			</p:column>
+
+
+																			<f:facet name="footer">
+																				<p:commandButton style="margin-right:70%"
+																					id="viewButton" value="Total" icon="ui-icon-search"
+																					update=":form:display"
+																					oncomplete="uniteDialog.show()" />
+																			</f:facet>
+
+																		</p:dataTable>
+
+
+
+
+																	</h:panelGrid>
+																</center>
+
+															</p:tab>
+
+
+															<p:tab id="tabb" title="JavaTech">
+																<center>
+
+																	<h:panelGrid columns="1" cellpadding="10">
+
+
+																		<table>
+																			<tr>
+																				<td><p:selectOneMenu
+																						value="#{affectationUniteEnseignants.idUnite}">
+																						<f:selectItems
+																							value="#{affectationUniteEnseignants.itemsUnites}" />
+																					</p:selectOneMenu></td>
+																			</tr>
+
+																		</table>
+
+																		<p:dataTable id="dataTableee" var="uniteParEns"
+																			value="#{affectationUniteEnseignants.listeParUnite}"
+																			rowKey="#{uniteParEns.unite.refUnite}"
+																			selectionMode="single"
+																			emptyMessage="Aucune unites dans la base avec cette information"
+																			paginator="true" rows="10"
+																			paginatorTemplate="{CurrentPageReport}  {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink} {RowsPerPageDropdown}"
+																			rowsPerPageTemplate="5,10,15" style="width:600px">
 																			<f:facet name="header">
-																				<h:outputText value="Local :" />
+
+
 																			</f:facet>
-																			<h:outputText
-																				value="#{uniteParEns.unite.locale.libelleLocal}" />
-																		</p:column>
-
-
-																		<f:facet name="footer">
-																			<p:commandButton style="margin-right:70%"
-																				id="viewButton" value="Afficher" icon="ui-icon-search"
-																				update=":form:display"
-																				oncomplete="uniteDialog.show()" />
-																		</f:facet>
-
-																	</p:dataTable>
-
-
-
-
-																</h:panelGrid>
-															</center>
-
-														</p:tab>
-														
-														
-														<p:tab id="tab3" title="EspritOnLine">
-															<center>
-
-																<h:panelGrid columns="1" cellpadding="10">
-
-
-																	<table>
-																		<tr>
-																			<td><p:selectOneMenu
-																					value="#{affectationUniteEnseignants.idUnite}">
-																					<f:selectItems
-																						value="#{affectationUniteEnseignants.itemsUnites}" />
-																				</p:selectOneMenu></td>
-																		</tr>
-
-																	</table>
-
-																	<p:dataTable id="dataTablee" var="uniteParEns"
-																		value="#{affectationUniteEnseignants.listeParUnite}"
-																		rowKey="#{uniteParEns.unite.refUnite}"
-																		selectionMode="single"
-																		emptyMessage="Aucune unites dans la base avec cette information"
-																		paginator="true" rows="10"
-																		paginatorTemplate="{CurrentPageReport}  {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink} {RowsPerPageDropdown}"
-																		rowsPerPageTemplate="5,10,15" style="width:600px">
-																		<f:facet name="header">
-
-
-																		</f:facet>
-																		<f:facet name="header">
-
-																			<p:commandButton style="margin-right:70%"
-																				icon="ui-icon-search" value="Afficher"
-																				update="dataTablee"
-																				actionListener="#{affectationUniteEnseignants.updateDataTableUnite}" />
-																		</f:facet>
-
-
-
-																		<p:column headerText="Annee Universitaire"
-																			filterBy="#{uniteParEns.promotion.promotion}"
-																			sortBy="#{uniteParEns.promotion.promotion}">
 																			<f:facet name="header">
-																				<h:outputText value="Annee Universitaire" />
+
+																				<p:commandButton style="margin-right:70%"
+																					icon="ui-icon-search" value="Afficher"
+																					update="dataTableee"
+																					actionListener="#{affectationUniteEnseignants.updateDataTableUnite}" />
 																			</f:facet>
-																			<h:outputText
-																				value="#{uniteParEns.promotion.promotion}" />
-
-																		</p:column>
 
 
-																		<p:column headerText="Enseignant :"
-																			filterBy="#{uniteParEns.enseignant.nom}"
-																			sortBy="#{uniteParEns.enseignant.nom}">
+
+																			<p:column headerText="Annee Universitaire"
+																				filterBy="#{uniteParEns.promotion.promotion}"
+																				sortBy="#{uniteParEns.promotion.promotion}">
+																				<f:facet name="header">
+																					<h:outputText value="Annee Universitaire" />
+																				</f:facet>
+																				<h:outputText
+																					value="#{uniteParEns.promotion.promotion}" />
+
+																			</p:column>
+
+
+																			<p:column headerText="Enseignant :"
+																				filterBy="#{uniteParEns.enseignant.nom}"
+																				sortBy="#{uniteParEns.enseignant.nom}">
+																				<f:facet name="header">
+																					<h:outputText value="Enseignant :" />
+																				</f:facet>
+																				<h:outputText value="#{uniteParEns.enseignant.nom}" />
+																			</p:column>
+
+																			<p:column headerText="Local :"
+																				filterBy="#{uniteParEns.unite.locale.libelleLocal}"
+																				sortBy="#{uniteParEns.unite.locale.libelleLocal}">
+																				<f:facet name="header">
+																					<h:outputText value="Local :" />
+																				</f:facet>
+																				<h:outputText
+																					value="#{uniteParEns.unite.locale.libelleLocal}" />
+																			</p:column>
+
+
+																			<f:facet name="footer">
+																				<p:commandButton style="margin-right:70%"
+																					id="viewButton" value="Afficher"
+																					icon="ui-icon-search" update=":form:display"
+																					oncomplete="uniteDialog.show()" />
+																			</f:facet>
+
+																		</p:dataTable>
+
+
+
+
+																	</h:panelGrid>
+																</center>
+
+															</p:tab>
+
+
+															<p:tab id="tab3" title="EspritOnLine">
+																<center>
+
+																	<h:panelGrid columns="1" cellpadding="10">
+
+
+																		<table>
+																			<tr>
+																				<td><p:selectOneMenu
+																						value="#{affectationUniteEnseignants.idUnite}">
+																						<f:selectItems
+																							value="#{affectationUniteEnseignants.itemsUnites}" />
+																					</p:selectOneMenu></td>
+																			</tr>
+
+																		</table>
+
+																		<p:dataTable id="dataTablee" var="uniteParEns"
+																			value="#{affectationUniteEnseignants.listeParUnite}"
+																			rowKey="#{uniteParEns.unite.refUnite}"
+																			selectionMode="single"
+																			emptyMessage="Aucune unites dans la base avec cette information"
+																			paginator="true" rows="10"
+																			paginatorTemplate="{CurrentPageReport}  {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink} {RowsPerPageDropdown}"
+																			rowsPerPageTemplate="5,10,15" style="width:600px">
 																			<f:facet name="header">
-																				<h:outputText value="Enseignant :" />
-																			</f:facet>
-																			<h:outputText value="#{uniteParEns.enseignant.nom}" />
-																		</p:column>
 
-																		<p:column headerText="Local :"
-																			filterBy="#{uniteParEns.unite.locale.libelleLocal}"
-																			sortBy="#{uniteParEns.unite.locale.libelleLocal}">
+
+																			</f:facet>
 																			<f:facet name="header">
-																				<h:outputText value="Local :" />
+
+																				<p:commandButton style="margin-right:70%"
+																					icon="ui-icon-search" value="Afficher"
+																					update="dataTablee"
+																					actionListener="#{affectationUniteEnseignants.updateDataTableUnite}" />
 																			</f:facet>
-																			<h:outputText
-																				value="#{uniteParEns.unite.locale.libelleLocal}" />
-																		</p:column>
-
-
-																		<f:facet name="footer">
-																			<p:commandButton style="margin-right:70%"
-																				id="viewButton" value="Total" icon="ui-icon-search"
-																				update=":form:display"
-																				oncomplete="uniteDialog.show()" />
-																		</f:facet>
-
-																	</p:dataTable>
 
 
 
+																			<p:column headerText="Annee Universitaire"
+																				filterBy="#{uniteParEns.promotion.promotion}"
+																				sortBy="#{uniteParEns.promotion.promotion}">
+																				<f:facet name="header">
+																					<h:outputText value="Annee Universitaire" />
+																				</f:facet>
+																				<h:outputText
+																					value="#{uniteParEns.promotion.promotion}" />
 
-																</h:panelGrid>
-															</center>
-
-														</p:tab>
-														
+																			</p:column>
 
 
-													</p:tabView>
-</center>
+																			<p:column headerText="Enseignant :"
+																				filterBy="#{uniteParEns.enseignant.nom}"
+																				sortBy="#{uniteParEns.enseignant.nom}">
+																				<f:facet name="header">
+																					<h:outputText value="Enseignant :" />
+																				</f:facet>
+																				<h:outputText value="#{uniteParEns.enseignant.nom}" />
+																			</p:column>
+
+																			<p:column headerText="Local :"
+																				filterBy="#{uniteParEns.unite.locale.libelleLocal}"
+																				sortBy="#{uniteParEns.unite.locale.libelleLocal}">
+																				<f:facet name="header">
+																					<h:outputText value="Local :" />
+																				</f:facet>
+																				<h:outputText
+																					value="#{uniteParEns.unite.locale.libelleLocal}" />
+																			</p:column>
+
+
+																			<f:facet name="footer">
+																				<p:commandButton style="margin-right:70%"
+																					id="viewButton" value="Total" icon="ui-icon-search"
+																					update=":form:display"
+																					oncomplete="uniteDialog.show()" />
+																			</f:facet>
+
+																		</p:dataTable>
+
+
+
+
+																	</h:panelGrid>
+																</center>
+
+															</p:tab>
+
+
+
+														</p:tabView>
+													</center>
 												</p:fieldset>
-											<p>		<a href="AjouterUnite.jsf">Ajouter une Unite</a></p>
-																										<p><a href="DeleteUnite.jsf">Supprimer une Unite</a></p>
-													
-													<p><a href="AffecterUniteEnseignantPromotion.jsf">Affectation d'un nouveau enseignant</a></p>												
-												
+												<p>
+													<a href="AjouterUnite.jsf">Ajouter une Unite</a>
+												</p>
+												<p>
+													<a href="DeleteUnite.jsf">Supprimer une Unite</a>
+												</p>
+
+												<p>
+													<a href="AffecterUniteEnseignantPromotion.jsf">Affectation
+														d'un nouveau enseignant</a>
+												</p>
+
 											</h:form>
 										</f:view>
 									</h:body>

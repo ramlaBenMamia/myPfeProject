@@ -42,18 +42,19 @@ public class Enseignant implements Serializable {
 	private String password;
 	private int privilege;
 
-//	private List<ProjetEnseignant> projetEnseignants;
-
 	private List<UniteEnseignantPromotion> uniteEnseignantPromotions;
-
 	private List<ActiviteEnseignant> activiteEnseignants;
-
-	private List<Projet> projets;
-	private Projet projet;
+	private List<TypeProjetProjetEnseignant> typeProjetProjetEnseignants;
 
 	private List<TypeProjet> typeProjets;
+	private List<Projet> projets;
+	private Projet projet;
 	private TypeProjet typeProjet;
-	private List<TypeProjetProjetEnseignant> typeProjetProjetEnseignants;
+	
+	
+	private TypeProjetProjetEnseignant typePEnseignant;
+	private ActiviteEnseignant activiteEnseignant;
+	private UniteEnseignantPromotion uniteEnseignantPromotion;
 
 	private List<Activite> activites;
 	private Activite activite;
@@ -148,15 +149,6 @@ public class Enseignant implements Serializable {
 		this.privilege = privilege;
 	}
 
-//	@OneToMany(mappedBy = "enseignant", cascade = CascadeType.ALL)
-//	@LazyCollection(LazyCollectionOption.FALSE)
-//	public List<ProjetEnseignant> getProjetEnseignants() {
-//		return projetEnseignants;
-//	}
-//
-//	public void setProjetEnseignants(List<ProjetEnseignant> projetEnseignants) {
-//		this.projetEnseignants = projetEnseignants;
-//	}
 
 	@OneToMany(mappedBy = "enseignant", cascade = CascadeType.ALL)
 	@LazyCollection(LazyCollectionOption.FALSE)
@@ -303,6 +295,34 @@ public class Enseignant implements Serializable {
 	public void setTypeProjetProjetEnseignants(
 			List<TypeProjetProjetEnseignant> typeProjetProjetEnseignants) {
 		this.typeProjetProjetEnseignants = typeProjetProjetEnseignants;
+	}
+	
+	//********************** affichage details pas enseignant ****************
+
+	
+	@ManyToOne
+	public TypeProjetProjetEnseignant getTypePEnseignant() {
+		return typePEnseignant;
+	}
+
+	public void setTypePEnseignant(TypeProjetProjetEnseignant typePEnseignant) {
+		this.typePEnseignant = typePEnseignant;
+	}
+	@ManyToOne
+	public ActiviteEnseignant getActiviteEnseignant() {
+		return activiteEnseignant;
+	}
+
+	public void setActiviteEnseignant(ActiviteEnseignant activiteEnseignant) {
+		this.activiteEnseignant = activiteEnseignant;
+	}
+	@ManyToOne
+	public UniteEnseignantPromotion getUniteEnseignantPromotion() {
+		return uniteEnseignantPromotion;
+	}
+
+	public void setUniteEnseignantPromotion(UniteEnseignantPromotion uniteEnseignantPromotion) {
+		this.uniteEnseignantPromotion = uniteEnseignantPromotion;
 	}
 
 }

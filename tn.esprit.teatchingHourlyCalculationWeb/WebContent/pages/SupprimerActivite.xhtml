@@ -5,7 +5,7 @@
 	xmlns:ui="http://java.sun.com/jsf/facelets"
 	xmlns:p="http://primefaces.org/ui">
 <head>
-<title>template</title>
+<title>Supprimer les activités</title>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <meta name="title" content="Web site" />
 <meta name="description" content="Site description here" />
@@ -108,14 +108,14 @@
 										<ul>
 											<li><a href="#">Category 1</a></li>
 											<li><a href="#">Category 2</a></li>
-
+											
 										</ul>
 									</div>
 								</div>
 								<div>
 									<img src="images/business-man-1.png" style="width: 100%" />
 								</div>
-
+								
 							</div>
 						</div>
 						<!-- END SIDEBAR  -->
@@ -123,14 +123,18 @@
 						<div id="main">
 							<div class="content" style="width: 800px;">
 								<div style="margin-top: 25px;">
-									<h:head></h:head>
-
-									<h:body>
+								<h:head></h:head>
+								
+								<h:body>
 										<f:view>
 											<h:form id="form">
+
+
+
 												<p:scrollPanel style="height:700px;width:700px">
+
 													<p:panel id="panel"
-														header="Esprit --- Gestion des Enseignants --- Affichage des Enseignants"
+														header="Esprit --- Gestion des Activites --- Supprimer des Activites"
 														style="height:1000px;width:700px">
 
 
@@ -142,12 +146,12 @@
 
 
 
-															<p:dataTable id="lesprojets" var="projet"
-																value="#{listerProjetBean.listeProjets}"
-																rowKey="#{projet.refProjet}"
-																selection="#{listerProjetBean.selectedProjet}"
+															<p:dataTable id="lesactivites" var="activite"
+																value="#{listeActiviteCtr.listeActivites}"
+																rowKey="#{activite.refActivite}"
+																selection="#{listeActiviteCtr.selectedActivite}"
 																selectionMode="single"
-																emptyMessage="Aucun Projets dans la base avec cette information"
+																emptyMessage="Aucune activites dans la base avec cette information"
 																paginator="true" rows="10"
 																paginatorTemplate="{CurrentPageReport}  {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink} {RowsPerPageDropdown}"
 																rowsPerPageTemplate="5,10,15">
@@ -159,31 +163,39 @@
 																</f:facet>
 
 																<f:facet name="header">  
-                   Afficher les projets
+                   Afficher les activites
             </f:facet>
 
+
 																<p:column headerText="Reference"
-																	filterBy="#{projet.refProjet}"
-																	sortBy="#{projet.refProjet}">
+																	filterBy="#{activite.refActivite}"
+																	sortBy="#{activite.refActivite}">
 																	<f:facet name="header">
 																		<h:outputText value="Reference" />
 																	</f:facet>
-																	<h:outputText value="#{projet.refProjet}" />
+																	<h:outputText value="#{activite.refActivite}" />
 
 																</p:column>
 
 
 																<p:column headerText="Description"
-																	filterBy="#{projet.description}"
-																	sortBy="#{projet.description}">
+																	filterBy="#{activite.description}"
+																	sortBy="#{activite.description}">
 																	<f:facet name="header">
 																		<h:outputText value="Description" />
 																	</f:facet>
-																	<h:outputText value="#{projet.description}" />
-
+																	<h:outputText value="#{activite.description}" />
 																</p:column>
 
+																<p:column headerText="Date"
+																	filterBy="#{activite.dateDebut}"
+																	sortBy="#{activite.dateDebut}">
+																	<f:facet name="header">
+																		<h:outputText value="Date" />
+																	</f:facet>
+																	<h:outputText value="#{activite.dateDebut}" />
 
+																</p:column>
 
 
 
@@ -192,64 +204,64 @@
 																	<p:commandButton style="margin-right:70%"
 																		id="viewButton" value="Supprimer" icon="ui-icon-search"
 																		update=":form:display"
-																		oncomplete="projetDialog.show()" />
+																		oncomplete="activiteDialog.show()" />
 																</f:facet>
 															</p:dataTable>
+
 
 															<h:panelGrid columns="2">
 																<p:panel header="Export All Data">
 																	<h:commandLink>
 																		<p:graphicImage value="/images/excel.png" />
-																		<p:dataExporter type="xls" target="lesprojets"
-																			fileName="lesprojets" />
+																		<p:dataExporter type="xls" target="lesactivites"
+																			fileName="lesactivites" />
 																	</h:commandLink>
 
 																	<h:commandLink>
 																		<p:graphicImage value="/images/pdf.png" />
-																		<p:dataExporter type="pdf" target="lesprojets"
-																			fileName="lesprojets" />
+																		<p:dataExporter type="pdf" target="lesactivites"
+																			fileName="lesactivites" />
 																	</h:commandLink>
 
 																	<h:commandLink>
 																		<p:graphicImage value="/images/csv.png" />
-																		<p:dataExporter type="csv" target="lesprojets"
-																			fileName="lesprojets" />
+																		<p:dataExporter type="csv" target="lesactivites"
+																			fileName="lesactivites" />
 																	</h:commandLink>
 
 																	<h:commandLink>
 																		<p:graphicImage value="/images/xml.png" />
-																		<p:dataExporter type="xml" target="lesprojets"
-																			fileName="lesprojets" />
+																		<p:dataExporter type="xml" target="lesactivites"
+																			fileName="lesactivites" />
 																	</h:commandLink>
 																</p:panel>
 
 																<p:panel header="Export Page Data">
 																	<h:commandLink>
 																		<p:graphicImage value="/images/excel.png" />
-																		<p:dataExporter type="xls" target="lesprojets"
-																			fileName="lesprojets" pageOnly="true" />
+																		<p:dataExporter type="xls" target="lesactivites"
+																			fileName="lesactivites" pageOnly="true" />
 																	</h:commandLink>
 
 																	<h:commandLink>
 																		<p:graphicImage value="/images/pdf.png" />
-																		<p:dataExporter type="pdf" target="lesprojets"
-																			fileName="lesprojets" pageOnly="true" />
+																		<p:dataExporter type="pdf" target="lesactivites"
+																			fileName="lesactivites" pageOnly="true" />
 																	</h:commandLink>
 
 																	<h:commandLink>
 																		<p:graphicImage value="/images/csv.png" />
-																		<p:dataExporter type="csv" target="lesprojets"
-																			fileName="lesprojets" pageOnly="true" />
+																		<p:dataExporter type="csv" target="lesactivites"
+																			fileName="lesactivites" pageOnly="true" />
 																	</h:commandLink>
 
 																	<h:commandLink>
 																		<p:graphicImage value="/images/xml.png" />
-																		<p:dataExporter type="xml" target="lesprojets"
-																			fileName="lesprojets" pageOnly="true" />
+																		<p:dataExporter type="xml" target="lesactivites"
+																			fileName="lesactivites" pageOnly="true" />
 																	</h:commandLink>
 																</p:panel>
 															</h:panelGrid>
-
 															<p:dialog id="dialog" header="projet Detail"
 																widgetVar="projetDialog" resizable="false" width="200"
 																height="100" showEffect="clip" hideEffect="fold">
@@ -257,16 +269,16 @@
 																<h:panelGrid id="display" columns="2" cellpadding="4">    
   
           
-            Voulez vous vraiment supprimer ce Projet ?
+            Voulez vous vraiment supprimer cette Activite ?
            
             nom :
             <h:outputText
-																		value="#{listerProjetBean.selectedProjet.description} " />
+																		value="#{listeActiviteCtr.selectedActivite.description} " />
 
 																	<p:commandButton style="margin-right:70%"
 																		id="ValiderSuppButton" value="Supprimer"
 																		icon="ui-icon-search" oncomplete="projetDialog.hide()"
-																		action="#{listerProjetBean.delete}" update="panel" />
+																		action="#{listeActiviteCtr.delete}" update="panel" />
 
 
 																</h:panelGrid>
@@ -279,12 +291,13 @@
 
 
 													</p:panel>
+
 												</p:scrollPanel>
 
 											</h:form>
 										</f:view>
 									</h:body>
-
+							
 								</div>
 							</div>
 						</div>
@@ -301,10 +314,8 @@ Keep this footer link UNCHANGED AND VISIBLE or make a 10 dollars donation at www
 							<p>
 								<a href="http://www.dotemplate.com">Free templates</a>
 							</p>
-							<center>
-								<p style="background: black; width: 100px;">2012-2013</p>
-							</center>
-
+														<center>	<p style="background: black;width: 100px;" > 2012-2013</p></center>
+							
 						</div>
 					</div>
 					<div id="container-bottom"></div>

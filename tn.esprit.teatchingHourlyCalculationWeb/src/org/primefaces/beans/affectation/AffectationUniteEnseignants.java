@@ -9,12 +9,16 @@ import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
 import javax.faces.model.SelectItem;
 
+import com.esprit.entity.ActiviteEnseignant;
 import com.esprit.entity.Enseignant;
 import com.esprit.entity.Promotion;
+import com.esprit.entity.TypeProjetProjetEnseignant;
 import com.esprit.entity.Unite;
 import com.esprit.entity.UniteEnseignantPromotion;
+import com.esprit.service.affectationTypeProjetEnseignant.AffectationTypeProjetEnseignantLocal;
 import com.esprit.service.affectationUniteEnseignantPromotion.AffectationUniteEnseignantPromotionLocal;
 import com.esprit.service.gestionActivite.GestionActiviteLocal;
+import com.esprit.service.gestionAffectationActivite.GestionAffectationActiviteEnseignantLocal;
 import com.esprit.service.gestionEnseignant.GestionEnseignantLocal;
 import com.esprit.service.gestionProjet.GestionProjetLocal;
 import com.esprit.service.gestionPromotion.GestionPromotionLocal;
@@ -38,6 +42,11 @@ public class AffectationUniteEnseignants {
 	GestionTypeProjetLocal gestionTypeProjetLocal;
 	@EJB
 	GestionActiviteLocal gestionActiviteLocal;
+	@EJB
+	GestionAffectationActiviteEnseignantLocal affectationActiviteEnseignantLocal;
+	@EJB
+	AffectationTypeProjetEnseignantLocal affectationTypeProjetEnseignantLocal;
+	
 
 	private List<SelectItem> itemsEnseignants;
 	private String selectedEnseignantId;
@@ -51,6 +60,8 @@ public class AffectationUniteEnseignants {
 	private int selectedPromotionId;
 
 	private Enseignant enseignant = new Enseignant();
+	private ActiviteEnseignant activiteEnseignant=new ActiviteEnseignant();
+	private TypeProjetProjetEnseignant typeProjetProjetEnseignant=new TypeProjetProjetEnseignant();
 	private List<Enseignant> enseignants = new ArrayList<Enseignant>();
 
 	private List<Unite> unites = new ArrayList<Unite>();
@@ -407,6 +418,22 @@ public class AffectationUniteEnseignants {
 
 	public void setIdTypeProjet(int idTypeProjet) {
 		this.idTypeProjet = idTypeProjet;
+	}
+
+	public ActiviteEnseignant getActiviteEnseignant() {
+		return activiteEnseignant;
+	}
+
+	public void setActiviteEnseignant(ActiviteEnseignant activiteEnseignant) {
+		this.activiteEnseignant = activiteEnseignant;
+	}
+
+	public TypeProjetProjetEnseignant getTypeProjetProjetEnseignant() {
+		return typeProjetProjetEnseignant;
+	}
+
+	public void setTypeProjetProjetEnseignant(TypeProjetProjetEnseignant typeProjetProjetEnseignant) {
+		this.typeProjetProjetEnseignant = typeProjetProjetEnseignant;
 	}
 
 	

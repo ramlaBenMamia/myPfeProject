@@ -1,1 +1,1 @@
-<% response.sendRedirect("acceuil.xhtml"); %>
+<% response.sendRedirect("Acceuil.jsf"); %>

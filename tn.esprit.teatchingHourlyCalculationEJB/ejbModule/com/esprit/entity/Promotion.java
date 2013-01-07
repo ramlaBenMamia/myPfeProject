@@ -26,16 +26,13 @@ public class Promotion implements Serializable {
 	
 	private Unite unite;
 	private List<Unite> unites;
-	
 	private Activite activite;
 	private List<Activite> activites;
-
 	private List<UniteEnseignantPromotion> uniteEnseignantPromotions;
-
-	private static final long serialVersionUID = 1L;
-
 	private List<ChargeHoraireActivite> chargeHoraireActivites;
 	private List<ChargeHoraireProjet> chargeHoraireProjets;
+	
+	private static final long serialVersionUID = 1L;
 
 	public Promotion() {
 		super();

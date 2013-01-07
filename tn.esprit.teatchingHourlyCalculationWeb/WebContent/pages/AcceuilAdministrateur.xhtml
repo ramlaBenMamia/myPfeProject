@@ -5,7 +5,7 @@
 	xmlns:ui="http://java.sun.com/jsf/facelets"
 	xmlns:p="http://primefaces.org/ui">
 <head>
-<title>Acceuil</title>
+<title>AcceuilAdmin</title>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <meta name="title" content="Web site" />
 <meta name="description" content="Site description here" />
@@ -40,61 +40,31 @@
 								class="toplvl sf-with-ul" href="#">Acceuil</a></li>
 							<li><a href="#" class="toplvl">Gestion des activités</a>
 								<ul>
-									<li><a href="#">menu item</a></li>
-									<li class="current"><a href="#">menu item</a>
-										<ul>
-											<li class="current"><a href="#">menu item</a></li>
-											<li><a href="#">menu item</a></li>
-											<li><a href="#">menu item</a></li>
-											<li><a href="#">menu item</a></li>
-											<li><a href="#">menu item</a></li>
-										</ul></li>
-									<li><a href="#">menu item</a>
-										<ul>
-											<li><a href="#">menu item</a></li>
-											<li><a href="#">menu item</a></li>
-											<li><a href="#">menu item</a></li>
-											<li><a href="#">menu item</a></li>
-											<li><a href="#">menu item</a></li>
-										</ul></li>
-									<li><a href="#">menu item</a>
-										<ul>
-											<li><a href="#">menu item</a></li>
-											<li><a href="#">menu item</a></li>
-											<li><a href="#">menu item</a></li>
-											<li><a href="#">menu item</a></li>
-											<li><a href="#">menu item</a></li>
-										</ul></li>
+									<li><a href="http://localhost:8383/tn.esprit.teatchingHourlyCalculationWeb/pages/AjouterActivite.jsf">Ajouter une Activité</a></li>
+									
+									<li><a href="AfficherActivite.jsf">Afficher les Activités</a></li>
+										
+									<li><a href="SupprimerActivite.jsf">Supprimer une Activité</a></li>
+										
 								</ul></li>
 							<li><a class="toplvl" href="#">Gestion des Unités</a>
 								<ul>
-									<li><a href="#">menu item</a></li>
-									<li class="current"><a href="#">menu item</a>
-										<ul>
-											<li class="current"><a href="#">menu item</a></li>
-											<li><a href="#">menu item</a></li>
-											<li><a href="#">menu item</a></li>
-											<li><a href="#">menu item</a></li>
-											<li><a href="#">menu item</a></li>
-										</ul></li>
-									<li><a href="#">menu item</a>
-										<ul>
-											<li><a href="#">menu item</a></li>
-											<li><a href="#">menu item</a></li>
-											<li><a href="#">menu item</a></li>
-											<li><a href="#">menu item</a></li>
-											<li><a href="#">menu item</a></li>
-										</ul></li>
-									<li><a href="#">menu item</a>
-										<ul>
-											<li><a href="#">menu item</a></li>
-											<li><a href="#">menu item</a></li>
-											<li><a href="#">menu item</a></li>
-											<li><a href="#">menu item</a></li>
-											<li><a href="#">menu item</a></li>
-										</ul></li>
+									<li><a href="AjouterUnite.jsf">Ajouter une Unité</a></li>
+									
+									<li><a href="AfficherUnite.jsf">Afficher les Unités</a>
+										</li>
+									<li><a href="DeleteUnite.jsf">Supprimer une Unité</a>
+										</li>
 								</ul></li>
-							<li><a class="toplvl" href="#">gestion des Projets</a></li>
+							<li><a class="toplvl" href="#">gestion des Projets</a><ul>
+									<li><a href="AjouterProjet.jsf">Ajouter un Projet</a></li>
+									
+									<li><a href="AfficherProjet.jsf">Afficher les Projets</a>
+										</li>
+									<li><a href="DeleteProjet.jsf">Supprimer un Projet</a>
+										</li>
+								</ul></li>
+							
 						</ul>
 					</div>
 				</div>
@@ -106,7 +76,6 @@
 								<div class="sidebox1">
 									<div class="vmenu">
 										<ul>
-											<li><a href="LoginEnseignant.jsf">Espace Enseignant</a></li>
 											<li><a href="LoginAdmin.jsf">Espace Administration</a></li>
 											<li><a href="SendMail.jsf">Envoi de mail</a></li>
 
@@ -183,7 +152,7 @@
 																label="EMAIL">
 															</p:inputText>
 															<p:message for="email" display="icon" />
-
+  
 															<h:outputLabel for="numTel"
 																value="Numero de Telephone :*" />
 															<p:inputText id="numTel"

@@ -11,7 +11,6 @@
 		<class>com.esprit.entity.Enseignant</class>
 		<class>com.esprit.entity.ActiviteEnseignant</class>
 		<class>com.esprit.entity.Projet</class>
-		<class>com.esprit.entity.ChefProjet</class>
 		<class>com.esprit.entity.ChargeHoraireProjet</class>
 		<class>com.esprit.entity.Promotion</class>
 		<class>com.esprit.entity.SeuilCharge</class>
