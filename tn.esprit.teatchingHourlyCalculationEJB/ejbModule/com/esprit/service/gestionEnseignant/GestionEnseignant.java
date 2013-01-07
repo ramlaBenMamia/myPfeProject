@@ -234,5 +234,13 @@ public class GestionEnseignant implements GestionEnseignantLocal,
 		return total;
 	}
 
+	@Override
+	public List<Enseignant> findAllByMat(String mat) {
+		return entityManager
+				.createQuery(
+						"select p from Enseignant p where p.matriculeEnseigant like :pnom ")
+				.setParameter("pnom",mat).getResultList();
+	}
+
 	
 }

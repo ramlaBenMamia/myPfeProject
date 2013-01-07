@@ -12,8 +12,10 @@ public class ListerEnseignantBean {
 	GestionEnseignantLocal bean;
 	List<String> enseignants;
 	List<Enseignant> listeEnseignants;
+	List<Enseignant> listeParMat;
 	Enseignant enseignant;
 	private Enseignant selectedEnseignant;
+	private String MatEnseignant;
 
 	public List<String> getEnseignants() {
 		enseignants = bean.findAllEnseignant();
@@ -53,5 +55,27 @@ public class ListerEnseignantBean {
 	public void delete() {
 		bean.removeEnseignant(selectedEnseignant);
 	}
+
+	public List<Enseignant> getListeParMat() {
+		listeParMat=bean
+				.findAllByMat(getMatEnseignant());
+		return listeParMat;
+	}
+
+	public void setListeParMat(List<Enseignant> listeParMat) {
+		this.listeParMat = listeParMat;
+	}
+
+	public String getMatEnseignant() {
+		return MatEnseignant;
+	}
+
+	public void setMatEnseignant(String matEnseignant) {
+		MatEnseignant = matEnseignant;
+	}
+	
+	
+	
+	
 
 }
