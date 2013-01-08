@@ -40,30 +40,41 @@
 								class="toplvl sf-with-ul" href="Acceuil.jsf">Acceuil</a></li>
 							<li><a href="#" class="toplvl">Espace de la gestion</a>
 								<ul>
-									<li style="width:250px"><a
-										href="AjouterEnseignant.jsf" style="width:200px"> gestion des Enseignants</a></li>
+									<li style="width: 250px"><a href="AjouterEnseignant.jsf"
+										style="width: 200px"> gestion des Enseignants</a></li>
 
-									<li style="width:250px"><a href="AjouterActivite.jsf" style="width:200px">Gestion des activités</a></li>
+									<li style="width: 250px"><a href="AjouterActivite.jsf"
+										style="width: 200px">Gestion des activités</a></li>
 
-									<li style="width:250px"><a href="AjouterProjet.jsf" style="width:200px">Gestion des Projets</a></li>
-																		<li style="width:250px"><a href="AjouterUnite.jsf" style="width:200px">gestion des Unités</a></li>
-									
+									<li style="width: 250px"><a href="AjouterProjet.jsf"
+										style="width: 200px">Gestion des Projets</a></li>
+									<li style="width: 250px"><a href="AjouterUnite.jsf"
+										style="width: 200px">gestion des Unités</a></li>
+
 
 								</ul></li>
 							<li><a class="toplvl" href="#">Espace des affectations</a>
 								<ul>
-									<li style="width:250px"><a href="AffecterUniteEnseignantPromotion.jsf" style="width:200px">Affetation des unités</a></li>
+									<li style="width: 250px"><a
+										href="AffecterUniteEnseignantPromotion.jsf"
+										style="width: 200px">Affetation des unités</a></li>
 
-									<li style="width:250px"><a href="AffecterActivite.jsf" style="width:200px">Affectation des activités</a></li>
-									<li style="width:250px"><a href="AffecterProjetTypeEnseignant.jsf" style="width:200px">Affectation des Projets</a></li>
+									<li style="width: 250px"><a href="AffecterActivite.jsf"
+										style="width: 200px">Affectation des activités</a></li>
+									<li style="width: 250px"><a
+										href="AffecterProjetTypeEnseignant.jsf" style="width: 200px">Affectation
+											des Projets</a></li>
 								</ul></li>
 							<li><a class="toplvl" href="#">Charge Horaire</a>
-							<ul>
-									<li style="width:250px"><a href="CalculChargeProjetParEnseignant.jsf" style="width:200px">Charge horaire des projets</a></li>
+								<ul>
+									<li style="width: 250px"><a
+										href="CalculChargeProjetParEnseignant.jsf"
+										style="width: 200px">Charge horaire des projets</a></li>
 
-									<li style="width:250px"><a href="CalculerLeChargeHoraireActivite.jsf" style="width:200px">Charge horaire des activites</a>
-									</li>
-									
+									<li style="width: 250px"><a
+										href="CalculerLeChargeHoraireActivite.jsf"
+										style="width: 200px">Charge horaire des activites</a></li>
+
 								</ul></li>
 
 						</ul>
@@ -101,13 +112,12 @@
 
 									<h:body>
 										<f:view>
-											<h:form id="form">
 
-												<p:panel id="panel" style="height:600px;width:700px">
-
-
-
-
+												<p:commandButton value="Compose" onclick="composeDlg.show()"
+													type="button" icon="ui-icon ui-icon-document" />
+												<p:dialog widgetVar="composeDlg" modal="true"
+													header="Nouveau Email" width="530" showEffect="fade"
+													hideEffect="fade">
 													<h:form id="f1">
 														<h:panelGrid columns="2" cellspacing="5">
 															<h:outputLabel for="to" value="To: " />
@@ -121,24 +131,12 @@
 														<p:editor id="corp" widgetVar="editor"
 															value="#{mailingBean.corp}" />
 														<p:separator />
-														<p:commandButton value="Send" onclick="dialog.show()"
-															action="#{mailingBean.send()}" />
-														
-														<p:commandButton value="Cancel"
-															onclick="dialog.hide()" type="button" />
-															
-															
-															<p:dialog widgetVar="dialog" showEffect="fade"
-															hideEffect="fade" header="Votre mail a était envoyé avec succé ..." width="350" height="50">
-															
-
-														</p:dialog>
-															
+														<p:commandButton value="Envoyer" onclick="composeDlg.hide()"
+															action="#{mailingBean.send}" />
+														<p:commandButton value="Annuler"
+															onclick="composeDlg.hide()" type="button" />
 													</h:form>
-
-												</p:panel>
-
-											</h:form>
+												</p:dialog>
 										</f:view>
 									</h:body>
 
