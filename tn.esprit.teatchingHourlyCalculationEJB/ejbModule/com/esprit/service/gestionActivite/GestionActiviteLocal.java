@@ -30,7 +30,10 @@ public interface GestionActiviteLocal extends IGestionGeneric<Activite> {
 	public List<Activite> findByLibelle(String libelleActivite);
 
 	public List<Activite> findByMatEnseignant(String matriculeEnseigant);
+	
 
 	public void addActivite(Activite activite);
+
+	public Activite findBylib(String ref);
 
 }

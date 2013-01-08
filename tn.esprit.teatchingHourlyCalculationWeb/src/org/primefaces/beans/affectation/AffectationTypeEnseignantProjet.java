@@ -73,6 +73,9 @@ public class AffectationTypeEnseignantProjet {
 	private List<TypeProjetProjetEnseignant> listeParTypes;
 	private int idType;
 	private String nomTypeSelected;
+	
+	private List<SelectItem> selectItemsProjects;
+
 
 	public String doAdd() {
 
@@ -413,5 +416,13 @@ public class AffectationTypeEnseignantProjet {
 
 	public void setChargeHoraireParEnseignant(int chargeHoraireParEnseignant) {
 		this.chargeHoraireParEnseignant = chargeHoraireParEnseignant;
+	}
+
+	public List<SelectItem> getSelectItemsProjects() {
+		return selectItemsProjects;
+	}
+
+	public void setSelectItemsProjects(List<SelectItem> selectItemsProjects) {
+		this.selectItemsProjects = selectItemsProjects;
 	}
 }

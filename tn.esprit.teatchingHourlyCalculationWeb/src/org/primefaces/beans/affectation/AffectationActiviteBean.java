@@ -33,11 +33,12 @@ public class AffectationActiviteBean {
 	private List<SelectItem> selectItemsEnseignant;
 	private String matSelectedEnseignant;
 	private int chargeHoraireParEnseignant;
-	
-	
-	private List<ActiviteEnseignant> activiteEnseignants=new ArrayList<ActiviteEnseignant>();
-	private Enseignant selectedEnseignant;
 
+	private List<ActiviteEnseignant> activiteEnseignants = new ArrayList<ActiviteEnseignant>();
+	private Enseignant selectedEnseignant;
+	private Activite activite = new Activite();
+	private String libelleSelectedActivite;
+	
 
 	private int i = 0;
 
@@ -75,7 +76,8 @@ public class AffectationActiviteBean {
 
 		return "";
 	}
-
+	
+	
 	public String doCalculChargeHoraire() {
 		int chargeHoraireParEnseignantActivite = gestionEnseignantLocal
 				.volumeHoraireTotalParEnseignantActivite(nameEnseignant);
@@ -235,12 +237,13 @@ public class AffectationActiviteBean {
 	}
 
 	public List<ActiviteEnseignant> getActiviteEnseignants() {
-		activiteEnseignants=gestionAffectationActiviteEnseignantLocal
+		activiteEnseignants = gestionAffectationActiviteEnseignantLocal
 				.findAllByMatEnsei(getNameEnseignant());
 		return activiteEnseignants;
 	}
 
-	public void setActiviteEnseignants(List<ActiviteEnseignant> activiteEnseignants) {
+	public void setActiviteEnseignants(
+			List<ActiviteEnseignant> activiteEnseignants) {
 		this.activiteEnseignants = activiteEnseignants;
 	}
 
@@ -252,4 +255,13 @@ public class AffectationActiviteBean {
 		this.selectedEnseignant = selectedEnseignant;
 	}
 
+	public Activite getActivite() {
+		return activite;
+	}
+
+	public void setActivite(Activite activite) {
+		this.activite = activite;
+	}
+
+	
 }

@@ -1,12 +1,15 @@
 package com.esprit.service.gestionActivite;
 
 import java.util.List;
+import java.util.logging.Level;
 
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 
 import com.esprit.entity.Activite;
+import com.esprit.entity.Enseignant;
+import com.log.LogUtil;
 
 /**
  * Session Bean implementation class GestionActivite
@@ -59,6 +62,20 @@ public class GestionActivite implements GestionActiviteLocal,
 		return entityManager.find(Activite.class, ref);
 
 	}
+	
+	@Override
+	public Activite findBylib(String ref) {
+		LogUtil.log("finding Activite instance with matricule: " + ref,
+				Level.INFO, null);
+		try {
+			Activite instance = entityManager.find(Activite.class, ref);
+			return instance;
+		} catch (RuntimeException re) {
+			LogUtil.log("find failed", Level.SEVERE, re);
+			throw re;
+		}
+	}
+
 
 	@SuppressWarnings("unchecked")
 	@Override
