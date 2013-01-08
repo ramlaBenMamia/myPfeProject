@@ -38,33 +38,34 @@
 						<ul id="hmenu" class="sf-menu sf-js-enabled sf-shadow">
 							<li class="current" style="border: none"><a
 								class="toplvl sf-with-ul" href="#">Acceuil</a></li>
-							<li><a href="#" class="toplvl">Gestion des activités</a>
+							<li><a href="#" class="toplvl">Espace de la gestion</a>
 								<ul>
-									<li><a href="http://localhost:8383/tn.esprit.teatchingHourlyCalculationWeb/pages/AjouterActivite.jsf">Ajouter une Activité</a></li>
+									<li style="width:250px"><a
+										href="AjouterEnseignant.jsf" style="width:200px"> gestion des Enseignants</a></li>
+
+									<li style="width:250px"><a href="AjouterActivite.jsf" style="width:200px">Gestion des activités</a></li>
+
+									<li style="width:250px"><a href="AjouterProjet.jsf" style="width:200px">Gestion des Projets</a></li>
+																		<li style="width:250px"><a href="AjouterUnite.jsf" style="width:200px">gestion des Unités</a></li>
 									
-									<li><a href="AfficherActivite.jsf">Afficher les Activités</a></li>
-										
-									<li><a href="SupprimerActivite.jsf">Supprimer une Activité</a></li>
-										
+
 								</ul></li>
-							<li><a class="toplvl" href="#">Gestion des Unités</a>
+							<li><a class="toplvl" href="#">Espace des affectations</a>
 								<ul>
-									<li><a href="AjouterUnite.jsf">Ajouter une Unité</a></li>
-									
-									<li><a href="AfficherUnite.jsf">Afficher les Unités</a>
-										</li>
-									<li><a href="DeleteUnite.jsf">Supprimer une Unité</a>
-										</li>
+									<li style="width:250px"><a href="AffecterUniteEnseignantPromotion.jsf" style="width:200px">Affetation des unités</a></li>
+
+									<li style="width:250px"><a href="AffecterActivite.jsf" style="width:200px">Affectation des activités</a></li>
+									<li style="width:250px"><a href="AffecterProjetTypeEnseignant.jsf" style="width:200px">Affectation des Projets</a></li>
 								</ul></li>
-							<li><a class="toplvl" href="#">gestion des Projets</a><ul>
-									<li><a href="AjouterProjet.jsf">Ajouter un Projet</a></li>
+							<li><a class="toplvl" href="#">Charge Horaire</a>
+							<ul>
+									<li style="width:250px"><a href="CalculChargeProjetParEnseignant.jsf" style="width:200px">Charge horaire des projets</a></li>
+
+									<li style="width:250px"><a href="CalculerLeChargeHoraireActivite.jsf" style="width:200px">Charge horaire des activites</a>
+									</li>
 									
-									<li><a href="AfficherProjet.jsf">Afficher les Projets</a>
-										</li>
-									<li><a href="DeleteProjet.jsf">Supprimer un Projet</a>
-										</li>
 								</ul></li>
-							
+
 						</ul>
 					</div>
 				</div>
@@ -76,8 +77,12 @@
 								<div class="sidebox1">
 									<div class="vmenu">
 										<ul>
-											<li><a href="AfficherEnseignantAdministrateur.jsf">Afficher la liste des enseignants</a></li>
-											<li><a href="DeleteEnseignant.jsf">Supprimer des enseignants</a></li>
+											<li><a href="AfficherEnseignantAdministrateur.jsf">Afficher
+													la liste des enseignants</a></li>
+											<li><a href="DeleteEnseignant.jsf">Supprimer des
+													enseignants</a></li>
+											
+
 											<li><a href="SendMail.jsf">Envoi de mail</a></li>
 
 
@@ -153,7 +158,7 @@
 																label="EMAIL">
 															</p:inputText>
 															<p:message for="email" display="icon" />
-  
+
 															<h:outputLabel for="numTel"
 																value="Numero de Telephone :*" />
 															<p:inputText id="numTel"

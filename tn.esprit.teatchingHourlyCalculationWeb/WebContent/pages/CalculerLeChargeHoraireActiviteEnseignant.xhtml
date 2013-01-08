@@ -40,30 +40,41 @@
 								class="toplvl sf-with-ul" href="#">Acceuil</a></li>
 							<li><a href="#" class="toplvl">Espace de la gestion</a>
 								<ul>
-									<li style="width:250px"><a
-										href="AjouterEnseignant.jsf" style="width:200px"> gestion des Enseignants</a></li>
+									<li style="width: 250px"><a href="AjouterEnseignant.jsf"
+										style="width: 200px"> gestion des Enseignants</a></li>
 
-									<li style="width:250px"><a href="AjouterActivite.jsf" style="width:200px">Gestion des activités</a></li>
+									<li style="width: 250px"><a href="AjouterActivite.jsf"
+										style="width: 200px">Gestion des activités</a></li>
 
-									<li style="width:250px"><a href="AjouterProjet.jsf" style="width:200px">Gestion des Projets</a></li>
-																		<li style="width:250px"><a href="AjouterUnite.jsf" style="width:200px">gestion des Unités</a></li>
-									
+									<li style="width: 250px"><a href="AjouterProjet.jsf"
+										style="width: 200px">Gestion des Projets</a></li>
+									<li style="width: 250px"><a href="AjouterUnite.jsf"
+										style="width: 200px">gestion des Unités</a></li>
+
 
 								</ul></li>
 							<li><a class="toplvl" href="#">Espace des affectations</a>
 								<ul>
-									<li style="width:250px"><a href="AffecterUniteEnseignantPromotion.jsf" style="width:200px">Affetation des unités</a></li>
+									<li style="width: 250px"><a
+										href="AffecterUniteEnseignantPromotion.jsf"
+										style="width: 200px">Affetation des unités</a></li>
 
-									<li style="width:250px"><a href="AffecterActivite.jsf" style="width:200px">Affectation des activités</a></li>
-									<li style="width:250px"><a href="AffecterProjetTypeEnseignant.jsf" style="width:200px">Affectation des Projets</a></li>
+									<li style="width: 250px"><a href="AffecterActivite.jsf"
+										style="width: 200px">Affectation des activités</a></li>
+									<li style="width: 250px"><a
+										href="AffecterProjetTypeEnseignant.jsf" style="width: 200px">Affectation
+											des Projets</a></li>
 								</ul></li>
 							<li><a class="toplvl" href="#">Charge Horaire</a>
-							<ul>
-									<li style="width:250px"><a href="CalculChargeProjetParEnseignant.jsf" style="width:200px">Charge horaire des projets</a></li>
+								<ul>
+									<li style="width: 250px"><a
+										href="CalculChargeProjetParEnseignant.jsf"
+										style="width: 200px">Charge horaire des projets</a></li>
 
-									<li style="width:250px"><a href="CalculerLeChargeHoraireActivite.jsf" style="width:200px">Charge horaire des activites</a>
-									</li>
-									
+									<li style="width: 250px"><a
+										href="CalculerLeChargeHoraireActivite.jsf"
+										style="width: 200px">Charge horaire des activites</a></li>
+
 								</ul></li>
 
 						</ul>
@@ -72,27 +83,7 @@
 				<div class="bd">
 					<div id="page">
 						<!-- SIDEBAR  -->
-						<div id="sidebar">
-							<div class="content">
-								<div class="sidebox1">
-									<div class="vmenu">
-										<ul>
-											<li><a href="AfficherEnseignantAdministrateur.jsf">Afficher
-													la liste des enseignants</a></li>
-											<li><a href="DeleteEnseignant.jsf">Supprimer des
-													enseignants</a></li>
-											
 
-											<li><a href="SendMail.jsf">Envoi de mail</a></li>
-
-
-										</ul>
-									</div>
-								</div>
-								<div></div>
-
-							</div>
-						</div>
 						<!-- SIDEBAR  -->
 						<div id="sidebar">
 							<div class="content">
@@ -101,14 +92,14 @@
 										<ul>
 											<li><a href="#">Category 1</a></li>
 											<li><a href="#">Category 2</a></li>
-											
+
 										</ul>
 									</div>
 								</div>
 								<div>
 									<img src="images/business-man-1.png" style="width: 100%" />
 								</div>
-								
+
 							</div>
 						</div>
 						<!-- END SIDEBAR  -->
@@ -116,9 +107,9 @@
 						<div id="main">
 							<div class="content" style="width: 800px;">
 								<div style="margin-top: 25px;">
-								<h:head></h:head>
-								
-								<h:body>
+									<h:head></h:head>
+
+									<h:body>
 										<f:view>
 											<h:form id="form">
 
@@ -137,15 +128,11 @@
 														<center>
 															<table>
 																<tr>
-																	<td><p:selectOneMenu
-																			value="#{affectationActiviteBean.nameEnseignant}">
-																			<f:selectItems
-																				value="#{affectationActiviteBean.selectItemsEnseignant}" />
-																		</p:selectOneMenu></td>
+																	<td><h:inputText
+																			value="#{affectationActiviteBean.nameEnseignant}" /></td>
 
 																	<td><p:commandButton value="Afficher"
-																			update="dataTable"
-																			actionListener="#{affectationActiviteBean.updateDataTable}" /></td>
+																			update="dataTable" /></td>
 																</tr>
 															</table>
 
@@ -154,8 +141,9 @@
 
 
 															<p:dataTable id="dataTable" var="activiteParEns"
-																value="#{affectationActiviteBean.listeParEnseignantActivites}"
-																rowKey="#{activiteParEns.enseignant.matriculeEnseigant}"
+																value="#{affectationActiviteBean.activiteEnseignants}"
+																rowKey="#{activiteParEns.enseignant.cin}"
+																selection="#{affectationActiviteBean.selectedEnseignant}"
 																selectionMode="single"
 																emptyMessage="Aucun activites dans la base avec cette information"
 																paginator="true" rows="10"
@@ -237,7 +225,7 @@
 											</h:form>
 										</f:view>
 									</h:body>
-							
+
 								</div>
 							</div>
 						</div>
@@ -254,8 +242,10 @@ Keep this footer link UNCHANGED AND VISIBLE or make a 10 dollars donation at www
 							<p>
 								<a href="http://www.dotemplate.com">Free templates</a>
 							</p>
-														<center>	<p style="background: black;width: 100px;" > 2012-2013</p></center>
-							
+							<center>
+								<p style="background: black; width: 100px;">2012-2013</p>
+							</center>
+
 						</div>
 					</div>
 					<div id="container-bottom"></div>

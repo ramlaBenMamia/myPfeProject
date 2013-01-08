@@ -145,4 +145,12 @@ public class GestionAffectationActiviteEnseignant implements
 				.setParameter("pnom", libelleActivite).getResultList();
 	}
 
+	@Override
+	public List<ActiviteEnseignant> findAllByMatEnsei(String nom) {
+		return entityManager
+				.createQuery(
+						"select p from ActiviteEnseignant p where p.enseignant.matriculeEnseigant like :pnom ")
+				.setParameter("pnom",nom).getResultList();
+	}
+
 }

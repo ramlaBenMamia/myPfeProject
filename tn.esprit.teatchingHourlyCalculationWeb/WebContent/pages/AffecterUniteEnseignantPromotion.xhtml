@@ -38,63 +38,47 @@
 						<ul id="hmenu" class="sf-menu sf-js-enabled sf-shadow">
 							<li class="current" style="border: none"><a
 								class="toplvl sf-with-ul" href="#">Acceuil</a></li>
-							<li><a href="#" class="toplvl">Gestion des activités</a>
+							<li><a href="#" class="toplvl">Espace de la gestion</a>
 								<ul>
-									<li><a href="#">menu item</a></li>
-									<li class="current"><a href="#">menu item</a>
-										<ul>
-											<li class="current"><a href="#">menu item</a></li>
-											<li><a href="#">menu item</a></li>
-											<li><a href="#">menu item</a></li>
-											<li><a href="#">menu item</a></li>
-											<li><a href="#">menu item</a></li>
-										</ul></li>
-									<li><a href="#">menu item</a>
-										<ul>
-											<li><a href="#">menu item</a></li>
-											<li><a href="#">menu item</a></li>
-											<li><a href="#">menu item</a></li>
-											<li><a href="#">menu item</a></li>
-											<li><a href="#">menu item</a></li>
-										</ul></li>
-									<li><a href="#">menu item</a>
-										<ul>
-											<li><a href="#">menu item</a></li>
-											<li><a href="#">menu item</a></li>
-											<li><a href="#">menu item</a></li>
-											<li><a href="#">menu item</a></li>
-											<li><a href="#">menu item</a></li>
-										</ul></li>
+									<li style="width: 250px"><a href="AjouterEnseignant.jsf"
+										style="width: 200px"> gestion des Enseignants</a></li>
+
+									<li style="width: 250px"><a href="AjouterActivite.jsf"
+										style="width: 200px">Gestion des activités</a></li>
+
+									<li style="width: 250px"><a href="AjouterProjet.jsf"
+										style="width: 200px">Gestion des Projets</a></li>
+									<li style="width: 250px"><a href="AjouterUnite.jsf"
+										style="width: 200px">gestion des Unités</a></li>
+
+
 								</ul></li>
-							<li><a class="toplvl" href="#">Gestion des Unités</a>
+							<li><a class="toplvl" href="#">Espace des affectations</a>
 								<ul>
-									<li><a href="#">menu item</a></li>
-									<li class="current"><a href="#">menu item</a>
-										<ul>
-											<li class="current"><a href="#">menu item</a></li>
-											<li><a href="#">menu item</a></li>
-											<li><a href="#">menu item</a></li>
-											<li><a href="#">menu item</a></li>
-											<li><a href="#">menu item</a></li>
-										</ul></li>
-									<li><a href="#">menu item</a>
-										<ul>
-											<li><a href="#">menu item</a></li>
-											<li><a href="#">menu item</a></li>
-											<li><a href="#">menu item</a></li>
-											<li><a href="#">menu item</a></li>
-											<li><a href="#">menu item</a></li>
-										</ul></li>
-									<li><a href="#">menu item</a>
-										<ul>
-											<li><a href="#">menu item</a></li>
-											<li><a href="#">menu item</a></li>
-											<li><a href="#">menu item</a></li>
-											<li><a href="#">menu item</a></li>
-											<li><a href="#">menu item</a></li>
-										</ul></li>
+									<li style="width: 250px"><a
+										href="AffecterUniteEnseignantPromotion.jsf"
+										style="width: 200px">Affetation des unités</a></li>
+
+									<li style="width: 250px"><a href="AffecterActivite.jsf"
+										style="width: 200px">Affectation des activités</a></li>
+									<li style="width: 250px"><a
+										href="AffecterProjetTypeEnseignant.jsf" style="width: 200px">Affectation
+											des Projets</a></li>
 								</ul></li>
-							<li><a class="toplvl" href="#">gestion des Projets</a></li>
+							<li><a class="toplvl" href="#">Charge Horaire</a>
+								<ul>
+									<li style="width: 250px"><a
+										href="CalculChargeProjetParEnseignant.jsf"
+										style="width: 200px">Charge horaire des projets</a></li>
+
+									<li style="width: 250px"><a
+										href="CalculerLeChargeHoraireActivite.jsf"
+										style="width: 200px">Charge horaire des activites</a></li>
+
+								</ul></li>
+
+
+
 						</ul>
 					</div>
 				</div>
@@ -115,8 +99,8 @@
 									</div>
 								</div>
 								<div>
-																	<img src="images/image2.jpg" style="width: 100%" />
-								
+									<img src="images/image2.jpg" style="width: 100%" />
+
 								</div>
 
 							</div>
@@ -132,11 +116,12 @@
 										<f:view>
 
 											<h:form id="form">
-											<center>
-												<p:fieldset id="panel"
-													legend="Affectation des Enseignants aux Unites"
-													style="height:250px;width:600px">
-<br/><br/>
+												<center>
+													<p:fieldset id="panel"
+														legend="Affectation des Enseignants aux Unites"
+														style="height:250px;width:600px">
+														<br />
+														<br />
 														<h:panelGrid columns="2">
 
 															<h:outputText value="Enseignant :" />
@@ -159,30 +144,31 @@
 																	value="#{affectationUniteEnseignants.itemsPromotions}" />
 															</p:selectOneMenu>
 															<h:outputText value="Date d'affectation :" />
-													
+
 															<p:calendar label="dateDebut" pattern="MM/dd/yyyy HH:mm"
-															value="#{affectationUniteEnseignants.date}" />
+																value="#{affectationUniteEnseignants.date}" />
 
 														</h:panelGrid>
 
-													<br />
-													<br />
-													<br />
-													<br />
+														<br />
+														<br />
+														<br />
+														<br />
 
-													<p:commandButton value="Valider" update="panel" id="ajax"
-														actionListener="#{affectationUniteEnseignants.doAdd}"
-														onclick="dlg.show();" />
-													<p:commandButton value="Reset" type="reset" />
-													<br />
-													
-
+														<p:commandButton value="Valider" update="panel" id="ajax"
+															actionListener="#{affectationUniteEnseignants.doAdd}"
+															onclick="dlg.show();" />
+														<p:commandButton value="Reset" type="reset" />
+														<br />
 
 
-												</p:fieldset>													<br />
-												
-</center>
-<p>
+
+
+													</p:fieldset>
+													<br />
+
+												</center>
+												<p>
 													<a style="" href="#">Supprimer une Affectation</a><br /> <a
 														href="#">Visualer la Charge Horaire par Enseignant</a>
 
@@ -206,10 +192,9 @@
 							<!-- 
 Keep this footer link UNCHANGED AND VISIBLE or make a 10 dollars donation at www.dotemplate.com/#donate to remove it.
 -->
-							<p>
-							</p>
+							<p></p>
 							<center>
-								<p style="color:black">2012-2013</p>
+								<p style="color: black">2012-2013</p>
 							</center>
 
 						</div>

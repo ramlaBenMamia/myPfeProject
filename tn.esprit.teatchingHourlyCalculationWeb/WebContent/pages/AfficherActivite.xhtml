@@ -5,7 +5,7 @@
 	xmlns:ui="http://java.sun.com/jsf/facelets"
 	xmlns:p="http://primefaces.org/ui">
 <head>
-<title>template</title>
+<title>Afficher activite</title>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <meta name="title" content="Web site" />
 <meta name="description" content="Site description here" />
@@ -37,69 +37,62 @@
 					<div id="hmenu-wpr">
 						<ul id="hmenu" class="sf-menu sf-js-enabled sf-shadow">
 							<li class="current" style="border: none"><a
-								class="toplvl sf-with-ul" href="#">Home</a></li>
-							<li><a href="#" class="toplvl">Products</a>
+								class="toplvl sf-with-ul" href="#">Acceuil</a></li>
+							<li><a href="#" class="toplvl">Espace de la gestion</a>
 								<ul>
-									<li><a href="#">menu item</a></li>
-									<li class="current"><a href="#">menu item</a>
-										<ul>
-											<li class="current"><a href="#">menu item</a></li>
-											<li><a href="#">menu item</a></li>
-											<li><a href="#">menu item</a></li>
-											<li><a href="#">menu item</a></li>
-											<li><a href="#">menu item</a></li>
-										</ul></li>
-									<li><a href="#">menu item</a>
-										<ul>
-											<li><a href="#">menu item</a></li>
-											<li><a href="#">menu item</a></li>
-											<li><a href="#">menu item</a></li>
-											<li><a href="#">menu item</a></li>
-											<li><a href="#">menu item</a></li>
-										</ul></li>
-									<li><a href="#">menu item</a>
-										<ul>
-											<li><a href="#">menu item</a></li>
-											<li><a href="#">menu item</a></li>
-											<li><a href="#">menu item</a></li>
-											<li><a href="#">menu item</a></li>
-											<li><a href="#">menu item</a></li>
-										</ul></li>
+									<li style="width:250px"><a
+										href="AjouterEnseignant.jsf" style="width:200px"> gestion des Enseignants</a></li>
+
+									<li style="width:250px"><a href="AjouterActivite.jsf" style="width:200px">Gestion des activités</a></li>
+
+									<li style="width:250px"><a href="AjouterProjet.jsf" style="width:200px">Gestion des Projets</a></li>
+																		<li style="width:250px"><a href="AjouterUnite.jsf" style="width:200px">gestion des Unités</a></li>
+									
+
 								</ul></li>
-							<li><a class="toplvl" href="#">Services</a>
+							<li><a class="toplvl" href="#">Espace des affectations</a>
 								<ul>
-									<li><a href="#">menu item</a></li>
-									<li class="current"><a href="#">menu item</a>
-										<ul>
-											<li class="current"><a href="#">menu item</a></li>
-											<li><a href="#">menu item</a></li>
-											<li><a href="#">menu item</a></li>
-											<li><a href="#">menu item</a></li>
-											<li><a href="#">menu item</a></li>
-										</ul></li>
-									<li><a href="#">menu item</a>
-										<ul>
-											<li><a href="#">menu item</a></li>
-											<li><a href="#">menu item</a></li>
-											<li><a href="#">menu item</a></li>
-											<li><a href="#">menu item</a></li>
-											<li><a href="#">menu item</a></li>
-										</ul></li>
-									<li><a href="#">menu item</a>
-										<ul>
-											<li><a href="#">menu item</a></li>
-											<li><a href="#">menu item</a></li>
-											<li><a href="#">menu item</a></li>
-											<li><a href="#">menu item</a></li>
-											<li><a href="#">menu item</a></li>
-										</ul></li>
+									<li style="width:250px"><a href="AffecterUniteEnseignantPromotion.jsf" style="width:200px">Affetation des unités</a></li>
+
+									<li style="width:250px"><a href="AffecterActivite.jsf" style="width:200px">Affectation des activités</a></li>
+									<li style="width:250px"><a href="AffecterProjetTypeEnseignant.jsf" style="width:200px">Affectation des Projets</a></li>
 								</ul></li>
-							<li><a class="toplvl" href="#">About Us</a></li>
+							<li><a class="toplvl" href="#">Charge Horaire</a>
+							<ul>
+									<li style="width:250px"><a href="CalculChargeProjetParEnseignant.jsf" style="width:200px">Charge horaire des projets</a></li>
+
+									<li style="width:250px"><a href="CalculerLeChargeHoraireActivite.jsf" style="width:200px">Charge horaire des activites</a>
+									</li>
+									
+								</ul></li>
+
 						</ul>
 					</div>
 				</div>
 				<div class="bd">
 					<div id="page">
+						<!-- SIDEBAR  -->
+						<div id="sidebar">
+							<div class="content">
+								<div class="sidebox1">
+									<div class="vmenu">
+										<ul>
+											<li><a href="AfficherEnseignantAdministrateur.jsf">Afficher
+													la liste des enseignants</a></li>
+											<li><a href="DeleteEnseignant.jsf">Supprimer des
+													enseignants</a></li>
+											
+
+											<li><a href="SendMail.jsf">Envoi de mail</a></li>
+
+
+										</ul>
+									</div>
+								</div>
+								<div></div>
+
+							</div>
+						</div>
 						<!-- SIDEBAR  -->
 						<div id="sidebar">
 							<div class="content">

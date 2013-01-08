@@ -31,6 +31,9 @@ public interface GestionAffectationActiviteEnseignantLocal {
 	public List<ActiviteEnseignant> findAllByNomEnsei(String nom);
 	
 	public List<ActiviteEnseignant> findAllByNomActivite(String libelleActivite);
+	
+	public List<ActiviteEnseignant> findAllByMatEnsei(String nom);
+
 
 	
 	

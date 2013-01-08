@@ -33,6 +33,11 @@ public class AffectationActiviteBean {
 	private List<SelectItem> selectItemsEnseignant;
 	private String matSelectedEnseignant;
 	private int chargeHoraireParEnseignant;
+	
+	
+	private List<ActiviteEnseignant> activiteEnseignants=new ArrayList<ActiviteEnseignant>();
+	private Enseignant selectedEnseignant;
+
 
 	private int i = 0;
 
@@ -227,6 +232,24 @@ public class AffectationActiviteBean {
 
 	public void setPeriode(int periode) {
 		this.periode = periode;
+	}
+
+	public List<ActiviteEnseignant> getActiviteEnseignants() {
+		activiteEnseignants=gestionAffectationActiviteEnseignantLocal
+				.findAllByMatEnsei(getNameEnseignant());
+		return activiteEnseignants;
+	}
+
+	public void setActiviteEnseignants(List<ActiviteEnseignant> activiteEnseignants) {
+		this.activiteEnseignants = activiteEnseignants;
+	}
+
+	public Enseignant getSelectedEnseignant() {
+		return selectedEnseignant;
+	}
+
+	public void setSelectedEnseignant(Enseignant selectedEnseignant) {
+		this.selectedEnseignant = selectedEnseignant;
 	}
 
 }
