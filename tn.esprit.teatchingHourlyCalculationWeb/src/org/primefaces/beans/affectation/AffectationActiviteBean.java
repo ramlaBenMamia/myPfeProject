@@ -12,6 +12,7 @@ import com.esprit.domain.gestionEntites.calculChargeHoraire.GestionChargeHoraire
 import com.esprit.entity.Activite;
 import com.esprit.entity.ActiviteEnseignant;
 import com.esprit.entity.Enseignant;
+import com.esprit.entity.TypeProjetProjetEnseignant;
 import com.esprit.service.gestionActivite.GestionActiviteLocal;
 import com.esprit.service.gestionAffectationActivite.GestionAffectationActiviteEnseignantLocal;
 import com.esprit.service.gestionEnseignant.GestionEnseignantLocal;
@@ -38,7 +39,10 @@ public class AffectationActiviteBean {
 	private Enseignant selectedEnseignant;
 	private Activite activite = new Activite();
 	private String libelleSelectedActivite;
-	
+	private int idActivite;
+	private List<ActiviteEnseignant> listeParActivites;
+
+
 
 	private int i = 0;
 
@@ -74,6 +78,14 @@ public class AffectationActiviteBean {
 		listeParEnseignantActivites = gestionAffectationActiviteEnseignantLocal
 				.findAllByNomEnsei(nomEnseignantSelect);
 
+		return "";
+	}
+	
+	public String updateDataTableActivite() {
+		libelleSelectedActivite = gestionActiviteLocal.findByRef(idActivite)
+				.getLibelleActivite();
+		listeParActivites = gestionAffectationActiviteEnseignantLocal
+				.findAllByNomActivite(libelleSelectedActivite);
 		return "";
 	}
 	
@@ -261,6 +273,30 @@ public class AffectationActiviteBean {
 
 	public void setActivite(Activite activite) {
 		this.activite = activite;
+	}
+
+	public int getIdActivite() {
+		return idActivite;
+	}
+
+	public void setIdActivite(int idActivite) {
+		this.idActivite = idActivite;
+	}
+
+	public String getLibelleSelectedActivite() {
+		return libelleSelectedActivite;
+	}
+
+	public void setLibelleSelectedActivite(String libelleSelectedActivite) {
+		this.libelleSelectedActivite = libelleSelectedActivite;
+	}
+
+	public List<ActiviteEnseignant> getListeParActivites() {
+		return listeParActivites;
+	}
+
+	public void setListeParActivites(List<ActiviteEnseignant> listeParActivites) {
+		this.listeParActivites = listeParActivites;
 	}
 
 	

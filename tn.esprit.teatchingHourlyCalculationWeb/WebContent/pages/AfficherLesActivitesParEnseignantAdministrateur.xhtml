@@ -109,11 +109,11 @@
 
 
 
-													<p:scrollPanel style="height:700px;width:700px">
+													<p:scrollPanel style="height:500px;width:700px">
 
 														<p:panel id="panel"
 															header="Esprit --- Gestion des Enseignants --- Affichage de la liste des activites de l'enseignant :"
-															style="height:1000px;width:700px">
+															style="height:500px;width:700px">
 
 
 															<br />
@@ -130,7 +130,7 @@
 
 																		<td><p:commandButton value="Afficher"
 																				update="dataTable"
-																				actionListener="#{affectationActiviteBean.updateDataTableActivites}" /></td>
+																				actionListener="#{affectationActiviteBean.updateDataTableActivite}" /></td>
 																	</tr>
 																</table>
 
@@ -139,7 +139,7 @@
 
 
 																<p:dataTable id="dataTable" var="ensParActivite"
-																	value="#{affectationActiviteBean.listeParActiviteEnseignants}"
+																	value="#{affectationActiviteBean.listeParActivites}"
 																	rowKey="#{ensParActivite.activite.refActivite}"
 																	selectionMode="single"
 																	emptyMessage="Aucun enseignants dans la base avec cette information"
@@ -185,14 +185,6 @@
 																		<h:outputText value="#{ensParActivite.volumeHoraire}" />
 
 																	</p:column>
-
-
-																	<f:facet name="footer">
-																		<p:commandButton style="margin-right:70%"
-																			id="viewButton" value="Total" icon="ui-icon-search"
-																			update=":form:display"
-																			oncomplete="uniteDialog.show()" />
-																	</f:facet>
 
 																</p:dataTable>
 
