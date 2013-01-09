@@ -78,9 +78,10 @@
 									<div class="vmenu">
 										<ul>
 									
+											<li><a href="LoginEnseignant.jsf">Espace Enseignant</a></li>
+											<li><a href="LoginAdmin.jsf">Espace Administration</a></li>
 											<li><a href="SendMail.jsf">Envoi de mail</a></li>
-											<li><a href="DeleteAffectationActivite.jsf">Supprimer une affectation</a></li>
-											<li><a href="AfficherAffectationActivite.jsf">Envoi de mail</a></li>
+											<li><a href="AfficherLesActivitesParEnseignantAdministrateur.jsf">Consulter les activités par enseignant</a></li>
 
 
 										</ul>
@@ -100,13 +101,14 @@
 								<h:body>
 										<h:head></h:head>
 										<f:view>
-										<h:form>
-											<p:scrollPanel style="height:700px;width:700px">
-													<p:panel id="panel" style="height:1000px;width:700px"
-														header=" ESPRIT ---- Affectation des activites par enseignants-----">
-															
+										<h:form id="form">
+												<center>
+													<p:fieldset id="panel"
+														legend="Affectation des Enseignants aux Activités"
+														style="height:250px;width:600px">
+														<br />
+														<br />
 														<h:panelGrid columns="2">
-
 
 															<h:outputText value="activite" />
 															<p:selectOneMenu
@@ -121,10 +123,7 @@
 																<f:selectItems
 																	value="#{affectationActiviteBean.selectItemsEnseignant}" />
 															</p:selectOneMenu>
-														</h:panelGrid>
-
-
-														<h:panelGrid columns="2">
+														
 															<h:outputText value="hours" />
 															<p:keyboard value="#{affectationActiviteBean.hour}"
 																showMode="button" keypadOnly="true" />
@@ -167,10 +166,9 @@
 
 
 
-													</p:panel>
+												</p:fieldset>
+</center>
 
-
-												</p:scrollPanel>
 												</h:form>
 										</f:view>
 									</h:body>
@@ -190,10 +188,8 @@
 							<!-- 
 Keep this footer link UNCHANGED AND VISIBLE or make a 10 dollars donation at www.dotemplate.com/#donate to remove it.
 -->
-							<p>
-								<a href="http://www.dotemplate.com">Free templates</a>
-							</p>
-														<center>	<p style="background: black;width: 100px;" > 2012-2013</p></center>
+							
+														<center>	<p> 2012-2013</p></center>
 							
 						</div>
 					</div>

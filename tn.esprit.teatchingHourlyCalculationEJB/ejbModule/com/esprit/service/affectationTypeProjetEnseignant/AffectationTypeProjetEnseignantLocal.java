@@ -4,6 +4,7 @@ import java.util.List;
 
 import javax.ejb.Local;
 
+import com.esprit.entity.ActiviteEnseignant;
 import com.esprit.entity.Enseignant;
 import com.esprit.entity.Projet;
 import com.esprit.entity.TypeProjet;
@@ -33,5 +34,8 @@ public interface AffectationTypeProjetEnseignantLocal {
 
 	public List<TypeProjetProjetEnseignant> findAllByNomProjet(
 			String nomProjet);
+	
+	public List<TypeProjetProjetEnseignant> findAllByMatEnsei(String nom);
+
 
 }

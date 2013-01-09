@@ -77,13 +77,12 @@
 								<div class="sidebox1">
 									<div class="vmenu">
 										<ul>
-											<li><a href="AfficherEnseignantAdministrateur.jsf">Afficher
-													la liste des enseignants</a></li>
-											<li><a href="DeleteEnseignant.jsf">Supprimer des
-													enseignants</a></li>
+														
+																						<li><a href="AffecterUniteEnseignantPromotion.jsf">Retour à l'espace des affectations</a></li>
 											
 
 											<li><a href="SendMail.jsf">Envoi de mail</a></li>
+
 
 
 										</ul>
@@ -106,7 +105,7 @@
 										<f:view>
 											<h:form id="form">
 												<p:fieldset id="panel" legend="Les Unites sont :"
-													style="height:400px;width:750px">
+													style="height:600px;width:750px">
 													<p>Veuillez choisir une unite pour ses détails...</p>
 													<center>
 														<p:tabView id="tabview" dynamic="true">
@@ -186,19 +185,38 @@
 																		</p:column>
 
 
-																		<f:facet name="footer">
-																			<p:commandButton style="margin-right:70%"
-																				id="viewButton" value="Total" icon="ui-icon-search"
-																				update=":form:display"
-																				oncomplete="uniteDialog.show()" />
-																		</f:facet>
 
 																	</p:dataTable>
 
+															<h:panelGrid columns="2">
+																<p:panel header="Exporter les données">
+																	<h:commandLink>
+																		<p:graphicImage value="/images/excel.png" />
+																		<p:dataExporter type="xls" target="dataTable1"
+																			fileName="dataTable1" />
+																	</h:commandLink>
 
+																	<h:commandLink>
+																		<p:graphicImage value="/images/pdf.png" />
+																		<p:dataExporter type="pdf" target="dataTable1"
+																			fileName="dataTable1" />
+																	</h:commandLink>
 
+																	<h:commandLink>
+																		<p:graphicImage value="/images/csv.png" />
+																		<p:dataExporter type="csv" target="dataTable1"
+																			fileName="dataTable1" />
+																	</h:commandLink>
 
-																</h:panelGrid>
+																	<h:commandLink>
+																		<p:graphicImage value="/images/xml.png" />
+																		<p:dataExporter type="xml" target="dataTable1"
+																			fileName="dataTable1" />
+																	</h:commandLink>
+																</p:panel>
+																
+															</h:panelGrid>
+							</h:panelGrid>
 
 
 															</p:tab>
@@ -275,17 +293,38 @@
 																			</p:column>
 
 
-																			<f:facet name="footer">
-																				<p:commandButton style="margin-right:70%"
-																					id="viewButton" value="Total" icon="ui-icon-search"
-																					update=":form:display"
-																					oncomplete="uniteDialog.show()" />
-																			</f:facet>
 
 																		</p:dataTable>
 
 
+<h:panelGrid columns="2">
+																<p:panel header="Exporter les données">
+																	<h:commandLink>
+																		<p:graphicImage value="/images/excel.png" />
+																		<p:dataExporter type="xls" target="dataTable"
+																			fileName="dataTable" />
+																	</h:commandLink>
 
+																	<h:commandLink>
+																		<p:graphicImage value="/images/pdf.png" />
+																		<p:dataExporter type="pdf" target="dataTable"
+																			fileName="dataTable" />
+																	</h:commandLink>
+
+																	<h:commandLink>
+																		<p:graphicImage value="/images/csv.png" />
+																		<p:dataExporter type="csv" target="dataTable"
+																			fileName="dataTable" />
+																	</h:commandLink>
+
+																	<h:commandLink>
+																		<p:graphicImage value="/images/xml.png" />
+																		<p:dataExporter type="xml" target="dataTable"
+																			fileName="dataTable" />
+																	</h:commandLink>
+																</p:panel>
+																
+															</h:panelGrid>
 
 																	</h:panelGrid>
 																</center>
@@ -364,15 +403,36 @@
 																			</p:column>
 
 
-																			<f:facet name="footer">
-																				<p:commandButton style="margin-right:70%"
-																					id="viewButton" value="Afficher"
-																					icon="ui-icon-search" update=":form:display"
-																					oncomplete="uniteDialog.show()" />
-																			</f:facet>
 
 																		</p:dataTable>
+<h:panelGrid columns="2">
+																<p:panel header="Exporter les données">
+																	<h:commandLink>
+																		<p:graphicImage value="/images/excel.png" />
+																		<p:dataExporter type="xls" target="dataTableee"
+																			fileName="dataTableee" />
+																	</h:commandLink>
 
+																	<h:commandLink>
+																		<p:graphicImage value="/images/pdf.png" />
+																		<p:dataExporter type="pdf" target="dataTableee"
+																			fileName="dataTableee" />
+																	</h:commandLink>
+
+																	<h:commandLink>
+																		<p:graphicImage value="/images/csv.png" />
+																		<p:dataExporter type="csv" target="dataTableee"
+																			fileName="dataTableee" />
+																	</h:commandLink>
+
+																	<h:commandLink>
+																		<p:graphicImage value="/images/xml.png" />
+																		<p:dataExporter type="xml" target="dataTableee"
+																			fileName="dataTableee" />
+																	</h:commandLink>
+																</p:panel>
+																
+															</h:panelGrid>
 
 
 
@@ -453,15 +513,36 @@
 																			</p:column>
 
 
-																			<f:facet name="footer">
-																				<p:commandButton style="margin-right:70%"
-																					id="viewButton" value="Total" icon="ui-icon-search"
-																					update=":form:display"
-																					oncomplete="uniteDialog.show()" />
-																			</f:facet>
 
 																		</p:dataTable>
+<h:panelGrid columns="2">
+																<p:panel header="Exporter les données">
+																	<h:commandLink>
+																		<p:graphicImage value="/images/excel.png" />
+																		<p:dataExporter type="xls" target="dataTablee"
+																			fileName="dataTablee" />
+																	</h:commandLink>
 
+																	<h:commandLink>
+																		<p:graphicImage value="/images/pdf.png" />
+																		<p:dataExporter type="pdf" target="dataTablee"
+																			fileName="dataTablee" />
+																	</h:commandLink>
+
+																	<h:commandLink>
+																		<p:graphicImage value="/images/csv.png" />
+																		<p:dataExporter type="csv" target="dataTablee"
+																			fileName="dataTablee" />
+																	</h:commandLink>
+
+																	<h:commandLink>
+																		<p:graphicImage value="/images/xml.png" />
+																		<p:dataExporter type="xml" target="dataTablee"
+																			fileName="dataTablee" />
+																	</h:commandLink>
+																</p:panel>
+																
+															</h:panelGrid>
 
 
 
@@ -471,22 +552,11 @@
 															</p:tab>
 
 
-
 														</p:tabView>
+														
 													</center>
 												</p:fieldset>
-												<p>
-													<a href="AjouterUnite.jsf">Ajouter une Unite</a>
-												</p>
-												<p>
-													<a href="DeleteUnite.jsf">Supprimer une Unite</a>
-												</p>
-
-												<p>
-													<a href="AffecterUniteEnseignantPromotion.jsf">Affectation
-														d'un nouveau enseignant</a>
-												</p>
-
+												
 											</h:form>
 										</f:view>
 									</h:body>
@@ -504,11 +574,9 @@
 							<!-- 
 Keep this footer link UNCHANGED AND VISIBLE or make a 10 dollars donation at www.dotemplate.com/#donate to remove it.
 -->
-							<p>
-								<a href="http://www.dotemplate.com">Free templates</a>
-							</p>
+							
 							<center>
-								<p style="background: black; width: 100px;">2012-2013</p>
+								<p>2012-2013</p>
 							</center>
 
 						</div>

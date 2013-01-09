@@ -110,4 +110,12 @@ public class AffectationTypeProjetEnseignant implements
 				.setParameter("pnom", nom).getResultList();
 	}
 
+	@Override
+	public List<TypeProjetProjetEnseignant> findAllByMatEnsei(String nom) {
+		return entityManager
+				.createQuery(
+						"select p from TypeProjetProjetEnseignant p where p.enseignant.matriculeEnseigant like :pnom ")
+				.setParameter("pnom",nom).getResultList();
+	}
+
 }

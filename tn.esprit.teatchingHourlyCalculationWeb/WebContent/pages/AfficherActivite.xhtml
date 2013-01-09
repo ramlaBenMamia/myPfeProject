@@ -77,14 +77,13 @@
 								<div class="sidebox1">
 									<div class="vmenu">
 										<ul>
-											<li><a href="AfficherEnseignantAdministrateur.jsf">Afficher
-													la liste des enseignants</a></li>
-											<li><a href="DeleteEnseignant.jsf">Supprimer des
-													enseignants</a></li>
+											<li><a href="SupprimerActivite.jsf">Supprimer des
+													activites</a></li>
 											
+													<li><a href="AfficherLesActivitesParEnseignantAdministrateur.jsf">Consulter la liste des enseignants par une activite </a></li>
 
 											<li><a href="SendMail.jsf">Envoi de mail</a></li>
-
+										
 
 										</ul>
 									</div>
@@ -125,6 +124,7 @@
 
 															<p:dataTable id="lesactivites" var="activite"
 																value="#{listeActiviteCtr.listeActivites}"
+																
 																rowKey="#{activite.refActivite}"
 																selection="#{listeActiviteCtr.selectedActivite}"
 																selectionMode="single"
@@ -163,18 +163,32 @@
 																	</f:facet>
 																	<h:outputText value="#{activite.description}" />
 																</p:column>
-
-																<p:column headerText="Date"
-																	filterBy="#{activite.dateDebut}"
-																	sortBy="#{activite.dateDebut}">
+<p:column headerText="Seminaire"
+																	filterBy="#{activite.siminaire}"
+																	sortBy="#{activite.siminaire}">
 																	<f:facet name="header">
-																		<h:outputText value="Date" />
+																		<h:outputText value="Seminaire" />
 																	</f:facet>
-																	<h:outputText value="#{activite.dateDebut}" />
-
+																	<h:outputText value="#{activite.siminaire}" />
+																</p:column>
+																
+<p:column headerText="Club"
+																	filterBy="#{activite.club}"
+																	sortBy="#{activite.club}">
+																	<f:facet name="header">
+																		<h:outputText value="Club" />
+																	</f:facet>
+																	<h:outputText value="#{activite.club}" />
 																</p:column>
 
-
+<p:column headerText="Conference"
+																	filterBy="#{activite.conference}"
+																	sortBy="#{activite.conference}">
+																	<f:facet name="header">
+																		<h:outputText value="Conference" />
+																	</f:facet>
+																	<h:outputText value="#{activite.conference}" />
+																</p:column>
 
 
 																<f:facet name="footer">

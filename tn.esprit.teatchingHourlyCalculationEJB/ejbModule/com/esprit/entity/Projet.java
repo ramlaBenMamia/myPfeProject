@@ -44,7 +44,7 @@ public class Projet implements Serializable {
 	}
 
 	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@GeneratedValue(strategy = GenerationType.AUTO)
 	public int getRefProjet() {
 		return refProjet;
 	}

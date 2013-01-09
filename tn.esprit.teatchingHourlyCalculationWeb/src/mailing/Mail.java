@@ -66,12 +66,12 @@ public class Mail {
 
 		try {
 			System.out.println("bonjour....");
-			String username = "esprit.calculcharge@gmail.com";
+			String username = "EspritMaster2013@gmail.com";
 			String password = "ramla1988";
 			String recipient = to;
 			Properties props = new Properties();
 			props.put("mail.smtp.host", "smtp.gmail.com");
-			props.put("mail.from", "esprit.calculcharge@gmail.com");
+			props.put("mail.from", "EspritMaster2013@gmail.com");
 			props.put("mail.smtp.starttls.enable", "true");
 			props.put("mail.smtp.port", "587");
 			props.setProperty("mail.debug", "true");

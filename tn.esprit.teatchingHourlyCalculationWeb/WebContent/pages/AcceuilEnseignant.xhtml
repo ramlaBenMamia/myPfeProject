@@ -42,11 +42,7 @@
 								class="toplvl">Informations personnelles</a></li>
 
 							<li><a class="toplvl"
-								href="CalculChargeProjetParEnseignantEnseignant.jsf">charge
-									horaire des projets</a></li>
-							<li><a class="toplvl"
-								href="CalculerLeChargeHoraireActiviteEnseignant.jsf">charge
-									horaire des activites </a></li>
+								href="CalculChargeProjetParEnseignantEnseignant.jsf">Charge Horaire</a></li>
 						</ul>
 					</div>
 				</div>
@@ -59,7 +55,8 @@
 									<div class="vmenu">
 										<ul>
 											<li><a href="LoginAdmin.jsf">Espace Administration</a></li>
-											<li><a href="SendMail.jsf">Envoi de Mail</a></li>
+											<li><a href="LoginEnseignant.jsf">Espace Enseignant</a></li>
+											
 
 										</ul>
 									</div>
@@ -79,15 +76,243 @@
 									<h:body>
 										<h:head></h:head>
 										<f:view>
-											<br />
-											<br />
-											<center>
-												<p:galleria var="image" value="#{ramlaGalleria.images}">
-													<p:graphicImage value="/images/galleria/#{image}"></p:graphicImage>
+											<h:form id="form">
+												<p:scrollPanel style="width:800px;height:500px">
 
-												</p:galleria>
-											</center>
+													<p:fieldset id="panel" legend="Listes des Enseignants"
+														style="height:500px;width:1500px">
 
+														<br />
+														<br />
+														<br />
+
+														<table>
+															<tr>
+																<td><h:inputText
+																		value="#{listerEnseignantBean.matEnseignant}" /></td>
+
+																<td><p:commandButton value="Afficher"
+																		update="lesenseignants" /></td>
+															</tr>
+														</table>
+														<center>
+															<p:dataTable id="lesenseignants" var="enseignant"
+																value="#{listerEnseignantBean.listeParMat}"
+																rowKey="#{enseignant.cin}"
+																selection="#{listerEnseignantBean.selectedEnseignant}"
+																selectionMode="single"
+																emptyMessage="Aucun Profs dans la base avec cette information"
+																paginator="true" rows="10"
+																paginatorTemplate="{CurrentPageReport}  {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink} {RowsPerPageDropdown}"
+																rowsPerPageTemplate="5,10,15">
+																<f:facet name="header">
+																	<p:outputPanel>
+																		<h:outputText value="Search all fields:" />
+																		<p:inputText id="globalFilter" style="width:150px" />
+																	</p:outputPanel>
+																</f:facet>
+
+																<f:facet name="header">  
+                   												Affichage de la liste des enseignants
+            													</f:facet>
+
+
+																<p:column headerText="Prenom"
+																	filterBy="#{enseignant.prenom}"
+																	sortBy="#{enseignant.prenom}">
+																	<f:facet name="header">
+																		<h:outputText value="Prenom" />
+																	</f:facet>
+																	<h:outputText value="#{enseignant.prenom}" />
+
+																</p:column>
+
+
+																<p:column headerText="Nom" filterBy="#{enseignant.nom}"
+																	sortBy="#{enseignant.nom}">
+																	<f:facet name="header">
+																		<h:outputText value="Nom" />
+																	</f:facet>
+																	<h:outputText value="#{enseignant.nom}" />
+
+																</p:column>
+
+																<p:column headerText="Email"
+																	filterBy="#{enseignant.email}"
+																	sortBy="#{enseignant.email}">
+																	<f:facet name="header">
+																		<h:outputText value="Email" />
+																	</f:facet>
+																	<h:outputText value="#{enseignant.email}" />
+
+																</p:column>
+
+																<p:column headerText="Cin" filterBy="#{enseignant.cin}"
+																	sortBy="#{enseignant.cin}">
+																	<f:facet name="header">
+																		<h:outputText value="Cin" />
+																	</f:facet>
+																	<h:outputText value="#{enseignant.cin}" />
+
+																</p:column>
+
+
+
+																<p:column headerText="Telephone"
+																	filterBy="#{enseignant.numTelephone}"
+																	sortBy="#{enseignant.numTelephone}">
+																	<f:facet name="header">
+																		<h:outputText value="Telephone" />
+																	</f:facet>
+																	<h:outputText value="#{enseignant.numTelephone}" />
+
+																</p:column>
+
+																<p:column headerText="Rue" filterBy="#{enseignant.rue}"
+																	sortBy="#{enseignant.rue}">
+																	<f:facet name="header">
+																		<h:outputText value="Rue" />
+																	</f:facet>
+																	<h:outputText value="#{enseignant.rue}" />
+
+																</p:column>
+
+																<p:column headerText="Ville"
+																	filterBy="#{enseignant.ville}"
+																	sortBy="#{enseignant.ville}">
+																	<f:facet name="header">
+																		<h:outputText value="Ville" />
+																	</f:facet>
+																	<h:outputText value="#{enseignant.ville}" />
+
+																</p:column>
+
+																<p:column headerText="Code Postal"
+																	filterBy="#{enseignant.codePostal}"
+																	sortBy="#{enseignant.codePostal}">
+																	<f:facet name="header">
+																		<h:outputText value="Code Postal" />
+																	</f:facet>
+																	<h:outputText value="#{enseignant.codePostal}" />
+
+																</p:column>
+
+																<p:column headerText="Naissance"
+																	filterBy="#{enseignant.date}"
+																	sortBy="#{enseignant.date}">
+																	<f:facet name="header">
+																		<h:outputText value="Naissance" />
+																	</f:facet>
+																	<h:outputText value="#{enseignant.date}" />
+
+																</p:column>
+
+
+
+																<f:facet name="footer">
+																	<p:commandButton style="margin-right:70%"
+																		id="viewButton" value="Afficher" icon="ui-icon-search"
+																		update=":form:display"
+																		oncomplete="enseignantDialog.show()" />
+																</f:facet>
+
+															</p:dataTable>
+
+
+															<h:panelGrid columns="2">
+																<p:panel header="Export All Data">
+																	<h:commandLink>
+																		<p:graphicImage value="/images/excel.png" />
+																		<p:dataExporter type="xls" target="lesenseignants"
+																			fileName="lesenseignants" />
+																	</h:commandLink>
+
+																	<h:commandLink>
+																		<p:graphicImage value="/images/pdf.png" />
+																		<p:dataExporter type="pdf" target="lesenseignants"
+																			fileName="lesenseignants" />
+																	</h:commandLink>
+
+																	<h:commandLink>
+																		<p:graphicImage value="/images/csv.png" />
+																		<p:dataExporter type="csv" target="lesenseignants"
+																			fileName="lesenseignants" />
+																	</h:commandLink>
+
+																	<h:commandLink>
+																		<p:graphicImage value="/images/xml.png" />
+																		<p:dataExporter type="xml" target="lesenseignants"
+																			fileName="lesenseignants" />
+																	</h:commandLink>
+																</p:panel>
+
+																<p:panel header="Export Page Data">
+																	<h:commandLink>
+																		<p:graphicImage value="/images/excel.png" />
+																		<p:dataExporter type="xls" target="lesenseignants"
+																			fileName="lesenseignants" pageOnly="true" />
+																	</h:commandLink>
+
+																	<h:commandLink>
+																		<p:graphicImage value="/images/pdf.png" />
+																		<p:dataExporter type="pdf" target="lesenseignants"
+																			fileName="lesenseignants" pageOnly="true" />
+																	</h:commandLink>
+
+																	<h:commandLink>
+																		<p:graphicImage value="/images/csv.png" />
+																		<p:dataExporter type="csv" target="lesenseignants"
+																			fileName="lesenseignants" pageOnly="true" />
+																	</h:commandLink>
+
+																	<h:commandLink>
+																		<p:graphicImage value="/images/xml.png" />
+																		<p:dataExporter type="xml" target="lesenseignants"
+																			fileName="lesenseignants" pageOnly="true" />
+																	</h:commandLink>
+																</p:panel>
+															</h:panelGrid>
+
+
+
+
+														</center>
+													</p:fieldset>
+
+												</p:scrollPanel>
+												<p:dialog id="dialog" header="Enseignant Detail"
+													widgetVar="enseignantDialog" resizable="false" width="350"
+													height="150" showEffect="clip" hideEffect="fold">
+
+													<h:panelGrid id="display" columns="2" cellpadding="4">
+
+														<h:outputText value="Nom de l'enseignant:" />
+														<h:outputText
+															value="#{listerEnseignantBean.selectedEnseignant.nom}" />
+														<h:outputText value="Prenom:" />
+														<h:outputText
+															value="#{listerEnseignantBean.selectedEnseignant.prenom}" />
+														<h:outputText value="cin:" />
+														<h:outputText
+															value="#{listerEnseignantBean.selectedEnseignant.cin}" />
+
+														<h:outputText value="Email:" />
+														<h:outputText
+															value="#{listerEnseignantBean.selectedEnseignant.email}" />
+														<h:outputText value="Date de naissance :" />
+														<h:outputText
+															value="#{listerEnseignantBean.selectedEnseignant.date}" />
+														<h:outputText value="Rue:" />
+														<h:outputText
+															value="#{listerEnseignantBean.selectedEnseignant.rue}" />
+
+														<h:outputText
+															value="#{listerEnseignantBean.selectedEnseignant.ville}" />
+
+
+													</h:panelGrid>
+												</p:dialog>
+											</h:form>
 										</f:view>
 									</h:body>
 								</div>

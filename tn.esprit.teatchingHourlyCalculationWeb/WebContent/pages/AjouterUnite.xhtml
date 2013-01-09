@@ -37,7 +37,7 @@
 					<div id="hmenu-wpr">
 						<ul id="hmenu" class="sf-menu sf-js-enabled sf-shadow">
 							<li class="current" style="border: none"><a
-								class="toplvl sf-with-ul" href="Acceuil.jsf">Acceuil</a></li>
+								class="toplvl sf-with-ul" href="AcceuilAdministrateur.jsf">Acceuil</a></li>
 							<li><a href="#" class="toplvl">Espace de la gestion</a>
 								<ul>
 									<li style="width:250px"><a
@@ -106,7 +106,7 @@
 									<h:body>
 										<f:view>
 											<h:form id="form">
-												
+												<center>
 													<p:fieldset id="panel"
 														legend="Ajouter une nouvelle Unite"
 														style="height:250px;width:450px">
@@ -148,12 +148,12 @@
 														</center>
 
 													</p:fieldset>
-
-
-													<p:commandButton value="Valider" update="panel" id="ajax"
+	<p:commandButton value="Valider" update="panel" id="ajax"
 														actionListener="#{affectationUniteLocale.doAdd}"
 														onclick="dlg.show();" />
 													<p:commandButton value="Reset" type="reset" />
+</center>
+												
 												
 											</h:form>
 										</f:view>
@@ -172,11 +172,9 @@
 							<!-- 
 Keep this footer link UNCHANGED AND VISIBLE or make a 10 dollars donation at www.dotemplate.com/#donate to remove it.
 -->
-							<p>
-								<a href="http://www.dotemplate.com">Free templates</a>
-							</p>
+							
 							<center>
-								<p style="background: black; width: 100px;">2012-2013</p>
+								<p>2012-2013</p>
 							</center>
 
 						</div>

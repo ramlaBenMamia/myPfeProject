@@ -11,6 +11,7 @@ import javax.faces.model.DataModel;
 import javax.faces.model.ListDataModel;
 import javax.faces.model.SelectItem;
 
+import com.esprit.entity.Activite;
 import com.esprit.entity.Enseignant;
 import com.esprit.entity.Projet;
 import com.esprit.service.gestionEnseignant.GestionEnseignantLocal;
@@ -81,22 +82,27 @@ public class TeacherBean {
 
 	}
 
-	public void doAddEnseignant() {
+	public String doAddEnseignant() {
 
 		bean.save(enseignant);
+		reset();
+		return "";
 	}
+	
 
-	// public void addAffectationProjet() {
-	// Projet p = beanProjet.findByLibelleProjet(label);
-	// System.out.println(p);
-	// enseignant.setProjet(p);
-	//
-	// bean.update(enseignant);
-	// enseignant = new Enseignant();
-	// label = "Choisir";
-	//
-	// }
+	public void reset() {
+		enseignant = new Enseignant();
+		enseignant.setDate(null);
+		enseignant.setEmail(null);
+		enseignant.setCin(0);
+		enseignant.setNationalite("");
+		enseignant.setNom("");
+		enseignant.setNumTelephone(0);
+		enseignant.setPrenom("");
+		
+		
 
+	}
 	// ************************** ancien *************************************
 
 	private String libelleProjet;
@@ -208,9 +214,6 @@ public class TeacherBean {
 				new FacesMessage("Delete with success !!! "));
 	}
 
-	public void reset() {
-		setNomEnseignant(null);
-	}
 
 	public String getLibelleProjet() {
 		return libelleProjet;

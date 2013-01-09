@@ -12,7 +12,6 @@ import com.esprit.domain.gestionEntites.calculChargeHoraire.GestionChargeHoraire
 import com.esprit.entity.Activite;
 import com.esprit.entity.ActiviteEnseignant;
 import com.esprit.entity.Enseignant;
-import com.esprit.entity.TypeProjetProjetEnseignant;
 import com.esprit.service.gestionActivite.GestionActiviteLocal;
 import com.esprit.service.gestionAffectationActivite.GestionAffectationActiviteEnseignantLocal;
 import com.esprit.service.gestionEnseignant.GestionEnseignantLocal;

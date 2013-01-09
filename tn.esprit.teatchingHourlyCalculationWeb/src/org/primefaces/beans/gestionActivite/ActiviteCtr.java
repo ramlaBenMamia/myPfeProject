@@ -1,7 +1,7 @@
 package org.primefaces.beans.gestionActivite;
 
-import javax.annotation.ManagedBean;
 import javax.ejb.EJB;
+import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
 
 import com.esprit.service.gestionActivite.GestionActiviteLocal;

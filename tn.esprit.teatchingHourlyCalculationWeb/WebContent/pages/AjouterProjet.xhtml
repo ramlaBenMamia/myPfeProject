@@ -40,30 +40,41 @@
 								class="toplvl sf-with-ul" href="Acceuil.jsf">Acceuil</a></li>
 							<li><a href="#" class="toplvl">Espace de la gestion</a>
 								<ul>
-									<li style="width:250px"><a
-										href="AjouterEnseignant.jsf" style="width:200px"> gestion des Enseignants</a></li>
+									<li style="width: 250px"><a href="AjouterEnseignant.jsf"
+										style="width: 200px"> gestion des Enseignants</a></li>
 
-									<li style="width:250px"><a href="AjouterActivite.jsf" style="width:200px">Gestion des activités</a></li>
+									<li style="width: 250px"><a href="AjouterActivite.jsf"
+										style="width: 200px">Gestion des activités</a></li>
 
-									<li style="width:250px"><a href="AjouterProjet.jsf" style="width:200px">Gestion des Projets</a></li>
-																		<li style="width:250px"><a href="AjouterUnite.jsf" style="width:200px">gestion des Unités</a></li>
-									
+									<li style="width: 250px"><a href="AjouterProjet.jsf"
+										style="width: 200px">Gestion des Projets</a></li>
+									<li style="width: 250px"><a href="AjouterUnite.jsf"
+										style="width: 200px">gestion des Unités</a></li>
+
 
 								</ul></li>
 							<li><a class="toplvl" href="#">Espace des affectations</a>
 								<ul>
-									<li style="width:250px"><a href="AffecterUniteEnseignantPromotion.jsf" style="width:200px">Affetation des unités</a></li>
+									<li style="width: 250px"><a
+										href="AffecterUniteEnseignantPromotion.jsf"
+										style="width: 200px">Affetation des unités</a></li>
 
-									<li style="width:250px"><a href="AffecterActivite.jsf" style="width:200px">Affectation des activités</a></li>
-									<li style="width:250px"><a href="AffecterProjetTypeEnseignant.jsf" style="width:200px">Affectation des Projets</a></li>
+									<li style="width: 250px"><a href="AffecterActivite.jsf"
+										style="width: 200px">Affectation des activités</a></li>
+									<li style="width: 250px"><a
+										href="AffecterProjetTypeEnseignant.jsf" style="width: 200px">Affectation
+											des Projets</a></li>
 								</ul></li>
 							<li><a class="toplvl" href="#">Charge Horaire</a>
-							<ul>
-									<li style="width:250px"><a href="CalculChargeProjetParEnseignant.jsf" style="width:200px">Charge horaire des projets</a></li>
+								<ul>
+									<li style="width: 250px"><a
+										href="CalculChargeProjetParEnseignant.jsf"
+										style="width: 200px">Charge horaire des projets</a></li>
 
-									<li style="width:250px"><a href="CalculerLeChargeHoraireActivite.jsf" style="width:200px">Charge horaire des activites</a>
-									</li>
-									
+									<li style="width: 250px"><a
+										href="CalculerLeChargeHoraireActivite.jsf"
+										style="width: 200px">Charge horaire des activites</a></li>
+
 								</ul></li>
 
 						</ul>
@@ -77,12 +88,12 @@
 								<div class="sidebox1">
 									<div class="vmenu">
 										<ul>
-											<li><a href="AfficherProjet.jsf">consulter
-													la liste des projets</a></li>
-											<li><a href="DeleteProjet.jsf">Supprimer les
-													projets</a></li>
-													<li><a href="AfficherLesEnseignantsParProjets.jsf">Consulter la liste des enseignants par projet </a></li>
-											
+											<li><a href="AfficherProjet.jsf">consulter la liste
+													des projets</a></li>
+											<li><a href="DeleteProjet.jsf">Supprimer les projets</a></li>
+											<li><a href="AfficherLesEnseignantsParProjets.jsf">Consulter
+													la liste des enseignants par projet </a></li>
+
 
 											<li><a href="SendMail.jsf">Envoi de mail</a></li>
 
@@ -95,7 +106,7 @@
 							</div>
 						</div>
 						<!-- SIDEBAR  -->
-						
+
 						<!-- END SIDEBAR  -->
 						<!-- MAIN COLUMN -->
 						<div id="main">
@@ -106,40 +117,40 @@
 									<h:body>
 										<f:view>
 											<h:form id="form">
+												<center>
+													<p:fieldset legend="Ajouter un Projet " id="panel"
+														style="height:250px;width:500px">
 
-												<p:fieldset legend="Ajouter un Projet " id="panel"
-													style="height:250px;width:500px">
+														<br />
+														<h:panelGrid columns="2">
 
-													<br />
-													<h:panelGrid columns="2">
+															<h:outputLabel for="Projet" value="Projet : *" />
+															<p:inputText id="nom"
+																value="#{projetBean.projet.libelleProjet}"
+																required="true" label="Nom">
+															</p:inputText>
+															<h:outputLabel value="" />
+															<h:outputLabel value="" />
 
-														<h:outputLabel for="Projet" value="Projet : *" />
-														<p:inputText id="nom"
-															value="#{projetBean.projet.libelleProjet}"
-															required="true" label="Nom">
-														</p:inputText>
-														<h:outputLabel value="" />
-														<h:outputLabel value="" />
-
-														<h:outputLabel for="description" value="Description :*" />
-														<p:inputTextarea id="editor"
-															value="#{projetBean.projet.description}" width="400"></p:inputTextarea>
-													</h:panelGrid>
-
-
+															<h:outputLabel for="description" value="Description :*" />
+															<p:inputTextarea id="editor"
+																value="#{projetBean.projet.description}" width="400"></p:inputTextarea>
+														</h:panelGrid>
 
 
 
-													<br />
-													<br />
-													<br />
 
-													<p:commandButton value="Valider" update="panel" id="ajax"
-														actionListener="#{projetBean.doAddProjet}"
-														onclick="dlg.show();" />
-													<p:commandButton value="Reset" type="reset" />
-												</p:fieldset>
 
+														<br />
+														<br />
+														<br />
+
+														<p:commandButton value="Valider" update="panel" id="ajax"
+															actionListener="#{projetBean.doAddProjet}"
+															 />
+														<p:commandButton value="Reset" type="reset" />
+													</p:fieldset>
+												</center>
 											</h:form>
 										</f:view>
 									</h:body>
@@ -157,11 +168,9 @@
 							<!-- 
 Keep this footer link UNCHANGED AND VISIBLE or make a 10 dollars donation at www.dotemplate.com/#donate to remove it.
 -->
-							<p>
-								<a href="http://www.dotemplate.com">Free templates</a>
-							</p>
+
 							<center>
-								<p style="background: black; width: 100px;">2012-2013</p>
+								<p>2012-2013</p>
 							</center>
 
 						</div>

@@ -4,18 +4,21 @@ import java.awt.event.ActionEvent;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.faces.bean.ManagedBean;
 import javax.ejb.EJB;
 import javax.faces.application.FacesMessage;
+import javax.faces.bean.SessionScoped;
 import javax.faces.context.FacesContext;
 import javax.faces.model.DataModel;
 import javax.faces.model.ListDataModel;
 import javax.faces.model.SelectItem;
 
-import com.esprit.entity.Enseignant;
 import com.esprit.entity.Projet;
 import com.esprit.service.gestionEnseignant.GestionEnseignantLocal;
 import com.esprit.service.gestionProjet.GestionProjetLocal;
 
+@ManagedBean
+@SessionScoped
 public class ProjetBean {
 	@EJB
 	GestionProjetLocal bean;
@@ -53,10 +56,15 @@ public class ProjetBean {
 		return projets;
 	}
 
-	public void doAddProjet() {
-
+	public String doAddProjet() {
 		bean.save(projet);
-
+		reset();
+		return"";
+	}
+	
+	public void reset(){
+		Projet projet=new Projet();
+		projet.setDescription("");
 	}
 
 	// *********************************** affectation
@@ -203,9 +211,6 @@ public class ProjetBean {
 				new FacesMessage("Delete with success !!! "));
 	}
 
-	public void reset() {
-		setLibelleProjet(null);
-		setDescription(null);
-	}
+	
 
 }

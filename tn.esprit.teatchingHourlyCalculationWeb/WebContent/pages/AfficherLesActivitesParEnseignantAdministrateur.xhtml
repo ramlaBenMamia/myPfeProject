@@ -5,7 +5,7 @@
 	xmlns:ui="http://java.sun.com/jsf/facelets"
 	xmlns:p="http://primefaces.org/ui">
 <head>
-<title>template</title>
+<title>enseignants par activité</title>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <meta name="title" content="Web site" />
 <meta name="description" content="Site description here" />
@@ -40,30 +40,41 @@
 								class="toplvl sf-with-ul" href="Acceuil.jsf">Acceuil</a></li>
 							<li><a href="#" class="toplvl">Espace de la gestion</a>
 								<ul>
-									<li style="width:250px"><a
-										href="AjouterEnseignant.jsf" style="width:200px"> gestion des Enseignants</a></li>
+									<li style="width: 250px"><a href="AjouterEnseignant.jsf"
+										style="width: 200px"> gestion des Enseignants</a></li>
 
-									<li style="width:250px"><a href="AjouterActivite.jsf" style="width:200px">Gestion des activités</a></li>
+									<li style="width: 250px"><a href="AjouterActivite.jsf"
+										style="width: 200px">Gestion des activités</a></li>
 
-									<li style="width:250px"><a href="AjouterProjet.jsf" style="width:200px">Gestion des Projets</a></li>
-																		<li style="width:250px"><a href="AjouterUnite.jsf" style="width:200px">gestion des Unités</a></li>
-									
+									<li style="width: 250px"><a href="AjouterProjet.jsf"
+										style="width: 200px">Gestion des Projets</a></li>
+									<li style="width: 250px"><a href="AjouterUnite.jsf"
+										style="width: 200px">gestion des Unités</a></li>
+
 
 								</ul></li>
 							<li><a class="toplvl" href="#">Espace des affectations</a>
 								<ul>
-									<li style="width:250px"><a href="AffecterUniteEnseignantPromotion.jsf" style="width:200px">Affetation des unités</a></li>
+									<li style="width: 250px"><a
+										href="AffecterUniteEnseignantPromotion.jsf"
+										style="width: 200px">Affetation des unités</a></li>
 
-									<li style="width:250px"><a href="AffecterActivite.jsf" style="width:200px">Affectation des activités</a></li>
-									<li style="width:250px"><a href="AffecterProjetTypeEnseignant.jsf" style="width:200px">Affectation des Projets</a></li>
+									<li style="width: 250px"><a href="AffecterActivite.jsf"
+										style="width: 200px">Affectation des activités</a></li>
+									<li style="width: 250px"><a
+										href="AffecterProjetTypeEnseignant.jsf" style="width: 200px">Affectation
+											des Projets</a></li>
 								</ul></li>
 							<li><a class="toplvl" href="#">Charge Horaire</a>
-							<ul>
-									<li style="width:250px"><a href="CalculChargeProjetParEnseignant.jsf" style="width:200px">Charge horaire des projets</a></li>
+								<ul>
+									<li style="width: 250px"><a
+										href="CalculChargeProjetParEnseignant.jsf"
+										style="width: 200px">Charge horaire des projets</a></li>
 
-									<li style="width:250px"><a href="CalculerLeChargeHoraireActivite.jsf" style="width:200px">Charge horaire des activites</a>
-									</li>
-									
+									<li style="width: 250px"><a
+										href="CalculerLeChargeHoraireActivite.jsf"
+										style="width: 200px">Charge horaire des activites</a></li>
+
 								</ul></li>
 
 						</ul>
@@ -77,10 +88,7 @@
 								<div class="sidebox1">
 									<div class="vmenu">
 										<ul>
-											<li><a href="AfficherEnseignantAdministrateur.jsf">Afficher
-													la liste des enseignants</a></li>
-											<li><a href="DeleteEnseignant.jsf">Supprimer des
-													enseignants</a></li>
+												<li><a href="AffecterActivite.jsf">Retour à l'espace des affectations</a></li>
 											
 
 											<li><a href="SendMail.jsf">Envoi de mail</a></li>
@@ -94,7 +102,7 @@
 							</div>
 						</div>
 						<!-- SIDEBAR  -->
-						
+
 						<!-- END SIDEBAR  -->
 						<!-- MAIN COLUMN -->
 						<div id="main">
@@ -104,115 +112,132 @@
 
 									<h:body>
 										<f:view>
-											
-												<h:form id="form">
+
+											<h:form id="form">
 
 
 
-													<p:scrollPanel style="height:500px;width:700px">
+												<p:scrollPanel style="height:400px;width:800px">
 
-														<p:panel id="panel"
-															header="Esprit --- Gestion des Enseignants --- Affichage de la liste des activites de l'enseignant :"
-															style="height:500px;width:700px">
-
-
-															<br />
-															<br />
-															<br />
-															<center>
-																<table>
-																	<tr>
-																		<td><p:selectOneMenu
-																				value="#{affectationActiviteBean.idActivite}">
-																				<f:selectItems
-																					value="#{affectationActiviteBean.selectItemsActivites}" />
-																			</p:selectOneMenu></td>
-
-																		<td><p:commandButton value="Afficher"
-																				update="dataTable"
-																				actionListener="#{affectationActiviteBean.updateDataTableActivite}" /></td>
-																	</tr>
-																</table>
+													<p:fieldset id="panel"
+														legend="Affichage des enseignants par activité"
+														style="height:500px;width:800px">
 
 
+														<br />
+														<br />
+														<br />
+														<center>
+															<table>
+																<tr>
+																	<td><p:selectOneMenu
+																			value="#{affectationActiviteBean.idActivite}">
+																			<f:selectItems
+																				value="#{affectationActiviteBean.selectItemsActivites}" />
+																		</p:selectOneMenu></td>
+
+																	<td><p:commandButton value="Afficher"
+																			update="dataTable"
+																			actionListener="#{affectationActiviteBean.updateDataTableActivite}" /></td>
+																</tr>
+															</table>
 
 
 
-																<p:dataTable id="dataTable" var="ensParActivite"
-																	value="#{affectationActiviteBean.listeParActivites}"
-																	rowKey="#{ensParActivite.activite.refActivite}"
-																	selectionMode="single"
-																	emptyMessage="Aucun enseignants dans la base avec cette information"
-																	paginator="true" rows="10"
-																	paginatorTemplate="{CurrentPageReport}  {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink} {RowsPerPageDropdown}"
-																	rowsPerPageTemplate="5,10,15">
+
+
+															<p:dataTable id="dataTable" var="ensParActivite"
+																value="#{affectationActiviteBean.listeParActivites}"
+																rowKey="#{ensParActivite.activite.refActivite}"
+																selectionMode="single"
+																emptyMessage="Aucun enseignants dans la base avec cette information"
+																paginator="true" rows="10"
+																paginatorTemplate="{CurrentPageReport}  {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink} {RowsPerPageDropdown}"
+																rowsPerPageTemplate="5,10,15">
+																<f:facet name="header">
+																	<p:outputPanel>
+																		<h:outputText value="chercher tous les champs:" />
+																		<p:inputText id="globalFilter" style="width:150px" />
+																	</p:outputPanel>
+																</f:facet>
+
+
+
+																<p:column headerText="Reference"
+																	filterBy="#{ensParActivite.activite.refActivite}"
+																	sortBy="#{ensParActivite.activite.refActivite}">
 																	<f:facet name="header">
-																		<p:outputPanel>
-																			<h:outputText value="chercher tous les champs:" />
-																			<p:inputText id="globalFilter" style="width:150px" />
-																		</p:outputPanel>
+																		<h:outputText value="Reference" />
 																	</f:facet>
+																	<h:outputText
+																		value="#{ensParActivite.activite.refActivite}" />
 
+																</p:column>
+																<p:column headerText="NomActivite"
+																	filterBy="#{ensParActivite.enseignant.nom}"
+																	sortBy="#{ensParActivite.enseignant.nom}">
+																	<f:facet name="header">
+																		<h:outputText value="Enseignant" />
+																	</f:facet>
+																	<h:outputText value="#{ensParActivite.enseignant.nom}" />
+																</p:column>
 
+																<p:column headerText="VolumeHoraire"
+																	filterBy="#{ensParActivite.volumeHoraire}"
+																	sortBy="#{ensParActivite.volumeHoraire}">
+																	<f:facet name="header">
+																		<h:outputText value="Volume Horaire" />
+																	</f:facet>
+																	<h:outputText value="#{ensParActivite.volumeHoraire}" />
+																</p:column>
+															</p:dataTable>
+															
+															
+															<h:panelGrid columns="2">
+																<p:panel header="Exporter les données">
+																	<h:commandLink>
+																		<p:graphicImage value="/images/excel.png" />
+																		<p:dataExporter type="xls" target="lesenseignants"
+																			fileName="lesenseignants" />
+																	</h:commandLink>
 
-																	<p:column headerText="Reference"
-																		filterBy="#{ensParActivite.activite.refActivite}"
-																		sortBy="#{ensParActivite.activite.refActivite}">
-																		<f:facet name="header">
-																			<h:outputText value="Reference" />
-																		</f:facet>
-																		<h:outputText
-																			value="#{ensParActivite.activite.refActivite}" />
+																	<h:commandLink>
+																		<p:graphicImage value="/images/pdf.png" />
+																		<p:dataExporter type="pdf" target="lesenseignants"
+																			fileName="lesenseignants" />
+																	</h:commandLink>
 
-																	</p:column>
+																	<h:commandLink>
+																		<p:graphicImage value="/images/csv.png" />
+																		<p:dataExporter type="csv" target="lesenseignants"
+																			fileName="lesenseignants" />
+																	</h:commandLink>
 
+																	<h:commandLink>
+																		<p:graphicImage value="/images/xml.png" />
+																		<p:dataExporter type="xml" target="lesenseignants"
+																			fileName="lesenseignants" />
+																	</h:commandLink>
+																</p:panel>
 
-																	<p:column headerText="NomActivite"
-																		filterBy="#{ensParActivite.enseignant.nom}"
-																		sortBy="#{ensParActivite.enseignant.nom}">
-																		<f:facet name="header">
-																			<h:outputText value="Enseignant" />
-																		</f:facet>
-																		<h:outputText value="#{ensParActivite.enseignant.nom}" />
-																	</p:column>
-
-																	<p:column headerText="VolumeHoraire"
-																		filterBy="#{ensParActivite.volumeHoraire}"
-																		sortBy="#{ensParActivite.volumeHoraire}">
-																		<f:facet name="header">
-																			<h:outputText value="Volume Horaire" />
-																		</f:facet>
-																		<h:outputText value="#{ensParActivite.volumeHoraire}" />
-
-																	</p:column>
-
-																</p:dataTable>
-
-																<p:dialog id="dialog" header="Total Charge Horaire"
-																	widgetVar="uniteDialog" resizable="false" width="200"
-																	height="100" showEffect="clip" hideEffect="fold">
-
-																	<h:panelGrid id="display" columns="2" cellpadding="4">
-
-																		<h:outputText value="Total Volume Horaire:" />
-
-
-																		<h:outputText
-																			value="#{affectationActiviteBean.chargeHoraireParEnseignant}" />
-																	</h:panelGrid>
-																</p:dialog>
-
-
-															</center>
-
-
-
-														</p:panel>
-
-													</p:scrollPanel>
-
-												</h:form>
-											</f:view>
+																
+															</h:panelGrid>
+															
+															
+															<p:dialog id="dialog" header="Total Charge Horaire"
+																widgetVar="uniteDialog" resizable="false" width="200"
+																height="100" showEffect="clip" hideEffect="fold">
+																<h:panelGrid id="display" columns="2" cellpadding="4">
+																	<h:outputText value="Total Volume Horaire:" />
+																	<h:outputText
+																		value="#{affectationActiviteBean.chargeHoraireParEnseignant}" />
+																</h:panelGrid>
+															</p:dialog>
+														</center>
+													</p:fieldset>
+												</p:scrollPanel>
+											</h:form>
+										</f:view>
 									</h:body>
 
 								</div>
@@ -228,11 +253,8 @@
 							<!-- 
 Keep this footer link UNCHANGED AND VISIBLE or make a 10 dollars donation at www.dotemplate.com/#donate to remove it.
 -->
-							<p>
-								<a href="http://www.dotemplate.com">Free templates</a>
-							</p>
 							<center>
-								<p style="background: black; width: 100px;">2012-2013</p>
+								<p>2012-2013</p>
 							</center>
 
 						</div>

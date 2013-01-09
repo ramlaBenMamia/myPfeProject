@@ -78,9 +78,11 @@
 								<div class="sidebox1">
 									<div class="vmenu">
 										<ul>
-																					<li><a href="AjouterProjet.jsf">Retour à la gestion</a></li>
-										
-																						<li><a href="SendMail.jsf">Envoi de mail</a></li>
+																					
+																						<li><a href="AffecterProjetTypeEnseignant.jsf">Retour à l'espace des affectations</a></li>
+											
+
+											<li><a href="SendMail.jsf">Envoi de mail</a></li>
 											
 										</ul>
 									</div>
@@ -106,11 +108,11 @@
 
 
 
-												<p:scrollPanel style="height:700px;width:700px">
+												<p:scrollPanel style="height:500px;width:700px">
 
-													<p:panel id="panel"
-														header="Esprit --- Gestion des Enseignants --- Affichage de la liste des enseignants du projet :"
-														style="height:1000px;width:700px">
+													<p:fieldset id="panel"
+														legend="Affichage de la liste des enseignants du projet :"
+														style="height:500px;width:700px">
 
 
 														<br />
@@ -186,6 +188,37 @@
 																</f:facet>
 
 															</p:dataTable>
+															
+															<h:panelGrid columns="2">
+																<p:panel header="Exporter les données">
+																	<h:commandLink>
+																		<p:graphicImage value="/images/excel.png" />
+																		<p:dataExporter type="xls" target="dataTable"
+																			fileName="dataTable" />
+																	</h:commandLink>
+
+																	<h:commandLink>
+																		<p:graphicImage value="/images/pdf.png" />
+																		<p:dataExporter type="pdf" target="dataTable"
+																			fileName="dataTable" />
+																	</h:commandLink>
+
+																	<h:commandLink>
+																		<p:graphicImage value="/images/csv.png" />
+																		<p:dataExporter type="csv" target="dataTable"
+																			fileName="dataTable" />
+																	</h:commandLink>
+
+																	<h:commandLink>
+																		<p:graphicImage value="/images/xml.png" />
+																		<p:dataExporter type="xml" target="dataTable"
+																			fileName="dataTable" />
+																	</h:commandLink>
+																</p:panel>
+
+																
+															</h:panelGrid>
+															
 
 															<p:dialog id="dialog" header="Total Charge Horaire"
 																widgetVar="uniteDialog" resizable="false" width="200"
@@ -206,7 +239,7 @@
 
 
 
-													</p:panel>
+													</p:fieldset> 
 
 												</p:scrollPanel>
 

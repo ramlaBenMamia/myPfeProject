@@ -2,8 +2,8 @@ package org.primefaces.beans.gestionActivite;
 
 import java.util.List;
 
-import javax.annotation.ManagedBean;
 import javax.ejb.EJB;
+import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
 
 import com.esprit.service.gestionActivite.GestionActiviteLocal;
@@ -22,7 +22,9 @@ public class ListeActiviteCtr {
 	
 	//****************** afficher les détails d'un Activite ******************************
 	
-	
+	public void delete() {
+		bean.removeActivite(selectedActivite);
+	}
 
 	public Activite getActivite() {
 		return activite;

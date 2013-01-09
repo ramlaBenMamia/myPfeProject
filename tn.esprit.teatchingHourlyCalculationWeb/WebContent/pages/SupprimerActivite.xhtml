@@ -89,28 +89,16 @@
 										</ul>
 									</div>
 								</div>
-								<div></div>
+								<div>
+								
+									<img src="images/business-man-1.png" style="width: 100%" />
+								
+								</div>
 
 							</div>
 						</div>
 						<!-- SIDEBAR  -->
-						<div id="sidebar">
-							<div class="content">
-								<div class="sidebox1">
-									<div class="vmenu">
-										<ul>
-											<li><a href="#">Category 1</a></li>
-											<li><a href="#">Category 2</a></li>
-											
-										</ul>
-									</div>
-								</div>
-								<div>
-									<img src="images/business-man-1.png" style="width: 100%" />
-								</div>
-								
-							</div>
-						</div>
+						
 						<!-- END SIDEBAR  -->
 						<!-- MAIN COLUMN -->
 						<div id="main">
@@ -124,11 +112,11 @@
 
 
 
-												<p:scrollPanel style="height:700px;width:700px">
+												<p:scrollPanel style="height:500px;width:700px">
 
-													<p:panel id="panel"
-														header="Esprit --- Gestion des Activites --- Supprimer des Activites"
-														style="height:1000px;width:700px">
+													<p:fieldset id="panel"
+														legend="Esprit --- Gestion des Activites --- Supprimer des Activites"
+														style="height:500px;width:700px">
 
 
 														<br />
@@ -179,16 +167,17 @@
 																	</f:facet>
 																	<h:outputText value="#{activite.description}" />
 																</p:column>
-
-																<p:column headerText="Date"
-																	filterBy="#{activite.dateDebut}"
-																	sortBy="#{activite.dateDebut}">
+																
+																<p:column headerText="Libelle"
+																	filterBy="#{activite.libelleActivite}"
+																	sortBy="#{activite.libelleActivite}">
 																	<f:facet name="header">
-																		<h:outputText value="Date" />
+																		<h:outputText value="Libelle" />
 																	</f:facet>
-																	<h:outputText value="#{activite.dateDebut}" />
-
+																	<h:outputText value="#{activite.libelleActivite}" />
 																</p:column>
+
+																
 
 
 
@@ -256,8 +245,8 @@
 																</p:panel>
 															</h:panelGrid>
 															<p:dialog id="dialog" header="projet Detail"
-																widgetVar="projetDialog" resizable="false" width="200"
-																height="100" showEffect="clip" hideEffect="fold">
+																widgetVar="activiteDialog" resizable="false" width="300"
+																height="170" showEffect="clip" hideEffect="fold">
 
 																<h:panelGrid id="display" columns="2" cellpadding="4">    
   
@@ -266,11 +255,11 @@
            
             nom :
             <h:outputText
-																		value="#{listeActiviteCtr.selectedActivite.description} " />
+																		value="#{listeActiviteCtr.selectedActivite.libelleActivite} " />
 
 																	<p:commandButton style="margin-right:70%"
 																		id="ValiderSuppButton" value="Supprimer"
-																		icon="ui-icon-search" oncomplete="projetDialog.hide()"
+																		icon="ui-icon-search" oncomplete="activiteDialog.hide()"
 																		action="#{listeActiviteCtr.delete}" update="panel" />
 
 
@@ -283,7 +272,7 @@
 
 
 
-													</p:panel>
+												</p:fieldset>
 
 												</p:scrollPanel>
 

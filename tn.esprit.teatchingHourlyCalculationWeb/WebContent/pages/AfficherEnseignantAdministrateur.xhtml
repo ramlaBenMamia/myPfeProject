@@ -40,30 +40,41 @@
 								class="toplvl sf-with-ul" href="Acceuil.jsf">Acceuil</a></li>
 							<li><a href="#" class="toplvl">Espace de la gestion</a>
 								<ul>
-									<li style="width:250px"><a
-										href="AjouterEnseignant.jsf" style="width:200px"> gestion des Enseignants</a></li>
+									<li style="width: 250px"><a href="AjouterEnseignant.jsf"
+										style="width: 200px"> gestion des Enseignants</a></li>
 
-									<li style="width:250px"><a href="AjouterActivite.jsf" style="width:200px">Gestion des activités</a></li>
+									<li style="width: 250px"><a href="AjouterActivite.jsf"
+										style="width: 200px">Gestion des activités</a></li>
 
-									<li style="width:250px"><a href="AjouterProjet.jsf" style="width:200px">Gestion des Projets</a></li>
-																		<li style="width:250px"><a href="AjouterUnite.jsf" style="width:200px">gestion des Unités</a></li>
-									
+									<li style="width: 250px"><a href="AjouterProjet.jsf"
+										style="width: 200px">Gestion des Projets</a></li>
+									<li style="width: 250px"><a href="AjouterUnite.jsf"
+										style="width: 200px">gestion des Unités</a></li>
+
 
 								</ul></li>
 							<li><a class="toplvl" href="#">Espace des affectations</a>
 								<ul>
-									<li style="width:250px"><a href="AffecterUniteEnseignantPromotion.jsf" style="width:200px">Affetation des unités</a></li>
+									<li style="width: 250px"><a
+										href="AffecterUniteEnseignantPromotion.jsf"
+										style="width: 200px">Affetation des unités</a></li>
 
-									<li style="width:250px"><a href="AffecterActivite.jsf" style="width:200px">Affectation des activités</a></li>
-									<li style="width:250px"><a href="AffecterProjetTypeEnseignant.jsf" style="width:200px">Affectation des Projets</a></li>
+									<li style="width: 250px"><a href="AffecterActivite.jsf"
+										style="width: 200px">Affectation des activités</a></li>
+									<li style="width: 250px"><a
+										href="AffecterProjetTypeEnseignant.jsf" style="width: 200px">Affectation
+											des Projets</a></li>
 								</ul></li>
 							<li><a class="toplvl" href="#">Charge Horaire</a>
-							<ul>
-									<li style="width:250px"><a href="CalculChargeProjetParEnseignant.jsf" style="width:200px">Charge horaire des projets</a></li>
+								<ul>
+									<li style="width: 250px"><a
+										href="CalculChargeProjetParEnseignant.jsf"
+										style="width: 200px">Charge horaire des projets</a></li>
 
-									<li style="width:250px"><a href="CalculerLeChargeHoraireActivite.jsf" style="width:200px">Charge horaire des activites</a>
-									</li>
-									
+									<li style="width: 250px"><a
+										href="CalculerLeChargeHoraireActivite.jsf"
+										style="width: 200px">Charge horaire des activites</a></li>
+
 								</ul></li>
 
 						</ul>
@@ -72,7 +83,7 @@
 				<div class="bd">
 					<div id="page">
 						<!-- SIDEBAR  -->
-						
+
 						<!-- SIDEBAR  -->
 						<div id="sidebar">
 							<div class="content">
@@ -81,14 +92,14 @@
 										<ul>
 											<li><a href="LoginEnseignant.jsf">Espace Enseignant</a></li>
 											<li><a href="LoginAdmin.jsf">Espace Administration</a></li>
+											<li><a href="AcceuilAdministrateur.jsf">Retour à l'espace de la gestion</a></li>
 											<li><a href="SendMail.jsf">Envoi de mail</a></li>
-											
+
 
 										</ul>
 									</div>
 								</div>
-								<br/>
-								<br/>
+								<br /> <br />
 								<div>
 									<img src="images/image2.jpg" style="width: 100%" />
 								</div>
@@ -157,7 +168,7 @@
 																	<h:outputText value="#{enseignant.nom}" />
 
 																</p:column>
-																
+
 																<p:column headerText="Email"
 																	filterBy="#{enseignant.email}"
 																	sortBy="#{enseignant.email}">
@@ -167,7 +178,7 @@
 																	<h:outputText value="#{enseignant.email}" />
 
 																</p:column>
-																
+
 																<p:column headerText="Cin" filterBy="#{enseignant.cin}"
 																	sortBy="#{enseignant.cin}">
 																	<f:facet name="header">
@@ -177,7 +188,7 @@
 
 																</p:column>
 
-																
+
 
 																<p:column headerText="Telephone"
 																	filterBy="#{enseignant.numTelephone}"
@@ -236,12 +247,12 @@
 																		update=":form:display"
 																		oncomplete="enseignantDialog.show()" />
 																</f:facet>
-																
+
 															</p:dataTable>
 
 
 															<h:panelGrid columns="2">
-																<p:panel header="Export All Data">
+																<p:panel header="Exporter les données">
 																	<h:commandLink>
 																		<p:graphicImage value="/images/excel.png" />
 																		<p:dataExporter type="xls" target="lesenseignants"

@@ -56,8 +56,8 @@
 								<div class="sidebox1">
 									<div class="vmenu">
 										<ul>
-											
-											<li><a href="SendMail.jsf">Envoi de mail</a></li>
+											<li><a href="LoginEnseignant.jsf">Espace Enseignant</a></li>
+											<li><a href="LoginAdmin.jsf">Espace Administration</a></li>
 											<li><a href="CalculerLeChargeHoraireActiviteEnseignant.jsf">Charge Horaire des activités</a></li>
 											
 											
@@ -88,26 +88,25 @@
 														<center>
 															<table>
 																<tr>
-																	<td><p:selectOneMenu
-																			value="#{affectationTypeEnseignantProjet.nameEnseignant}">
-																			<f:selectItems
-																				value="#{affectationTypeEnseignantProjet.itemsEnseignants}" />
-																		</p:selectOneMenu></td>
+																	<td><h:inputText
+																			value="#{affectationTypeEnseignantProjet.nameEnseignant}" /></td>
 
 																	<td><p:commandButton value="Afficher"
-																			update="dataTable"
-																			actionListener="#{affectationTypeEnseignantProjet.updateDataTable}" /></td>
+																			update="dataTable" /></td>
 																</tr>
 															</table>
 															<p:dataTable id="dataTable" var="typeParEns"
-																value="#{affectationTypeEnseignantProjet.listeParEnseignants}"
+																value="#{affectationTypeEnseignantProjet.typeProjetProjetEnseignants}"
 																rowKey="#{typeParEns.enseignant.matriculeEnseigant}"
+																selection="#{affectationTypeEnseignantProjet.selectedEnseignant}"
+																
 																selectionMode="single"
 																emptyMessage="Aucun projets dans la base avec cette information"
 																paginator="true" rows="10"
 																paginatorTemplate="{CurrentPageReport}  {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink} {RowsPerPageDropdown}"
 																rowsPerPageTemplate="5,10,15">
 																<f:facet name="header">
+																
 																	<p:outputPanel>
 																		<h:outputText value="chercher tous les champs:" />
 																		<p:inputText id="globalFilter" style="width:150px" />

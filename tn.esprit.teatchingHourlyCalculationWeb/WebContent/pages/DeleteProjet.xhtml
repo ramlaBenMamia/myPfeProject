@@ -94,23 +94,7 @@
 							</div>
 						</div>
 						<!-- SIDEBAR  -->
-						<div id="sidebar">
-							<div class="content">
-								<div class="sidebox1">
-									<div class="vmenu">
-										<ul>
-											<li><a href="#">Category 1</a></li>
-											<li><a href="#">Category 2</a></li>
-
-										</ul>
-									</div>
-								</div>
-								<div>
-									<img src="images/business-man-1.png" style="width: 100%" />
-								</div>
-
-							</div>
-						</div>
+						
 						<!-- END SIDEBAR  -->
 						<!-- MAIN COLUMN -->
 						<div id="main">
@@ -164,6 +148,17 @@
 																	<h:outputText value="#{projet.refProjet}" />
 
 																</p:column>
+																
+																
+																<p:column headerText="Libelle"
+																	filterBy="#{projet.libelleProjet}"
+																	sortBy="#{projet.libelleProjet}">
+																	<f:facet name="header">
+																		<h:outputText value="Libelle" />
+																	</f:facet>
+																	<h:outputText value="#{projet.libelleProjet}" />
+
+																</p:column>
 
 
 																<p:column headerText="Description"
@@ -175,10 +170,6 @@
 																	<h:outputText value="#{projet.description}" />
 
 																</p:column>
-
-
-
-
 
 
 																<f:facet name="footer">
@@ -244,17 +235,17 @@
 															</h:panelGrid>
 
 															<p:dialog id="dialog" header="projet Detail"
-																widgetVar="projetDialog" resizable="false" width="200"
-																height="100" showEffect="clip" hideEffect="fold">
+																widgetVar="projetDialog" resizable="false" width="400"
+																height="250" showEffect="clip" hideEffect="fold">
 
 																<h:panelGrid id="display" columns="2" cellpadding="4">    
   
           
-            Voulez vous vraiment supprimer ce Projet ?
+            														Voulez vous vraiment supprimer ce Projet ?
            
-            nom :
-            <h:outputText
-																		value="#{listerProjetBean.selectedProjet.description} " />
+          															  nom :
+        														    <h:outputText
+																		value="#{listerProjetBean.selectedProjet.libelleProjet} " />
 
 																	<p:commandButton style="margin-right:70%"
 																		id="ValiderSuppButton" value="Supprimer"

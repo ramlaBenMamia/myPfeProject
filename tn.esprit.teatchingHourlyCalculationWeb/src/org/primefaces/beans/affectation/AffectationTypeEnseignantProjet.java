@@ -73,9 +73,10 @@ public class AffectationTypeEnseignantProjet {
 	private List<TypeProjetProjetEnseignant> listeParTypes;
 	private int idType;
 	private String nomTypeSelected;
-	
-	private List<SelectItem> selectItemsProjects;
 
+	private List<SelectItem> selectItemsProjects;
+	private List<TypeProjetProjetEnseignant> typeProjetProjetEnseignants;
+	private Enseignant selectedEnseignant;
 
 	public String doAdd() {
 
@@ -424,5 +425,25 @@ public class AffectationTypeEnseignantProjet {
 
 	public void setSelectItemsProjects(List<SelectItem> selectItemsProjects) {
 		this.selectItemsProjects = selectItemsProjects;
+	}
+
+	public List<TypeProjetProjetEnseignant> getTypeProjetProjetEnseignants() {
+		typeProjetProjetEnseignants = affectationTypeProjetEnseignantLocal
+				.findAllByMatEnsei(getNameEnseignant());
+
+		return typeProjetProjetEnseignants;
+	}
+
+	public void setTypeProjetProjetEnseignants(
+			List<TypeProjetProjetEnseignant> typeProjetProjetEnseignants) {
+		this.typeProjetProjetEnseignants = typeProjetProjetEnseignants;
+	}
+
+	public Enseignant getSelectedEnseignant() {
+		return selectedEnseignant;
+	}
+
+	public void setSelectedEnseignant(Enseignant selectedEnseignant) {
+		this.selectedEnseignant = selectedEnseignant;
 	}
 }

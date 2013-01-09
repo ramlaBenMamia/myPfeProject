@@ -28,16 +28,6 @@
   <managed-bean-scope>session</managed-bean-scope>
  </managed-bean>
  <managed-bean>
-  <managed-bean-name>listeActiviteCtr</managed-bean-name>
-  <managed-bean-class>gestionActivite.ListeActiviteCtr</managed-bean-class>
-  <managed-bean-scope>session</managed-bean-scope>
- </managed-bean>
- <managed-bean>
-  <managed-bean-name>activiteCtr</managed-bean-name>
-  <managed-bean-class>gestionActivite.ActiviteCtr</managed-bean-class>
-  <managed-bean-scope>session</managed-bean-scope>
- </managed-bean>
- <managed-bean>
   <managed-bean-name>galleriaBean</managed-bean-name>
   <managed-bean-class>org.primefaces.beans.GalleriaBean</managed-bean-class>
   <managed-bean-scope>session</managed-bean-scope>
